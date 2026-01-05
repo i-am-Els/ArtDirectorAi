@@ -1,0 +1,226 @@
+
+import React, { useState, useMemo, useEffect } from 'react';
+import { ArtRole, ExperienceLevel, ArtBrief, GenerationParams, AppView, ArtMedium, RolesByMedium } from './types';
+import RoleIcon from './components/RoleIcon';
+import BriefDisplay from './components/BriefDisplay';
+import PortfolioReview from './components/PortfolioReview';
+import CommunityFeed from './components/CommunityFeed';
+import { generateBrief, generateReferenceImage } from './services/geminiService';
+
+const App: React.FC = () => {
+  const [currentView, setCurrentView] = useState<AppView>('GENERATOR');
+  const [selectedMedium, setSelectedMedium] = useState<ArtMedium>(ArtMedium.TWO_D);
+  const [selectedRole, setSelectedRole] = useState<ArtRole>(ArtRole.CONCEPT_CHAR);
+  const [experience, setExperience] = useState<ExperienceLevel>(ExperienceLevel.INTERMEDIATE);
+  const [theme, setTheme] = useState('Fantasy Megacity');
+  const [complexity, setComplexity] = useState(8);
+  const [brief, setBrief] = useState<ArtBrief | null>(null);
+  const [refImage, setRefImage] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingImage, setIsLoadingImage] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const availableRoles = useMemo(() => RolesByMedium[selectedMedium], [selectedMedium]);
+
+  // Handle selection step logic
+  useEffect(() => {
+    if (!availableRoles.includes(selectedRole)) {
+      setSelectedRole(availableRoles[0]);
+    }
+  }, [selectedMedium, availableRoles]);
+
+  const handleGenerate = async () => {
+    setIsLoading(true);
+    setError(null);
+    setBrief(null);
+    setRefImage(null);
+
+    try {
+      const result = await generateBrief({ role: selectedRole, experience, theme, complexity });
+      setBrief(result);
+      setIsLoadingImage(true);
+      const imageUrl = await generateReferenceImage(result, theme);
+      setRefImage(imageUrl);
+    } catch (err: any) {
+      setError("Brief generation failed. Please verify connection.");
+    } finally {
+      setIsLoading(false);
+      setIsLoadingImage(false);
+    }
+  };
+
+  const handleExportPDF = () => {
+    window.print();
+  };
+
+  return (
+    <div className="min-h-screen bg-[#0a0a0a] text-zinc-100 selection:bg-blue-500/30">
+      <header className="fixed top-0 w-full z-50 glass border-b border-white/5 px-6 py-4 flex items-center justify-between no-print">
+        <div className="flex items-center space-x-3 cursor-pointer" onClick={() => setCurrentView('GENERATOR')}>
+          <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-6 h-6">
+              <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" />
+            </svg>
+          </div>
+          <div className="hidden sm:block">
+            <h1 className="text-xl font-bold tracking-tight">ArtDirector <span className="text-blue-500">AI</span></h1>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-semibold">Production Ready</p>
+          </div>
+        </div>
+        
+        <div className="flex items-center space-x-1 md:space-x-4 bg-zinc-900/50 p-1 rounded-full border border-white/5">
+          {(['GENERATOR', 'REVIEW', 'COMMUNITY'] as AppView[]).map(v => (
+            <button key={v} onClick={() => setCurrentView(v)} className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${currentView === v ? 'bg-zinc-100 text-zinc-900 shadow-md' : 'text-zinc-500 hover:text-white'}`}>
+              {v.charAt(0) + v.slice(1).toLowerCase()}
+            </button>
+          ))}
+        </div>
+
+        <div className="hidden md:flex items-center space-x-3">
+          <div className="w-8 h-8 rounded-full border border-white/10 overflow-hidden bg-zinc-800">
+            <img src="https://i.pravatar.cc/100" alt="Avatar" />
+          </div>
+        </div>
+      </header>
+
+      <main className="pt-28 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          
+          {currentView !== 'COMMUNITY' && (
+            <aside className="lg:col-span-4 space-y-6 no-print">
+              <div className="glass rounded-2xl p-6 border border-white/10 space-y-6 sticky top-28 max-h-[calc(100vh-8rem)] overflow-y-auto custom-scrollbar">
+                
+                <section>
+                  <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-3 block text-center">Step 1: Choose Dimension</label>
+                  <div className="flex bg-black/40 rounded-xl p-1 border border-white/5">
+                    {Object.values(ArtMedium).map(m => (
+                      <button
+                        key={m}
+                        onClick={() => setSelectedMedium(m)}
+                        className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all ${selectedMedium === m ? 'bg-zinc-100 text-zinc-900 shadow-lg' : 'text-zinc-500 hover:text-zinc-300'}`}
+                      >
+                        {m === ArtMedium.TWO_D ? '2D Pipeline' : '3D Pipeline'}
+                      </button>
+                    ))}
+                  </div>
+                </section>
+
+                <section>
+                  <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-4 block">Step 2: Department/Role</label>
+                  <div className="grid grid-cols-1 gap-1.5">
+                    {availableRoles.map((role) => (
+                      <button
+                        key={role}
+                        onClick={() => setSelectedRole(role)}
+                        className={`flex items-center space-x-3 p-2.5 rounded-xl border transition-all duration-300 ${
+                          selectedRole === role 
+                          ? 'bg-blue-600/10 border-blue-500 text-blue-100 shadow-[0_0_15px_rgba(59,130,246,0.1)]' 
+                          : 'bg-zinc-900/30 border-white/5 text-zinc-500 hover:border-white/20'
+                        }`}
+                      >
+                        <RoleIcon role={role} className="w-3.5 h-3.5 shrink-0" />
+                        <span className="text-[10px] font-bold truncate uppercase">{role}</span>
+                      </button>
+                    ))}
+                  </div>
+                </section>
+
+                <section>
+                  <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-4 block">Experience Level</label>
+                  <div className="flex flex-wrap gap-1.5">
+                    {Object.values(ExperienceLevel).map((lvl) => (
+                      <button key={lvl} onClick={() => setExperience(lvl)} className={`px-2.5 py-1.5 rounded-full text-[9px] font-bold transition-all ${experience === lvl ? 'bg-zinc-100 text-zinc-900' : 'bg-zinc-900 text-zinc-500 border border-white/5'}`}>
+                        {lvl}
+                      </button>
+                    ))}
+                  </div>
+                </section>
+
+                {currentView === 'GENERATOR' && (
+                  <>
+                    <section>
+                      <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-2 block">World/Theme</label>
+                      <input type="text" value={theme} onChange={(e) => setTheme(e.target.value)} className="w-full bg-zinc-950 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-white" />
+                    </section>
+
+                    <section>
+                      <div className="flex justify-between items-center mb-2">
+                        <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest block">Complexity</label>
+                        <span className="mono text-blue-500 font-bold text-sm">{complexity}/10</span>
+                      </div>
+                      <input type="range" min="1" max="10" value={complexity} onChange={(e) => setComplexity(parseInt(e.target.value))} className="w-full h-1.5 bg-zinc-900 rounded-lg appearance-none cursor-pointer accent-blue-500" />
+                    </section>
+
+                    <button onClick={handleGenerate} disabled={isLoading} className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 disabled:opacity-50 text-white font-bold py-4 rounded-xl shadow-xl transition-all flex items-center justify-center space-x-3 group">
+                      {isLoading ? <span>Preparing Assignment...</span> : <span>Accept Brief</span>}
+                    </button>
+                  </>
+                )}
+              </div>
+            </aside>
+          )}
+
+          <section className={`${currentView === 'COMMUNITY' ? 'lg:col-span-12' : 'lg:col-span-8'} min-h-[600px] flex flex-col`}>
+            {error && <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-xl text-red-400 text-sm no-print">{error}</div>}
+
+            {currentView === 'GENERATOR' && (
+              <>
+                {!brief && !isLoading && (
+                  <div className="flex-1 flex flex-col items-center justify-center text-center p-12 glass rounded-3xl border border-dashed border-white/10 opacity-60">
+                    <h3 className="text-xl font-semibold mb-2 text-zinc-400 uppercase tracking-widest">Awaiting Assignment</h3>
+                    <p className="text-zinc-600 max-w-sm text-sm">Select your industry specialization and medium to receive your professional production brief.</p>
+                  </div>
+                )}
+                {isLoading && (
+                  <div className="flex-1 flex flex-col items-center justify-center space-y-4">
+                    <div className="w-16 h-16 border-t-2 border-blue-500 rounded-full animate-spin"></div>
+                    <p className="text-zinc-500 mono text-[10px] uppercase tracking-widest">Lead Artist Reviewing Portfolio Context...</p>
+                  </div>
+                )}
+                {brief && (
+                  <div className="glass rounded-3xl p-4 md:p-8 border border-white/10 shadow-2xl relative">
+                    <BriefDisplay brief={brief} refImage={refImage} isLoadingImage={isLoadingImage} />
+                    
+                    <div className="mt-12 flex items-center justify-between border-t border-white/5 pt-8 no-print">
+                      <div className="flex items-center space-x-4">
+                         <div className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Assigned Department:</div>
+                         <div className="px-3 py-1 bg-zinc-800 rounded-full border border-white/10 text-[10px] font-bold text-zinc-400">
+                           {selectedRole}
+                         </div>
+                      </div>
+                      <div className="flex space-x-3">
+                        <button 
+                          onClick={handleExportPDF} 
+                          className="px-8 py-3 bg-white text-zinc-950 rounded-full text-[11px] font-black uppercase tracking-widest hover:bg-zinc-200 transition-all flex items-center space-x-2 shadow-xl shadow-white/5"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.618 0-1.113-.493-1.12-1.112L5.87 18m11.79 0h-11.79m11.79 0a1.125 1.125 0 001.12-1.057l.645-8.82c.045-.613-.414-1.143-1.028-1.143h-2.164a1.125 1.125 0 01-1.088-.841l-.476-1.904a1.125 1.125 0 00-1.088-.841H10.19c-.528 0-.986.368-1.088.841l-.476 1.904a1.125 1.125 0 01-1.088.841H5.372c-.614 0-1.073.53-1.028 1.143l.645 8.82A1.125 1.125 0 006.11 18" />
+                          </svg>
+                          <span>Export Brief as PDF</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </>
+            )}
+
+            {currentView === 'REVIEW' && (
+              <div className="glass rounded-3xl p-8 border border-white/10 min-h-[600px] no-print">
+                <PortfolioReview role={selectedRole} experience={experience} />
+              </div>
+            )}
+
+            {currentView === 'COMMUNITY' && <div className="no-print"><CommunityFeed /></div>}
+          </section>
+        </div>
+      </main>
+
+      <footer className="py-10 border-t border-white/5 text-center no-print">
+        <p className="text-zinc-600 text-[10px] tracking-[0.5em] font-medium uppercase">ArtDirector AI • Professional Studio Simulation</p>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
