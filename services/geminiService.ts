@@ -8,36 +8,36 @@ const extractJSON = (text: string) => {
     return JSON.parse(cleanText);
   } catch (e) {
     console.error("JSON Parse Error:", text);
-    throw new Error("The AI returned non-standard data. Please re-run the synthesis.");
+    throw new Error("Synthesis output error. Please re-run the initiate project protocol.");
   }
 };
 
 export const generateBrief = async (params: GenerationParams & { useSearch?: boolean, proMode?: boolean }): Promise<ArtBrief> => {
+  // CRITICAL: Re-initialize AI client to pick up session-linked keys from process.env.API_KEY
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
-  // Model selection based on the proMode toggle
   const modelName = params.proMode ? 'gemini-3-pro-preview' : 'gemini-3-flash-preview';
 
   const systemPrompt = `You are a World-Class Studio Art Director. 
-  Your goal is to create a realistic, challenging, and professional production brief for an artist.
+  Create a professional art production brief.
   
-  Role: ${params.role}
-  Exp Level: ${params.experience}
-  Theme: ${params.theme}
-  Complexity: ${params.complexity}/10
+  Artist Profile:
+  - Role: ${params.role}
+  - Seniority: ${params.experience}
+  - Project Theme: ${params.theme}
+  - Complexity Threshold: ${params.complexity}/10
   
-  Instructions:
-  - Technical Constraints must be industry-standard (e.g., PBR, LODs, Silhouette, Color Theory).
-  - The Challenge Factor should address common pitfalls for this specific experience level.
-  - Lighting Mood should be evocative and professional.
+  Focus on:
+  - Industry-standard terminology (PBR, Subdiv, Silhouette, Flow, Texel Density).
+  - Specific technical pitfalls for a ${params.experience} level artist.
   
-  ${params.useSearch ? "Include grounding in real-world industry trends or specific technical references." : ""}
+  ${params.useSearch ? "Ground the brief in contemporary industry trends or technical documentation from major studios." : ""}
   
-  You must return ONLY a JSON object.`;
+  Return ONLY valid JSON.`;
 
   const response = await ai.models.generateContent({
     model: modelName,
-    contents: `Synthesize a professional production brief for a ${params.role} project themed "${params.theme}".`,
+    contents: `Synthesize a professional production brief for: ${params.role}, Theme: ${params.theme}.`,
     config: {
       systemInstruction: systemPrompt,
       responseMimeType: "application/json",
@@ -81,12 +81,12 @@ export const generateReferenceImage = async (brief: ArtBrief, theme: string, pro
   // Use pro model for higher quality if requested, else flash image
   const modelName = proMode ? 'gemini-3-pro-image-preview' : 'gemini-2.5-flash-image';
 
-  const prompt = `Art direction reference image for a professional ${brief.role}. 
-  Project Title: ${brief.title}. 
-  Setting: ${theme}. 
-  Atmosphere: ${brief.lightingMood}. 
-  Focus on: ${brief.summary}. 
-  High-end digital cinematic art, concept art style, professional composition. No text, no interface elements.`;
+  const prompt = `Cinematic professional art reference. 
+  Department: ${brief.role}. 
+  Topic: ${brief.title}. 
+  Mood: ${brief.lightingMood}. 
+  Theme: ${theme}. 
+  High-end production quality, 8k render style, focused composition. Strictly no text or UI elements.`;
 
   try {
     const response = await ai.models.generateContent({
@@ -104,7 +104,7 @@ export const generateReferenceImage = async (brief: ArtBrief, theme: string, pro
     }
     return null;
   } catch (err) { 
-    console.error("Visual Reference Error:", err);
+    console.error("Reference Image Failed:", err);
     return null; 
   }
 };
@@ -118,7 +118,7 @@ export const analyzePortfolio = async (base64Image: string, role: ArtRole, exper
     contents: {
       parts: [
         { inlineData: { mimeType: 'image/jpeg', data: base64Image.split(',')[1] || base64Image } },
-        { text: `As a Lead Artist, review this ${role} portfolio piece. The artist is at an "${experience}" level. Be critical but constructive. Focus on technical execution, lighting, and composition.` }
+        { text: `As an Art Director, provide a technical critique for this ${role} asset. Seniority target: ${experience}. Highlight topology, lighting, and storytelling.` }
       ]
     },
     config: {
