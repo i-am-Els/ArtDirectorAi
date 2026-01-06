@@ -105,14 +105,23 @@ const App: React.FC = () => {
       await signInWithPopup(auth, provider);
     } catch (err: any) {
       console.error('Sign-in popup failed:', err);
-      // Provide more context to the user and attempt a safe fallback.
       const code = err?.code || '';
       const message = err?.message || String(err);
 
-      // Common popup-related errors should try redirect fallback.
-      if (code.includes('popup') || code.includes('auth/operation-not-supported') || message.toLowerCase().includes('blocked')) {
+      // Map common Firebase Auth errors to helpful messages
+      if (code === 'auth/network-request-failed') {
+        setError('Network error: Unable to reach Firebase auth endpoint. Check your internet, firewall, or proxy settings.');
+        return;
+      }
+
+      if (code === 'auth/unauthorized-domain') {
+        setError('Unauthorized domain: Add your development host to Firebase Console → Authentication → Authorized domains.');
+        return;
+      }
+
+      if (code === 'auth/popup-blocked' || message.toLowerCase().includes('blocked')) {
         try {
-          setError('Popup blocked or unavailable — falling back to redirect sign-in.');
+          setError('Popup blocked — falling back to redirect sign-in.');
           await signInWithRedirect(auth, provider);
           return;
         } catch (redirErr: any) {
@@ -122,6 +131,12 @@ const App: React.FC = () => {
         }
       }
 
+      if (code === 'auth/popup-closed-by-user') {
+        setError('Sign-in cancelled: popup was closed. Try again.');
+        return;
+      }
+
+      // Default fallback: show raw message (already logged)
       setError(message);
     }
   };
