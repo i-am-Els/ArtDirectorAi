@@ -1,7 +1,7 @@
 
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, User } from "firebase/auth";
+import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider, onAuthStateChanged, signOut, User } from "firebase/auth";
 import { ArtRole, ExperienceLevel, ArtBrief, AppView, ArtMedium, RolesByMedium, ProjectBreakdown } from './types';
 import RoleIcon from './components/RoleIcon';
 import BriefDisplay from './components/BriefDisplay';
@@ -104,7 +104,25 @@ const App: React.FC = () => {
     try {
       await signInWithPopup(auth, provider);
     } catch (err: any) {
-      setError(err.message);
+      console.error('Sign-in popup failed:', err);
+      // Provide more context to the user and attempt a safe fallback.
+      const code = err?.code || '';
+      const message = err?.message || String(err);
+
+      // Common popup-related errors should try redirect fallback.
+      if (code.includes('popup') || code.includes('auth/operation-not-supported') || message.toLowerCase().includes('blocked')) {
+        try {
+          setError('Popup blocked or unavailable — falling back to redirect sign-in.');
+          await signInWithRedirect(auth, provider);
+          return;
+        } catch (redirErr: any) {
+          console.error('Redirect sign-in also failed:', redirErr);
+          setError(redirErr?.message || 'Sign-in failed. Check popup settings and authorized domains.');
+          return;
+        }
+      }
+
+      setError(message);
     }
   };
 
