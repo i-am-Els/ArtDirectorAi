@@ -1,11 +1,11 @@
 
+
 export enum ArtMedium {
   TWO_D = '2D',
   THREE_D = '3D'
 }
 
 export enum ArtRole {
-  // 2D Roles
   CONCEPT_CHAR = 'Character Concept Artist',
   CONCEPT_ENV = 'Environment Concept Artist',
   CONCEPT_PROP = 'Prop & Vehicle Designer',
@@ -17,7 +17,6 @@ export enum ArtRole {
   BG_PAINTER = 'Background Painter',
   COLOR_SCRIPT = 'Color Script/Lighting Keys',
 
-  // 3D Roles
   CHARACTER_3D = 'Character Artist',
   ENVIRONMENT_3D = 'Environment Artist',
   HARD_SURFACE = 'Hard Surface Modeler',
@@ -68,17 +67,7 @@ export enum ExperienceLevel {
   EXPERT = 'Expert/Senior'
 }
 
-export interface ArtBrief {
-  title: string;
-  summary: string;
-  keyDeliverables: string[];
-  technicalConstraints: string[];
-  lightingMood: string;
-  compositionNotes?: string;
-  materialNotes?: string;
-  challengeFactor: string;
-}
-
+// Fix: Added missing GenerationParams interface
 export interface GenerationParams {
   role: ArtRole;
   experience: ExperienceLevel;
@@ -86,6 +75,7 @@ export interface GenerationParams {
   complexity: number;
 }
 
+// Fix: Added missing PortfolioFeedback interface
 export interface PortfolioFeedback {
   strengths: string[];
   areasToImprove: string[];
@@ -94,14 +84,41 @@ export interface PortfolioFeedback {
   nextSteps: string;
 }
 
-export type AppView = 'GENERATOR' | 'REVIEW' | 'COMMUNITY';
+export interface ArtBrief {
+  id: string;
+  timestamp: number;
+  title: string;
+  summary: string;
+  keyDeliverables: string[];
+  technicalConstraints: string[];
+  lightingMood: string;
+  compositionNotes?: string;
+  materialNotes?: string;
+  challengeFactor: string;
+  role: ArtRole;
+  experience: ExperienceLevel;
+  refImage?: string;
+  // Added to support required search grounding URL extraction
+  groundingUrls?: { uri: string; title: string }[];
+}
+
+export interface ProjectBreakdown {
+  id: string;
+  briefId: string;
+  finishedImage: string;
+  productionNotes: string;
+  techniqueUsed: string;
+  timestamp: number;
+}
+
+export type AppView = 'GENERATOR' | 'ARCHIVE' | 'COMMUNITY';
 
 export interface CommunityPost {
   id: string;
   artist: string;
   avatar: string;
-  image: string;
-  briefTitle: string;
+  brief: ArtBrief;
+  breakdown: ProjectBreakdown;
   likes: number;
   comments: number;
 }

@@ -2,33 +2,46 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { ArtBrief, GenerationParams, PortfolioFeedback, ArtRole, ExperienceLevel } from "../types";
 
-const API_KEY = process.env.API_KEY || "";
+const extractJSON = (text: string) => {
+  try {
+    const cleanText = text.replace(/```json\n?|```/g, "").trim();
+    return JSON.parse(cleanText);
+  } catch (e) {
+    console.error("JSON Parse Error:", text);
+    throw new Error("The AI returned non-standard data. Please re-run the synthesis.");
+  }
+};
 
-export const generateBrief = async (params: GenerationParams): Promise<ArtBrief> => {
-  const ai = new GoogleGenAI({ apiKey: API_KEY });
+export const generateBrief = async (params: GenerationParams & { useSearch?: boolean, proMode?: boolean }): Promise<ArtBrief> => {
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
-  const systemPrompt = `You are an elite Art Director from a major studio (e.g., Rockstar, Framestore, Sony Santa Monica).
-  Compose a professional production brief for a ${params.role} at ${params.experience} level.
-  Theme/Setting: ${params.theme}. Complexity: ${params.complexity}/10.
+  // Model selection based on the proMode toggle
+  const modelName = params.proMode ? 'gemini-3-pro-preview' : 'gemini-3-flash-preview';
 
-  Use exact professional terminology:
-  - Prop Designer: Focus on functional design, material breakdown, and LOD planning.
-  - Matte Painter: Focus on photographic integration, set extension, and projection mapping logic.
-  - Rigging: Focus on bone hierarchy, weighted deformation, and animator-friendly UX.
-  - Grooming: Focus on clumping, stray hairs, and physics-ready strand counts.
-  - Gameplay Animator: Focus on frame data, responsiveness, and clear action-readability.
-  - Cinematic Animator: Focus on emotional performance, weight, and silhouette.
-  - Cloth Sim: Focus on collision margins, fabric weight, and simulation layering.
-  - Technical Art: Focus on shader complexity, scripting for automation, and performance profiling.
+  const systemPrompt = `You are a World-Class Studio Art Director. 
+  Your goal is to create a realistic, challenging, and professional production brief for an artist.
   
-  Format as a high-stakes studio assignment. The "challengeFactor" should be a direct quote from the Lead Artist explaining the technical and artistic growth this task provides for someone at the ${params.experience} level.`;
+  Role: ${params.role}
+  Exp Level: ${params.experience}
+  Theme: ${params.theme}
+  Complexity: ${params.complexity}/10
+  
+  Instructions:
+  - Technical Constraints must be industry-standard (e.g., PBR, LODs, Silhouette, Color Theory).
+  - The Challenge Factor should address common pitfalls for this specific experience level.
+  - Lighting Mood should be evocative and professional.
+  
+  ${params.useSearch ? "Include grounding in real-world industry trends or specific technical references." : ""}
+  
+  You must return ONLY a JSON object.`;
 
   const response = await ai.models.generateContent({
-    model: 'gemini-3-flash-preview',
-    contents: `Write the art director's brief for a ${params.role}.`,
+    model: modelName,
+    contents: `Synthesize a professional production brief for a ${params.role} project themed "${params.theme}".`,
     config: {
       systemInstruction: systemPrompt,
       responseMimeType: "application/json",
+      tools: params.useSearch ? [{ googleSearch: {} }] : undefined,
       responseSchema: {
         type: Type.OBJECT,
         properties: {
@@ -46,30 +59,69 @@ export const generateBrief = async (params: GenerationParams): Promise<ArtBrief>
     }
   });
 
-  return JSON.parse(response.text || "{}") as ArtBrief;
+  const brief = extractJSON(response.text || "{}") as ArtBrief;
+
+  // Extract search grounding URLs if available
+  const groundingChunks = response.candidates?.[0]?.groundingMetadata?.groundingChunks;
+  if (groundingChunks) {
+    brief.groundingUrls = groundingChunks
+      .filter((chunk: any) => chunk.web)
+      .map((chunk: any) => ({
+        uri: chunk.web.uri,
+        title: chunk.web.title
+      }));
+  }
+
+  return brief;
 };
 
-export const analyzePortfolio = async (
-  base64Image: string, 
-  role: ArtRole, 
-  experience: ExperienceLevel
-): Promise<PortfolioFeedback> => {
-  const ai = new GoogleGenAI({ apiKey: API_KEY });
+export const generateReferenceImage = async (brief: ArtBrief, theme: string, proMode?: boolean): Promise<string | null> => {
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
-  const systemPrompt = `You are an elite Art Director reviewing a portfolio submission for a ${role} at a ${experience} level.
-  Analyze the image multimodal data for design fundamentals (color, value, composition) and role-specific technicals (topology if 3D, anatomy if characters, modularity if environments).
-  Provide honest, industry-standard critique.`;
+  // Use pro model for higher quality if requested, else flash image
+  const modelName = proMode ? 'gemini-3-pro-image-preview' : 'gemini-2.5-flash-image';
+
+  const prompt = `Art direction reference image for a professional ${brief.role}. 
+  Project Title: ${brief.title}. 
+  Setting: ${theme}. 
+  Atmosphere: ${brief.lightingMood}. 
+  Focus on: ${brief.summary}. 
+  High-end digital cinematic art, concept art style, professional composition. No text, no interface elements.`;
+
+  try {
+    const response = await ai.models.generateContent({
+      model: modelName,
+      contents: { parts: [{ text: prompt }] },
+      config: proMode ? { 
+        imageConfig: { aspectRatio: "16:9", imageSize: "1K" } 
+      } : undefined
+    });
+    
+    for (const part of response.candidates?.[0]?.content?.parts || []) {
+      if (part.inlineData) {
+        return `data:image/png;base64,${part.inlineData.data}`;
+      }
+    }
+    return null;
+  } catch (err) { 
+    console.error("Visual Reference Error:", err);
+    return null; 
+  }
+};
+
+export const analyzePortfolio = async (base64Image: string, role: ArtRole, experience: ExperienceLevel, proMode?: boolean): Promise<PortfolioFeedback> => {
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const modelName = proMode ? 'gemini-3-pro-preview' : 'gemini-3-flash-preview';
 
   const response = await ai.models.generateContent({
-    model: 'gemini-3-flash-preview',
+    model: modelName,
     contents: {
       parts: [
         { inlineData: { mimeType: 'image/jpeg', data: base64Image.split(',')[1] || base64Image } },
-        { text: "Analyze this artwork based on professional studio standards." }
+        { text: `As a Lead Artist, review this ${role} portfolio piece. The artist is at an "${experience}" level. Be critical but constructive. Focus on technical execution, lighting, and composition.` }
       ]
     },
     config: {
-      systemInstruction: systemPrompt,
       responseMimeType: "application/json",
       responseSchema: {
         type: Type.OBJECT,
@@ -84,23 +136,5 @@ export const analyzePortfolio = async (
       }
     }
   });
-
-  return JSON.parse(response.text || "{}") as PortfolioFeedback;
-};
-
-export const generateReferenceImage = async (brief: ArtBrief, theme: string): Promise<string | null> => {
-  const ai = new GoogleGenAI({ apiKey: API_KEY });
-  const prompt = `Art reference for studio brief: ${brief.title}. Theme: ${theme}. Mood: ${brief.lightingMood}. Extremely detailed concept art, cinematic lighting, 8k professional production quality.`;
-
-  try {
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash-image',
-      contents: { parts: [{ text: prompt }] },
-      config: { imageConfig: { aspectRatio: "16:9" } }
-    });
-    for (const part of response.candidates?.[0]?.content?.parts || []) {
-      if (part.inlineData) return `data:image/png;base64,${part.inlineData.data}`;
-    }
-    return null;
-  } catch { return null; }
+  return extractJSON(response.text || "{}") as PortfolioFeedback;
 };
