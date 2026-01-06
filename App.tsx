@@ -35,6 +35,7 @@ const App: React.FC = () => {
   const [isKeyConnected, setIsKeyConnected] = useState<boolean>(() => {
     return localStorage.getItem('ad_key_connected') !== 'false';
   });
+  const [keySource, setKeySource] = useState<'bridge'|'manual'|'emulator'|'none'>('none');
   const [currentView, setCurrentView] = useState<AppView>('GENERATOR');
   
   // Generator State
@@ -80,19 +81,35 @@ const App: React.FC = () => {
   }, [savedBriefs, breakdowns, hasAcceptedTerms, isKeyConnected]);
 
   const availableRoles = useMemo(() => RolesByMedium[selectedMedium], [selectedMedium]);
+  const isLocalDev = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
 
   // 3. API Key Handshake
   const checkKeyStatus = useCallback(async () => {
+    // If running inside the AI Studio platform, query its selected key state.
     // @ts-ignore
     if (window.aistudio?.hasSelectedApiKey) {
       try {
         // @ts-ignore
         const hasKey = await window.aistudio.hasSelectedApiKey();
         setIsKeyConnected(hasKey);
+        setKeySource(hasKey ? 'bridge' : 'none');
         return hasKey;
-      } catch (e) { return true; }
+      } catch (e) {
+        return false;
+      }
     }
-    return true; 
+
+    // Fallback: check if the user has manually provided an API key (local dev)
+    try {
+      const stored = localStorage.getItem('ad_api_key');
+      const hasKey = Boolean(stored && stored.length > 8);
+      setIsKeyConnected(hasKey);
+      setKeySource(hasKey ? 'manual' : 'none');
+      return hasKey;
+    } catch (e) {
+      setKeySource('none');
+      return false;
+    }
   }, []);
 
   useEffect(() => {
@@ -174,6 +191,8 @@ const App: React.FC = () => {
     setIsKeyConnected(false);
     localStorage.removeItem('ad_terms_accepted');
     localStorage.setItem('ad_key_connected', 'false');
+    // Also remove any manually stored API key used for local development
+    try { localStorage.removeItem('ad_api_key'); } catch (e) { /* ignore */ }
     setShowUserMenu(false);
     signOut(auth);
   };
@@ -187,19 +206,38 @@ const App: React.FC = () => {
     // @ts-ignore
     if (window.aistudio?.openSelectKey) {
       try {
+        // Open the platform key selector UI
         // @ts-ignore
         await window.aistudio.openSelectKey();
+        // After user selects, re-check status
+        await checkKeyStatus();
+        setError(null);
+        return;
       } catch (e) {
-        console.warn("Handshake bridge interrupted.");
+        console.warn('Handshake bridge interrupted.');
       }
-    } else {
-      console.warn("AI Studio Environment not detected. Using system defaults.");
     }
-    
-    // Per rules, proceed immediately to mitigate race conditions
-    setIsKeyConnected(true);
-    localStorage.setItem('ad_key_connected', 'true');
-    setError(null);
+
+    // Fallback for local development: prompt user to paste an API key
+    try {
+      const key = window.prompt('AI Studio bridge not found. Paste your Google AI Studio API key here for local development (will be stored in localStorage).');
+      if (key && key.length > 10) {
+        if (!isLocalDev) {
+          setError('Manual key entry is disabled in this environment for security. Use a server-side key or the platform bridge.');
+          return;
+        }
+        localStorage.setItem('ad_api_key', key.trim());
+        setIsKeyConnected(true);
+        setKeySource('manual');
+        localStorage.setItem('ad_key_connected', 'true');
+        setError(null);
+      } else if (key !== null) {
+        setError('Invalid key provided. Key not stored.');
+      }
+    } catch (err) {
+      console.error('Local key entry failed:', err);
+      setError('Failed to store API key. Check browser settings.');
+    }
   };
 
   const handleGenerate = async () => {
@@ -355,7 +393,12 @@ const App: React.FC = () => {
           <div className="w-11 h-11 bg-white rounded-2xl flex items-center justify-center shadow-2xl text-black font-black italic text-lg group-hover:scale-105 transition-transform">AD</div>
           <div className="hidden sm:block">
             <h1 className="text-lg font-black tracking-tighter uppercase leading-none text-white">ArtDirector <span className="text-blue-500">AI</span></h1>
-            <p className="text-[8px] uppercase tracking-[0.4em] text-zinc-600 font-black mt-1">Assignment Node</p>
+            <div className="flex items-center space-x-3">
+              <p className="text-[8px] uppercase tracking-[0.4em] text-zinc-600 font-black mt-1">Assignment Node</p>
+              <div className="text-[9px] px-2 py-1 rounded-full bg-zinc-900/40 border border-white/5 text-zinc-400 font-black uppercase tracking-widest mt-1">
+                Key: {keySource === 'bridge' ? 'Bridge' : keySource === 'manual' ? 'Manual' : keySource === 'emulator' ? 'Emulator' : 'None'}
+              </div>
+            </div>
           </div>
         </div>
         
