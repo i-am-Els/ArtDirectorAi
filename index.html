@@ -6,11 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ArtDirector AI | Pro Art Brief Generator</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #080808;
+      background-color: #050505;
       color: #e5e5e5;
       -webkit-font-smoothing: antialiased;
     }
@@ -18,18 +20,13 @@
       font-family: 'JetBrains Mono', monospace;
     }
     .glass {
-      background: rgba(18, 18, 18, 0.7);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #60a5fa 0%, #a855f7 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background: rgba(15, 15, 15, 0.4);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
     .custom-scrollbar::-webkit-scrollbar {
-      width: 5px;
+      width: 4px;
     }
     .custom-scrollbar::-webkit-scrollbar-track {
       background: transparent;
@@ -39,12 +36,12 @@
       border-radius: 10px;
     }
     
-    @keyframes pulse-slow {
-      0%, 100% { opacity: 0.2; }
-      50% { opacity: 0.5; }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 0.4; transform: scale(0.95); }
+      50% { opacity: 1; transform: scale(1.05); }
     }
-    .animate-pulse-slow {
-      animation: pulse-slow 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    .animate-pulse-dot {
+      animation: pulse-dot 2s infinite ease-in-out;
     }
 
     @media print {
@@ -53,6 +50,11 @@
       .glass { border: 1px solid #eee !important; background: white !important; }
     }
   </style>
+  <script>
+    // Critical: Initialize process.env as a global object for the GenAI SDK
+    // This allows the platform to inject the API_KEY into a live object.
+    window.process = { env: {} };
+  </script>
 <script type="importmap">
 {
   "imports": {
@@ -69,7 +71,6 @@
 </head>
 <body>
   <div id="root"></div>
-  <!-- Vite entry point -->
   <script type="module" src="/index.tsx"></script>
 </body>
 </html>
