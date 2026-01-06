@@ -91,7 +91,9 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (user && hasAcceptedTerms) checkKeyStatus();
+    if (user && hasAcceptedTerms) {
+      checkKeyStatus();
+    }
   }, [user, hasAcceptedTerms, checkKeyStatus]);
 
   const handleSignIn = async () => {
@@ -109,7 +111,6 @@ const App: React.FC = () => {
   };
 
   const handleResetSession = () => {
-    // Specifically for testing the onboarding flow again
     setHasAcceptedTerms(false);
     setIsKeyConnected(false);
     localStorage.removeItem('ad_terms_accepted');
@@ -122,12 +123,18 @@ const App: React.FC = () => {
   };
 
   const handleConnectKey = async () => {
-    // @ts-ignore
-    if (window.aistudio?.openSelectKey) {
+    try {
       // @ts-ignore
-      await window.aistudio.openSelectKey();
-      setIsKeyConnected(true);
+      if (window.aistudio?.openSelectKey) {
+        // @ts-ignore
+        await window.aistudio.openSelectKey();
+      }
+    } catch (e) {
+      console.warn("Handshake protocol externalized.");
     }
+    // Proceed regardless to prevent state-lock in non-Studio environments
+    setIsKeyConnected(true);
+    setError(null);
   };
 
   const handleGenerate = async () => {
@@ -171,11 +178,11 @@ const App: React.FC = () => {
 
     } catch (err: any) {
       console.error("Generation error:", err);
-      if (err.message.includes("entity was not found") || err.message.includes("API key")) {
-        setIsKeyConnected(false);
-        setError("Project Key session expired or invalid. Please re-link.");
+      // Catch key-related errors specifically to trigger handshake
+      if (err.message.includes("entity was not found") || err.message.includes("API_KEY") || err.message.includes("API key")) {
+        setError("Key Protocol Terminated. Please re-link Project Key.");
       } else {
-        setError(err.message || "Synthesis failed. Check your API key and connection.");
+        setError(err.message || "Synthesis failure. Check connection.");
       }
     } finally {
       setIsLoading(false);
@@ -188,7 +195,7 @@ const App: React.FC = () => {
     setTimeout(() => setCurrentView('COMMUNITY'), 500);
   };
 
-  // --- RENDERING AUTH/TERMS/KEY SCREENS ---
+  // --- RENDERING ONBOARDING ---
   if (!user || !hasAcceptedTerms || !isKeyConnected) {
     return (
       <div className="min-h-screen bg-[#050505] flex items-center justify-center p-6 relative overflow-hidden">
@@ -254,11 +261,11 @@ const App: React.FC = () => {
               </div>
               
               <div className="bg-zinc-900/40 p-8 rounded-[2.5rem] border border-white/5 text-left space-y-5">
-                <div className="flex items-center space-x-2">
-                  <svg className="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /></svg>
+                <div className="flex items-center space-x-2 text-blue-500">
+                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /></svg>
                   <h4 className="text-[12px] font-black uppercase tracking-widest text-zinc-100">Step 3: Handshake</h4>
                 </div>
-                <p className="text-zinc-500 text-[13px] leading-relaxed">Link your Studio Project Key to authorize production commands and high-fidelity rendering.</p>
+                <p className="text-zinc-500 text-[13px] leading-relaxed">Authorize ArtDirector AI to use your Studio Project Key for high-fidelity synthesis and production rendering.</p>
               </div>
 
               <button 
@@ -276,7 +283,6 @@ const App: React.FC = () => {
     );
   }
 
-  // --- MAIN APP UI ---
   return (
     <div className="min-h-screen bg-[#080808] text-zinc-100 selection:bg-blue-500/30">
       <header className="fixed top-0 w-full z-[100] glass border-b border-white/5 px-8 py-6 flex items-center justify-between no-print">
@@ -289,9 +295,9 @@ const App: React.FC = () => {
         </div>
         
         <nav className="flex items-center space-x-1 bg-zinc-900/80 p-1.5 rounded-full border border-white/10">
-          {(['GENERATOR', 'ARCHIVE', 'COMMUNITY'] as AppView[]).map(v => (
-            <button key={v} onClick={() => setCurrentView(v)} className={`px-6 py-2.5 rounded-full text-[9px] uppercase tracking-[0.2em] font-black transition-all ${currentView === v ? 'bg-zinc-100 text-zinc-900 shadow-xl' : 'text-zinc-500 hover:text-white'}`}>
-              {v === 'ARCHIVE' ? 'Vault' : v}
+          {(['GENERATOR', 'VAULT', 'COMMUNITY'] as any[]).map(v => (
+            <button key={v} onClick={() => setCurrentView(v === 'VAULT' ? 'ARCHIVE' : v)} className={`px-6 py-2.5 rounded-full text-[9px] uppercase tracking-[0.2em] font-black transition-all ${((v === 'VAULT' && currentView === 'ARCHIVE') || currentView === v) ? 'bg-zinc-100 text-zinc-900 shadow-xl' : 'text-zinc-500 hover:text-white'}`}>
+              {v}
             </button>
           ))}
         </nav>
@@ -316,17 +322,11 @@ const App: React.FC = () => {
                 <p className="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Protocol Identification</p>
                 <p className="text-xs font-bold text-zinc-100 truncate">{user.email}</p>
               </div>
-              <button 
-                onClick={handleSignOut}
-                className="w-full text-left p-4 hover:bg-white/5 rounded-xl transition-colors flex items-center space-x-3 text-zinc-400 hover:text-white group"
-              >
+              <button onClick={handleSignOut} className="w-full text-left p-4 hover:bg-white/5 rounded-xl transition-colors flex items-center space-x-3 text-zinc-400 hover:text-white group">
                 <svg className="w-4 h-4 group-hover:text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
-                <span className="text-[10px] font-black uppercase tracking-widest">Standard Logout</span>
+                <span className="text-[10px] font-black uppercase tracking-widest">Logout</span>
               </button>
-              <button 
-                onClick={handleResetSession}
-                className="w-full text-left p-4 hover:bg-red-600/10 rounded-xl transition-colors flex items-center space-x-3 text-red-500/60 hover:text-red-500"
-              >
+              <button onClick={handleResetSession} className="w-full text-left p-4 hover:bg-red-600/10 rounded-xl transition-colors flex items-center space-x-3 text-red-500/60 hover:text-red-500">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
                 <span className="text-[10px] font-black uppercase tracking-widest">Factory Reset Session</span>
               </button>
@@ -339,10 +339,11 @@ const App: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {currentView === 'GENERATOR' && (
             <aside className="lg:col-span-4 space-y-8 no-print">
-              <div className="glass rounded-[2.5rem] p-8 md:p-10 border border-white/5 space-y-8 sticky top-36 max-h-[calc(100vh-12rem)] overflow-y-auto custom-scrollbar shadow-2xl">
-                <section>
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] mb-4 block">Synthesis Engine</label>
-                  <button onClick={() => setProMode(!proMode)} className={`w-full flex items-center justify-between p-5 rounded-[1.8rem] border transition-all duration-500 ${proMode ? 'bg-blue-600/10 border-blue-500/40 shadow-[0_0_30px_rgba(59,130,246,0.1)]' : 'bg-zinc-900/40 border-white/5'}`}>
+              <div className="glass rounded-[2.5rem] p-8 md:p-10 border border-white/5 space-y-10 sticky top-36 max-h-[calc(100vh-12rem)] overflow-y-auto custom-scrollbar shadow-2xl">
+                
+                <section className="space-y-4">
+                  <label className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em] block">Synthesis Protocol</label>
+                  <button onClick={() => setProMode(!proMode)} className={`w-full flex items-center justify-between p-5 rounded-[1.8rem] border transition-all duration-500 ${proMode ? 'bg-blue-600/10 border-blue-500/40 shadow-[0_0_30px_rgba(59,130,246,0.1)]' : 'bg-zinc-900/40 border-white/5 hover:border-white/10'}`}>
                     <div className="flex items-center space-x-4 text-left">
                       <div className={`p-2.5 rounded-xl transition-colors duration-500 ${proMode ? 'bg-blue-600 text-white' : 'bg-zinc-800 text-zinc-600'}`}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 22.5 12 13.5H3.75z" /></svg>
@@ -355,41 +356,37 @@ const App: React.FC = () => {
                   </button>
                 </section>
 
-                <section>
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] mb-4 block">Proficiency Level</label>
+                <section className="space-y-4">
+                  <label className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em] block">Proficiency Level</label>
                   <div className="grid grid-cols-2 gap-2">
                     {Object.values(ExperienceLevel).map(level => (
-                      <button 
-                        key={level} 
-                        onClick={() => setExperience(level)} 
-                        className={`py-3.5 text-[9px] font-black rounded-xl border transition-all uppercase tracking-widest ${experience === level ? 'bg-white text-black border-white shadow-lg scale-[1.02]' : 'bg-zinc-900/40 border-white/5 text-zinc-500 hover:text-zinc-300'}`}
-                      >
+                      <button key={level} onClick={() => setExperience(level)} className={`py-4 text-[9px] font-black rounded-xl border transition-all uppercase tracking-widest ${experience === level ? 'bg-white text-black border-white shadow-lg scale-[1.02]' : 'bg-zinc-900/40 border-white/5 text-zinc-500 hover:bg-zinc-900'}`}>
                         {level}
                       </button>
                     ))}
                   </div>
                 </section>
 
-                <section>
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] mb-4 block">Department</label>
+                <section className="space-y-4">
+                  <label className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em] block">Department Hub</label>
                   <div className="flex bg-black/50 p-1.5 rounded-[1.5rem] border border-white/5">
                     {Object.values(ArtMedium).map(m => ( m &&
-                      <button key={m} onClick={() => setSelectedMedium(m)} className={`flex-1 py-3 text-[10px] font-black rounded-xl transition-all uppercase tracking-[0.2em] ${selectedMedium === m ? 'bg-zinc-100 text-zinc-900 shadow-xl' : 'text-zinc-600 hover:text-zinc-400'}`}>
+                      <button key={m} onClick={() => setSelectedMedium(m)} className={`flex-1 py-3.5 text-[10px] font-black rounded-xl transition-all uppercase tracking-[0.2em] ${selectedMedium === m ? 'bg-zinc-100 text-zinc-900 shadow-xl' : 'text-zinc-600 hover:text-zinc-400'}`}>
                         {m === ArtMedium.TWO_D ? '2D' : '3D'}
                       </button>
                     ))}
                   </div>
                 </section>
 
-                <section>
-                  <label className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] mb-4 block">Production Role</label>
+                <section className="space-y-4">
+                  <label className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em] block">Production Command</label>
                   <div className="grid grid-cols-1 gap-2">
                     {availableRoles.map((role) => (
-                      <button key={role} onClick={() => setSelectedRole(role)} className={`flex items-center space-x-4 p-4 rounded-[1.4rem] border transition-all duration-300 ${selectedRole === role ? 'bg-blue-600/10 border-blue-500 text-blue-100 scale-[1.02]' : 'bg-zinc-900/30 border-white/5 text-zinc-600 hover:border-white/20'}`}>
-                        <div className={`p-2 rounded-lg ${selectedRole === role ? 'bg-blue-500/20' : 'bg-zinc-800/50'}`}>
+                      <button key={role} onClick={() => setSelectedRole(role)} className={`flex items-center space-x-4 p-4 rounded-[1.5rem] border transition-all duration-300 ${selectedRole === role ? 'bg-blue-600/10 border-blue-500 text-blue-100 scale-[1.02]' : 'bg-zinc-900/30 border-white/5 text-zinc-600 hover:border-white/20 hover:bg-zinc-900/50'}`}>
+                        <div className={`p-2.5 rounded-xl ${selectedRole === role ? 'bg-blue-500/20' : 'bg-zinc-800/50'}`}>
                           <RoleIcon role={role} className="w-4 h-4 shrink-0" />
                         </div>
-                        <span className="text-[10px] font-black truncate uppercase tracking-tight">{role}</span>
+                        <span className="text-[11px] font-black truncate uppercase tracking-tight">{role}</span>
                       </button>
                     ))}
                   </div>
@@ -397,26 +394,28 @@ const App: React.FC = () => {
 
                 <section className="space-y-6">
                   <div className="space-y-3">
-                    <label className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] block">Assignment Theme</label>
-                    <input type="text" value={theme} onChange={(e) => setTheme(e.target.value)} className="w-full bg-black/50 border border-white/10 rounded-xl px-5 py-4 text-xs focus:outline-none focus:ring-1 focus:ring-blue-500 text-white transition-all placeholder:text-zinc-800" placeholder="e.g. Forgotten Cyber-Sanctuary" />
+                    <label className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em] block">Assignment Theme</label>
+                    <input type="text" value={theme} onChange={(e) => setTheme(e.target.value)} className="w-full bg-black/50 border border-white/10 rounded-[1.2rem] px-5 py-5 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500 text-white transition-all" placeholder="Theme Protocol..." />
                   </div>
                   <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <label className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em]">Complexity</label>
-                      <span className="text-blue-400 mono text-xs font-bold">{complexity}/10</span>
+                    <div className="flex justify-between items-center px-1">
+                      <label className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em]">Complexity</label>
+                      <span className="text-blue-400 mono text-[10px] font-bold">{complexity}/10</span>
                     </div>
                     <input type="range" min="1" max="10" value={complexity} onChange={(e) => setComplexity(parseInt(e.target.value))} className="w-full h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-blue-500" />
                   </div>
                 </section>
 
-                {error && <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-[9px] font-black uppercase tracking-widest leading-relaxed text-center">{error}</div>}
+                {error && (
+                  <div className="p-6 bg-red-500/10 border border-red-500/20 rounded-[1.8rem] space-y-4 animate-in slide-in-from-top-2">
+                    <p className="text-red-400 text-[10px] font-black uppercase tracking-widest leading-relaxed text-center">{error}</p>
+                    <button onClick={handleConnectKey} className="w-full py-3 bg-red-500/20 hover:bg-red-500/30 text-red-400 rounded-xl text-[9px] font-black uppercase tracking-widest border border-red-500/20 transition-all">Link New Key</button>
+                  </div>
+                )}
 
-                <button onClick={handleGenerate} disabled={isLoading} className="w-full bg-blue-600 text-white hover:bg-blue-500 disabled:opacity-50 font-black uppercase tracking-[0.4em] py-5 rounded-[1.8rem] shadow-[0_20px_50px_rgba(59,130,246,0.2)] transition-all flex items-center justify-center space-x-4 group active:scale-[0.98] text-[11px]">
+                <button onClick={handleGenerate} disabled={isLoading} className="w-full bg-blue-600 text-white hover:bg-blue-500 disabled:opacity-50 font-black uppercase tracking-[0.4em] py-6 rounded-[1.8rem] shadow-[0_20px_50px_rgba(59,130,246,0.2)] transition-all flex items-center justify-center space-x-4 group active:scale-[0.98] text-[11px]">
                   {isLoading ? (
-                    <div className="flex items-center space-x-3">
-                      <div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin"></div>
-                      <span className="animate-pulse">Synthesizing...</span>
-                    </div>
+                    <div className="flex items-center space-x-3"><div className="w-4 h-4 border-2 border-white/20 border-t-white rounded-full animate-spin"></div><span className="animate-pulse">Synthesizing...</span></div>
                   ) : (
                     <span>Initiate Project</span>
                   )}
@@ -432,9 +431,7 @@ const App: React.FC = () => {
                   <div className="flex-1 h-[700px] flex flex-col items-center justify-center space-y-12 animate-in fade-in duration-500">
                     <div className="relative">
                       <div className="w-32 h-32 border-[4px] border-white/5 border-t-blue-500 rounded-full animate-spin"></div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 bg-blue-500/10 rounded-full animate-pulse blur-xl"></div>
-                      </div>
+                      <div className="absolute inset-0 flex items-center justify-center"><div className="w-16 h-16 bg-blue-500/10 rounded-full animate-pulse blur-xl"></div></div>
                     </div>
                     <div className="text-center space-y-4">
                       <p className="text-[12px] font-black uppercase tracking-[0.5em] text-white">Compiling Brief</p>
@@ -466,13 +463,12 @@ const App: React.FC = () => {
                     </div>
                     <div className="text-center space-y-2">
                       <p>Awaiting Assignment Parameters</p>
-                      <p className="text-[8px] opacity-40">Configure project constraints in the side panel</p>
+                      <p className="text-[8px] opacity-40 uppercase">Configure project constraints in the side panel</p>
                     </div>
                   </div>
                 )}
               </div>
             )}
-
             {currentView === 'ARCHIVE' && <ProjectArchive briefs={savedBriefs} breakdowns={breakdowns} onAddBreakdown={addBreakdown} />}
             {currentView === 'COMMUNITY' && <CommunityFeed briefs={savedBriefs} breakdowns={breakdowns} />}
           </section>
