@@ -130,9 +130,10 @@
     }
   </style>
   <script>
-    // Safer process shim for deployment
+    // Robust process shim for deployment environments like Vercel
     window.process = window.process || {};
     window.process.env = window.process.env || {};
+    // Ensure API_KEY is at least an empty string to prevent constructor crashes
     if (typeof window.process.env.API_KEY === 'undefined') {
       window.process.env.API_KEY = '';
     }
@@ -152,5 +153,7 @@
 </head>
 <body>
   <div id="root"></div>
+  <!-- CRITICAL: Added entry point script for browser ESM resolution -->
+  <script type="module" src="./index.tsx"></script>
 </body>
 </html>
