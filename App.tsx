@@ -140,46 +140,70 @@ echo "⚠️ If this is your first project, you may need to enable billing in th
 
   const handleCloseByok = () => setShowByokHelp(false);
 
+  const [byokPanel, setByokPanel] = useState<'non' | 'tech' | null>(null);
+
   const byokModal = (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center">
       <div className="absolute inset-0 bg-black/60" onClick={handleCloseByok}></div>
-      <div className="relative z-10 w-full max-w-2xl mx-4 glass p-6 rounded-2xl border border-white/5">
-          <div className="flex items-start justify-between">
-            <h3 className="text-lg font-black">Get help: Create a BYOK API Key (one-paste script)</h3>
-            <button onClick={handleCloseByok} className="text-zinc-400 hover:text-white">Close</button>
+      <div className="relative z-10 w-full max-w-2xl mx-4 glass p-4 rounded-2xl border border-white/5 max-h-[80vh] overflow-y-auto">
+        <div className="flex items-start justify-between sticky top-0 bg-transparent pt-2">
+          <div>
+            <h3 className="text-lg font-black">Get help: Create a BYOK API Key</h3>
+            <p className="text-zinc-400 text-sm mt-1">Choose an option below — non-technical (Console UI) or technical (Cloud Shell script).</p>
           </div>
-          <div className="flex items-center justify-between">
-            <p className="text-zinc-400 mt-3 mr-4">We can help you create an AI Studio API key in your Google Cloud account. The script below will create a new project in <strong>your</strong> account, enable the Generative AI API, and print the Project ID and API key. <strong>Google may ask you to attach billing to the project — you must approve that in the Cloud Console.</strong></p>
-            <button onClick={() => setShowByokQuick(s => !s)} className="ml-4 text-[11px] text-blue-400 underline">{showByokQuick ? 'Hide quick steps' : 'Quick steps'}</button>
+          <div className="flex items-start space-x-3">
+            <button onClick={() => setByokPanel(null)} className="text-zinc-400 hover:text-white">Close</button>
+            <button onClick={() => setShowByokQuick(s => !s)} className="text-[11px] text-blue-400 underline">{showByokQuick ? 'Hide quick steps' : 'Quick steps'}</button>
           </div>
-          {showByokQuick && (
-            <div className="mt-3 p-3 bg-zinc-900/20 rounded text-sm text-zinc-200">
-              <strong>Quick steps</strong>
-              <ol className="list-decimal list-inside mt-2 text-zinc-400">
-                <li>Open Cloud Shell or Cloud Console.</li>
-                <li>Create an API key (we recommend the Console UI).</li>
-                <li>Copy only the key string and paste it into the app when asked.</li>
-              </ol>
-            </div>
-          )}
-          <div className="mt-4 grid gap-4">
-            <div className="bg-zinc-950/40 p-4 rounded text-sm">
-              <p className="font-bold">Recommended for non-technical users</p>
-              <p className="text-zinc-400 mt-2">Open the <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noreferrer" className="underline text-blue-400">Google Cloud Console → Credentials</a> and create an API key using the UI. Copy the final key string and paste it into the app when prompted.</p>
-            </div>
-            <div className="bg-zinc-900 rounded p-4 text-sm">
-              <p className="font-bold">Power-user: one-paste Cloud Shell script</p>
-              <p className="text-zinc-400 mt-2">If you prefer the Cloud Shell, paste the script below into Cloud Shell and run it. Copy only the final API key string printed under <strong>GOOGLE GENAI API KEY</strong>.</p>
-              <pre className="bg-black/50 rounded p-3 mt-3 overflow-auto text-xs"><code>{byokCreateCommands}</code></pre>
-              <div className="mt-3 flex items-center space-x-3">
-                <button type="button" onClick={copyByokCommands} className="px-4 py-2 bg-blue-600 text-white rounded">Copy script</button>
-                <a className="px-4 py-2 bg-zinc-800 text-zinc-200 rounded" target="_blank" rel="noopener noreferrer" href={`https://console.cloud.google.com/cloudshell?project=${firebaseConfig.projectId}`}>Open Cloud Shell</a>
-                <button type="button" onClick={handleCloseByok} className="px-4 py-2 border rounded border-white/10">Done</button>
+        </div>
+
+        {showByokQuick && (
+          <div className="mt-3 p-3 bg-zinc-900/20 rounded text-sm text-zinc-200">
+            <strong>Quick steps</strong>
+            <ol className="list-decimal list-inside mt-2 text-zinc-400">
+              <li>Open Cloud Shell or Cloud Console.</li>
+              <li>Create an API key (we recommend the Console UI).</li>
+              <li>Copy only the key string and paste it into the app when asked.</li>
+            </ol>
+          </div>
+        )}
+
+        <div className="mt-4 space-y-3">
+          <div className="flex flex-col space-y-2">
+            <button onClick={() => setByokPanel(byokPanel === 'non' ? null : 'non')} className="w-full text-left p-4 bg-zinc-950/40 rounded-lg flex items-center justify-between">
+              <div>
+                <p className="font-bold">Non-Technical: Google Cloud Console</p>
+                <p className="text-zinc-400 text-sm mt-1">Recommended for most users — create an API key using the credentials UI.</p>
               </div>
-              {byokCopyStatus === 'copied' && <div className="text-green-400 text-sm mt-2">Script copied to clipboard.</div>}
-              {byokCopyStatus === 'fail' && <div className="text-red-400 text-sm mt-2">Copy failed. Select the script and press Ctrl+C.</div>}
-            </div>
+              <div className="text-zinc-400">{byokPanel === 'non' ? '▾' : '▸'}</div>
+            </button>
+            {byokPanel === 'non' && (
+              <div className="p-4 bg-zinc-950/20 rounded text-sm">
+                <p className="text-zinc-400">Open the <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noreferrer" className="underline text-blue-400">Google Cloud Console → Credentials</a> and create an API key. Copy only the key string and paste it into the app when prompted.</p>
+              </div>
+            )}
+
+            <button onClick={() => setByokPanel(byokPanel === 'tech' ? null : 'tech')} className="w-full text-left p-4 bg-zinc-900/40 rounded-lg flex items-center justify-between">
+              <div>
+                <p className="font-bold">Technical: Cloud Shell one-paste script</p>
+                <p className="text-zinc-400 text-sm mt-1">Power-user option: run the script in Cloud Shell to create a project, enable the API, and print the key.</p>
+              </div>
+              <div className="text-zinc-400">{byokPanel === 'tech' ? '▾' : '▸'}</div>
+            </button>
+            {byokPanel === 'tech' && (
+              <div className="p-4 bg-zinc-900 rounded text-sm">
+                <pre className="bg-black/50 rounded p-3 mt-3 overflow-auto text-xs"><code>{byokCreateCommands}</code></pre>
+                <div className="mt-3 flex items-center space-x-3">
+                  <button type="button" onClick={copyByokCommands} className="px-4 py-2 bg-blue-600 text-white rounded">Copy script</button>
+                  <a className="px-4 py-2 bg-zinc-800 text-zinc-200 rounded" target="_blank" rel="noopener noreferrer" href={`https://console.cloud.google.com/cloudshell?project=${firebaseConfig.projectId}`}>Open Cloud Shell</a>
+                  <button type="button" onClick={() => { setByokPanel(null); handleCloseByok(); }} className="px-4 py-2 border rounded border-white/10">Done</button>
+                </div>
+                {byokCopyStatus === 'copied' && <div className="text-green-400 text-sm mt-2">Script copied to clipboard.</div>}
+                {byokCopyStatus === 'fail' && <div className="text-red-400 text-sm mt-2">Copy failed. Select the script and press Ctrl+C.</div>}
+              </div>
+            )}
           </div>
+
           <div className="mt-3 text-xs text-zinc-500">
             <p className="font-semibold">Important:</p>
             <ul className="list-disc list-inside mt-1 space-y-1">
@@ -189,6 +213,7 @@ echo "⚠️ If this is your first project, you may need to enable billing in th
             </ul>
           </div>
         </div>
+      </div>
     </div>
   );
 
