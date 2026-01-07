@@ -1,6 +1,5 @@
-
 import React, { forwardRef } from 'react';
-import { ArtBrief } from '../types';
+import { ArtBrief } from '../types.ts';
 
 interface BriefDisplayProps {
   brief: ArtBrief;

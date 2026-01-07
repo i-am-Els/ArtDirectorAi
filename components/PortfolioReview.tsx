@@ -1,7 +1,6 @@
-
 import React, { useState, useRef } from 'react';
-import { analyzePortfolio } from '../services/geminiService';
-import { ArtRole, ExperienceLevel, PortfolioFeedback } from '../types';
+import { analyzePortfolio } from '../services/geminiService.ts';
+import { ArtRole, ExperienceLevel, PortfolioFeedback } from '../types.ts';
 
 interface PortfolioReviewProps {
   role: ArtRole;
