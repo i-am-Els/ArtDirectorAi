@@ -183,7 +183,16 @@ echo "⚠️ If this is your first project, you may need to enable billing in th
                 <ol className="list-decimal list-inside text-zinc-400">
                   <li><strong>Select or create a GCP project:</strong> Open <a href="https://console.cloud.google.com/" target="_blank" rel="noreferrer" className="underline text-blue-400">Google Cloud Console</a>. If you don't see a project selected, click <em>Create project</em> (top-right) and follow the prompts. Note: you may be asked to enable billing for a new project.</li>
                   <li><strong>Enable the Generative AI API:</strong> In the console go to <a href="https://console.cloud.google.com/apis/library" target="_blank" rel="noreferrer" className="underline text-blue-400">APIs & Services → Library</a>, search for <em>Generative AI</em> (or Gemini), and click <em>Enable</em>.</li>
-                  <li><strong>Create an API key:</strong> After the API is enabled, go to <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noreferrer" className="underline text-blue-400">APIs & Services → Credentials</a> → <em>Create credentials → API key</em>. The console will show a short string — copy only that string.</li>
+                  <li>
+                    <strong>Create an API key:</strong> After the API is enabled, go to <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noreferrer" className="underline text-blue-400">APIs & Services → Credentials</a> → <em>Create credentials → API key</em>.
+                    <ul className="list-disc list-inside ml-5 mt-1 text-zinc-400">
+                      <li>In the <em>Create API key</em> dialog, do <strong>not</strong> check <em>Authenticate API calls through a service account</em>.</li>
+                      <li>Under <em>Application restrictions</em>, leave it set to <strong>None</strong>.</li>
+                      <li>Under <em>API restrictions</em>, select <strong>Restrict key</strong> and choose <strong>Generative Language API</strong>.</li>
+                      <li>Click <strong>Create</strong>.</li>
+                      <li>When the key appears, copy only the key string that is shown.</li>
+                    </ul>
+                  </li>
                   <li><strong>Paste the key into this app:</strong> Return to ArtDirector AI and use <em>Link Project Key</em> to paste the key string. Do NOT paste project JSON or other outputs — only the key string.</li>
                 </ol>
                 <div className="mt-2 text-zinc-400 text-sm">
