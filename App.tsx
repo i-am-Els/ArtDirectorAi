@@ -1,7 +1,8 @@
 
 import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider, onAuthStateChanged, signOut, User } from "firebase/auth";
+import { getAuth, signInWithPopup, signInWithRedirect, GoogleAuthProvider, onAuthStateChanged, signOut, User, setPersistence, browserLocalPersistence } from "firebase/auth";
 import { ArtRole, ExperienceLevel, ArtBrief, AppView, ArtMedium, RolesByMedium, ProjectBreakdown } from './types';
 import RoleIcon from './components/RoleIcon';
 import BriefDisplay from './components/BriefDisplay';
@@ -53,7 +54,9 @@ const App: React.FC = () => {
   const [isLoadingImage, setIsLoadingImage] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [keyStoreStatus, setKeyStoreStatus] = useState<'idle'|'saving'|'ok'|'fail'>('idle');
+  const [serverKeyExists, setServerKeyExists] = useState<boolean>(false);
   const [showByokHelp, setShowByokHelp] = useState(false);
+  const [byokCopyStatus, setByokCopyStatus] = useState<'idle'|'copied'|'fail'>('idle');
   const [authDomainStatus, setAuthDomainStatus] = useState<'unknown'|'ok'|'fail'>('unknown');
   const [showReview, setShowReview] = useState(false);
   const [savedBriefs, setSavedBriefs] = useState<ArtBrief[]>([]);
@@ -84,6 +87,64 @@ const App: React.FC = () => {
 
   const availableRoles = useMemo(() => RolesByMedium[selectedMedium], [selectedMedium]);
   const isLocalDev = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+
+  // BYOK helper modal data and actions (rendered via portal)
+  const byokCreateCommands = `# In Cloud Shell (already authenticated in console)
+gcloud config set project ${firebaseConfig.projectId}
+gcloud services enable generativeai.googleapis.com
+gcloud services enable iam.googleapis.com
+gcloud services enable iamcredentials.googleapis.com
+# Create an API key and print only the key string (Cloud Console UI recommended):
+# If gcloud alpha is available:
+gcloud alpha services api-keys create --display-name="ArtDirectorAI BYOK" --format="get(key)"`;
+
+  const copyByokCommands = async () => {
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(byokCreateCommands);
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = byokCreateCommands;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      }
+      setByokCopyStatus('copied');
+      setTimeout(() => setByokCopyStatus('idle'), 2500);
+    } catch (e) {
+      setByokCopyStatus('fail');
+      setTimeout(() => setByokCopyStatus('idle'), 2500);
+    }
+  };
+
+  const handleCloseByok = () => setShowByokHelp(false);
+
+  const byokModal = (
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center">
+      <div className="absolute inset-0 bg-black/60" onClick={handleCloseByok}></div>
+      <div className="relative z-10 w-full max-w-2xl mx-4 glass p-6 rounded-2xl border border-white/5">
+        <div className="flex items-start justify-between">
+          <h3 className="text-lg font-black">Help: Create BYOK API Key (Cloud Shell)</h3>
+          <button onClick={handleCloseByok} className="text-zinc-400 hover:text-white">Close</button>
+        </div>
+        <p className="text-zinc-400 mt-3">Open the Cloud Shell in the Google Cloud Console and paste the commands below. The final command prints the API key string — copy that value and paste it into the app when it asks for your Project Key.</p>
+        <pre className="bg-zinc-900 rounded p-4 text-sm mt-4 overflow-auto"><code>{byokCreateCommands}</code></pre>
+        <div className="mt-4 flex items-center space-x-3">
+          <button type="button" onClick={copyByokCommands} className="px-4 py-2 bg-blue-600 text-white rounded">Copy commands</button>
+          <a className="px-4 py-2 bg-zinc-800 text-zinc-200 rounded" target="_blank" rel="noopener noreferrer" href={`https://console.cloud.google.com/cloudshell?project=${firebaseConfig.projectId}`}>Open Cloud Shell</a>
+          <button type="button" onClick={handleCloseByok} className="px-4 py-2 border rounded border-white/10">Done</button>
+        </div>
+        <div className="mt-3">
+          {byokCopyStatus === 'copied' && <div className="text-green-400 text-sm">Commands copied to clipboard.</div>}
+          {byokCopyStatus === 'fail' && <div className="text-red-400 text-sm">Copy failed. Select the commands and press Ctrl+C.</div>}
+          <p className="text-[11px] text-zinc-500 mt-3">Note: If your Cloud Shell environment already authenticates to your Google account, you can run these commands directly. The app only needs the API key string (a long alphanumeric token). Use the Cloud Console UI to create a key if the CLI is not available.</p>
+        </div>
+      </div>
+    </div>
+  );
+
+  const byokPortal = showByokHelp ? createPortal(byokModal, document.body) : null;
 
   // 3. API Key Handshake
   const checkKeyStatus = useCallback(async () => {
@@ -117,8 +178,27 @@ const App: React.FC = () => {
   useEffect(() => {
     if (user && hasAcceptedTerms && isKeyConnected) {
       checkKeyStatus();
+      // check whether user has server-stored key
+      checkServerKey().catch(() => {});
     }
   }, [user, hasAcceptedTerms, isKeyConnected, checkKeyStatus]);
+
+  const checkServerKey = useCallback(async () => {
+    if (!user) { setServerKeyExists(false); return false; }
+    try {
+      const idToken = await user.getIdToken();
+      const resp = await fetch('/api/key-status', { headers: { Authorization: `Bearer ${idToken}` } });
+      if (resp.ok) {
+        const body = await resp.json();
+        setServerKeyExists(Boolean(body?.hasKey));
+        return Boolean(body?.hasKey);
+      }
+    } catch (e) {
+      console.warn('Failed to fetch key status', e);
+    }
+    setServerKeyExists(false);
+    return false;
+  }, [user]);
 
   const handleSignIn = async () => {
     setError(null);
@@ -129,7 +209,6 @@ const App: React.FC = () => {
       const code = err?.code || '';
       const message = err?.message || String(err);
 
-      // Map common Firebase Auth errors to helpful messages
       if (code === 'auth/network-request-failed') {
         setError('Network error: Unable to reach Firebase auth endpoint. Check your internet, firewall, or proxy settings.');
         return;
@@ -140,9 +219,12 @@ const App: React.FC = () => {
         return;
       }
 
-      if (code === 'auth/popup-blocked' || message.toLowerCase().includes('blocked')) {
+      // If popup blocked or environment doesn't support popup, fall back to redirect
+      if (code === 'auth/popup-blocked' || message.toLowerCase().includes('blocked') || code === 'auth/operation-not-supported-in-this-environment') {
         try {
           setError('Popup blocked — falling back to redirect sign-in.');
+          // Persist auth state to localStorage so the redirect handler can restore state
+          await setPersistence(auth, browserLocalPersistence);
           await signInWithRedirect(auth, provider);
           return;
         } catch (redirErr: any) {
@@ -203,6 +285,16 @@ const App: React.FC = () => {
     setHasAcceptedTerms(true);
   };
 
+  const handleOpenByok = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    try {
+      // debug visibility
+      // eslint-disable-next-line no-console
+      console.log('BYOK help opened');
+    } catch {}
+    setShowByokHelp(true);
+  };
+
   const handleConnectKey = async () => {
     // Trigger the mandatory platform handshake
     // @ts-ignore
@@ -246,6 +338,7 @@ const App: React.FC = () => {
             if (resp.ok) {
               storedRemotely = true;
               setKeyStoreStatus('ok');
+              setServerKeyExists(true);
             } else {
               setKeyStoreStatus('fail');
               const body = await resp.json().catch(() => ({}));
@@ -263,12 +356,15 @@ const App: React.FC = () => {
           console.warn('Error storing key remotely:', err);
         }
 
-        // Always store locally for developer convenience, but prefer server storage in prod.
-        try { localStorage.setItem('ad_api_key', key.trim()); } catch (e) { /* ignore */ }
+        // Only store locally when explicitly running in local development.
+        if (isLocalDev) {
+          try { localStorage.setItem('ad_api_key', key.trim()); } catch (e) { /* ignore */ }
+        }
         setIsKeyConnected(true);
         setKeySource('manual');
         localStorage.setItem('ad_key_connected', 'true');
         if (storedRemotely) setError(null);
+        if (storedRemotely) setServerKeyExists(true);
       } else if (key !== null) {
         setError('Invalid key provided. Key not stored.');
       }
@@ -333,6 +429,25 @@ const App: React.FC = () => {
   const addBreakdown = (breakdown: ProjectBreakdown) => {
     setBreakdowns(prev => [breakdown, ...prev]);
     setTimeout(() => setCurrentView('COMMUNITY'), 500);
+  };
+
+  const handleRemoveServerKey = async () => {
+    if (!user) return;
+    try {
+      const idToken = await user.getIdToken();
+      const resp = await fetch('/api/remove-key', { method: 'POST', headers: { Authorization: `Bearer ${idToken}` } });
+      if (resp.ok) {
+        setServerKeyExists(false);
+        setKeyStoreStatus('idle');
+        setError(null);
+      } else {
+        const body = await resp.json().catch(() => ({}));
+        setError(body?.error || 'Failed to remove key');
+      }
+    } catch (e) {
+      console.error('remove key failed', e);
+      setError('Failed to remove key');
+    }
   };
 
   // --- ONBOARDING SCREENS ---
@@ -415,8 +530,16 @@ const App: React.FC = () => {
               <button onClick={handleConnectKey} className="w-full py-6 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-black uppercase tracking-[0.2em] text-[12px] shadow-[0_20px_50px_rgba(59,130,246,0.3)] transition-all active:scale-95">
                 Link Project Key
               </button>
+              {serverKeyExists && (
+                <div className="mt-3 p-3 bg-zinc-900/30 rounded-xl border border-white/5 text-center text-sm">
+                  <span className="font-black text-zinc-200 tracking-widest">A project key is stored for your account on the server.</span>
+                  <div className="mt-2">
+                    <button onClick={handleRemoveServerKey} className="px-4 py-2 bg-red-600 text-white rounded-md">Remove stored key</button>
+                  </div>
+                </div>
+              )}
                 <div className="mt-3 text-center">
-                  <button onClick={() => setShowByokHelp(true)} className="text-[11px] text-blue-400 underline">Get help with BYOK API KEY</button>
+                    <button type="button" onClick={handleOpenByok} className="text-[11px] text-blue-400 underline" aria-haspopup="dialog">Get help with BYOK API KEY</button>
                   <span className="mx-2 text-zinc-600">•</span>
                   <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-400 underline">Get an API key (Google Cloud Console)</a>
                 </div>
@@ -424,31 +547,13 @@ const App: React.FC = () => {
           ) : null}
           
           <p className="text-[9px] text-zinc-800 uppercase font-black tracking-[0.6em]">System Protocol v4.2 • Secured</p>
+
+          {byokPortal}
+
         </div>
       </div>
     );
   }
-
-  // BYOK helper modal (rendered at top-level so it overlays onboarding)
-  const byokCreateCommands = `# In Cloud Shell (already authenticated in console)
-gcloud config set project ${firebaseConfig.projectId}
-gcloud services enable generativeai.googleapis.com
-gcloud services enable iam.googleapis.com
-gcloud services enable iamcredentials.googleapis.com
-# Create an API key and print only the key string (may require alpha component):
-gcloud alpha services api-keys create --display-name="ArtDirectorAI BYOK" --format="get(key)"`;
-
-  const copyByokCommands = async () => {
-    try {
-      await navigator.clipboard.writeText(byokCreateCommands);
-      setError(null);
-    } catch (e) {
-      setError('Failed to copy commands to clipboard.');
-    }
-  };
-
-  const handleCloseByok = () => setShowByokHelp(false);
-
 
   return (
     <div className="min-h-screen bg-[#080808] text-zinc-100 selection:bg-blue-500/30">
@@ -498,6 +603,14 @@ gcloud alpha services api-keys create --display-name="ArtDirectorAI BYOK" --form
               <div className="mt-2">
                 <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-400 underline">Where to get an API key</a>
               </div>
+              {serverKeyExists && (
+                <div className="p-3 mt-2 bg-zinc-900/30 rounded-xl border border-white/5 text-[11px]">
+                  <div className="flex items-center justify-between">
+                    <span className="font-black uppercase tracking-widest text-zinc-300">Server Key: Stored</span>
+                    <button onClick={handleRemoveServerKey} className="text-[10px] text-red-400 hover:underline">Remove key</button>
+                  </div>
+                </div>
+              )}
               <button onClick={handleSignOut} className="w-full text-left p-4 hover:bg-white/5 rounded-xl transition-colors flex items-center space-x-3 text-zinc-500 hover:text-white group">
                 <svg className="w-4 h-4 group-hover:text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
                 <span className="text-[10px] font-black uppercase tracking-widest">Logout Session</span>
@@ -657,26 +770,6 @@ gcloud alpha services api-keys create --display-name="ArtDirectorAI BYOK" --form
           </section>
         </div>
       </main>
-
-      {showByokHelp && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center">
-          <div className="absolute inset-0 bg-black/60" onClick={handleCloseByok}></div>
-          <div className="relative z-10 w-full max-w-2xl mx-4 glass p-6 rounded-2xl border border-white/5">
-            <div className="flex items-start justify-between">
-              <h3 className="text-lg font-black">Help: Create BYOK API Key (Cloud Shell)</h3>
-              <button onClick={handleCloseByok} className="text-zinc-400 hover:text-white">Close</button>
-            </div>
-            <p className="text-zinc-400 mt-3">Open the Cloud Shell in the Google Cloud Console and paste the commands below. The final command prints the API key string — copy that value and paste it into the app when it asks for your Project Key.</p>
-            <pre className="bg-zinc-900 rounded p-4 text-sm mt-4 overflow-auto"><code>{byokCreateCommands}</code></pre>
-            <div className="mt-4 flex items-center space-x-3">
-              <button onClick={copyByokCommands} className="px-4 py-2 bg-blue-600 text-white rounded">Copy commands</button>
-              <button onClick={() => { navigator.clipboard.writeText('Run the last command output (the API key) and paste it into the app when prompted.'); }} className="px-4 py-2 bg-zinc-800 text-zinc-200 rounded">Copy paste hint</button>
-              <button onClick={handleCloseByok} className="px-4 py-2 border rounded border-white/10">Done</button>
-            </div>
-            <p className="text-[11px] text-zinc-500 mt-3">Note: If your Cloud Shell environment already authenticates to your Google account, you can run these commands directly. The app only needs the API key string (looks like a long alphanumeric token).</p>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

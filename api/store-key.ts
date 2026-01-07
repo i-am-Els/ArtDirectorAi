@@ -51,7 +51,30 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (!key || typeof key !== 'string' || key.length < 20) {
       return res.status(400).json({ error: 'Invalid key' });
     }
-    // optional: validate key by making a quick test call (left as TODO)
+    // Validate key by making a quick test request to Generative API models endpoint
+    try {
+      const controller = new AbortController();
+      const id = setTimeout(() => controller.abort(), 5000);
+      const testUrl = `https://generativelanguage.googleapis.com/v1/models?key=${encodeURIComponent(
+        key.trim()
+      )}`;
+      const resp = await fetch(testUrl, {
+        method: 'GET',
+        signal: controller.signal,
+      });
+      clearTimeout(id);
+      if (!resp.ok) {
+        console.warn('Key validation failed', resp.status);
+        if (resp.status === 401 || resp.status === 403) {
+          return res.status(400).json({ error: 'Invalid API key' });
+        }
+        return res.status(400).json({ error: 'Unable to validate API key' });
+      }
+    } catch (e: any) {
+      console.error('Key validation error', e);
+      return res.status(400).json({ error: 'Key validation request failed' });
+    }
+
     const ciphertext = encrypt(key.trim());
     await db.collection('user_keys').doc(uid).set(
       {
