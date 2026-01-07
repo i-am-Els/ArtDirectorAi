@@ -416,11 +416,9 @@ const App: React.FC = () => {
                 Link Project Key
               </button>
                 <div className="mt-3 text-center">
-                    <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-400 underline">Get an API key (Google Cloud Console)</a>
-                    <span className="mx-2 text-zinc-600">•</span>
-                    <a href="https://cloud.google.com/generative-ai/docs" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-400 underline">Generative AI docs</a>
-                    <span className="mx-2 text-zinc-600">•</span>
-                    <button onClick={() => setShowByokHelp(true)} className="text-[11px] text-blue-400 underline">Get help with BYOK API KEY</button>
+                  <button onClick={() => setShowByokHelp(true)} className="text-[11px] text-blue-400 underline">Get help with BYOK API KEY</button>
+                  <span className="mx-2 text-zinc-600">•</span>
+                  <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-400 underline">Get an API key (Google Cloud Console)</a>
                 </div>
             </div>
           ) : null}
