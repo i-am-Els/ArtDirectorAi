@@ -130,7 +130,12 @@
     }
   </style>
   <script>
-    window.process = window.process || { env: { API_KEY: '' } };
+    // Safer process shim for deployment
+    window.process = window.process || {};
+    window.process.env = window.process.env || {};
+    if (typeof window.process.env.API_KEY === 'undefined') {
+      window.process.env.API_KEY = '';
+    }
   </script>
 <script type="importmap">
 {

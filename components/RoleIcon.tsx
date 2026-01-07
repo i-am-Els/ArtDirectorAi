@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ArtRole } from '../types';
+import { ArtRole } from '../types.ts';
 
 interface RoleIconProps {
   role: ArtRole;

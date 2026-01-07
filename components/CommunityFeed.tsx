@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { CommunityPost } from '../types';
+import { CommunityPost } from '../types.ts';
 
 const MOCK_POSTS: CommunityPost[] = [
   {
