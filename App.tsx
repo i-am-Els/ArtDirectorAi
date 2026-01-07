@@ -52,6 +52,7 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadingImage, setIsLoadingImage] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [keyStoreStatus, setKeyStoreStatus] = useState<'idle'|'saving'|'ok'|'fail'>('idle');
   const [authDomainStatus, setAuthDomainStatus] = useState<'unknown'|'ok'|'fail'>('unknown');
   const [showReview, setShowReview] = useState(false);
   const [savedBriefs, setSavedBriefs] = useState<ArtBrief[]>([]);
@@ -218,19 +219,55 @@ const App: React.FC = () => {
       }
     }
 
-    // Fallback for local development: prompt user to paste an API key
+    // Fallback: prompt user to paste an API key. Allow authenticated users to store remotely.
     try {
-      const key = window.prompt('AI Studio bridge not found. Paste your Google AI Studio API key here for local development (will be stored in localStorage).');
+      const key = window.prompt('AI Studio bridge not found. Paste your Google AI Studio API key here. It will be stored encrypted on the server for your account.');
       if (key && key.length > 10) {
-        if (!isLocalDev) {
-          setError('Manual key entry is disabled in this environment for security. Use a server-side key or the platform bridge.');
+        // If the user is not signed in and not local dev, instruct them to sign in first
+        if (!user && !isLocalDev) {
+          setError('Please sign in first (Step 1) before linking a project key.');
           return;
         }
-        localStorage.setItem('ad_api_key', key.trim());
+        // Attempt to POST the key to the server-side store if user is authenticated
+        let storedRemotely = false;
+        setKeyStoreStatus('saving');
+        try {
+          if (user) {
+            const idToken = await user.getIdToken();
+            const resp = await fetch('/api/store-key', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${idToken}`,
+              },
+              body: JSON.stringify({ key: key.trim() }),
+            });
+            if (resp.ok) {
+              storedRemotely = true;
+              setKeyStoreStatus('ok');
+            } else {
+              setKeyStoreStatus('fail');
+              const body = await resp.json().catch(() => ({}));
+              console.warn('Remote store-key failed', body);
+            }
+          } else if (isLocalDev) {
+            // For local dev, allow storing locally only
+            storedRemotely = false;
+            setKeyStoreStatus('ok');
+          } else {
+            setKeyStoreStatus('fail');
+          }
+        } catch (err) {
+          setKeyStoreStatus('fail');
+          console.warn('Error storing key remotely:', err);
+        }
+
+        // Always store locally for developer convenience, but prefer server storage in prod.
+        try { localStorage.setItem('ad_api_key', key.trim()); } catch (e) { /* ignore */ }
         setIsKeyConnected(true);
         setKeySource('manual');
         localStorage.setItem('ad_key_connected', 'true');
-        setError(null);
+        if (storedRemotely) setError(null);
       } else if (key !== null) {
         setError('Invalid key provided. Key not stored.');
       }
@@ -377,6 +414,13 @@ const App: React.FC = () => {
               <button onClick={handleConnectKey} className="w-full py-6 bg-blue-600 hover:bg-blue-500 text-white rounded-2xl font-black uppercase tracking-[0.2em] text-[12px] shadow-[0_20px_50px_rgba(59,130,246,0.3)] transition-all active:scale-95">
                 Link Project Key
               </button>
+                <div className="mt-3 text-center">
+                    <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-400 underline">Get an API key (Google Cloud Console)</a>
+                    <span className="mx-2 text-zinc-600">•</span>
+                    <a href="https://cloud.google.com/generative-ai/docs" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-400 underline">Generative AI docs</a>
+                    <span className="mx-2 text-zinc-600">•</span>
+                    <a href="/scripts/create_api_key.ps1" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-400 underline">Script: Create API Key (PowerShell)</a>
+                </div>
             </div>
           ) : null}
           
@@ -431,6 +475,9 @@ const App: React.FC = () => {
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" /></svg>
                 <span className="text-[10px] font-black uppercase tracking-widest">Relink Key Bridge</span>
               </button>
+              <div className="mt-2">
+                <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-400 underline">Where to get an API key</a>
+              </div>
               <button onClick={handleSignOut} className="w-full text-left p-4 hover:bg-white/5 rounded-xl transition-colors flex items-center space-x-3 text-zinc-500 hover:text-white group">
                 <svg className="w-4 h-4 group-hover:text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
                 <span className="text-[10px] font-black uppercase tracking-widest">Logout Session</span>

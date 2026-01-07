@@ -22,22 +22,46 @@ const extractJSON = (text: string) => {
 export const generateBrief = async (
   params: GenerationParams & { useSearch?: boolean; proMode?: boolean }
 ): Promise<ArtBrief> => {
-  // Determine API key: prefer runtime-stored key (localStorage) for browser dev fallback,
-  // otherwise fall back to process.env for server environments.
-  const runtimeApiKey =
-    typeof window !== 'undefined'
-      ? localStorage.getItem('ad_api_key') || process.env.API_KEY
-      : process.env.API_KEY;
-  if (!runtimeApiKey)
-    throw new Error(
-      'API_KEY missing: Provide a Google AI Studio API key via the platform bridge or set `ad_api_key` in localStorage.'
-    );
-  const ai = new GoogleGenAI({ apiKey: runtimeApiKey });
+  // When running in the browser, proxy the request to our server so the server can
+  // use the per-user stored key. This avoids shipping user keys to the client in prod.
+  if (typeof window !== 'undefined') {
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+    };
+    try {
+      const firebaseAuth = await import('firebase/auth');
+      const auth = firebaseAuth.getAuth();
+      const user = auth.currentUser;
+      if (user) {
+        const idToken = await user.getIdToken();
+        headers['Authorization'] = `Bearer ${idToken}`;
+      }
+    } catch (e) {
+      // ignore - if firebase isn't available here, server will respond accordingly
+    }
 
+    const resp = await fetch('/api/generate', {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ type: 'brief', params }),
+    });
+    if (!resp.ok) {
+      const err = await resp.json().catch(() => ({ error: resp.statusText }));
+      throw new Error(err.error || 'Generation failed');
+    }
+    const body = await resp.json();
+    try {
+      return JSON.parse(body.text || '{}') as ArtBrief;
+    } catch (e) {
+      throw new Error('Failed to parse brief from server response');
+    }
+  }
+
+  // Server-side fallback: use process.env.API_KEY
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   const modelName = params.proMode
     ? 'gemini-3-pro-preview'
     : 'gemini-3-flash-preview';
-
   const systemPrompt = `You are a World-Class Studio Art Director. 
   Create a professional art production brief.
   
@@ -47,16 +71,6 @@ export const generateBrief = async (
   - Project Theme: ${params.theme}
   - Complexity Threshold: ${params.complexity}/10
   
-  Focus on:
-  - Industry-standard terminology (PBR, Subdiv, Silhouette, Flow, Texel Density).
-  - Specific technical pitfalls for a ${params.experience} level artist.
-  
-  ${
-    params.useSearch
-      ? 'Ground the brief in contemporary industry trends or technical documentation from major studios.'
-      : ''
-  }
-  
   Return ONLY valid JSON.`;
 
   const response = await ai.models.generateContent({
@@ -65,49 +79,10 @@ export const generateBrief = async (
     config: {
       systemInstruction: systemPrompt,
       responseMimeType: 'application/json',
-      tools: params.useSearch ? [{ googleSearch: {} }] : undefined,
-      responseSchema: {
-        type: Type.OBJECT,
-        properties: {
-          title: { type: Type.STRING },
-          summary: { type: Type.STRING },
-          keyDeliverables: { type: Type.ARRAY, items: { type: Type.STRING } },
-          technicalConstraints: {
-            type: Type.ARRAY,
-            items: { type: Type.STRING },
-          },
-          lightingMood: { type: Type.STRING },
-          compositionNotes: { type: Type.STRING },
-          materialNotes: { type: Type.STRING },
-          challengeFactor: { type: Type.STRING },
-        },
-        required: [
-          'title',
-          'summary',
-          'keyDeliverables',
-          'technicalConstraints',
-          'lightingMood',
-          'challengeFactor',
-        ],
-      },
     },
   });
 
-  const brief = extractJSON(response.text || '{}') as ArtBrief;
-
-  // Extract search grounding URLs if available
-  const groundingChunks =
-    response.candidates?.[0]?.groundingMetadata?.groundingChunks;
-  if (groundingChunks) {
-    brief.groundingUrls = groundingChunks
-      .filter((chunk: any) => chunk.web)
-      .map((chunk: any) => ({
-        uri: chunk.web.uri,
-        title: chunk.web.title,
-      }));
-  }
-
-  return brief;
+  return extractJSON(response.text || '{}') as ArtBrief;
 };
 
 export const generateReferenceImage = async (
@@ -115,16 +90,37 @@ export const generateReferenceImage = async (
   theme: string,
   proMode?: boolean
 ): Promise<string | null> => {
-  const runtimeApiKey =
-    typeof window !== 'undefined'
-      ? localStorage.getItem('ad_api_key') || process.env.API_KEY
-      : process.env.API_KEY;
-  if (!runtimeApiKey)
-    throw new Error(
-      'API_KEY missing: Provide a Google AI Studio API key via the platform bridge or set `ad_api_key` in localStorage.'
-    );
-  const ai = new GoogleGenAI({ apiKey: runtimeApiKey });
+  if (typeof window !== 'undefined') {
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+    };
+    try {
+      const firebaseAuth = await import('firebase/auth');
+      const auth = firebaseAuth.getAuth();
+      const user = auth.currentUser;
+      if (user) {
+        const idToken = await user.getIdToken();
+        headers['Authorization'] = `Bearer ${idToken}`;
+      }
+    } catch (e) {}
 
+    const resp = await fetch('/api/generate', {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        type: 'image',
+        params: {
+          prompt: `Department: ${brief.role}. Topic: ${brief.title}. Mood: ${brief.lightingMood}. Theme: ${theme}. High-end production quality.`,
+          proMode,
+        },
+      }),
+    });
+    if (!resp.ok) return null;
+    const body = await resp.json();
+    return body.dataUrl || null;
+  }
+
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   // Use pro model for higher quality if requested, else flash image
   const modelName = proMode
     ? 'gemini-3-pro-image-preview'
@@ -135,7 +131,7 @@ export const generateReferenceImage = async (
   Topic: ${brief.title}. 
   Mood: ${brief.lightingMood}. 
   Theme: ${theme}. 
-  High-end production quality, 8k render style, focused composition. Strictly no text or UI elements.`;
+  High-end production quality, 8k render style, focused composition.`;
 
   try {
     const response = await ai.models.generateContent({
@@ -166,15 +162,43 @@ export const analyzePortfolio = async (
   experience: ExperienceLevel,
   proMode?: boolean
 ): Promise<PortfolioFeedback> => {
-  const runtimeApiKey =
-    typeof window !== 'undefined'
-      ? localStorage.getItem('ad_api_key') || process.env.API_KEY
-      : process.env.API_KEY;
-  if (!runtimeApiKey)
-    throw new Error(
-      'API_KEY missing: Provide a Google AI Studio API key via the platform bridge or set `ad_api_key` in localStorage.'
-    );
-  const ai = new GoogleGenAI({ apiKey: runtimeApiKey });
+  // Browser proxy to server
+  if (typeof window !== 'undefined') {
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+    };
+    try {
+      const firebaseAuth = await import('firebase/auth');
+      const auth = firebaseAuth.getAuth();
+      const user = auth.currentUser;
+      if (user) {
+        const idToken = await user.getIdToken();
+        headers['Authorization'] = `Bearer ${idToken}`;
+      }
+    } catch (e) {}
+
+    const resp = await fetch('/api/generate', {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        type: 'analyze',
+        params: { base64Image, role, experience, proMode },
+      }),
+    });
+    if (!resp.ok) {
+      const err = await resp.json().catch(() => ({ error: resp.statusText }));
+      throw new Error(err.error || 'Analysis failed');
+    }
+    const body = await resp.json();
+    try {
+      return JSON.parse(body.text || '{}') as PortfolioFeedback;
+    } catch (e) {
+      throw new Error('Failed to parse analysis from server response');
+    }
+  }
+
+  // Server-side fallback
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   const modelName = proMode ? 'gemini-3-pro-preview' : 'gemini-3-flash-preview';
 
   const response = await ai.models.generateContent({
