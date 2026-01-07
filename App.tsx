@@ -149,7 +149,7 @@ echo "⚠️ If this is your first project, you may need to enable billing in th
         <div className="flex items-start justify-between sticky top-0 bg-transparent pt-2">
           <div>
             <h3 className="text-lg font-black">Get help: Create a BYOK API Key</h3>
-            <p className="text-zinc-400 text-sm mt-1">Choose an option below — non-technical (Console UI) or technical (Cloud Shell script).</p>
+            <p className="text-zinc-400 text-sm mt-1">Follow these steps in Google Cloud Console to create your API key.</p>
           </div>
           <div className="flex items-start space-x-3">
             <button onClick={handleCloseByok} className="text-zinc-400 hover:text-white">Close</button>
@@ -157,57 +157,26 @@ echo "⚠️ If this is your first project, you may need to enable billing in th
         </div>
 
         <div className="mt-4 space-y-3">
-          <div className="flex flex-col space-y-2">
-            <button onClick={() => setByokPanel(byokPanel === 'non' ? null : 'non')} className="w-full text-left p-4 bg-zinc-950/40 rounded-lg flex items-center justify-between">
-              <div>
-                <p className="font-bold">Non-Technical: Google Cloud Console</p>
-                <p className="text-zinc-400 text-sm mt-1">Recommended for most users — create an API key using the credentials UI.</p>
-              </div>
-              <div className="text-zinc-400">{byokPanel === 'non' ? '▾' : '▸'}</div>
-            </button>
-            {byokPanel === 'non' && (
-              <div className="p-4 bg-zinc-950/20 rounded text-sm space-y-3">
-                <p className="text-zinc-300 font-semibold">Step-by-step (non-technical)</p>
-                <ol className="list-decimal list-inside text-zinc-400">
-                  <li><strong>Select or create a GCP project:</strong> Open <a href="https://console.cloud.google.com/" target="_blank" rel="noreferrer" className="underline text-blue-400">Google Cloud Console</a>. If you don't see a project selected, click <em>Create project</em> (top-right) and follow the prompts. Note: you may be asked to enable billing for a new project.</li>
-                  <li><strong>Enable the Generative AI API:</strong> In the console go to <a href="https://console.cloud.google.com/apis/library" target="_blank" rel="noreferrer" className="underline text-blue-400">APIs & Services → Library</a>, search for <em>Generative AI</em> (or Gemini), and click <em>Enable</em>.</li>
-                  <li>
-                    <strong>Create an API key:</strong> After the API is enabled, go to <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noreferrer" className="underline text-blue-400">APIs & Services → Credentials</a> → <em>Create credentials → API key</em>.
-                    <ul className="list-disc list-inside ml-5 mt-1 text-zinc-400">
-                      <li>In the <em>Create API key</em> dialog, do <strong>not</strong> check <em>Authenticate API calls through a service account</em>.</li>
-                      <li>Under <em>Application restrictions</em>, leave it set to <strong>None</strong>.</li>
-                      <li>Under <em>API restrictions</em>, select <strong>Restrict key</strong> and choose <strong>Generative Language API</strong>.</li>
-                      <li>Click <strong>Create</strong>.</li>
-                      <li>When the key appears, copy only the key string that is shown.</li>
-                    </ul>
-                  </li>
-                  <li><strong>Paste the key into this app:</strong> Return to ArtDirector AI and use <em>Link Project Key</em> to paste the key string. Do NOT paste project JSON or other outputs — only the key string.</li>
-                </ol>
-                <div className="mt-2 text-zinc-400 text-sm">
-                  <p><strong>Tip:</strong> Keep the Project ID (top-left) if you later want to revoke the key or check billing.</p>
-                </div>
-              </div>
-            )}
-
-            <button onClick={() => setByokPanel(byokPanel === 'tech' ? null : 'tech')} className="w-full text-left p-4 bg-zinc-900/40 rounded-lg flex items-center justify-between">
-              <div>
-                <p className="font-bold">Technical: Cloud Shell one-paste script</p>
-                <p className="text-zinc-400 text-sm mt-1">Power-user option: run the script in Cloud Shell to create a project, enable the API, and print the key.</p>
-              </div>
-              <div className="text-zinc-400">{byokPanel === 'tech' ? '▾' : '▸'}</div>
-            </button>
-            {byokPanel === 'tech' && (
-              <div className="p-4 bg-zinc-900 rounded text-sm">
-                <pre className="bg-black/50 rounded p-3 mt-3 overflow-auto text-xs"><code>{byokCreateCommands}</code></pre>
-                <div className="mt-3 flex items-center space-x-3">
-                  <button type="button" onClick={copyByokCommands} className="px-4 py-2 bg-blue-600 text-white rounded">Copy script</button>
-                  <a className="px-4 py-2 bg-zinc-800 text-zinc-200 rounded" target="_blank" rel="noopener noreferrer" href={`https://console.cloud.google.com/cloudshell?project=${firebaseConfig.projectId}`}>Open Cloud Shell</a>
-                  <button type="button" onClick={() => { setByokPanel(null); handleCloseByok(); }} className="px-4 py-2 border rounded border-white/10">Done</button>
-                </div>
-                {byokCopyStatus === 'copied' && <div className="text-green-400 text-sm mt-2">Script copied to clipboard.</div>}
-                {byokCopyStatus === 'fail' && <div className="text-red-400 text-sm mt-2">Copy failed. Select the script and press Ctrl+C.</div>}
-              </div>
-            )}
+          <div className="p-4 bg-zinc-950/20 rounded text-sm space-y-3">
+            <p className="text-zinc-300 font-semibold">Step-by-step</p>
+            <ol className="list-decimal list-inside text-zinc-400">
+              <li><strong>Select or create a GCP project:</strong> Open <a href="https://console.cloud.google.com/" target="_blank" rel="noreferrer" className="underline text-blue-400">Google Cloud Console</a>. If you don't see a project selected, click <em>Create project</em> (top-right) and follow the prompts. Note: you may be asked to enable billing for a new project.</li>
+              <li><strong>Enable the Generative AI API:</strong> In the console go to <a href="https://console.cloud.google.com/apis/library" target="_blank" rel="noreferrer" className="underline text-blue-400">APIs & Services → Library</a>, search for <em>Generative AI</em> (or Gemini), and click <em>Enable</em>.</li>
+              <li>
+                <strong>Create an API key:</strong> After the API is enabled, go to <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noreferrer" className="underline text-blue-400">APIs & Services → Credentials</a> → <em>Create credentials → API key</em>.
+                <ul className="list-disc list-inside ml-5 mt-1 text-zinc-400">
+                  <li>In the <em>Create API key</em> dialog, do <strong>not</strong> check <em>Authenticate API calls through a service account</em>.</li>
+                  <li>Under <em>Application restrictions</em>, leave it set to <strong>None</strong>.</li>
+                  <li>Under <em>API restrictions</em>, select <strong>Restrict key</strong> and choose <strong>Generative Language API</strong>.</li>
+                  <li>Click <strong>Create</strong>.</li>
+                  <li>When the key appears, copy only the key string that is shown.</li>
+                </ul>
+              </li>
+              <li><strong>Paste the key into this app:</strong> Return to ArtDirector AI and use <em>Link Project Key</em> to paste the key string. Do NOT paste project JSON or other outputs — only the key string.</li>
+            </ol>
+            <div className="mt-2 text-zinc-400 text-sm">
+              <p><strong>Tip:</strong> Keep the Project ID (top-left) if you later want to revoke the key or check billing.</p>
+            </div>
           </div>
 
           <div className="mt-3 text-xs text-zinc-500">
