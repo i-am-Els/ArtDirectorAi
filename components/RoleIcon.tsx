@@ -20,6 +20,10 @@ const RoleIcon: React.FC<RoleIconProps> = ({ role, className = "w-6 h-6" }) => {
     case ArtRole.CONCEPT_PROP:
     case ArtRole.HARD_SURFACE:
       return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}><rect x="4" y="4" width="16" height="16" rx="2" /><path d="M12 4v16M4 12h16" /></svg>;
+    case ArtRole.SURFACING_ARTIST:
+      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}><path d="M12 3v18M3 12h18M5 5l14 14M5 19L19 5" /></svg>;
+    case ArtRole.SHADER_ARTIST:
+      return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>;
     case ArtRole.STORYBOARD:
     case ArtRole.ANIMATION_2D:
     case ArtRole.ANIMATION_CINEMATIC:

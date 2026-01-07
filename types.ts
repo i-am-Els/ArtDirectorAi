@@ -1,11 +1,11 @@
 
-
 export enum ArtMedium {
   TWO_D = '2D',
   THREE_D = '3D'
 }
 
 export enum ArtRole {
+  // 2D Roles
   CONCEPT_CHAR = 'Character Concept Artist',
   CONCEPT_ENV = 'Environment Concept Artist',
   CONCEPT_PROP = 'Prop & Vehicle Designer',
@@ -17,9 +17,12 @@ export enum ArtRole {
   BG_PAINTER = 'Background Painter',
   COLOR_SCRIPT = 'Color Script/Lighting Keys',
 
+  // 3D Roles
   CHARACTER_3D = 'Character Artist',
   ENVIRONMENT_3D = 'Environment Artist',
   HARD_SURFACE = 'Hard Surface Modeler',
+  SURFACING_ARTIST = 'Texture & Material Artist',
+  SHADER_ARTIST = 'Shader/Technical Artist',
   RIGGING = 'Rigging Technical Director',
   ANIMATION_CINEMATIC = '3D Animator (Cinematic)',
   ANIMATION_GAMEPLAY = '3D Animator (Gameplay)',
@@ -48,6 +51,8 @@ export const RolesByMedium: Record<ArtMedium, ArtRole[]> = {
     ArtRole.CHARACTER_3D,
     ArtRole.ENVIRONMENT_3D,
     ArtRole.HARD_SURFACE,
+    ArtRole.SURFACING_ARTIST,
+    ArtRole.SHADER_ARTIST,
     ArtRole.RIGGING,
     ArtRole.ANIMATION_CINEMATIC,
     ArtRole.ANIMATION_GAMEPLAY,
@@ -67,26 +72,7 @@ export enum ExperienceLevel {
   EXPERT = 'Expert/Senior'
 }
 
-// Fix: Added missing GenerationParams interface
-export interface GenerationParams {
-  role: ArtRole;
-  experience: ExperienceLevel;
-  theme: string;
-  complexity: number;
-}
-
-// Fix: Added missing PortfolioFeedback interface
-export interface PortfolioFeedback {
-  strengths: string[];
-  areasToImprove: string[];
-  technicalAdvice: string;
-  overallScore: number;
-  nextSteps: string;
-}
-
 export interface ArtBrief {
-  id: string;
-  timestamp: number;
   title: string;
   summary: string;
   keyDeliverables: string[];
@@ -95,30 +81,31 @@ export interface ArtBrief {
   compositionNotes?: string;
   materialNotes?: string;
   challengeFactor: string;
+}
+
+export interface GenerationParams {
   role: ArtRole;
   experience: ExperienceLevel;
-  refImage?: string;
-  // Added to support required search grounding URL extraction
-  groundingUrls?: { uri: string; title: string }[];
+  theme: string;
+  complexity: number;
 }
 
-export interface ProjectBreakdown {
-  id: string;
-  briefId: string;
-  finishedImage: string;
-  productionNotes: string;
-  techniqueUsed: string;
-  timestamp: number;
+export interface PortfolioFeedback {
+  strengths: string[];
+  areasToImprove: string[];
+  technicalAdvice: string;
+  overallScore: number;
+  nextSteps: string;
 }
 
-export type AppView = 'GENERATOR' | 'ARCHIVE' | 'COMMUNITY';
+export type AppView = 'GENERATOR' | 'REVIEW' | 'COMMUNITY';
 
 export interface CommunityPost {
   id: string;
   artist: string;
   avatar: string;
-  brief: ArtBrief;
-  breakdown: ProjectBreakdown;
+  image: string;
+  briefTitle: string;
   likes: number;
   comments: number;
 }
