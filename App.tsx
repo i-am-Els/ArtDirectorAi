@@ -152,7 +152,7 @@ echo "⚠️ If this is your first project, you may need to enable billing in th
             <p className="text-zinc-400 text-sm mt-1">Choose an option below — non-technical (Console UI) or technical (Cloud Shell script).</p>
           </div>
           <div className="flex items-start space-x-3">
-            <button onClick={() => setByokPanel(null)} className="text-zinc-400 hover:text-white">Close</button>
+            <button onClick={handleCloseByok} className="text-zinc-400 hover:text-white">Close</button>
             <button onClick={() => setShowByokQuick(s => !s)} className="text-[11px] text-blue-400 underline">{showByokQuick ? 'Hide quick steps' : 'Quick steps'}</button>
           </div>
         </div>
@@ -178,8 +178,17 @@ echo "⚠️ If this is your first project, you may need to enable billing in th
               <div className="text-zinc-400">{byokPanel === 'non' ? '▾' : '▸'}</div>
             </button>
             {byokPanel === 'non' && (
-              <div className="p-4 bg-zinc-950/20 rounded text-sm">
-                <p className="text-zinc-400">Open the <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noreferrer" className="underline text-blue-400">Google Cloud Console → Credentials</a> and create an API key. Copy only the key string and paste it into the app when prompted.</p>
+              <div className="p-4 bg-zinc-950/20 rounded text-sm space-y-3">
+                <p className="text-zinc-300 font-semibold">Step-by-step (non-technical)</p>
+                <ol className="list-decimal list-inside text-zinc-400">
+                  <li><strong>Select or create a GCP project:</strong> Open <a href="https://console.cloud.google.com/" target="_blank" rel="noreferrer" className="underline text-blue-400">Google Cloud Console</a>. If you don't see a project selected, click <em>Create project</em> (top-right) and follow the prompts. Note: you may be asked to enable billing for a new project.</li>
+                  <li><strong>Enable the Generative AI API:</strong> In the console go to <a href="https://console.cloud.google.com/apis/library" target="_blank" rel="noreferrer" className="underline text-blue-400">APIs & Services → Library</a>, search for <em>Generative AI</em> (or Gemini), and click <em>Enable</em>.</li>
+                  <li><strong>Create an API key:</strong> After the API is enabled, go to <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noreferrer" className="underline text-blue-400">APIs & Services → Credentials</a> → <em>Create credentials → API key</em>. The console will show a short string — copy only that string.</li>
+                  <li><strong>Paste the key into this app:</strong> Return to ArtDirector AI and use <em>Link Project Key</em> to paste the key string. Do NOT paste project JSON or other outputs — only the key string.</li>
+                </ol>
+                <div className="mt-2 text-zinc-400 text-sm">
+                  <p><strong>Tip:</strong> Keep the Project ID (top-left) if you later want to revoke the key or check billing.</p>
+                </div>
               </div>
             )}
 
