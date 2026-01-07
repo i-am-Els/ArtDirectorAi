@@ -153,20 +153,8 @@ echo "⚠️ If this is your first project, you may need to enable billing in th
           </div>
           <div className="flex items-start space-x-3">
             <button onClick={handleCloseByok} className="text-zinc-400 hover:text-white">Close</button>
-            <button onClick={() => setShowByokQuick(s => !s)} className="text-[11px] text-blue-400 underline">{showByokQuick ? 'Hide quick steps' : 'Quick steps'}</button>
           </div>
         </div>
-
-        {showByokQuick && (
-          <div className="mt-3 p-3 bg-zinc-900/20 rounded text-sm text-zinc-200">
-            <strong>Quick steps</strong>
-            <ol className="list-decimal list-inside mt-2 text-zinc-400">
-              <li>Open Cloud Shell or Cloud Console.</li>
-              <li>Create an API key (we recommend the Console UI).</li>
-              <li>Copy only the key string and paste it into the app when asked.</li>
-            </ol>
-          </div>
-        )}
 
         <div className="mt-4 space-y-3">
           <div className="flex flex-col space-y-2">
