@@ -55,8 +55,10 @@ const App: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [keyStoreStatus, setKeyStoreStatus] = useState<'idle'|'saving'|'ok'|'fail'>('idle');
   const [serverKeyExists, setServerKeyExists] = useState<boolean>(false);
+  const [serverProjectId, setServerProjectId] = useState<string | null>(null);
   const [showByokHelp, setShowByokHelp] = useState(false);
   const [byokCopyStatus, setByokCopyStatus] = useState<'idle'|'copied'|'fail'>('idle');
+  const [showByokQuick, setShowByokQuick] = useState(false);
   const [authDomainStatus, setAuthDomainStatus] = useState<'unknown'|'ok'|'fail'>('unknown');
   const [showReview, setShowReview] = useState(false);
   const [savedBriefs, setSavedBriefs] = useState<ArtBrief[]>([]);
@@ -89,14 +91,32 @@ const App: React.FC = () => {
   const isLocalDev = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
 
   // BYOK helper modal data and actions (rendered via portal)
-  const byokCreateCommands = `# In Cloud Shell (already authenticated in console)
-gcloud config set project ${firebaseConfig.projectId}
-gcloud services enable generativeai.googleapis.com
-gcloud services enable iam.googleapis.com
-gcloud services enable iamcredentials.googleapis.com
-# Create an API key and print only the key string (Cloud Console UI recommended):
-# If gcloud alpha is available:
-gcloud alpha services api-keys create --display-name="ArtDirectorAI BYOK" --format="get(key)"`;
+  const byokCreateCommands = `# One-paste Cloud Shell script (creates project + key in YOUR account)
+# Note: Google will ask you to attach billing if required. This script runs in your account.
+PROJECT_ID="artdirectorai-$(date +%s)"
+echo "Creating project: $PROJECT_ID"
+gcloud projects create $PROJECT_ID
+gcloud config set project $PROJECT_ID
+echo "Project set to $PROJECT_ID"
+
+# Enable required API for Generative AI
+gcloud services enable generativelanguage.googleapis.com
+
+# Create an API key and print only the key string
+API_KEY=$(gcloud alpha services api-keys create \
+  --display-name="ArtDirectorAI BYOK" \
+  --format="get(key)")
+
+echo ""
+echo "=============================="
+echo "PROJECT ID:"
+echo $PROJECT_ID
+echo ""
+echo "GOOGLE GENAI API KEY:"
+echo $API_KEY
+echo "=============================="
+echo ""
+echo "⚠️ If this is your first project, you may need to enable billing in the Cloud Console."`;
 
   const copyByokCommands = async () => {
     try {
@@ -124,23 +144,51 @@ gcloud alpha services api-keys create --display-name="ArtDirectorAI BYOK" --form
     <div className="fixed inset-0 z-[9999] flex items-center justify-center">
       <div className="absolute inset-0 bg-black/60" onClick={handleCloseByok}></div>
       <div className="relative z-10 w-full max-w-2xl mx-4 glass p-6 rounded-2xl border border-white/5">
-        <div className="flex items-start justify-between">
-          <h3 className="text-lg font-black">Help: Create BYOK API Key (Cloud Shell)</h3>
-          <button onClick={handleCloseByok} className="text-zinc-400 hover:text-white">Close</button>
+          <div className="flex items-start justify-between">
+            <h3 className="text-lg font-black">Get help: Create a BYOK API Key (one-paste script)</h3>
+            <button onClick={handleCloseByok} className="text-zinc-400 hover:text-white">Close</button>
+          </div>
+          <div className="flex items-center justify-between">
+            <p className="text-zinc-400 mt-3 mr-4">We can help you create an AI Studio API key in your Google Cloud account. The script below will create a new project in <strong>your</strong> account, enable the Generative AI API, and print the Project ID and API key. <strong>Google may ask you to attach billing to the project — you must approve that in the Cloud Console.</strong></p>
+            <button onClick={() => setShowByokQuick(s => !s)} className="ml-4 text-[11px] text-blue-400 underline">{showByokQuick ? 'Hide quick steps' : 'Quick steps'}</button>
+          </div>
+          {showByokQuick && (
+            <div className="mt-3 p-3 bg-zinc-900/20 rounded text-sm text-zinc-200">
+              <strong>Quick steps</strong>
+              <ol className="list-decimal list-inside mt-2 text-zinc-400">
+                <li>Open Cloud Shell or Cloud Console.</li>
+                <li>Create an API key (we recommend the Console UI).</li>
+                <li>Copy only the key string and paste it into the app when asked.</li>
+              </ol>
+            </div>
+          )}
+          <div className="mt-4 grid gap-4">
+            <div className="bg-zinc-950/40 p-4 rounded text-sm">
+              <p className="font-bold">Recommended for non-technical users</p>
+              <p className="text-zinc-400 mt-2">Open the <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noreferrer" className="underline text-blue-400">Google Cloud Console → Credentials</a> and create an API key using the UI. Copy the final key string and paste it into the app when prompted.</p>
+            </div>
+            <div className="bg-zinc-900 rounded p-4 text-sm">
+              <p className="font-bold">Power-user: one-paste Cloud Shell script</p>
+              <p className="text-zinc-400 mt-2">If you prefer the Cloud Shell, paste the script below into Cloud Shell and run it. Copy only the final API key string printed under <strong>GOOGLE GENAI API KEY</strong>.</p>
+              <pre className="bg-black/50 rounded p-3 mt-3 overflow-auto text-xs"><code>{byokCreateCommands}</code></pre>
+              <div className="mt-3 flex items-center space-x-3">
+                <button type="button" onClick={copyByokCommands} className="px-4 py-2 bg-blue-600 text-white rounded">Copy script</button>
+                <a className="px-4 py-2 bg-zinc-800 text-zinc-200 rounded" target="_blank" rel="noopener noreferrer" href={`https://console.cloud.google.com/cloudshell?project=${firebaseConfig.projectId}`}>Open Cloud Shell</a>
+                <button type="button" onClick={handleCloseByok} className="px-4 py-2 border rounded border-white/10">Done</button>
+              </div>
+              {byokCopyStatus === 'copied' && <div className="text-green-400 text-sm mt-2">Script copied to clipboard.</div>}
+              {byokCopyStatus === 'fail' && <div className="text-red-400 text-sm mt-2">Copy failed. Select the script and press Ctrl+C.</div>}
+            </div>
+          </div>
+          <div className="mt-3 text-xs text-zinc-500">
+            <p className="font-semibold">Important:</p>
+            <ul className="list-disc list-inside mt-1 space-y-1">
+              <li>Billing may be required — you must approve billing in Google Cloud Console.</li>
+              <li>Deleting the project will revoke the key. Keep the Project ID if you want to manage or delete the key later.</li>
+              <li>Only paste the API key string into the app when prompted — do not paste project or script output.</li>
+            </ul>
+          </div>
         </div>
-        <p className="text-zinc-400 mt-3">Open the Cloud Shell in the Google Cloud Console and paste the commands below. The final command prints the API key string — copy that value and paste it into the app when it asks for your Project Key.</p>
-        <pre className="bg-zinc-900 rounded p-4 text-sm mt-4 overflow-auto"><code>{byokCreateCommands}</code></pre>
-        <div className="mt-4 flex items-center space-x-3">
-          <button type="button" onClick={copyByokCommands} className="px-4 py-2 bg-blue-600 text-white rounded">Copy commands</button>
-          <a className="px-4 py-2 bg-zinc-800 text-zinc-200 rounded" target="_blank" rel="noopener noreferrer" href={`https://console.cloud.google.com/cloudshell?project=${firebaseConfig.projectId}`}>Open Cloud Shell</a>
-          <button type="button" onClick={handleCloseByok} className="px-4 py-2 border rounded border-white/10">Done</button>
-        </div>
-        <div className="mt-3">
-          {byokCopyStatus === 'copied' && <div className="text-green-400 text-sm">Commands copied to clipboard.</div>}
-          {byokCopyStatus === 'fail' && <div className="text-red-400 text-sm">Copy failed. Select the commands and press Ctrl+C.</div>}
-          <p className="text-[11px] text-zinc-500 mt-3">Note: If your Cloud Shell environment already authenticates to your Google account, you can run these commands directly. The app only needs the API key string (a long alphanumeric token). Use the Cloud Console UI to create a key if the CLI is not available.</p>
-        </div>
-      </div>
     </div>
   );
 
@@ -191,12 +239,14 @@ gcloud alpha services api-keys create --display-name="ArtDirectorAI BYOK" --form
       if (resp.ok) {
         const body = await resp.json();
         setServerKeyExists(Boolean(body?.hasKey));
+        setServerProjectId(body?.projectId || null);
         return Boolean(body?.hasKey);
       }
     } catch (e) {
       console.warn('Failed to fetch key status', e);
     }
     setServerKeyExists(false);
+    setServerProjectId(null);
     return false;
   }, [user]);
 
@@ -316,6 +366,8 @@ gcloud alpha services api-keys create --display-name="ArtDirectorAI BYOK" --form
     try {
       const key = window.prompt('AI Studio bridge not found. Paste your Google AI Studio API key here. It will be stored encrypted on the server for your account.');
       if (key && key.length > 10) {
+        const projectIdPrompt = window.prompt('Optional: enter the GCP Project ID that will be billed for this key (leave blank to skip)');
+        const projectId = projectIdPrompt && projectIdPrompt.trim().length > 0 ? projectIdPrompt.trim() : undefined;
         // If the user is not signed in and not local dev, instruct them to sign in first
         if (!user && !isLocalDev) {
           setError('Please sign in first (Step 1) before linking a project key.');
@@ -333,12 +385,14 @@ gcloud alpha services api-keys create --display-name="ArtDirectorAI BYOK" --form
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${idToken}`,
               },
-              body: JSON.stringify({ key: key.trim() }),
+              body: JSON.stringify({ key: key.trim(), projectId }),
             });
             if (resp.ok) {
+              const body = await resp.json().catch(() => ({}));
               storedRemotely = true;
               setKeyStoreStatus('ok');
               setServerKeyExists(true);
+              setServerProjectId(body?.projectId || null);
             } else {
               setKeyStoreStatus('fail');
               const body = await resp.json().catch(() => ({}));
@@ -364,7 +418,6 @@ gcloud alpha services api-keys create --display-name="ArtDirectorAI BYOK" --form
         setKeySource('manual');
         localStorage.setItem('ad_key_connected', 'true');
         if (storedRemotely) setError(null);
-        if (storedRemotely) setServerKeyExists(true);
       } else if (key !== null) {
         setError('Invalid key provided. Key not stored.');
       }
@@ -532,7 +585,8 @@ gcloud alpha services api-keys create --display-name="ArtDirectorAI BYOK" --form
               </button>
               {serverKeyExists && (
                 <div className="mt-3 p-3 bg-zinc-900/30 rounded-xl border border-white/5 text-center text-sm">
-                  <span className="font-black text-zinc-200 tracking-widest">A project key is stored for your account on the server.</span>
+                  <div className="font-black text-zinc-200 tracking-widest">A project key is stored for your account on the server.</div>
+                  {serverProjectId && <div className="text-xs text-zinc-400 mt-2">Billed to: <span className="font-bold text-zinc-100">{serverProjectId}</span></div>}
                   <div className="mt-2">
                     <button onClick={handleRemoveServerKey} className="px-4 py-2 bg-red-600 text-white rounded-md">Remove stored key</button>
                   </div>
@@ -606,7 +660,10 @@ gcloud alpha services api-keys create --display-name="ArtDirectorAI BYOK" --form
               {serverKeyExists && (
                 <div className="p-3 mt-2 bg-zinc-900/30 rounded-xl border border-white/5 text-[11px]">
                   <div className="flex items-center justify-between">
-                    <span className="font-black uppercase tracking-widest text-zinc-300">Server Key: Stored</span>
+                    <div className="text-left">
+                      <div className="font-black uppercase tracking-widest text-zinc-300">Server Key: Stored</div>
+                      {serverProjectId && <div className="text-xs text-zinc-400 mt-1">Billed to: <span className="font-bold text-zinc-100">{serverProjectId}</span></div>}
+                    </div>
                     <button onClick={handleRemoveServerKey} className="text-[10px] text-red-400 hover:underline">Remove key</button>
                   </div>
                 </div>

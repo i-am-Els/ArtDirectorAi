@@ -24,7 +24,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const uid = await verifyFirebaseToken(req);
     const doc = await db.collection('user_keys').doc(uid).get();
-    return res.json({ hasKey: doc.exists });
+    if (!doc.exists) return res.json({ hasKey: false });
+    const data = doc.data() || {};
+    return res.json({ hasKey: true, projectId: data.project_id || null });
   } catch (err: any) {
     console.error('key-status error', err);
     return res.status(500).json({ error: err.message || String(err) });

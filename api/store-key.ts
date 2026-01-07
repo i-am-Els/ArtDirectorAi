@@ -47,7 +47,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Method not allowed' });
   try {
     const uid = await verifyFirebaseToken(req);
-    const { key } = req.body;
+    const { key, projectId } = req.body;
     if (!key || typeof key !== 'string' || key.length < 20) {
       return res.status(400).json({ error: 'Invalid key' });
     }
@@ -76,14 +76,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     const ciphertext = encrypt(key.trim());
-    await db.collection('user_keys').doc(uid).set(
-      {
-        encrypted_key: ciphertext,
-        created_at: admin.firestore.FieldValue.serverTimestamp(),
-      },
-      { merge: true }
-    );
-    return res.json({ ok: true });
+    await db
+      .collection('user_keys')
+      .doc(uid)
+      .set(
+        {
+          encrypted_key: ciphertext,
+          project_id: projectId || null,
+          created_at: admin.firestore.FieldValue.serverTimestamp(),
+        },
+        { merge: true }
+      );
+    return res.json({ ok: true, projectId: projectId || null });
   } catch (err: any) {
     console.error('store-key error', err);
     return res.status(500).json({ error: err.message || String(err) });
