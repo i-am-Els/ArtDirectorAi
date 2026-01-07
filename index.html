@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ArtDirector AI</title>
+  <title>ArtDirector AI | Professional Studio Briefs</title>
+  <meta name="description" content="AI-powered art director for concept artists and designers. Generate professional studio briefs with copyable PDF exports.">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ArtDirector AI: Production Ready Assignments">
+  <meta property="og:description" content="Generate industry-standard briefs for Concept Art, 3D, and Materials with elite AI guidance.">
+  <meta name="theme-color" content="#0a0a0a">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
@@ -40,12 +48,12 @@
     }
 
     /* 
-       ULTRA HIGH FIDELITY PDF PRINT STYLES 
-       This produces a selectable, interactive PDF that looks identical to the app.
+       DEPLOYMENT-READY HIGH FIDELITY PRINT STYLES 
+       Optimized for A4 selectable text PDF output.
     */
     @media print {
       @page {
-        margin: 0.8cm;
+        margin: 1.5cm;
         size: A4;
       }
       
@@ -55,18 +63,11 @@
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
         color-adjust: exact !important;
-        overflow: visible !important;
-        height: auto !important;
       }
 
-      .no-print, header, aside, footer, nav, button {
+      /* Hide UI elements that aren't part of the brief */
+      .no-print, header, aside, footer, nav, button, input, select {
         display: none !important;
-      }
-
-      #root {
-        background-color: #0a0a0a !important;
-        padding: 0 !important;
-        margin: 0 !important;
       }
 
       main {
@@ -74,14 +75,10 @@
         margin: 0 !important;
         width: 100% !important;
         max-width: 100% !important;
-        display: block !important;
+        background-color: #0a0a0a !important;
       }
 
-      /* Flatten the layout for clean printing */
-      .grid {
-        display: grid !important;
-      }
-      
+      /* Flatten grid for PDF readability */
       .lg\:col-span-8 {
         grid-column: span 12 / span 12 !important;
         width: 100% !important;
@@ -94,7 +91,7 @@
         box-shadow: none !important;
       }
 
-      /* Fix gradient text for PDF generation */
+      /* Ensure gradients are converted to solid colors for PDF stability */
       .gradient-text {
         background: none !important;
         -webkit-background-clip: unset !important;
@@ -103,41 +100,33 @@
         font-weight: 800 !important;
       }
 
-      /* Force background gradients to show */
       .bg-gradient-to-br {
         background-image: linear-gradient(to bottom right, #18181b, #09090b) !important;
       }
 
-      .border-blue-500\/20 {
-        border-color: rgba(59, 130, 246, 0.4) !important;
-      }
-
-      /* Prevent page breaks inside blocks */
-      section, .p-6, .rounded-xl, .grid > div {
-        page-break-inside: avoid;
-        break-inside: avoid;
-        margin-bottom: 1.5rem;
-      }
-
-      img {
-        max-width: 100% !important;
-        height: auto !important;
-        border-radius: 12px !important;
-        display: block;
-        margin: 1rem auto;
-      }
-      
-      /* Ensure text is selectable and high contrast */
+      /* Force selectable text contrast */
       p, li, span, h1, h2, h3, h4 {
         color: #e5e5e5 !important;
         text-shadow: none !important;
-        user-select: text !important;
+        orphans: 3;
+        widows: 3;
       }
       
       .text-blue-400 { color: #60a5fa !important; }
       .text-purple-400 { color: #a855f7 !important; }
       .text-zinc-400 { color: #a1a1aa !important; }
-      .text-zinc-300 { color: #d4d4d8 !important; }
+
+      img {
+        max-height: 400px !important;
+        object-fit: contain !important;
+        border-radius: 12px !important;
+        page-break-inside: avoid;
+      }
+      
+      section, .rounded-xl {
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
     }
   </style>
 <script type="importmap">

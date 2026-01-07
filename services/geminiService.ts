@@ -1,11 +1,13 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 import { ArtBrief, GenerationParams, PortfolioFeedback, ArtRole, ExperienceLevel } from "../types";
 
-const API_KEY = process.env.API_KEY || "";
-
+/**
+ * Service to generate Art Briefs.
+ * Strictly initializes the API client with process.env.API_KEY inside each call
+ * to ensure environment variables are resolved correctly in production.
+ */
 export const generateBrief = async (params: GenerationParams): Promise<ArtBrief> => {
-  const ai = new GoogleGenAI({ apiKey: API_KEY });
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
   const systemPrompt = `You are an elite Art Director from a major studio (e.g., Rockstar, Framestore, Sony Santa Monica).
   Compose a professional production brief for a ${params.role} at ${params.experience} level.
@@ -51,12 +53,15 @@ export const generateBrief = async (params: GenerationParams): Promise<ArtBrief>
   return JSON.parse(response.text || "{}") as ArtBrief;
 };
 
+/**
+ * Multimodal analysis of user-uploaded artwork.
+ */
 export const analyzePortfolio = async (
   base64Image: string, 
   role: ArtRole, 
   experience: ExperienceLevel
 ): Promise<PortfolioFeedback> => {
-  const ai = new GoogleGenAI({ apiKey: API_KEY });
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
   const systemPrompt = `You are an elite Art Director reviewing a portfolio submission for a ${role} at a ${experience} level.
   Analyze the image multimodal data for design fundamentals (color, value, composition) and role-specific technicals (topology if 3D, anatomy if characters, modularity if environments).
@@ -90,8 +95,11 @@ export const analyzePortfolio = async (
   return JSON.parse(response.text || "{}") as PortfolioFeedback;
 };
 
+/**
+ * Visual reference generator for the generated brief.
+ */
 export const generateReferenceImage = async (brief: ArtBrief, theme: string): Promise<string | null> => {
-  const ai = new GoogleGenAI({ apiKey: API_KEY });
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   const prompt = `Art reference for studio brief: ${brief.title}. Theme: ${theme}. Mood: ${brief.lightingMood}. Extremely detailed concept art, cinematic lighting, 8k professional production quality.`;
 
   try {
