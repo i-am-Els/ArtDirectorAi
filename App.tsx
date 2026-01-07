@@ -53,6 +53,7 @@ const App: React.FC = () => {
   const [isLoadingImage, setIsLoadingImage] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [keyStoreStatus, setKeyStoreStatus] = useState<'idle'|'saving'|'ok'|'fail'>('idle');
+  const [showByokHelp, setShowByokHelp] = useState(false);
   const [authDomainStatus, setAuthDomainStatus] = useState<'unknown'|'ok'|'fail'>('unknown');
   const [showReview, setShowReview] = useState(false);
   const [savedBriefs, setSavedBriefs] = useState<ArtBrief[]>([]);
@@ -419,7 +420,7 @@ const App: React.FC = () => {
                     <span className="mx-2 text-zinc-600">•</span>
                     <a href="https://cloud.google.com/generative-ai/docs" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-400 underline">Generative AI docs</a>
                     <span className="mx-2 text-zinc-600">•</span>
-                    <a href="/scripts/create_api_key.ps1" target="_blank" rel="noopener noreferrer" className="text-[11px] text-blue-400 underline">Script: Create API Key (PowerShell)</a>
+                    <button onClick={() => setShowByokHelp(true)} className="text-[11px] text-blue-400 underline">Get help with BYOK API KEY</button>
                 </div>
             </div>
           ) : null}
@@ -429,6 +430,27 @@ const App: React.FC = () => {
       </div>
     );
   }
+
+  // BYOK helper modal (rendered at top-level so it overlays onboarding)
+  const byokCreateCommands = `# In Cloud Shell (already authenticated in console)
+gcloud config set project ${firebaseConfig.projectId}
+gcloud services enable generativeai.googleapis.com
+gcloud services enable iam.googleapis.com
+gcloud services enable iamcredentials.googleapis.com
+# Create an API key and print only the key string (may require alpha component):
+gcloud alpha services api-keys create --display-name="ArtDirectorAI BYOK" --format="get(key)"`;
+
+  const copyByokCommands = async () => {
+    try {
+      await navigator.clipboard.writeText(byokCreateCommands);
+      setError(null);
+    } catch (e) {
+      setError('Failed to copy commands to clipboard.');
+    }
+  };
+
+  const handleCloseByok = () => setShowByokHelp(false);
+
 
   return (
     <div className="min-h-screen bg-[#080808] text-zinc-100 selection:bg-blue-500/30">
@@ -637,6 +659,26 @@ const App: React.FC = () => {
           </section>
         </div>
       </main>
+
+      {showByokHelp && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/60" onClick={handleCloseByok}></div>
+          <div className="relative z-10 w-full max-w-2xl mx-4 glass p-6 rounded-2xl border border-white/5">
+            <div className="flex items-start justify-between">
+              <h3 className="text-lg font-black">Help: Create BYOK API Key (Cloud Shell)</h3>
+              <button onClick={handleCloseByok} className="text-zinc-400 hover:text-white">Close</button>
+            </div>
+            <p className="text-zinc-400 mt-3">Open the Cloud Shell in the Google Cloud Console and paste the commands below. The final command prints the API key string — copy that value and paste it into the app when it asks for your Project Key.</p>
+            <pre className="bg-zinc-900 rounded p-4 text-sm mt-4 overflow-auto"><code>{byokCreateCommands}</code></pre>
+            <div className="mt-4 flex items-center space-x-3">
+              <button onClick={copyByokCommands} className="px-4 py-2 bg-blue-600 text-white rounded">Copy commands</button>
+              <button onClick={() => { navigator.clipboard.writeText('Run the last command output (the API key) and paste it into the app when prompted.'); }} className="px-4 py-2 bg-zinc-800 text-zinc-200 rounded">Copy paste hint</button>
+              <button onClick={handleCloseByok} className="px-4 py-2 border rounded border-white/10">Done</button>
+            </div>
+            <p className="text-[11px] text-zinc-500 mt-3">Note: If your Cloud Shell environment already authenticates to your Google account, you can run these commands directly. The app only needs the API key string (looks like a long alphanumeric token).</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
