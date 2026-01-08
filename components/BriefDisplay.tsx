@@ -6,9 +6,18 @@ interface BriefDisplayProps {
   refImage: string | null;
   isLoadingImage: boolean;
   imageError?: boolean;
+  isPermissionError?: boolean;
+  onSelectKey?: () => void;
 }
 
-const BriefDisplay = forwardRef<HTMLDivElement, BriefDisplayProps>(({ brief, refImage, isLoadingImage, imageError }, ref) => {
+const BriefDisplay = forwardRef<HTMLDivElement, BriefDisplayProps>(({ 
+  brief, 
+  refImage, 
+  isLoadingImage, 
+  imageError, 
+  isPermissionError,
+  onSelectKey 
+}, ref) => {
   return (
     <div ref={ref} className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 bg-[#0a0a0a] p-2 md:p-4 rounded-2xl">
       {/* Header Section */}
@@ -16,7 +25,7 @@ const BriefDisplay = forwardRef<HTMLDivElement, BriefDisplayProps>(({ brief, ref
         <div className="flex items-center justify-between mb-2">
           <h2 className="text-3xl font-bold gradient-text">{brief.title}</h2>
           <div className="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-md text-[10px] font-bold text-blue-400 uppercase tracking-tighter">
-            Studio Assignment v2.6
+            Studio Assignment v3.1
           </div>
         </div>
         <p className="text-zinc-400 leading-relaxed text-lg">{brief.summary}</p>
@@ -62,17 +71,30 @@ const BriefDisplay = forwardRef<HTMLDivElement, BriefDisplayProps>(({ brief, ref
             {isLoadingImage ? (
               <div className="flex flex-col items-center space-y-3">
                 <div className="w-8 h-8 border-4 border-blue-500/30 border-t-blue-500 rounded-full animate-spin"></div>
-                <p className="text-xs text-zinc-500 uppercase tracking-widest animate-pulse">Generating Visualization...</p>
+                <p className="text-xs text-zinc-500 uppercase tracking-widest animate-pulse">Baking Reference...</p>
               </div>
             ) : refImage ? (
               <img src={refImage} alt="Reference" className="w-full h-full object-cover" />
+            ) : isPermissionError ? (
+              <div className="text-center p-6 space-y-4">
+                <div className="space-y-1">
+                  <p className="text-amber-500 text-[10px] font-bold uppercase tracking-widest">Permission Denied</p>
+                  <p className="text-zinc-500 text-[9px] max-w-[200px] mx-auto leading-tight">Image generation may require a billing-enabled API key in this environment.</p>
+                </div>
+                <button 
+                  onClick={onSelectKey}
+                  className="px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-lg text-[10px] font-bold text-amber-500 uppercase hover:bg-amber-500/20 transition-all"
+                >
+                  Unlock Studio Visualization
+                </button>
+              </div>
             ) : imageError ? (
               <div className="text-center p-4">
                 <p className="text-zinc-500 text-xs uppercase mb-1">Reference Engine Offline</p>
-                <p className="text-zinc-700 text-[10px]">Image generation skipped. Focus on text requirements.</p>
+                <p className="text-zinc-700 text-[10px]">Reference skipped. Focus on technical deliverables.</p>
               </div>
             ) : (
-              <p className="text-zinc-600 text-sm">Visual reference engine standby.</p>
+              <p className="text-zinc-600 text-sm">Visual engine on standby.</p>
             )}
           </div>
 
@@ -82,8 +104,8 @@ const BriefDisplay = forwardRef<HTMLDivElement, BriefDisplayProps>(({ brief, ref
               <p className="text-[11px] text-zinc-300 leading-tight">{brief.lightingMood}</p>
             </div>
             <div className="p-4 glass rounded-lg border border-white/5">
-              <h4 className="text-xs font-bold text-zinc-500 uppercase mb-1">Composition/Setup</h4>
-              <p className="text-[11px] text-zinc-300 leading-tight">{brief.compositionNotes || brief.materialNotes || "Dynamic setup recommended."}</p>
+              <h4 className="text-xs font-bold text-zinc-500 uppercase mb-1">Composition</h4>
+              <p className="text-[11px] text-zinc-300 leading-tight">{brief.compositionNotes || brief.materialNotes || "Cinematic 16:9 setup."}</p>
             </div>
           </div>
         </div>

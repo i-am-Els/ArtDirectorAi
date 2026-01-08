@@ -20,7 +20,7 @@ const App: React.FC = () => {
   const [isExportingPDF, setIsExportingPDF] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [imageError, setImageError] = useState(false);
-  const [showKeyPrompt, setShowKeyPrompt] = useState(false);
+  const [isPermissionError, setIsPermissionError] = useState(false);
 
   const briefRef = useRef<HTMLDivElement>(null);
   const availableRoles = useMemo(() => RolesByMedium[selectedMedium], [selectedMedium]);
@@ -35,11 +35,33 @@ const App: React.FC = () => {
     try {
       if (window.aistudio?.openSelectKey) {
         await window.aistudio.openSelectKey();
-        setShowKeyPrompt(false);
         setError(null);
+        setIsPermissionError(false);
+        // If a brief is already visible, try to regenerate only the image
+        if (brief) {
+           handleGenerateImage(brief);
+        }
       }
     } catch (err) {
       console.error("Key selection failed", err);
+    }
+  };
+
+  const handleGenerateImage = async (targetBrief: ArtBrief) => {
+    setIsLoadingImage(true);
+    setImageError(false);
+    setIsPermissionError(false);
+    try {
+      const imageUrl = await generateReferenceImage(targetBrief, theme);
+      setRefImage(imageUrl);
+    } catch (imgErr: any) {
+      console.warn("Reference visualization failed:", imgErr);
+      setImageError(true);
+      if (imgErr?.message?.includes('403') || imgErr?.status === 'PERMISSION_DENIED') {
+        setIsPermissionError(true);
+      }
+    } finally {
+      setIsLoadingImage(false);
     }
   };
 
@@ -47,32 +69,17 @@ const App: React.FC = () => {
     setIsLoading(true);
     setError(null);
     setImageError(false);
+    setIsPermissionError(false);
     setBrief(null);
     setRefImage(null);
 
     try {
       const result = await generateBrief({ role: selectedRole, experience, theme, complexity });
       setBrief(result);
-      
-      setIsLoadingImage(true);
-      try {
-        const imageUrl = await generateReferenceImage(result, theme);
-        setRefImage(imageUrl);
-      } catch (imgErr: any) {
-        console.warn("Reference visualization failed:", imgErr);
-        setImageError(true);
-        // If 403, suggest key selection
-        if (imgErr?.message?.includes('403') || imgErr?.status === 'PERMISSION_DENIED') {
-          setShowKeyPrompt(true);
-        }
-      } finally {
-        setIsLoadingImage(false);
-      }
-      
+      await handleGenerateImage(result);
     } catch (err: any) {
       console.error("Generator error:", err);
       setError("Brief generation failed. Please verify your connection.");
-      if (err?.message?.includes('403')) setShowKeyPrompt(true);
     } finally {
       setIsLoading(false);
     }
@@ -211,11 +218,6 @@ const App: React.FC = () => {
             {error && (
               <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-xl flex items-center justify-between no-print">
                 <span className="text-red-400 text-sm">{error}</span>
-                {showKeyPrompt && (
-                  <button onClick={handleOpenKeySelection} className="px-3 py-1 bg-red-500 text-white text-[10px] font-bold rounded-lg uppercase">
-                    Fix Permission
-                  </button>
-                )}
               </div>
             )}
 
@@ -224,7 +226,7 @@ const App: React.FC = () => {
                 {!brief && !isLoading && (
                   <div className="flex-1 flex flex-col items-center justify-center text-center p-12 glass rounded-3xl border border-dashed border-white/10 opacity-60">
                     <h3 className="text-xl font-semibold mb-2 text-zinc-400 uppercase tracking-widest">Awaiting Assignment</h3>
-                    <p className="text-zinc-600 max-w-sm text-sm">Select your industry specialization to receive your production brief.</p>
+                    <p className="text-zinc-600 max-w-sm text-sm">Select your specialization to receive your professional production brief.</p>
                   </div>
                 )}
                 {isLoading && (
@@ -241,17 +243,10 @@ const App: React.FC = () => {
                       refImage={refImage} 
                       isLoadingImage={isLoadingImage}
                       imageError={imageError} 
+                      isPermissionError={isPermissionError}
+                      onSelectKey={handleOpenKeySelection}
                     />
                     
-                    {imageError && showKeyPrompt && (
-                      <div className="mt-4 p-4 bg-amber-500/5 border border-amber-500/20 rounded-xl flex items-center justify-between no-print">
-                        <p className="text-[10px] text-amber-500 uppercase font-bold tracking-widest">Visual visualization failed due to billing/permissions.</p>
-                        <button onClick={handleOpenKeySelection} className="text-[10px] font-bold text-amber-500 border border-amber-500/30 px-3 py-1 rounded-md">
-                          Use Paid Key
-                        </button>
-                      </div>
-                    )}
-
                     <div className="mt-12 flex flex-col sm:flex-row items-center justify-between border-t border-white/5 pt-8 no-print gap-6">
                       <div className="flex items-center space-x-4">
                          <div className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Assigned Department:</div>
@@ -284,7 +279,11 @@ const App: React.FC = () => {
 
       <footer className="py-10 border-t border-white/5 text-center no-print">
         <p className="text-zinc-600 text-[10px] tracking-[0.5em] font-medium uppercase">ArtDirector AI • Professional Studio Simulation</p>
-        <a href="https://ai.google.dev/gemini-api/docs/billing" target="_blank" className="text-[9px] text-zinc-700 hover:text-blue-500 mt-2 block transition-colors">Billing Documentation & Limits</a>
+        <div className="mt-2 flex items-center justify-center space-x-4">
+          <a href="https://ai.google.dev/gemini-api/docs/billing" target="_blank" className="text-[9px] text-zinc-700 hover:text-blue-500 transition-colors">Billing Documentation</a>
+          <span className="text-zinc-800">|</span>
+          <button onClick={handleOpenKeySelection} className="text-[9px] text-zinc-700 hover:text-blue-500 transition-colors">Configure Studio Key</button>
+        </div>
       </footer>
     </div>
   );

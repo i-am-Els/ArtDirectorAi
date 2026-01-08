@@ -5,7 +5,6 @@ import { ArtBrief, GenerationParams, PortfolioFeedback, ArtRole, ExperienceLevel
  * Service to generate Art Briefs.
  */
 export const generateBrief = async (params: GenerationParams): Promise<ArtBrief> => {
-  // Fresh instance to ensure latest API key state
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
   const systemPrompt = `You are an elite Art Director from a major studio.
@@ -84,13 +83,13 @@ export const analyzePortfolio = async (
 
 /**
  * Visual reference generator for the generated brief.
- * Uses gemini-2.5-flash-image for high reliability and excellent results.
+ * Uses gemini-2.5-flash-image for maximum compatibility across project tiers.
  */
 export const generateReferenceImage = async (brief: ArtBrief, theme: string): Promise<string | null> => {
   // Always create a new instance to pick up the most current API_KEY from the environment
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
-  const prompt = `Professional production concept art reference: ${brief.title}. Theme: ${theme}. Lighting: ${brief.lightingMood}. Composition: ${brief.compositionNotes || 'Cinematic'}. High-end studio quality visualization.`;
+  const prompt = `Professional high-end production concept art reference: ${brief.title}. Theme: ${theme}. Lighting: ${brief.lightingMood}. Composition: ${brief.compositionNotes || 'Cinematic'}. Atmospheric studio quality visualization.`;
 
   try {
     const response = await ai.models.generateContent({
@@ -113,7 +112,7 @@ export const generateReferenceImage = async (brief: ArtBrief, theme: string): Pr
     return null;
   } catch (error: any) {
     console.error("Reference image generation failed:", error);
-    // Propagate the error so the UI can offer key selection if it's a 403
+    // Explicitly throw so the UI can detect 403 Permission Denied or other issues
     throw error;
   }
 };
