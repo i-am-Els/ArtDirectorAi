@@ -48,8 +48,8 @@
     }
 
     /* 
-       DEPLOYMENT-READY HIGH FIDELITY PRINT STYLES 
-       Optimized for Letter selectable text PDF output.
+       PRODUCTION-GRADE PRINT ARCHITECTURE
+       Optimized for Full-Bleed Letter Size PDF Output
     */
     @media print {
       @page {
@@ -64,43 +64,61 @@
         print-color-adjust: exact !important;
         color-adjust: exact !important;
         width: 100% !important;
-        height: auto !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
 
-      /* Hide UI elements that aren't part of the brief */
+      /* Force background to fill the whole page */
+      #root {
+        background-color: #0a0a0a !important;
+        width: 100% !important;
+        min-height: 100vh !important;
+      }
+
+      /* Hide non-essential UI */
       .no-print, header, aside, footer, nav, button, input, select {
         display: none !important;
       }
 
-      /* Force full width by overriding Tailwind's max-width containers */
-      main, .max-w-7xl {
+      /* 
+         CRITICAL FIX: Override Tailwind's max-width and padding 
+         to prevent "squished" content on Letter paper.
+      */
+      main {
         display: block !important;
-        padding: 1.5cm !important; /* Controlled padding for the document content */
+        padding: 0.75in !important; /* Standard safe margin for printing while filling width */
         margin: 0 !important;
         width: 100% !important;
         max-width: none !important;
         min-width: 100% !important;
-        background-color: #0a0a0a !important;
+        position: relative !important;
+        top: 0 !important;
       }
 
-      #root {
+      /* Target the specific container in App.tsx */
+      .max-w-7xl {
+        max-width: none !important;
         width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
 
-      /* Flatten grid for PDF readability */
+      /* Ensure the brief container itself takes full width of the main padding area */
       .lg\:col-span-8, .lg\:col-span-12 {
         grid-column: span 12 / span 12 !important;
         width: 100% !important;
       }
 
       .glass {
-        background: #171717 !important;
+        background: #0f0f0f !important;
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
         backdrop-filter: none !important;
         box-shadow: none !important;
+        width: 100% !important;
       }
 
-      /* Ensure gradients are converted to solid colors for PDF stability */
+      /* Visual fidelity adjustments */
       .gradient-text {
         background: none !important;
         -webkit-background-clip: unset !important;
@@ -113,36 +131,24 @@
         background-image: linear-gradient(to bottom right, #18181b, #09090b) !important;
       }
 
-      /* Force selectable text contrast */
       p, li, span, h1, h2, h3, h4 {
         color: #e5e5e5 !important;
         text-shadow: none !important;
-        orphans: 3;
-        widows: 3;
       }
       
       .text-blue-400 { color: #60a5fa !important; }
       .text-purple-400 { color: #a855f7 !important; }
       .text-zinc-400 { color: #a1a1aa !important; }
 
-      img {
-        max-height: 400px !important;
-        object-fit: contain !important;
-        border-radius: 12px !important;
-        page-break-inside: avoid;
-      }
-      
-      section, .rounded-xl {
+      section, .rounded-3xl, .rounded-xl {
         page-break-inside: avoid;
         break-inside: avoid;
       }
     }
   </style>
   <script>
-    // Robust process shim for deployment environments like Vercel
     window.process = window.process || {};
     window.process.env = window.process.env || {};
-    // Ensure API_KEY is at least an empty string to prevent constructor crashes
     if (typeof window.process.env.API_KEY === 'undefined') {
       window.process.env.API_KEY = '';
     }
@@ -162,7 +168,6 @@
 </head>
 <body>
   <div id="root"></div>
-  <!-- CRITICAL: Added entry point script for browser ESM resolution -->
   <script type="module" src="./index.tsx"></script>
 </body>
 </html>
