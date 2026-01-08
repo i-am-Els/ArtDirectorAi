@@ -3,29 +3,17 @@ import { ArtBrief, GenerationParams, PortfolioFeedback, ArtRole, ExperienceLevel
 
 /**
  * Service to generate Art Briefs.
- * Strictly initializes the API client with process.env.API_KEY inside each call
- * to ensure environment variables are resolved correctly in production.
  */
 export const generateBrief = async (params: GenerationParams): Promise<ArtBrief> => {
+  // Fresh instance to ensure latest API key state
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
-  const systemPrompt = `You are an elite Art Director from a major studio (e.g., Rockstar, Framestore, Sony Santa Monica).
+  const systemPrompt = `You are an elite Art Director from a major studio.
   Compose a professional production brief for a ${params.role} at ${params.experience} level.
   Theme/Setting: ${params.theme}. Complexity: ${params.complexity}/10.
 
-  Use exact professional terminology:
-  - Prop Designer: Focus on functional design, material breakdown, and LOD planning.
-  - Matte Painter: Focus on photographic integration, set extension, and projection mapping logic.
-  - Surfacing/Texture Artist: Focus on PBR metal/rough workflows, UDIM planning, texel density, and micro-surface detail.
-  - Shader Artist: Focus on node-based logic, performance optimization, procedural masks, and dynamic parameters.
-  - Rigging: Focus on bone hierarchy, weighted deformation, and animator-friendly UX.
-  - Grooming: Focus on clumping, stray hairs, and physics-ready strand counts.
-  - Gameplay Animator: Focus on frame data, responsiveness, and clear action-readability.
-  - Cinematic Animator: Focus on emotional performance, weight, and silhouette.
-  - Cloth Sim: Focus on collision margins, fabric weight, and simulation layering.
-  - Technical Art: Focus on shader complexity, scripting for automation, and performance profiling.
-  
-  Format as a high-stakes studio assignment. The "challengeFactor" should be a direct quote from the Lead Artist explaining the technical and artistic growth this task provides for someone at the ${params.experience} level.`;
+  Use exact professional terminology. Format as a high-stakes studio assignment. 
+  The "challengeFactor" should be a direct quote from the Lead Artist explaining the growth this task provides.`;
 
   const response = await ai.models.generateContent({
     model: 'gemini-3-flash-preview',
@@ -64,8 +52,7 @@ export const analyzePortfolio = async (
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   
   const systemPrompt = `You are an elite Art Director reviewing a portfolio submission for a ${role} at a ${experience} level.
-  Analyze the image multimodal data for design fundamentals (color, value, composition) and role-specific technicals (topology if 3D, anatomy if characters, modularity if environments).
-  Provide honest, industry-standard critique.`;
+  Analyze the image for design fundamentals and role-specific technicals.`;
 
   const response = await ai.models.generateContent({
     model: 'gemini-3-flash-preview',
@@ -97,20 +84,36 @@ export const analyzePortfolio = async (
 
 /**
  * Visual reference generator for the generated brief.
+ * Uses gemini-2.5-flash-image for high reliability and excellent results.
  */
 export const generateReferenceImage = async (brief: ArtBrief, theme: string): Promise<string | null> => {
+  // Always create a new instance to pick up the most current API_KEY from the environment
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-  const prompt = `Art reference for studio brief: ${brief.title}. Theme: ${theme}. Mood: ${brief.lightingMood}. Extremely detailed concept art, cinematic lighting, 8k professional production quality.`;
+  
+  const prompt = `Professional production concept art reference: ${brief.title}. Theme: ${theme}. Lighting: ${brief.lightingMood}. Composition: ${brief.compositionNotes || 'Cinematic'}. High-end studio quality visualization.`;
 
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash-image',
       contents: { parts: [{ text: prompt }] },
-      config: { imageConfig: { aspectRatio: "16:9" } }
+      config: { 
+        imageConfig: { 
+          aspectRatio: "16:9"
+        } 
+      }
     });
-    for (const part of response.candidates?.[0]?.content?.parts || []) {
-      if (part.inlineData) return `data:image/png;base64,${part.inlineData.data}`;
+
+    if (response.candidates?.[0]?.content?.parts) {
+      for (const part of response.candidates[0].content.parts) {
+        if (part.inlineData) {
+          return `data:image/png;base64,${part.inlineData.data}`;
+        }
+      }
     }
     return null;
-  } catch { return null; }
+  } catch (error: any) {
+    console.error("Reference image generation failed:", error);
+    // Propagate the error so the UI can offer key selection if it's a 403
+    throw error;
+  }
 };

@@ -5,9 +5,10 @@ interface BriefDisplayProps {
   brief: ArtBrief;
   refImage: string | null;
   isLoadingImage: boolean;
+  imageError?: boolean;
 }
 
-const BriefDisplay = forwardRef<HTMLDivElement, BriefDisplayProps>(({ brief, refImage, isLoadingImage }, ref) => {
+const BriefDisplay = forwardRef<HTMLDivElement, BriefDisplayProps>(({ brief, refImage, isLoadingImage, imageError }, ref) => {
   return (
     <div ref={ref} className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700 bg-[#0a0a0a] p-2 md:p-4 rounded-2xl">
       {/* Header Section */}
@@ -15,7 +16,7 @@ const BriefDisplay = forwardRef<HTMLDivElement, BriefDisplayProps>(({ brief, ref
         <div className="flex items-center justify-between mb-2">
           <h2 className="text-3xl font-bold gradient-text">{brief.title}</h2>
           <div className="px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-md text-[10px] font-bold text-blue-400 uppercase tracking-tighter">
-            Studio Assignment v2.5
+            Studio Assignment v2.6
           </div>
         </div>
         <p className="text-zinc-400 leading-relaxed text-lg">{brief.summary}</p>
@@ -65,8 +66,13 @@ const BriefDisplay = forwardRef<HTMLDivElement, BriefDisplayProps>(({ brief, ref
               </div>
             ) : refImage ? (
               <img src={refImage} alt="Reference" className="w-full h-full object-cover" />
+            ) : imageError ? (
+              <div className="text-center p-4">
+                <p className="text-zinc-500 text-xs uppercase mb-1">Reference Engine Offline</p>
+                <p className="text-zinc-700 text-[10px]">Image generation skipped. Focus on text requirements.</p>
+              </div>
             ) : (
-              <p className="text-zinc-600 text-sm">Visual reference generation ready.</p>
+              <p className="text-zinc-600 text-sm">Visual reference engine standby.</p>
             )}
           </div>
 
