@@ -80,39 +80,3 @@ export const analyzePortfolio = async (
 
   return JSON.parse(response.text || "{}") as PortfolioFeedback;
 };
-
-/**
- * Visual reference generator for the generated brief.
- * Uses gemini-2.5-flash-image for maximum compatibility across project tiers.
- */
-export const generateReferenceImage = async (brief: ArtBrief, theme: string): Promise<string | null> => {
-  // Always create a new instance to pick up the most current API_KEY from the environment
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-  
-  const prompt = `Professional high-end production concept art reference: ${brief.title}. Theme: ${theme}. Lighting: ${brief.lightingMood}. Composition: ${brief.compositionNotes || 'Cinematic'}. Atmospheric studio quality visualization.`;
-
-  try {
-    const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash-image',
-      contents: { parts: [{ text: prompt }] },
-      config: { 
-        imageConfig: { 
-          aspectRatio: "16:9"
-        } 
-      }
-    });
-
-    if (response.candidates?.[0]?.content?.parts) {
-      for (const part of response.candidates[0].content.parts) {
-        if (part.inlineData) {
-          return `data:image/png;base64,${part.inlineData.data}`;
-        }
-      }
-    }
-    return null;
-  } catch (error: any) {
-    console.error("Reference image generation failed:", error);
-    // Explicitly throw so the UI can detect 403 Permission Denied or other issues
-    throw error;
-  }
-};
