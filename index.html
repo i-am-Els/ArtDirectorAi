@@ -49,12 +49,12 @@
 
     /* 
        DEPLOYMENT-READY HIGH FIDELITY PRINT STYLES 
-       Optimized for A4 selectable text PDF output.
+       Optimized for Letter selectable text PDF output.
     */
     @media print {
       @page {
-        margin: 1.5cm;
-        size: A4;
+        margin: 0;
+        size: letter;
       }
       
       html, body {
@@ -63,6 +63,8 @@
         -webkit-print-color-adjust: exact !important;
         print-color-adjust: exact !important;
         color-adjust: exact !important;
+        width: 100% !important;
+        height: auto !important;
       }
 
       /* Hide UI elements that aren't part of the brief */
@@ -70,16 +72,23 @@
         display: none !important;
       }
 
-      main {
-        padding: 0 !important;
+      /* Force full width by overriding Tailwind's max-width containers */
+      main, .max-w-7xl {
+        display: block !important;
+        padding: 1.5cm !important; /* Controlled padding for the document content */
         margin: 0 !important;
         width: 100% !important;
-        max-width: 100% !important;
+        max-width: none !important;
+        min-width: 100% !important;
         background-color: #0a0a0a !important;
       }
 
+      #root {
+        width: 100% !important;
+      }
+
       /* Flatten grid for PDF readability */
-      .lg\:col-span-8 {
+      .lg\:col-span-8, .lg\:col-span-12 {
         grid-column: span 12 / span 12 !important;
         width: 100% !important;
       }
