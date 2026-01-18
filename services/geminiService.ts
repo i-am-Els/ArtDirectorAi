@@ -1,22 +1,13 @@
-import { GoogleGenAI, Type } from "@google/genai";
-import { ArtBrief, GenerationParams, PortfolioFeedback, ArtRole, ExperienceLevel } from "../types.ts";
 
-/**
- * Service to generate Art Briefs.
- */
+import { GoogleGenAI, Type } from "@google/genai";
+import { ArtBrief, GenerationParams, PortfolioFeedback, ArtRole, ExperienceLevel, GrowthPlan } from "../types.ts";
+
 export const generateBrief = async (params: GenerationParams): Promise<ArtBrief> => {
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-  
-  const systemPrompt = `You are an elite Art Director from a major studio.
-  Compose a professional production brief for a ${params.role} at ${params.experience} level.
-  Theme/Setting: ${params.theme}. Complexity: ${params.complexity}/10.
-
-  Use exact professional terminology. Format as a high-stakes studio assignment. 
-  The "challengeFactor" should be a direct quote from the Lead Artist explaining the growth this task provides.`;
-
+  const systemPrompt = `You are an elite Art Director. Compose a professional studio brief for ${params.role}. Theme: ${params.theme}. Complexity: ${params.complexity}/10. Use exact terminology.`;
   const response = await ai.models.generateContent({
     model: 'gemini-3-flash-preview',
-    contents: `Write the art director's brief for a ${params.role}.`,
+    contents: `Draft assignment for ${params.role}.`,
     config: {
       systemInstruction: systemPrompt,
       responseMimeType: "application/json",
@@ -36,23 +27,76 @@ export const generateBrief = async (params: GenerationParams): Promise<ArtBrief>
       }
     }
   });
-
   return JSON.parse(response.text || "{}") as ArtBrief;
 };
 
-/**
- * Multimodal analysis of user-uploaded artwork.
- */
-export const analyzePortfolio = async (
-  base64Image: string, 
+export const generateGrowthPlan = async (
+  goal: string, 
   role: ArtRole, 
-  experience: ExperienceLevel
-): Promise<PortfolioFeedback> => {
+  days: number, 
+  hours: number
+): Promise<GrowthPlan> => {
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const weeks = Math.ceil(days / 7);
   
-  const systemPrompt = `You are an elite Art Director reviewing a portfolio submission for a ${role} at a ${experience} level.
-  Analyze the image for design fundamentals and role-specific technicals.`;
+  const systemPrompt = `You are a legendary Art Professor at a top industry academy. 
+  Create a ${weeks}-week intensive curriculum for a student wanting to: "${goal}".
+  Targeting the role: ${role}. They have ${hours} hours per day.
+  Break it down into weeks. Each week must have daily specific tasks.
+  Focus on a "Zero to Hero" trajectory.`;
 
+  const response = await ai.models.generateContent({
+    model: 'gemini-3-pro-preview',
+    contents: `Generate the full curriculum.`,
+    config: {
+      systemInstruction: systemPrompt,
+      responseMimeType: "application/json",
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          modules: {
+            type: Type.ARRAY,
+            items: {
+              type: Type.OBJECT,
+              properties: {
+                week: { type: Type.INTEGER },
+                focusTitle: { type: Type.STRING },
+                dailyTasks: { type: Type.ARRAY, items: { type: Type.STRING } },
+                resources: {
+                  type: Type.ARRAY,
+                  items: {
+                    type: Type.OBJECT,
+                    properties: {
+                      title: { type: Type.STRING },
+                      url_search: { type: Type.STRING }
+                    }
+                  }
+                }
+              },
+              required: ["week", "focusTitle", "dailyTasks", "resources"]
+            }
+          }
+        },
+        required: ["modules"]
+      }
+    }
+  });
+
+  const parsed = JSON.parse(response.text || "{}");
+  return {
+    id: Math.random().toString(36).substr(2, 9),
+    goal,
+    specialization: role,
+    durationDays: days,
+    dailyHours: hours,
+    modules: parsed.modules,
+    createdAt: Date.now(),
+    completedTasks: []
+  };
+};
+
+export const analyzePortfolio = async (base64Image: string, role: ArtRole, experience: ExperienceLevel): Promise<PortfolioFeedback> => {
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   const response = await ai.models.generateContent({
     model: 'gemini-3-flash-preview',
     contents: {
@@ -62,7 +106,7 @@ export const analyzePortfolio = async (
       ]
     },
     config: {
-      systemInstruction: systemPrompt,
+      systemInstruction: `You are an Art Director reviewing ${role} work.`,
       responseMimeType: "application/json",
       responseSchema: {
         type: Type.OBJECT,
@@ -77,6 +121,5 @@ export const analyzePortfolio = async (
       }
     }
   });
-
   return JSON.parse(response.text || "{}") as PortfolioFeedback;
 };
