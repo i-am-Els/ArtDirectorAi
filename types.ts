@@ -61,129 +61,156 @@ export interface Faculty {
   majors: AcademyMajor[];
 }
 
-// FULL INDUSTRIAL PIPELINE LIBRARY - COMPREHENSIVE REWRITE
+// THE COMPLETE INDUSTRIAL ACADEMY DIRECTORY - 24 SPECIALIZATIONS, 72+ COURSES
 export const ACADEMY_FACULTIES: Faculty[] = [
   {
     id: 'fac-visdev',
     name: "Faculty of Visual Development",
     icon: "🎨",
-    description: "The core of storytelling, ideation, and pre-production design.",
+    description: "Pre-production, design, and narrative visualization.",
     majors: [
       {
         id: 'dept-char-concept',
-        title: "Character Design",
+        title: "Character Design Dept.",
         role: ArtRole.CONCEPT_CHAR,
         description: "Specializing in character archetypes, anatomy, and costume logic.",
         courses: [
           {
-            id: 'c-ana-found',
-            title: "Unit 1: Anatomical Foundations",
-            description: "Mastering the skeletal and muscular frameworks of the human body.",
+            id: 'c-char-1', title: "Anatomical Foundations", description: "Mastering the structural points and skeletal mechanics.",
             lessons: [
-              { id: 'l-ana-1', title: "Skeletal Landmark Proportions", focusDescription: "Bony landmarks and joint pivot logic", suggestedMileage: "30 skeletal sketches" },
-              { id: 'l-ana-2', title: "Muscle Rhythms & Flow", focusDescription: "Origin/Insertion points and volume wrapping", suggestedMileage: "20 ecorche studies" },
-              { id: 'l-ana-3', title: "Hand & Foot Mechanics", focusDescription: "Complex articulation and bony structure", suggestedMileage: "50 limb studies" }
+              { id: 'l1', title: "Skeletal Pivot Points", focusDescription: "Joint rotation and bony landmarks", suggestedMileage: "30 sketches" },
+              { id: 'l2', title: "Muscular Rhythms", focusDescription: "Origin and insertion points", suggestedMileage: "15 ecorche studies" }
             ]
           },
           {
-            id: 'c-char-arch',
-            title: "Unit 2: Archetypes & Silhouette",
-            description: "Developing recognizable shape language and visual storytelling.",
+            id: 'c-char-2', title: "Archetype & Shape Language", description: "Developing personality through primitive shapes.",
             lessons: [
-              { id: 'l-arch-1', title: "Shape Language Psychology", focusDescription: "Using primitives (Circle/Square/Triangle) for personality", suggestedMileage: "10 character lineups" },
-              { id: 'l-arch-2', title: "Silhouette Readability", focusDescription: "Negative space and strong pose orientation", suggestedMileage: "50 silhouette thumbnails" }
+              { id: 'l3', title: "Silhouette Clarity", focusDescription: "Readability and negative space", suggestedMileage: "50 thumbnails" },
+              { id: 'l4', title: "Archetypal Proportions", focusDescription: "Exaggeration for character tropes", suggestedMileage: "10 lineups" }
             ]
           },
           {
-            id: 'c-costume-tech',
-            title: "Unit 3: Costume & Functional Design",
-            description: "Designing clothing that follows physical logic and narrative intent.",
+            id: 'c-char-3', title: "Functional Costume Design", description: "Designing clothing that follows physical logic and cultural history.",
             lessons: [
-              { id: 'l-cos-1', title: "Fabric Weight & Drapery", focusDescription: "Tension points and fold categories", suggestedMileage: "15 material studies" },
-              { id: 'l-cos-2', title: "Functional Armor & Gear", focusDescription: "Mechanical range of motion for protective gear", suggestedMileage: "3 armor sets" }
+              { id: 'l5', title: "Drapery & Folds", focusDescription: "Tension and compression points", suggestedMileage: "10 material studies" }
             ]
           }
         ]
       },
       {
         id: 'dept-env-concept',
-        title: "Environment Design",
+        title: "Environment Design Dept.",
         role: ArtRole.CONCEPT_ENV,
-        description: "World-building, architecture, and cinematic ecosystem layout.",
+        description: "World-building, architecture, and cinematic layout.",
         courses: [
           {
-            id: 'c-persp-mastery',
-            title: "Unit 1: Advanced Perspective",
-            description: "Mastering complex spatial construction for high-end layouts.",
+            id: 'c-env-1', title: "Perspective Mastery", description: "Mastering grids, vanishing points, and lens distortion.",
             lessons: [
-              { id: 'l-persp-1', title: "3-Point Structural Grids", focusDescription: "Vertical convergence and vanishing scale", suggestedMileage: "10 architectural blockouts" },
-              { id: 'l-persp-2', title: "Fish-eye & Curvilinear Space", focusDescription: "Pushing lens distortion for cinematic impact", suggestedMileage: "5 wide-angle interiors" }
+              { id: 'l6', title: "3-Point Structural Grids", focusDescription: "Vertical convergence logic", suggestedMileage: "10 blocks" }
             ]
           },
           {
-            id: 'c-env-story',
-            title: "Unit 2: Narrative Composition",
-            description: "Guiding the viewer's eye through cinematic focal points.",
+            id: 'c-env-2', title: "Atmospheric Composition", description: "Guiding the eye through value grouping and depth.",
             lessons: [
-              { id: 'l-comp-1', title: "Value Grouping & Read", focusDescription: "The 3-value rule for depth hierarchy", suggestedMileage: "25 composition thumbnails" },
-              { id: 'l-comp-2', title: "Atmospheric Depth Cues", focusDescription: "Haze, light beams, and depth-based saturation", suggestedMileage: "5 lighting scripts" }
+              { id: 'l7', title: "Value Hierarchies", focusDescription: "The 3-value rule for depth", suggestedMileage: "20 thumbnails" }
             ]
           }
         ]
       },
       {
         id: 'dept-prop-design',
-        title: "Prop & Vehicle Design",
+        title: "Prop & Vehicle Design Dept.",
         role: ArtRole.CONCEPT_PROP,
-        description: "Industrial hardware, weapon systems, and transportation logic.",
+        description: "Industrial hardware and functional machinery design.",
         courses: [
           {
-            id: 'c-prop-mech',
-            title: "Unit 1: Industrial Logic",
-            description: "Designing believable machinery and functional components.",
+            id: 'c-prop-1', title: "Mechanical Logic", description: "Believable pivots, seams, and manufacturing logic.",
             lessons: [
-              { id: 'l-mech-1', title: "Pivot & Hinge Systems", focusDescription: "Realistic mechanical range of motion", suggestedMileage: "10 joint studies" },
-              { id: 'l-mech-2', title: "Paneling & Material Breakups", focusDescription: "Manufacturing logic and fastener placement", suggestedMileage: "5 call-out sheets" }
-            ]
-          },
-          {
-            id: 'c-veh-arch',
-            title: "Unit 2: Vehicle Architecture",
-            description: "Design and construction of functional transport systems.",
-            lessons: [
-              { id: 'l-veh-1', title: "Aerodynamics & Frame", focusDescription: "Form follows function in motion", suggestedMileage: "5 vehicle cutaways" }
+              { id: 'l8', title: "Hardware Breakdown", focusDescription: "Bolts, panels, and vents", suggestedMileage: "5 sheets" }
             ]
           }
         ]
       },
       {
         id: 'dept-storyboard',
-        title: "Storyboard & Narrative",
+        title: "Storyboard Dept.",
         role: ArtRole.STORYBOARD,
-        description: "Pacing, cinematic language, and narrative beat visualization.",
+        description: "Pacing, cinematic language, and narrative clarity.",
         courses: [
           {
-            id: 'c-cine-lang',
-            title: "Unit 1: Cinematic Grammar",
-            description: "Understanding lens choice, shot types, and screen direction.",
+            id: 'c-sb-1', title: "Cinematic Grammar", description: "Shot types, 180-rule, and screen direction.",
             lessons: [
-              { id: 'l-cine-1', title: "The 180 Rule & Eye-lines", focusDescription: "Spatial continuity in dialogue", suggestedMileage: "1 dialogue sequence" }
+              { id: 'l9', title: "Beat Visualization", focusDescription: "Key emotional narrative frames", suggestedMileage: "1 sequence" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-matte-painting',
+        title: "Digital Matte Painting Dept.",
+        role: ArtRole.MATTE_PAINTING,
+        description: "Set extensions and realistic environment integration.",
+        courses: [
+          {
+            id: 'c-mp-1', title: "Photographic Integration", description: "Merging photography with digital painting assets.",
+            lessons: [
+              { id: 'l10', title: "Atmospheric Matching", focusDescription: "Matching depth haze and lighting", suggestedMileage: "3 set extensions" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-illustration',
+        title: "Keyframe Illustration Dept.",
+        role: ArtRole.ILLUSTRATION,
+        description: "Marketing art and high-fidelity storytelling frames.",
+        courses: [
+          {
+            id: 'c-ill-1', title: "Lighting for Emotion", description: "Directing focus and mood through value and color.",
+            lessons: [
+              { id: 'l11', title: "Cinematic Staging", focusDescription: "Subject separation and framing", suggestedMileage: "3 keyframes" }
             ]
           }
         ]
       },
       {
         id: 'dept-ui-ux',
-        title: "UI/UX Art",
+        title: "UI/UX Game Art Dept.",
         role: ArtRole.UI_UX,
-        description: "Iconography, interactive feedback, and menu systems.",
+        description: "Iconography, layout, and player feedback systems.",
         courses: [
           {
-            id: 'c-ui-logic',
-            title: "Unit 1: Interactive Hierarchy",
-            description: "Visual clarity and feedback for player interaction.",
+            id: 'c-ui-1', title: "Interactive Hierarchy", description: "Designing for interaction, flow, and readability.",
             lessons: [
-              { id: 'l-ui-1', title: "Icon Style Cohesion", focusDescription: "Readable shape language at small scales", suggestedMileage: "20 icon variants" }
+              { id: 'l12', title: "Symbolic Iconography", focusDescription: "Readable shape language in symbols", suggestedMileage: "1 icon set" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-bg-painter',
+        title: "Background Painting Dept.",
+        role: ArtRole.BG_PAINTER,
+        description: "Painted sets for 2D animation and TV series.",
+        courses: [
+          {
+            id: 'c-bg-1', title: "Style & Lighting Consistency", description: "Maintaining show style across multiple backgrounds.",
+            lessons: [
+              { id: 'l13', title: "Texture Simplification", focusDescription: "Stylized rendering of nature/city", suggestedMileage: "5 bgs" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-color-script',
+        title: "Color & Lighting Keys Dept.",
+        role: ArtRole.COLOR_SCRIPT,
+        description: "Developing the emotional color arc of a project.",
+        courses: [
+          {
+            id: 'c-cs-1', title: "Narrative Color Logic", description: "Using palettes to represent story arcs.",
+            lessons: [
+              { id: 'l14', title: "Emotional Ramping", focusDescription: "Shifting mood through color", suggestedMileage: "10 scripts" }
             ]
           }
         ]
@@ -194,71 +221,74 @@ export const ACADEMY_FACULTIES: Faculty[] = [
     id: 'fac-3d-production',
     name: "Faculty of 3D Production",
     icon: "🧱",
-    description: "Production of production-ready geometry, materials, and complex assets.",
+    description: "Asset creation, high-res modeling, and surfacing.",
     majors: [
       {
         id: 'dept-char-3d',
-        title: "3D Character Art",
+        title: "Character Art Dept.",
         role: ArtRole.CHARACTER_3D,
-        description: "Digital sculpting, retopology, and real-time mesh optimization.",
+        description: "Digital sculpting, anatomy, and real-time optimization.",
         courses: [
           {
-            id: 'c-sculpt-found',
-            title: "Unit 1: Digital Sculpting Foundations",
-            description: "Mastering primary, secondary, and tertiary forms in ZBrush.",
+            id: 'c-sc-1', title: "High-Res Sculpting", description: "Mastering forms and anatomical accuracy.",
             lessons: [
-              { id: 'l-sculpt-1', title: "Primary Form Blockout", focusDescription: "Accurate silhouette and massing", suggestedMileage: "5 head blockouts" },
-              { id: 'l-sculpt-2', title: "Planes of the Face", focusDescription: "Anatomical plane breaks and structural bone", suggestedMileage: "3 detailed busts" }
-            ]
-          },
-          {
-            id: 'c-retop-master',
-            title: "Unit 2: Production Topology",
-            description: "Creating deformation-ready meshes for animation.",
-            lessons: [
-              { id: 'l-retop-1', title: "Facial Deformation Loops", focusDescription: "Topology for complex mouth/eye motion", suggestedMileage: "2 production retops" },
-              { id: 'l-retop-2', title: "UV Optimization & Texel Density", focusDescription: "Efficient island placement and padding", suggestedMileage: "1 full character UV set" }
-            ]
-          }
-        ]
-      },
-      {
-        id: 'dept-surfacing',
-        title: "Texture & Surfacing",
-        role: ArtRole.SURFACING_ARTIST,
-        description: "PBR textures, procedural materials, and lookdev.",
-        courses: [
-          {
-            id: 'c-pbr-found',
-            title: "Unit 1: PBR Workflow Fundamentals",
-            description: "Physically accurate material creation and theory.",
-            lessons: [
-              { id: 'l-pbr-1', title: "Substance Painter Mastery", focusDescription: "Layer stacks, generators, and smart masks", suggestedMileage: "5 prop textures" },
-              { id: 'l-pbr-2', title: "Dielectric vs Metallic Logic", focusDescription: "Understanding Fresnel and Albedo limits", suggestedMileage: "10 material studies" }
-            ]
-          },
-          {
-            id: 'c-sub-design',
-            title: "Unit 2: Procedural Texturing",
-            description: "Node-based material creation in Substance Designer.",
-            lessons: [
-              { id: 'l-sub-1', title: "Pattern & Noise Generation", focusDescription: "Creating heightmaps from primitives", suggestedMileage: "5 procedural tiles" }
+              { id: 'l15', title: "Anatomy Plane-Breaks", focusDescription: "Structural plane logic", suggestedMileage: "5 busts" }
             ]
           }
         ]
       },
       {
         id: 'dept-env-3d',
-        title: "3D Environment Art",
+        title: "Environment Art Dept.",
         role: ArtRole.ENVIRONMENT_3D,
-        description: "World building, modular kits, and scene assembly.",
+        description: "World building, layout, and scene assembly.",
         courses: [
           {
-            id: 'c-env-mod',
-            title: "Unit 1: Modular Kit Design",
-            description: "Creating efficient, reusable building components.",
+            id: 'c-e3-1', title: "Modular Architecture", description: "Efficiency through reusable grid-snapping assets.",
             lessons: [
-              { id: 'l-mod-1', title: "Trim Sheet Workflows", focusDescription: "Maximizing texel density via atlas maps", suggestedMileage: "1 modular kit" }
+              { id: 'l16', title: "Trim Sheet Workflows", focusDescription: "Maximizing texel density", suggestedMileage: "1 modular set" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-hard-surface',
+        title: "Hard Surface Dept.",
+        role: ArtRole.HARD_SURFACE,
+        description: "Mechanical modeling and clean topology.",
+        courses: [
+          {
+            id: 'c-hs-1', title: "Sub-D Modeling Mastery", description: "Controlling edge tension and mesh flow.",
+            lessons: [
+              { id: 'l17', title: "Complex Booleans", focusDescription: "Cleaning topology after booleans", suggestedMileage: "5 assets" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-surfacing',
+        title: "Texture & Material Dept.",
+        role: ArtRole.SURFACING_ARTIST,
+        description: "PBR workflows and procedural material creation.",
+        courses: [
+          {
+            id: 'c-tx-1', title: "PBR Workflow Mastery", description: "Materiality, albedo limits, and roughness logic.",
+            lessons: [
+              { id: 'l18', title: "Procedural Weathering", focusDescription: "Grime and rust accumulation", suggestedMileage: "3 materials" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-grooming',
+        title: "Grooming Dept.",
+        role: ArtRole.GROOMING,
+        description: "Hair, fur, and realistic digital groom production.",
+        courses: [
+          {
+            id: 'c-gr-1', title: "Digital Hair Systems", description: "XGen, hair cards, and realistic shaders.",
+            lessons: [
+              { id: 'l19', title: "Strand Layering", focusDescription: "Clumping and stray hair logic", suggestedMileage: "1 groom" }
             ]
           }
         ]
@@ -267,47 +297,62 @@ export const ACADEMY_FACULTIES: Faculty[] = [
   },
   {
     id: 'fac-animation',
-    name: "Faculty of Animation",
+    name: "Faculty of Animation & Motion",
     icon: "🎬",
-    description: "Bringing life to pixels through movement and performance.",
+    description: "Bringing life to characters and assets through motion.",
     majors: [
       {
-        id: 'dept-anim-3d',
-        title: "3D Animation",
-        role: ArtRole.ANIMATION_CINEMATIC,
-        description: "Acting-driven performance and physics-based body mechanics.",
+        id: 'dept-anim-2d',
+        title: "2D Animation Dept.",
+        role: ArtRole.ANIMATION_2D,
+        description: "Traditional and puppet-based 2D motion.",
         courses: [
           {
-            id: 'c-anim-mech',
-            title: "Unit 1: Body Mechanics",
-            description: "Mastering weight, balance, and force in human motion.",
+            id: 'c-2da-1', title: "Puppet Deformation", description: "Mesh-warping and secondary action in 2D.",
             lessons: [
-              { id: 'l-mech-1', title: "The Weight Shift", focusDescription: "Center of gravity and momentum transitions", suggestedMileage: "1 heavy lift cycle" },
-              { id: 'l-mech-2', title: "Bipedal Locomotion", focusDescription: "Contact and passing positions in walk/run", suggestedMileage: "2 seamless cycles" }
+              { id: 'l20', title: "Dynamic Rigging", focusDescription: "Bone weight painting in 2D", suggestedMileage: "2 loops" }
             ]
-          },
+          }
+        ]
+      },
+      {
+        id: 'dept-anim-cine',
+        title: "Cinematic Animation Dept.",
+        role: ArtRole.ANIMATION_CINEMATIC,
+        description: "Performance-driven character movement.",
+        courses: [
           {
-            id: 'c-anim-acting',
-            title: "Unit 2: Performance & Acting",
-            description: "Creating emotional and believable character moments.",
+            id: 'c-ac-1', title: "Acting & Body Mechanics", description: "Weight, balance, force, and emotional performance.",
             lessons: [
-              { id: 'l-act-1', title: "Facial Performance", focusDescription: "Lip-sync and micro-expressions", suggestedMileage: "1 acting beat" }
+              { id: 'l21', title: "Momentum Transitions", focusDescription: "Center of gravity shifts", suggestedMileage: "1 cycle" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-anim-game',
+        title: "Gameplay Animation Dept.",
+        role: ArtRole.ANIMATION_GAMEPLAY,
+        description: "Responsive cycles and combat locomotion.",
+        courses: [
+          {
+            id: 'c-ag-1', title: "Locomotion Sets", description: "Responsive walk, run, and transition loops.",
+            lessons: [
+              { id: 'l22', title: "Snappy Combat Loops", focusDescription: "Hit frames and acceleration", suggestedMileage: "3 loops" }
             ]
           }
         ]
       },
       {
         id: 'dept-rigging',
-        title: "Rigging & Deformations",
+        title: "Rigging Dept.",
         role: ArtRole.RIGGING,
-        description: "IK/FK systems, skeletal hierarchies, and skinning logic.",
+        description: "Skeletal hierarchies and technical deformations.",
         courses: [
           {
-            id: 'c-rig-biped',
-            title: "Unit 1: Bipedal Skeletal Rigging",
-            description: "Building robust animation puppets for characters.",
+            id: 'c-rg-1', title: "IK/FK Control Logic", description: "Building robust puppets for production animators.",
             lessons: [
-              { id: 'l-rig-1', title: "IK/FK Switch Systems", focusDescription: "Creating blended control hierarchies", suggestedMileage: "1 functional biped rig" }
+              { id: 'l23', title: "Joint Skinning", focusDescription: "Weight painting for clean bends", suggestedMileage: "1 rig" }
             ]
           }
         ]
@@ -318,53 +363,88 @@ export const ACADEMY_FACULTIES: Faculty[] = [
     id: 'fac-tech-fx',
     name: "Faculty of Tech Art & VFX",
     icon: "⚙️",
-    description: "The intersection of engineering and visual aesthetic.",
+    description: "Visual effects, shaders, and technical engineering.",
     majors: [
       {
-        id: 'dept-shader-art',
-        title: "Shader & Technical Art",
+        id: 'dept-shader',
+        title: "Shader & Lookdev Dept.",
         role: ArtRole.SHADER_ARTIST,
-        description: "Mathematical material logic and real-time screen effects.",
+        description: "Mathematical material rendering and node-based shaders.",
         courses: [
           {
-            id: 'c-shader-found',
-            title: "Unit 1: Real-time Shader Math",
-            description: "HLSL/GLSL logic and node-based shader graph construction.",
+            id: 'c-sh-1', title: "Real-time Shader Math", description: "HLSL/GLSL logic and node-based shaders.",
             lessons: [
-              { id: 'l-shad-1', title: "Dot Product & Fresnel", focusDescription: "Viewing angle based material effects", suggestedMileage: "1 master shader node" },
-              { id: 'l-shad-2', title: "UV Distortion & Panning", focusDescription: "Creating dynamic water and flow effects", suggestedMileage: "1 environment shader" }
+              { id: 'l24', title: "UV Panning & Distortion", focusDescription: "Creating dynamic water effects", suggestedMileage: "2 master shaders" }
             ]
           }
         ]
       },
       {
-        id: 'dept-vfx-particle',
-        title: "VFX (Particles)",
+        id: 'dept-light',
+        title: "Lighting & Lookdev Dept.",
+        role: ArtRole.LIGHTING_LOOKDEV,
+        description: "Final cinematic polish and rendering.",
+        courses: [
+          {
+            id: 'c-li-1', title: "Cinematic Lighting Sets", description: "Shadow quality, global illumination, and 3-point setups.",
+            lessons: [
+              { id: 'l25', title: "Subject Separation", focusDescription: "Rim lighting and values", suggestedMileage: "5 scenes" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-vfx-part',
+        title: "VFX Particle Dept.",
         role: ArtRole.VFX_PARTICLE,
-        description: "Designing magic, fire, and kinetic effects.",
+        description: "Kinetic effects, magic, and energy systems.",
         courses: [
           {
-            id: 'c-niagara-logic',
-            title: "Unit 1: Niagara Particle Logic",
-            description: "Data-driven effects in Unreal Engine.",
+            id: 'c-vfx-1', title: "Niagara Particle Logic", description: "Data-driven effects and particle emitters.",
             lessons: [
-              { id: 'l-vfx-1', title: "Energy Beam Simulation", focusDescription: "Velocity and ribbon rendering", suggestedMileage: "3 energy variants" }
+              { id: 'l26', title: "Energy Beams", focusDescription: "Ribbon and ribbon-velocity logic", suggestedMileage: "3 variants" }
             ]
           }
         ]
       },
       {
-        id: 'dept-techart',
-        title: "Technical Art",
-        role: ArtRole.TECH_ART,
-        description: "Tools, pipeline automation, and performance optimization.",
+        id: 'dept-vfx-sim',
+        title: "VFX Simulation Dept.",
+        role: ArtRole.VFX_SIM,
+        description: "Fluid, destruction, and crowd simulations.",
         courses: [
           {
-            id: 'c-tech-tool',
-            title: "Unit 1: Pipeline Automation",
-            description: "Building custom scripts to speed up artist workflows.",
+            id: 'c-vs-1', title: "Destruction Physics", description: "Fracture solvers, constraints, and management.",
             lessons: [
-              { id: 'l-tool-1', title: "Auto-LOD Scripting", focusDescription: "Automating mesh optimization for engine", suggestedMileage: "1 custom tool" }
+              { id: 'l27', title: "Rigid Body Solver", focusDescription: "Managed architectural collapse", suggestedMileage: "1 shot" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-tech-art',
+        title: "Technical Art Dept.",
+        role: ArtRole.TECH_ART,
+        description: "Pipeline tools and performance optimization.",
+        courses: [
+          {
+            id: 'c-ta-1', title: "Pipeline Automation", description: "Building Python tools to automate studio pipelines.",
+            lessons: [
+              { id: 'l28', title: "Tool UI Design", focusDescription: "Creating functional artist tools", suggestedMileage: "1 tool" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-cloth',
+        title: "Cloth & Physics Dept.",
+        role: ArtRole.CLOTH_SIM,
+        description: "Character fabric behavior and environmental physics.",
+        courses: [
+          {
+            id: 'c-cl-1', title: "High-Fidelity Cloth Sim", description: "Physics-based drapery and character interaction.",
+            lessons: [
+              { id: 'l29', title: "Wind Dynamics", focusDescription: "Environmental physics logic", suggestedMileage: "1 character" }
             ]
           }
         ]
