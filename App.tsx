@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ArtRole, ExperienceLevel, ArtBrief, AppView, ACADEMY_FACULTIES } from './types.ts';
 import RoleIcon from './components/RoleIcon.tsx';
@@ -68,15 +67,6 @@ const App: React.FC = () => {
     setExpandedFaculties(next);
   };
 
-  const handleOpenKeySelection = async () => {
-    try {
-      if (window.aistudio?.openSelectKey) {
-        await window.aistudio.openSelectKey();
-        setError(null);
-      }
-    } catch (err) { console.error(err); }
-  };
-
   const handleGenerate = async () => {
     setIsLoading(true);
     setError(null);
@@ -134,44 +124,88 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#050505] text-zinc-100 selection:bg-blue-500/30 overflow-x-hidden">
-      <header className="fixed top-0 w-full z-[100] glass border-b border-white/5 px-6 py-5 flex items-center justify-between no-print shadow-2xl backdrop-blur-2xl">
+      <header className="fixed top-0 w-full z-[100] glass border-b border-white/5 px-6 py-3.5 flex items-center justify-between no-print shadow-2xl backdrop-blur-3xl">
         <div className="flex items-center space-x-4 cursor-pointer group" onClick={() => setCurrentView('GENERATOR')}>
-          <div className="w-11 h-11 bg-gradient-to-br from-blue-600 to-indigo-800 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
-            <svg viewBox="0 0 24 24" fill="white" className="w-6 h-6"><path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" /></svg>
+          <div className="w-10 h-10 bg-gradient-to-br from-zinc-800 to-zinc-950 rounded-xl flex items-center justify-center border border-white/10 shadow-lg group-hover:scale-105 transition-transform group-hover:border-blue-500/30">
+            <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5"><path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" /></svg>
           </div>
           <div className="hidden sm:block">
-            <h1 className="text-xl font-black tracking-tighter uppercase italic leading-none">ArtDirector <span className="text-blue-500">Hub</span></h1>
-            <p className="text-[9px] uppercase tracking-[0.4em] text-zinc-500 font-black mt-1">Industrial Pipeline</p>
+            <h1 className="text-lg font-black tracking-tighter uppercase italic leading-none">ArtDirector <span className="text-blue-500 text-[11px] not-italic ml-1">v4.0.2</span></h1>
+            <p className="text-[8px] uppercase tracking-[0.4em] text-zinc-500 font-black mt-1">Industrial Intelligence Unit</p>
           </div>
         </div>
         
-        <div className="flex items-center space-x-2 bg-zinc-950/80 p-1.5 rounded-2xl border border-white/10 shadow-inner">
+        <div className="flex items-center space-x-1.5 bg-zinc-950/90 p-1 rounded-2xl border border-white/5 shadow-inner">
           {[
             { id: 'GENERATOR', label: 'Briefs' },
             { id: 'REVIEW', label: 'Review' },
             { id: 'GROWTH', label: 'Academy' }
           ].map(v => (
-            <button key={v.id} onClick={() => setCurrentView(v.id as AppView)} className={`px-5 py-2 rounded-xl text-[10px] font-black transition-all uppercase tracking-widest ${currentView === v.id ? 'bg-zinc-100 text-zinc-950 shadow-md scale-105' : 'text-zinc-500 hover:text-white'}`}>
+            <button key={v.id} onClick={() => setCurrentView(v.id as AppView)} className={`px-6 py-2 rounded-xl text-[10px] font-black transition-all uppercase tracking-widest ${currentView === v.id ? 'bg-zinc-100 text-zinc-950 shadow-md scale-105' : 'text-zinc-500 hover:text-white'}`}>
               {v.label}
             </button>
           ))}
         </div>
 
-        <div className="flex items-center gap-4">
-          <div className="hidden md:flex flex-col items-end">
-            <span className="text-[10px] font-black uppercase text-zinc-200 leading-none">{user.displayName}</span>
-            <button onClick={handleLogout} className="text-[9px] font-bold text-zinc-500 uppercase hover:text-red-500 transition-colors">Sign Out</button>
+        <div className="flex items-center">
+          <div className="flex items-center bg-zinc-900/40 p-1.5 rounded-2xl border border-white/5 group relative hover:border-blue-500/20 transition-all">
+            <div className="relative">
+              <img src={user.photoURL || ''} alt="User" className="w-10 h-10 rounded-xl border border-white/10 object-cover grayscale group-hover:grayscale-0 transition-all shadow-xl" />
+              <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-zinc-900 rounded-full shadow-glow-green"></div>
+            </div>
+            
+            <div className="mx-4 hidden lg:flex flex-col border-l border-white/5 pl-4">
+              <div className="flex items-center gap-2">
+                <span className="text-[11px] font-black uppercase text-zinc-100 tracking-tight leading-none">{user.displayName?.split(' ')[0]}</span>
+                <span className="px-1.5 py-0.5 bg-blue-500/10 text-blue-400 text-[7px] font-black rounded uppercase tracking-widest border border-blue-500/20">Active ID</span>
+              </div>
+              <div className="flex items-center gap-1.5 mt-1">
+                <div className="w-2 h-2 rounded-full bg-blue-500/40 animate-pulse"></div>
+                <span className="text-[8px] font-bold text-zinc-500 uppercase tracking-[0.2em]">{experience} {selectedRole.split(' ')[0]}</span>
+              </div>
+            </div>
+
+            <div className="h-10 w-px bg-white/5 mx-2 hidden lg:block"></div>
+
+            <button 
+              onClick={handleLogout} 
+              className="p-2.5 hover:bg-red-500/10 rounded-xl group/logout transition-all ml-1"
+              title="Secure Sign Out"
+            >
+              <svg className="w-4 h-4 text-zinc-500 group-hover/logout:text-red-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
+            </button>
+
+            {/* Hidden Stats / ID Detail on hover */}
+            <div className="absolute top-[calc(100%+12px)] right-0 w-64 glass rounded-2xl border border-white/10 p-5 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all translate-y-2 group-hover:translate-y-0 shadow-[0_30px_60px_rgba(0,0,0,0.8)] z-50">
+               <div className="space-y-4">
+                  <div className="flex items-center justify-between border-b border-white/5 pb-3">
+                     <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">Artist Status</span>
+                     <span className="text-[9px] font-black text-green-500 uppercase tracking-widest">Deployable</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4">
+                     <div className="bg-black/40 p-3 rounded-xl border border-white/5">
+                        <span className="text-[7px] font-black text-zinc-600 uppercase block mb-1">XP Points</span>
+                        <span className="text-sm font-black text-blue-400 mono italic tabular-nums">12,480</span>
+                     </div>
+                     <div className="bg-black/40 p-3 rounded-xl border border-white/5">
+                        <span className="text-[7px] font-black text-zinc-600 uppercase block mb-1">Mastery</span>
+                        <span className="text-sm font-black text-purple-400 mono italic tabular-nums">Lvl 4</span>
+                     </div>
+                  </div>
+                  <div className="p-3 bg-blue-500/5 border border-blue-500/10 rounded-xl">
+                    <p className="text-[8px] text-zinc-400 leading-relaxed font-medium italic">"The eye is a muscle. Train it by looking at the world, not just the screen."</p>
+                  </div>
+               </div>
+            </div>
           </div>
-          <img src={user.photoURL || ''} alt="User" className="w-10 h-10 rounded-xl border border-white/10" />
-          <button onClick={handleOpenKeySelection} className="text-[10px] font-black text-zinc-500 hover:text-blue-400 transition-colors uppercase tracking-[0.2em] border border-white/10 px-4 py-2 rounded-xl hover:bg-white/5">Studio Key</button>
         </div>
       </header>
 
-      <main className="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto overflow-visible">
+      <main className="pt-24 pb-20 px-4 md:px-8 max-w-7xl mx-auto overflow-visible">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 overflow-visible">
           {currentView !== 'GROWTH' && (
             <aside className="lg:col-span-4 space-y-6 no-print overflow-visible">
-              <div className="glass rounded-[2rem] p-6 border border-white/10 space-y-8 sticky top-32 max-h-[calc(100vh-10rem)] overflow-y-auto custom-scrollbar overflow-x-visible">
+              <div className="glass rounded-[2rem] p-6 border border-white/10 space-y-8 sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto custom-scrollbar overflow-x-visible">
                 <section>
                   <label className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em] mb-6 block text-center">Pipeline Departments</label>
                   <div className="space-y-4">
@@ -272,7 +306,7 @@ const App: React.FC = () => {
       </main>
 
       <footer className="py-12 border-t border-white/5 text-center no-print opacity-50">
-        <p className="text-zinc-700 text-[9px] tracking-[0.8em] font-black uppercase">ArtDirector AI • Zero to Hero Pipeline • Industrial Training Hub</p>
+        <p className="text-zinc-700 text-[9px] tracking-[0.8em] font-black uppercase">ArtDirector AI Unit • Zero to Hero • Authorized Production Pipeline</p>
       </footer>
     </div>
   );
