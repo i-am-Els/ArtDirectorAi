@@ -4,7 +4,7 @@ import { onAuthStateChanged, signInWithRedirect, getRedirectResult, signOut, Use
 import { ArtRole, ExperienceLevel, ArtBrief, AppView } from './types.ts';
 import RoleIcon from './components/RoleIcon.tsx';
 import BriefDisplay from './components/BriefDisplay.tsx';
-// import GrowthStudio from './components/GrowthStudio.tsx';
+import GrowthStudio from './components/GrowthStudio.tsx';
 import { generateBrief } from './services/geminiService.ts';
 
 const App: React.FC = () => {
@@ -139,7 +139,7 @@ const App: React.FC = () => {
       </header>
 
       <main className="pt-24 px-8 max-w-7xl mx-auto pb-20 overflow-visible">
-        {/* {currentView === 'GROWTH' && <GrowthStudio currentRole={selectedRole} />} */}
+        {currentView === 'GROWTH' && <GrowthStudio currentRole={selectedRole} />}
         {currentView === 'GENERATOR' && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <aside className="lg:col-span-4 space-y-8 no-print">
