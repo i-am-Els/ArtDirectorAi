@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-// Reverting to the standard reCAPTCHA v3 provider to match the Firebase Console
-import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
+// Temporarily disabling App Check to isolate the Auth initialization crash.
+// import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -14,11 +14,12 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-// Using the standard v3 provider
+/* Temporarily disabling App Check to isolate the Auth initialization crash.
 initializeAppCheck(app, {
   provider: new ReCaptchaV3Provider(import.meta.env.VITE_RECAPTCHA_SITE_KEY),
   isTokenAutoRefreshEnabled: true
 });
+*/
 
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
