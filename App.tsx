@@ -8,13 +8,6 @@ import GrowthStudio from './components/GrowthStudio.tsx';
 import { generateBrief } from './services/geminiService.ts';
 
 const App: React.FC = () => {
-  // This block for debugging will be removed after we confirm the fix
-  console.log("--- VERCEL ENV DEBUG ---");
-  console.log("VITE_PROJECT_ID:", import.meta.env.VITE_PROJECT_ID);
-  console.log("VITE_API_KEY:", import.meta.env.VITE_API_KEY);
-  console.log("VITE_RECAPTCHA_SITE_KEY:", import.meta.env.VITE_RECAPTCHA_SITE_KEY);
-  console.log("----------------------");
-  
   const [user, setUser] = useState<User | null>(null);
   const [authLoading, setAuthLoading] = useState(true);
   const [currentView, setCurrentView] = useState<AppView>('GROWTH');
