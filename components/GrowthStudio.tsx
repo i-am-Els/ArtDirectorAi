@@ -114,7 +114,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole }> = ({ currentRole }) => {
         week: 1,
         focusTitle: course.title,
         dailyTasks: course.lessons.map(l => l.title),
-        resources: [{ title: 'Academic References', url_search: `${course.title} reference` }]
+        resources: [{ title: 'Academic References', url_search: `${course.title} tutorial` }]
       }],
       createdAt: Date.now(),
       completedTasks: []
@@ -176,6 +176,11 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole }> = ({ currentRole }) => {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  };
+
+  const handleSearchLesson = (lesson: string) => {
+    const query = encodeURIComponent(lesson + " tutorial " + (selectedMajor?.major.software[0] || ""));
+    window.open(`https://www.youtube.com/results?search_query=${query}`, '_blank');
   };
 
   const activePlan = plans.find(p => p.id === activePlanId);
@@ -356,7 +361,6 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole }> = ({ currentRole }) => {
           </button>
 
           <div className="relative glass rounded-[4rem] border-white/10 p-12 overflow-hidden shadow-2xl">
-             {/* Background Decoration */}
              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-blue-500/5 to-transparent blur-3xl -mr-32 -mt-32"></div>
              
              <div className="relative z-10 space-y-12">
@@ -366,7 +370,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole }> = ({ currentRole }) => {
                       <div className="flex items-center gap-4">
                         <span className="px-3 py-1 bg-zinc-900 border border-white/10 rounded-full text-[9px] font-black uppercase tracking-[0.2em] text-zinc-400">{selectedMajor.faculty.name}</span>
                         <span className="text-zinc-700">•</span>
-                        <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-500">Mastery Track v2.0</span>
+                        <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-500">Mastery Track v2.1</span>
                       </div>
                       <h2 className="text-6xl font-black italic uppercase text-white tracking-tighter leading-none">{selectedMajor.major.title}</h2>
                       <p className="text-xl text-zinc-400 font-medium leading-relaxed max-w-3xl">{selectedMajor.major.description}</p>
@@ -383,58 +387,62 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole }> = ({ currentRole }) => {
                       </div>
                    </div>
                    <div className="space-y-4">
-                      <h4 className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Core Software</h4>
+                      <h4 className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Core Software Stack</h4>
                       <div className="flex flex-wrap gap-2">
                         {selectedMajor.major.software.map(s => (
-                          <span key={s} className="px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-xl text-[10px] font-bold text-blue-300">{s}</span>
+                          <span key={s} className="px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-xl text-[10px] font-black tracking-widest text-blue-300 uppercase italic">{s}</span>
                         ))}
                       </div>
                    </div>
                    <div className="space-y-4">
-                      <h4 className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Program Duration</h4>
-                      <p className="text-zinc-300 text-sm font-bold uppercase tracking-tighter italic">{selectedMajor.major.courses.length} Progressive Industrial Units</p>
+                      <h4 className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Curriculum Stats</h4>
+                      <p className="text-zinc-300 text-sm font-bold uppercase tracking-tighter italic">{selectedMajor.major.courses.length} Multi-Tier Course Modules</p>
                    </div>
                 </div>
 
                 <div className="space-y-8 pt-8">
-                   <h3 className="text-2xl font-black italic uppercase text-white border-l-4 border-blue-500 pl-6">Mastery Syllabus</h3>
+                   <h3 className="text-2xl font-black italic uppercase text-white border-l-4 border-blue-500 pl-6">Industrial Syllabus</h3>
                    <div className="grid grid-cols-1 gap-6">
-                      {selectedMajor.major.courses.length === 0 ? (
-                        <div className="p-12 border-2 border-dashed border-white/5 rounded-[3rem] text-center opacity-30 italic font-black uppercase tracking-[0.2em]">Curriculum details for this department are being finalized by the board.</div>
-                      ) : (
-                        selectedMajor.major.courses.map((course, idx) => (
-                          <div key={course.id} className="group glass p-8 rounded-[2.5rem] border-white/5 hover:border-white/20 transition-all flex flex-col lg:flex-row gap-8 items-start shadow-xl">
-                             <div className="lg:w-1/4 space-y-4">
-                                <span className={`px-2.5 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest ${
-                                  course.tier === 'Foundations' ? 'bg-zinc-800 text-zinc-400' : 
-                                  course.tier === 'Production' ? 'bg-blue-600/20 text-blue-400' : 'bg-purple-600/20 text-purple-400'
-                                }`}>{course.tier}</span>
-                                <h4 className="text-2xl font-black italic uppercase text-white leading-tight tracking-tight">{course.title}</h4>
-                                <button 
-                                  onClick={() => handleEnrollCourse(selectedMajor.major, course)}
-                                  className="w-full py-4 bg-zinc-100 text-zinc-950 rounded-2xl font-black uppercase text-[10px] tracking-[0.2em] hover:scale-105 active:scale-95 transition-all shadow-2xl"
-                                >
-                                  Enroll Now
-                                </button>
-                             </div>
-                             <div className="lg:w-3/4 space-y-6">
-                                <p className="text-sm text-zinc-400 font-medium italic leading-relaxed">{course.description}</p>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                   {course.lessons.map((lesson, li) => (
-                                     <div key={lesson.id} className="p-5 bg-black/40 border border-white/5 rounded-2xl space-y-2">
-                                        <div className="flex justify-between items-center">
-                                          <span className="text-[10px] font-black text-blue-500">UNIT {idx+1}.{li+1}</span>
-                                          <span className="text-[8px] font-black text-zinc-600 uppercase tracking-widest">{lesson.suggestedMileage}</span>
-                                        </div>
-                                        <h5 className="text-sm font-black text-zinc-100 uppercase tracking-tight">{lesson.title}</h5>
-                                        <p className="text-[10px] text-zinc-500 italic leading-tight">{lesson.focusDescription}</p>
-                                     </div>
-                                   ))}
-                                </div>
-                             </div>
-                          </div>
-                        ))
-                      )}
+                      {selectedMajor.major.courses.map((course, idx) => (
+                        <div key={course.id} className="group glass p-8 rounded-[2.5rem] border-white/5 hover:border-white/20 transition-all flex flex-col lg:flex-row gap-8 items-start shadow-xl">
+                           <div className="lg:w-1/4 space-y-4">
+                              <span className={`px-2.5 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest ${
+                                course.tier === 'Foundations' ? 'bg-zinc-800 text-zinc-400' : 
+                                course.tier === 'Production' ? 'bg-blue-600/20 text-blue-400' : 'bg-purple-600/20 text-purple-400'
+                              }`}>{course.tier}</span>
+                              <h4 className="text-2xl font-black italic uppercase text-white leading-tight tracking-tight">{course.title}</h4>
+                              <button 
+                                onClick={() => handleEnrollCourse(selectedMajor.major, course)}
+                                className="w-full py-4 bg-zinc-100 text-zinc-950 rounded-2xl font-black uppercase text-[10px] tracking-[0.2em] hover:scale-105 active:scale-95 transition-all shadow-2xl"
+                              >
+                                Start Course
+                              </button>
+                           </div>
+                           <div className="lg:w-3/4 space-y-6">
+                              <p className="text-sm text-zinc-400 font-medium italic leading-relaxed">{course.description}</p>
+                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                 {course.lessons.map((lesson, li) => (
+                                   <div key={lesson.id} className="p-5 bg-black/40 border border-white/5 rounded-2xl space-y-3 group/lesson">
+                                      <div className="flex justify-between items-center">
+                                        <span className="text-[10px] font-black text-blue-500 uppercase">Unit {li+1}</span>
+                                        <span className="text-[8px] font-black text-zinc-600 uppercase tracking-widest">{lesson.suggestedMileage}</span>
+                                      </div>
+                                      <h5 className="text-sm font-black text-zinc-100 uppercase tracking-tight">{lesson.title}</h5>
+                                      <p className="text-[10px] text-zinc-500 italic leading-tight mb-4">{lesson.focusDescription}</p>
+                                      
+                                      <button 
+                                        onClick={() => handleSearchLesson(lesson.title)}
+                                        className="w-full py-2 bg-white/5 border border-white/5 rounded-lg text-[8px] font-black uppercase text-zinc-400 hover:text-white hover:bg-white/10 transition-all flex items-center justify-center gap-2"
+                                      >
+                                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 4-8 4z"/></svg>
+                                        Search Tutorial
+                                      </button>
+                                   </div>
+                                 ))}
+                              </div>
+                           </div>
+                        </div>
+                      ))}
                    </div>
                 </div>
              </div>

@@ -65,52 +65,44 @@ export interface Faculty {
   majors: AcademyMajor[];
 }
 
-// THE COMPLETE INDUSTRIAL ACADEMY DIRECTORY
 export const ACADEMY_FACULTIES: Faculty[] = [
   {
     id: 'fac-visdev',
     name: "Faculty of Visual Development",
     icon: "🎨",
     color: "#60a5fa",
-    description: "The core of ideation and storytelling.",
+    description: "Ideation, design language, and narrative visualization.",
     majors: [
       {
         id: 'dept-char-concept',
         title: "Character Design",
         role: ArtRole.CONCEPT_CHAR,
-        description: "Specializing in character archetypes, anatomy, and costume logic for the entertainment industry.",
-        software: ["Photoshop", "ZBrush (Blockout)", "PureRef"],
-        outcomes: ["Lead Character Artist", "Concept Artist", "Costume Designer"],
+        description: "Designing character archetypes with anatomical and narrative depth.",
+        software: ["Photoshop", "Clip Studio", "Procreate", "PureRef"],
+        outcomes: ["Lead Character Designer", "Visual Development Artist"],
         courses: [
           {
-            id: 'cc-101',
-            title: "CC101: Anatomical Foundations",
-            tier: 'Foundations',
-            description: "Mastering the skeletal and muscular mechanics required for professional figure drawing.",
+            id: 'cc-1', title: "Anatomical Foundations", tier: 'Foundations',
+            description: "The mechanical study of the human form.",
             lessons: [
-              { id: 'l1', title: "Skeletal Pivot Points", focusDescription: "Joint rotation and bony landmarks", suggestedMileage: "30 skeletal sketches" },
-              { id: 'l2', title: "Torso & Core Rhythms", focusDescription: "Origin and insertion points of the trunk", suggestedMileage: "15 ecorche studies" },
-              { id: 'l3', title: "The Hand & Foot Machine", focusDescription: "Complex articulation and bony structures", suggestedMileage: "50 limb studies" }
+              { id: 'l1', title: "Skeletal Pivot Points", focusDescription: "Joint rotation and bony landmarks", suggestedMileage: "30 sketches" },
+              { id: 'l2', title: "Torso & Core Rhythms", focusDescription: "Muscle origin/insertion and torso flow", suggestedMileage: "15 ecorches" },
+              { id: 'l3', title: "Dynamic Posing", focusDescription: "Line of action and weight distribution", suggestedMileage: "100 gestures" }
             ]
           },
           {
-            id: 'cc-201',
-            title: "CC201: Archetypes & Shape Language",
-            tier: 'Production',
-            description: "Moving beyond anatomy into the visual psychology of character design.",
+            id: 'cc-2', title: "Industrial Production Workflows", tier: 'Production',
+            description: "Adapting designs for 3D and animation pipelines.",
             lessons: [
-              { id: 'l4', title: "Silhouette Readability", focusDescription: "Negative space and strong pose orientation", suggestedMileage: "50 silhouettes" },
-              { id: 'l5', title: "Personality via Primitives", focusDescription: "Using Square/Circle/Triangle for character tropes", suggestedMileage: "10 character lineups" }
+              { id: 'l4', title: "T-Pose & Turnarounds", focusDescription: "Neutral posing for character artists", suggestedMileage: "3 rotations" },
+              { id: 'l5', title: "Costume Callouts", focusDescription: "Material breakdowns and stitching details", suggestedMileage: "5 sheets" }
             ]
           },
           {
-            id: 'cc-301',
-            title: "CC301: Final Character Thesis",
-            tier: 'Mastery',
-            description: "Developing a production-ready character package including turnarounds and callouts.",
+            id: 'cc-3', title: "Portfolio Mastery", tier: 'Mastery',
+            description: "High-level visual storytelling and world-building through characters.",
             lessons: [
-              { id: 'l6', title: "Material Callouts", focusDescription: "Defining leather, cloth, and metal rendering", suggestedMileage: "1 master sheet" },
-              { id: 'l7', title: "The Production Turnaround", focusDescription: "Neutral T-pose and perspective accuracy", suggestedMileage: "1 character set" }
+              { id: 'l6', title: "Archetype Overhaul", focusDescription: "Redesigning classic tropes with unique hooks", suggestedMileage: "1 character set" }
             ]
           }
         ]
@@ -119,28 +111,160 @@ export const ACADEMY_FACULTIES: Faculty[] = [
         id: 'dept-env-concept',
         title: "Environment Design",
         role: ArtRole.CONCEPT_ENV,
-        description: "World-building, architectural history, and cinematic ecosystem layout.",
-        software: ["Photoshop", "Blender", "Unreal Engine 5"],
-        outcomes: ["Environment Concept Artist", "Level Designer", "World Builder"],
+        description: "World-building and cinematic layout design.",
+        software: ["Photoshop", "Blender", "Unreal Engine 5", "Krita"],
+        outcomes: ["Environment Concept Artist", "World Builder"],
         courses: [
           {
-            id: 'env-101',
-            title: "ENV101: Spatial Perspective Mastery",
-            tier: 'Foundations',
-            description: "Total control over 1, 2, and 3-point perspective grids.",
+            id: 'env-1', title: "Perspective & Grids", tier: 'Foundations',
+            description: "Mastering spatial construction.",
             lessons: [
-              { id: 'l8', title: "3-Point Structural Grids", focusDescription: "Vertical convergence and scale", suggestedMileage: "10 city layouts" }
+              { id: 'l7', title: "3-Point Structural Grids", focusDescription: "Vertical convergence and scale", suggestedMileage: "10 city layouts" },
+              { id: 'l8', title: "Atmospheric Value Cues", focusDescription: "Using haze to define depth layers", suggestedMileage: "20 thumbnails" }
+            ]
+          },
+          {
+            id: 'env-2', title: "Architectural History", tier: 'Production',
+            description: "Designing functional and historical architecture.",
+            lessons: [
+              { id: 'l9', title: "Modular Building Blocks", focusDescription: "Designing reusable architectural components", suggestedMileage: "1 kit" }
+            ]
+          },
+          {
+            id: 'env-3', title: "Cinematic World Mastery", tier: 'Mastery',
+            description: "Finalizing high-fidelity environmental keyframes.",
+            lessons: [
+              { id: 'l10', title: "The Focal Point Hub", focusDescription: "Directing the eye through composition", suggestedMileage: "3 keyframes" }
             ]
           }
         ]
       },
-      { id: 'dept-prop', title: "Prop & Vehicle Design", role: ArtRole.CONCEPT_PROP, description: "Industrial hardware and functional machinery design.", software: ["Fusion 360", "Blender", "Photoshop"], outcomes: ["Hard Surface Designer"], courses: [] },
-      { id: 'dept-sb', title: "Storyboard", role: ArtRole.STORYBOARD, description: "Pacing and cinematic grammar.", software: ["Storyboard Pro", "Photoshop"], outcomes: ["Storyboard Artist"], courses: [] },
-      { id: 'dept-mp', title: "Digital Matte Painting", role: ArtRole.MATTE_PAINTING, description: "Set extensions and realistic environment integration.", software: ["Photoshop", "Nuke", "Maya"], outcomes: ["Matte Painter"], courses: [] },
-      { id: 'dept-illu', title: "Keyframe Illustration", role: ArtRole.ILLUSTRATION, description: "Marketing and narrative keyframes.", software: ["Photoshop", "Blender"], outcomes: ["Keyframe Illustrator"], courses: [] },
-      { id: 'dept-ui', title: "UI/UX Game Art", role: ArtRole.UI_UX, description: "Iconography and player feedback systems.", software: ["Figma", "Photoshop"], outcomes: ["UI Artist", "UX Designer"], courses: [] },
-      { id: 'dept-bg', title: "Background Painting", role: ArtRole.BG_PAINTER, description: "Set painting for 2D series.", software: ["Photoshop", "Clip Studio"], outcomes: ["Background Painter"], courses: [] },
-      { id: 'dept-cs', title: "Color & Lighting Keys", role: ArtRole.COLOR_SCRIPT, description: "Emotional color arc development.", software: ["Photoshop"], outcomes: ["Color Script Artist"], courses: [] }
+      {
+        id: 'dept-prop',
+        title: "Prop & Vehicle Design",
+        role: ArtRole.CONCEPT_PROP,
+        description: "Functional industrial and mechanical design.",
+        software: ["Fusion 360", "Blender", "Photoshop", "Sketchbook Pro"],
+        outcomes: ["Hard Surface Designer", "Prop Artist"],
+        courses: [
+          {
+            id: 'prop-1', title: "Mechanical Logic Foundations", tier: 'Foundations',
+            description: "How things work: Pivots, hinges, and engines.",
+            lessons: [
+              { id: 'l11', title: "Pivot Articulation", focusDescription: "Mechanical range of motion", suggestedMileage: "10 mechanical joints" }
+            ]
+          },
+          {
+            id: 'prop-2', title: "Industrial Form Language", tier: 'Production',
+            description: "Aesthetic branding of machinery.",
+            lessons: [
+              { id: 'l12', title: "Vehicle Chassis Blockout", focusDescription: "Aerodynamics and frame logic", suggestedMileage: "3 vehicles" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-sb',
+        title: "Storyboard Artist",
+        role: ArtRole.STORYBOARD,
+        description: "Visualizing narrative pacing and cinematic grammar.",
+        software: ["Storyboard Pro", "TVPaint", "Photoshop"],
+        outcomes: ["Storyboard Artist", "Director"],
+        courses: [
+          {
+            id: 'sb-1', title: "Cinematic Grammar", tier: 'Foundations',
+            description: "Understanding lens choices and screen direction.",
+            lessons: [
+              { id: 'l13', title: "The 180 Rule", focusDescription: "Spatial continuity in action", suggestedMileage: "5 sequences" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-mp',
+        title: "Digital Matte Painter",
+        role: ArtRole.MATTE_PAINTING,
+        description: "Creating realistic set extensions for film.",
+        software: ["Nuke", "Photoshop", "Maya", "Clarisse"],
+        outcomes: ["Matte Painter", "Environment TD"],
+        courses: [
+          {
+            id: 'mp-1', title: "Plate Integration", tier: 'Foundations',
+            description: "Merging 2D paintings with film plates.",
+            lessons: [
+              { id: 'l14', title: "Depth Haze Matching", focusDescription: "Atmospheric consistency", suggestedMileage: "3 plates" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-illu',
+        title: "Keyframe Illustration",
+        role: ArtRole.ILLUSTRATION,
+        description: "Marketing and narrative marketing illustration.",
+        software: ["Photoshop", "Corel Painter", "Blender"],
+        outcomes: ["Keyframe Illustrator", "Splash Artist"],
+        courses: [
+          {
+            id: 'ill-1', title: "Staging & Focus", tier: 'Foundations',
+            description: "Value hierarchy and narrative lighting.",
+            lessons: [
+              { id: 'l15', title: "Value Grouping", focusDescription: "Readability at a distance", suggestedMileage: "20 studies" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-ui',
+        title: "UI/UX Game Art",
+        role: ArtRole.UI_UX,
+        description: "Interactive feedback and icon systems.",
+        software: ["Figma", "Adobe XD", "Photoshop", "Illustrator"],
+        outcomes: ["UI Artist", "UX Designer"],
+        courses: [
+          {
+            id: 'ui-1', title: "Icon Semantics", tier: 'Foundations',
+            description: "Designing for interaction clarity.",
+            lessons: [
+              { id: 'l16', title: "Symbol Recognition", focusDescription: "Shape language in symbols", suggestedMileage: "50 icons" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-bg',
+        title: "Background Painter",
+        role: ArtRole.BG_PAINTER,
+        description: "Set painting for animation series.",
+        software: ["Photoshop", "Clip Studio", "TVPaint"],
+        outcomes: ["BG Painter", "Color Stylist"],
+        courses: [
+          {
+            id: 'bg-1', title: "Color & Light Consistency", tier: 'Foundations',
+            description: "Maintaining show style across scenes.",
+            lessons: [
+              { id: 'l17', title: "Local Color Logic", focusDescription: "True color vs Lighting color", suggestedMileage: "10 sets" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-cs',
+        title: "Color & Lighting Keys",
+        role: ArtRole.COLOR_SCRIPT,
+        description: "Emotional color arc development.",
+        software: ["Photoshop", "Procreate"],
+        outcomes: ["Color Script Artist", "Art Director"],
+        courses: [
+          {
+            id: 'cs-1', title: "Atmospheric Ramping", tier: 'Foundations',
+            description: "Using color to drive narrative emotion.",
+            lessons: [
+              { id: 'l18', title: "The Emotional Palette", focusDescription: "Warm vs Cool tension", suggestedMileage: "20 scripts" }
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -148,40 +272,100 @@ export const ACADEMY_FACULTIES: Faculty[] = [
     name: "Faculty of 3D Production",
     icon: "🧱",
     color: "#a855f7",
-    description: "Asset creation and digital manufacturing.",
+    description: "Asset creation and digital sculpting.",
     majors: [
       {
         id: 'dept-char-3d',
         title: "3D Character Art",
         role: ArtRole.CHARACTER_3D,
-        description: "Digital sculpting, anatomy, and real-time optimization for production.",
-        software: ["ZBrush", "Maya", "Substance Painter"],
+        description: "High-fidelity sculpting and production modeling.",
+        software: ["ZBrush", "Maya", "3DCoat", "Marvelous Designer"],
         outcomes: ["Character Artist", "Digital Sculptor"],
         courses: [
           {
-            id: 'sc-101',
-            title: "SC101: Digital Clay & Form",
-            tier: 'Foundations',
-            description: "Learning ZBrush navigation and primary form blockouts.",
+            id: 'c3d-1', title: "ZBrush Form Logic", tier: 'Foundations',
+            description: "Mastering primary and secondary shapes.",
             lessons: [
-              { id: 'l10', title: "Dynamic Blockouts", focusDescription: "Proportions and massing in digital clay", suggestedMileage: "10 head starts" }
+              { id: 'l19', title: "Anatomy Blockouts", focusDescription: "Proportions and massing", suggestedMileage: "10 heads" }
             ]
           },
           {
-             id: 'sc-201',
-             title: "SC201: Production Topology",
-             tier: 'Production',
-             description: "Retopology for animation and UV optimization.",
-             lessons: [
-               { id: 'l11', title: "Facial Loops", focusDescription: "Topology for lip-sync and blinks", suggestedMileage: "2 faces" }
-             ]
+            id: 'c3d-2', title: "Production Topology", tier: 'Production',
+            description: "Deformation-ready mesh creation.",
+            lessons: [
+              { id: 'l20', title: "Facial Loop Mastery", focusDescription: "Topology for blinks and smiles", suggestedMileage: "3 faces" }
+            ]
           }
         ]
       },
-      { id: 'dept-env-3d', title: "3D Environment Art", role: ArtRole.ENVIRONMENT_3D, description: "World building and scene assembly.", software: ["UE5", "Maya", "Substance Designer"], outcomes: ["Environment Artist"], courses: [] },
-      { id: 'dept-hs', title: "Hard Surface Modeling", role: ArtRole.HARD_SURFACE, description: "Mechanical modeling and clean topology.", software: ["Blender", "Maya", "ZBrush"], outcomes: ["Hard Surface Artist"], courses: [] },
-      { id: 'dept-surf', title: "Texture & Material", role: ArtRole.SURFACING_ARTIST, description: "PBR workflows and surfacing.", software: ["Substance Painter", "Substance Designer"], outcomes: ["Surfacing Artist"], courses: [] },
-      { id: 'dept-groom', title: "Grooming & Hair", role: ArtRole.GROOMING, description: "Realistic hair and fur production.", software: ["XGen", "Houdini"], outcomes: ["Grooming Artist"], courses: [] }
+      {
+        id: 'dept-env-3d',
+        title: "3D Environment Art",
+        role: ArtRole.ENVIRONMENT_3D,
+        description: "World building and scene assembly.",
+        software: ["UE5", "Unity", "Maya", "SpeedTree"],
+        outcomes: ["Environment Artist", "Level Artist"],
+        courses: [
+          {
+            id: 'e3d-1', title: "Modular Kit Design", tier: 'Foundations',
+            description: "Efficiency through reusable grid-snapping kits.",
+            lessons: [
+              { id: 'l21', title: "Trim Sheet Workflow", focusDescription: "Maximizing texel density", suggestedMileage: "1 sheet" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-hs',
+        title: "Hard Surface Modeling",
+        role: ArtRole.HARD_SURFACE,
+        description: "Mechanical modeling and clean topology.",
+        software: ["Blender", "Maya", "ZBrush", "Plasticity"],
+        outcomes: ["Vehicle Artist", "Prop Modeler"],
+        courses: [
+          {
+            id: 'hs-1', title: "Sub-D Perfection", tier: 'Foundations',
+            description: "Edge tension and flow control.",
+            lessons: [
+              { id: 'l22', title: "Boolean Management", focusDescription: "Cleaning topology after booleans", suggestedMileage: "5 props" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-surf',
+        title: "Texture & Surfacing",
+        role: ArtRole.SURFACING_ARTIST,
+        description: "PBR materials and look-dev.",
+        software: ["Substance Painter", "Substance Designer", "Marmoset Toolbag"],
+        outcomes: ["Surfacing Artist", "Texture Artist"],
+        courses: [
+          {
+            id: 'tx-1', title: "PBR Material Theory", tier: 'Foundations',
+            description: "Roughness, Albedo, and Metalness logic.",
+            lessons: [
+              { id: 'l23', title: "Weathering Logic", focusDescription: "Procedural dirt and rust", suggestedMileage: "5 spheres" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-groom',
+        title: "Grooming & Hair",
+        role: ArtRole.GROOMING,
+        description: "Realistic hair and fur digital production.",
+        software: ["XGen", "Houdini", "Ornatrix"],
+        outcomes: ["Grooming Artist", "Character TD"],
+        courses: [
+          {
+            id: 'gr-1', title: "Strand & Clump Logic", tier: 'Foundations',
+            description: "Creating believable hair volume.",
+            lessons: [
+              { id: 'l24', title: "Hair Card Creation", focusDescription: "Optimized game-ready hair", suggestedMileage: "1 groom" }
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -189,12 +373,76 @@ export const ACADEMY_FACULTIES: Faculty[] = [
     name: "Faculty of Animation",
     icon: "🎬",
     color: "#f43f5e",
-    description: "Bringing life to static objects.",
+    description: "Bringing life to characters and worlds.",
     majors: [
-      { id: 'dept-a2d', title: "2D Animation", role: ArtRole.ANIMATION_2D, description: "Traditional and puppet-based motion.", software: ["ToonBoom", "Spine"], outcomes: ["2D Animator"], courses: [] },
-      { id: 'dept-acine', title: "Cinematic Animation", role: ArtRole.ANIMATION_CINEMATIC, description: "Acting-driven character performance.", software: ["Maya"], outcomes: ["Animator"], courses: [] },
-      { id: 'dept-agame', title: "Gameplay Animation", role: ArtRole.ANIMATION_GAMEPLAY, description: "Responsive cycles and combat locomotion.", software: ["Maya", "UE5"], outcomes: ["Gameplay Animator"], courses: [] },
-      { id: 'dept-rig', title: "Rigging", role: ArtRole.RIGGING, description: "Skeletal hierarchies and technical deformations.", software: ["Maya", "Python"], outcomes: ["Technical Director"], courses: [] }
+      {
+        id: 'dept-a2d',
+        title: "2D Animation",
+        role: ArtRole.ANIMATION_2D,
+        description: "Traditional and technical 2D performance.",
+        software: ["ToonBoom Harmony", "Spine", "Live2D", "TVPaint"],
+        outcomes: ["2D Animator", "Spine Rigger"],
+        courses: [
+          {
+            id: 'a2d-1', title: "Deformation & Squash", tier: 'Foundations',
+            description: "Foundational principles of movement.",
+            lessons: [
+              { id: 'l25', title: "Weight Shift", focusDescription: "Center of gravity transition", suggestedMileage: "10 loops" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-acine',
+        title: "Cinematic Animation",
+        role: ArtRole.ANIMATION_CINEMATIC,
+        description: "Performance and acting-driven character animation.",
+        software: ["Maya", "MotionBuilder"],
+        outcomes: ["Animator", "Previs Artist"],
+        courses: [
+          {
+            id: 'acin-1', title: "Body Mechanics", tier: 'Foundations',
+            description: "Mastering weight, balance, and force.",
+            lessons: [
+              { id: 'l26', title: "Bipedal Walk Cycles", focusDescription: "Contact and passing positions", suggestedMileage: "5 cycles" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-agame',
+        title: "Gameplay Animation",
+        role: ArtRole.ANIMATION_GAMEPLAY,
+        description: "Responsive combat and locomotion cycles.",
+        software: ["Maya", "Unreal Engine"],
+        outcomes: ["Gameplay Animator"],
+        courses: [
+          {
+            id: 'agam-1', title: "Responsive Locomotion", tier: 'Foundations',
+            description: "Designing for input responsiveness.",
+            lessons: [
+              { id: 'l27', title: "Hit Reactions", focusDescription: "Impact and recovery frames", suggestedMileage: "3 sets" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-rig',
+        title: "Rigging",
+        role: ArtRole.RIGGING,
+        description: "Skeletal technical deformation and control systems.",
+        software: ["Maya", "Python", "Blender"],
+        outcomes: ["Rigging TD", "Technical Artist"],
+        courses: [
+          {
+            id: 'rig-1', title: "Skeletal Hierarchies", tier: 'Foundations',
+            description: "Joint orientation and rigging math.",
+            lessons: [
+              { id: 'l28', title: "IK/FK Switch Systems", focusDescription: "Building robust controls", suggestedMileage: "1 biped rig" }
+            ]
+          }
+        ]
+      }
     ]
   },
   {
@@ -204,12 +452,108 @@ export const ACADEMY_FACULTIES: Faculty[] = [
     color: "#10b981",
     description: "The intersection of engineering and visual art.",
     majors: [
-      { id: 'dept-sha', title: "Shader & Lookdev", role: ArtRole.SHADER_ARTIST, description: "Mathematical material rendering.", software: ["HLSL/GLSL", "Unreal Engine"], outcomes: ["Shader Artist"], courses: [] },
-      { id: 'dept-light', title: "Lighting & Lookdev", role: ArtRole.LIGHTING_LOOKDEV, description: "Final cinematic polish and rendering.", software: ["UE5", "Arnold", "Katana"], outcomes: ["Lighting Artist"], courses: [] },
-      { id: 'dept-vfx-p', title: "VFX Particles", role: ArtRole.VFX_PARTICLE, description: "Magic, energy, and kinetic effects.", software: ["Niagara", "Houdini"], outcomes: ["VFX Artist"], courses: [] },
-      { id: 'dept-vfx-s', title: "VFX Simulation", role: ArtRole.VFX_SIM, description: "Fluid and destruction dynamics.", software: ["Houdini"], outcomes: ["FX TD"], courses: [] },
-      { id: 'dept-ta', title: "Technical Art", role: ArtRole.TECH_ART, description: "Pipeline tools and optimization.", software: ["Python", "C++", "UE5"], outcomes: ["Technical Artist"], courses: [] },
-      { id: 'dept-clo', title: "Cloth & Physics", role: ArtRole.CLOTH_SIM, description: "Dynamic character fabric behavior.", software: ["Marvelous Designer", "Houdini"], outcomes: ["Simulation Artist"], courses: [] }
+      {
+        id: 'dept-sha',
+        title: "Shader & Lookdev",
+        role: ArtRole.SHADER_ARTIST,
+        description: "Mathematical material rendering and real-time effects.",
+        software: ["HLSL", "GLSL", "Unreal Engine Shader Graph", "Amplify"],
+        outcomes: ["Shader Artist", "Technical Artist"],
+        courses: [
+          {
+            id: 'sh-1', title: "Real-time Shader Math", tier: 'Foundations',
+            description: "UV distortion and panner logic.",
+            lessons: [
+              { id: 'l29', title: "Vector Operations", focusDescription: "Dot and Cross product in shading", suggestedMileage: "5 shaders" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-light',
+        title: "Lighting & Lookdev",
+        role: ArtRole.LIGHTING_LOOKDEV,
+        description: "Cinematic rendering and light set extensions.",
+        software: ["Maya", "Arnold", "UE5", "Katana"],
+        outcomes: ["Lighting Artist", "Lookdev TD"],
+        courses: [
+          {
+            id: 'li-1', title: "Cinematic 3-Point Setup", tier: 'Foundations',
+            description: "Subject separation and rim lighting.",
+            lessons: [
+              { id: 'l30', title: "Shadow Quality", focusDescription: "Soft vs Hard light logic", suggestedMileage: "5 scenes" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-vfx-p',
+        title: "VFX Particles",
+        role: ArtRole.VFX_PARTICLE,
+        description: "Magic, fire, and kinetic particle systems.",
+        software: ["Niagara", "Unity VFX Graph", "Houdini"],
+        outcomes: ["VFX Artist"],
+        courses: [
+          {
+            id: 'vfxp-1', title: "Emitter Logic", tier: 'Foundations',
+            description: "Velocity, life, and color over time.",
+            lessons: [
+              { id: 'l31', title: "Energy Beam Simulation", focusDescription: "Ribbon and sprite logic", suggestedMileage: "3 effects" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-vfx-s',
+        title: "VFX Simulation",
+        role: ArtRole.VFX_SIM,
+        description: "Fluid and rigid body dynamics.",
+        software: ["Houdini", "RealFlow"],
+        outcomes: ["FX TD", "Simulation Artist"],
+        courses: [
+          {
+            id: 'vfxs-1', title: "Fracture Solvers", tier: 'Foundations',
+            description: "Architectural destruction logic.",
+            lessons: [
+              { id: 'l32', title: "Rigid Body Dynamics", focusDescription: "Collision and constraints", suggestedMileage: "1 destruction shot" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-ta',
+        title: "Technical Art",
+        role: ArtRole.TECH_ART,
+        description: "Pipeline engineering and tool development.",
+        software: ["Python", "C++", "C#", "Maya API"],
+        outcomes: ["Technical Artist", "Pipeline TD"],
+        courses: [
+          {
+            id: 'ta-1', title: "Automation Scripting", tier: 'Foundations',
+            description: "Building Python tools for DCCs.",
+            lessons: [
+              { id: 'l33', title: "Batch Exporters", focusDescription: "Automating the FBX pipeline", suggestedMileage: "1 custom tool" }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'dept-clo',
+        title: "Cloth & Physics",
+        role: ArtRole.CLOTH_SIM,
+        description: "Dynamic character fabric and hair behavior.",
+        software: ["Marvelous Designer", "Houdini", "Maya"],
+        outcomes: ["Simulation Artist"],
+        courses: [
+          {
+            id: 'clo-1', title: "Pattern Making & Sim", tier: 'Foundations',
+            description: "Functional clothing construction.",
+            lessons: [
+              { id: 'l34', title: "Drapery Physics", focusDescription: "Pressure and wind interaction", suggestedMileage: "1 full character outfit" }
+            ]
+          }
+        ]
+      }
     ]
   }
 ];
