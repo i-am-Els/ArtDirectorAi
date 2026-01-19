@@ -36,6 +36,7 @@ export interface Lesson {
   title: string;
   focusDescription: string;
   suggestedMileage: string;
+  searchQueries: string[];
 }
 
 export interface Course {
@@ -65,6 +66,17 @@ export interface Faculty {
   majors: AcademyMajor[];
 }
 
+export interface UserProgress {
+  enrolledMajors: string[];
+  completedLessons: string[]; // IDs of completed lessons
+  activeDrills: Record<string, {
+    startDate: number;
+    daysCompleted: number;
+    lastLog: number;
+  }>;
+}
+
+
 export const ACADEMY_FACULTIES: Faculty[] = [
   {
     id: 'fac-visdev',
@@ -85,24 +97,24 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'cc-1', title: "Anatomical Foundations", tier: 'Foundations',
             description: "The mechanical study of the human form.",
             lessons: [
-              { id: 'l1', title: "Skeletal Pivot Points", focusDescription: "Joint rotation and bony landmarks", suggestedMileage: "30 sketches" },
-              { id: 'l2', title: "Torso & Core Rhythms", focusDescription: "Muscle origin/insertion and torso flow", suggestedMileage: "15 ecorches" },
-              { id: 'l3', title: "Dynamic Posing", focusDescription: "Line of action and weight distribution", suggestedMileage: "100 gestures" }
+              { id: 'l1', title: "Skeletal Pivot Points", focusDescription: "Joint rotation and bony landmarks", suggestedMileage: "30 sketches", searchQueries: ["skeletal anatomy for artists", "landmark anatomy figure drawing", "proko joints"] },
+              { id: 'l2', title: "Torso & Core Rhythms", focusDescription: "Muscle origin/insertion and torso flow", suggestedMileage: "15 ecorches", searchQueries: ["torso bean shape drawing", "anatomy torso muscles", "michael hampton torso"] },
+              { id: 'l3', title: "Dynamic Posing", focusDescription: "Line of action and weight distribution", suggestedMileage: "100 gestures", searchQueries: ["figure drawing gesture line of action", "force drawing dynamic poses", "gesture drawing techniques"] }
             ]
           },
           {
             id: 'cc-2', title: "Industrial Production Workflows", tier: 'Production',
             description: "Adapting designs for 3D and animation pipelines.",
             lessons: [
-              { id: 'l4', title: "T-Pose & Turnarounds", focusDescription: "Neutral posing for character artists", suggestedMileage: "3 rotations" },
-              { id: 'l5', title: "Costume Callouts", focusDescription: "Material breakdowns and stitching details", suggestedMileage: "5 sheets" }
+              { id: 'l4', title: "T-Pose & Turnarounds", focusDescription: "Neutral posing for character artists", suggestedMileage: "3 rotations", searchQueries: ["character design turnaround sheet", "model sheet tutorial", "character orthographics"] },
+              { id: 'l5', title: "Costume Callouts", focusDescription: "Material breakdowns and stitching details", suggestedMileage: "5 sheets", searchQueries: ["costume design breakdown concept art", "material callouts character design", "clothing folds tutorial"] }
             ]
           },
           {
             id: 'cc-3', title: "Portfolio Mastery", tier: 'Mastery',
             description: "High-level visual storytelling and world-building through characters.",
             lessons: [
-              { id: 'l6', title: "Archetype Overhaul", focusDescription: "Redesigning classic tropes with unique hooks", suggestedMileage: "1 character set" }
+              { id: 'l6', title: "Archetype Overhaul", focusDescription: "Redesigning classic tropes with unique hooks", suggestedMileage: "1 character set", searchQueries: ["character design archetype twist", "visual storytelling character design", "artstation character design process"] }
             ]
           }
         ]
@@ -119,22 +131,22 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'env-1', title: "Perspective & Grids", tier: 'Foundations',
             description: "Mastering spatial construction.",
             lessons: [
-              { id: 'l7', title: "3-Point Structural Grids", focusDescription: "Vertical convergence and scale", suggestedMileage: "10 city layouts" },
-              { id: 'l8', title: "Atmospheric Value Cues", focusDescription: "Using haze to define depth layers", suggestedMileage: "20 thumbnails" }
+              { id: 'l7', title: "3-Point Structural Grids", focusDescription: "Vertical convergence and scale", suggestedMileage: "10 city layouts", searchQueries: ["3 point perspective guide", "perspective grid layout tutorial", "cityscape perspective drawing"] },
+              { id: 'l8', title: "Atmospheric Value Cues", focusDescription: "Using haze to define depth layers", suggestedMileage: "20 thumbnails", searchQueries: ["atmospheric perspective painting tutorial", "value depth cues art", "digital painting value study"] }
             ]
           },
           {
             id: 'env-2', title: "Architectural History", tier: 'Production',
             description: "Designing functional and historical architecture.",
             lessons: [
-              { id: 'l9', title: "Modular Building Blocks", focusDescription: "Designing reusable architectural components", suggestedMileage: "1 kit" }
+              { id: 'l9', title: "Modular Building Blocks", focusDescription: "Designing reusable architectural components", suggestedMileage: "1 kit", searchQueries: ["modular environment design concept art", "architecture kitbashing tutorial", "building blockout technique"] }
             ]
           },
           {
             id: 'env-3', title: "Cinematic World Mastery", tier: 'Mastery',
             description: "Finalizing high-fidelity environmental keyframes.",
             lessons: [
-              { id: 'l10', title: "The Focal Point Hub", focusDescription: "Directing the eye through composition", suggestedMileage: "3 keyframes" }
+              { id: 'l10', title: "The Focal Point Hub", focusDescription: "Directing the eye through composition", suggestedMileage: "3 keyframes", searchQueries: ["composition focal point guide", "environmental concept art keyframe", "directing the eye painting"] }
             ]
           }
         ]
@@ -151,14 +163,14 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'prop-1', title: "Mechanical Logic Foundations", tier: 'Foundations',
             description: "How things work: Pivots, hinges, and engines.",
             lessons: [
-              { id: 'l11', title: "Pivot Articulation", focusDescription: "Mechanical range of motion", suggestedMileage: "10 mechanical joints" }
+              { id: 'l11', title: "Pivot Articulation", focusDescription: "Mechanical range of motion", suggestedMileage: "10 mechanical joints", searchQueries: ["drawing mechanical joints", "robot arm pivot tutorial", "mechanical design basics"] }
             ]
           },
           {
             id: 'prop-2', title: "Industrial Form Language", tier: 'Production',
             description: "Aesthetic branding of machinery.",
             lessons: [
-              { id: 'l12', title: "Vehicle Chassis Blockout", focusDescription: "Aerodynamics and frame logic", suggestedMileage: "3 vehicles" }
+              { id: 'l12', title: "Vehicle Chassis Blockout", focusDescription: "Aerodynamics and frame logic", suggestedMileage: "3 vehicles", searchQueries: ["vehicle chassis blockout blender", "car design form language", "industrial design sketching"] }
             ]
           }
         ]
@@ -175,7 +187,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'sb-1', title: "Cinematic Grammar", tier: 'Foundations',
             description: "Understanding lens choices and screen direction.",
             lessons: [
-              { id: 'l13', title: "The 180 Rule", focusDescription: "Spatial continuity in action", suggestedMileage: "5 sequences" }
+              { id: 'l13', title: "The 180 Rule", focusDescription: "Spatial continuity in action", suggestedMileage: "5 sequences", searchQueries: ["180 degree rule cinematography", "screen direction storyboard", "blocking a scene"] }
             ]
           }
         ]
@@ -192,7 +204,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'mp-1', title: "Plate Integration", tier: 'Foundations',
             description: "Merging 2D paintings with film plates.",
             lessons: [
-              { id: 'l14', title: "Depth Haze Matching", focusDescription: "Atmospheric consistency", suggestedMileage: "3 plates" }
+              { id: 'l14', title: "Depth Haze Matching", focusDescription: "Atmospheric consistency", suggestedMileage: "3 plates", searchQueries: ["matte painting plate integration", "matching black levels nuke", "photoshop atmosphere brush"] }
             ]
           }
         ]
@@ -209,7 +221,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'ill-1', title: "Staging & Focus", tier: 'Foundations',
             description: "Value hierarchy and narrative lighting.",
             lessons: [
-              { id: 'l15', title: "Value Grouping", focusDescription: "Readability at a distance", suggestedMileage: "20 studies" }
+              { id: 'l15', title: "Value Grouping", focusDescription: "Readability at a distance", suggestedMileage: "20 studies", searchQueries: ["value hierarchy composition", "grouping values painting", "thumbnail sketching values"] }
             ]
           }
         ]
@@ -226,7 +238,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'ui-1', title: "Icon Semantics", tier: 'Foundations',
             description: "Designing for interaction clarity.",
             lessons: [
-              { id: 'l16', title: "Symbol Recognition", focusDescription: "Shape language in symbols", suggestedMileage: "50 icons" }
+              { id: 'l16', title: "Symbol Recognition", focusDescription: "Shape language in symbols", suggestedMileage: "50 icons", searchQueries: ["icon design shape language", "game ui symbol readability", "vector icon design tutorial"] }
             ]
           }
         ]
@@ -243,7 +255,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'bg-1', title: "Color & Light Consistency", tier: 'Foundations',
             description: "Maintaining show style across scenes.",
             lessons: [
-              { id: 'l17', title: "Local Color Logic", focusDescription: "True color vs Lighting color", suggestedMileage: "10 sets" }
+              { id: 'l17', title: "Local Color Logic", focusDescription: "True color vs Lighting color", suggestedMileage: "10 sets", searchQueries: ["local color vs light color", "background painting style guide", "animation background color script"] }
             ]
           }
         ]
@@ -260,7 +272,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'cs-1', title: "Atmospheric Ramping", tier: 'Foundations',
             description: "Using color to drive narrative emotion.",
             lessons: [
-              { id: 'l18', title: "The Emotional Palette", focusDescription: "Warm vs Cool tension", suggestedMileage: "20 scripts" }
+              { id: 'l18', title: "The Emotional Palette", focusDescription: "Warm vs Cool tension", suggestedMileage: "20 scripts", searchQueries: ["color script storyboard", "emotional color palette theory", "pixar color script analysis"] }
             ]
           }
         ]
@@ -286,14 +298,14 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'c3d-1', title: "ZBrush Form Logic", tier: 'Foundations',
             description: "Mastering primary and secondary shapes.",
             lessons: [
-              { id: 'l19', title: "Anatomy Blockouts", focusDescription: "Proportions and massing", suggestedMileage: "10 heads" }
+              { id: 'l19', title: "Anatomy Blockouts", focusDescription: "Proportions and massing", suggestedMileage: "10 heads", searchQueries: ["zbrush anatomy blockout", "sculpting head planes", "primary shapes zbrush"] }
             ]
           },
           {
             id: 'c3d-2', title: "Production Topology", tier: 'Production',
             description: "Deformation-ready mesh creation.",
             lessons: [
-              { id: 'l20', title: "Facial Loop Mastery", focusDescription: "Topology for blinks and smiles", suggestedMileage: "3 faces" }
+              { id: 'l20', title: "Facial Loop Mastery", focusDescription: "Topology for blinks and smiles", suggestedMileage: "3 faces", searchQueries: ["face topology guide", "edge flow for animation", "retopology maya tutorial"] }
             ]
           }
         ]
@@ -310,7 +322,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'e3d-1', title: "Modular Kit Design", tier: 'Foundations',
             description: "Efficiency through reusable grid-snapping kits.",
             lessons: [
-              { id: 'l21', title: "Trim Sheet Workflow", focusDescription: "Maximizing texel density", suggestedMileage: "1 sheet" }
+              { id: 'l21', title: "Trim Sheet Workflow", focusDescription: "Maximizing texel density", suggestedMileage: "1 sheet", searchQueries: ["trim sheet tutorial ue5", "modular environment design", "uv mapping trim sheets"] }
             ]
           }
         ]
@@ -327,7 +339,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'hs-1', title: "Sub-D Perfection", tier: 'Foundations',
             description: "Edge tension and flow control.",
             lessons: [
-              { id: 'l22', title: "Boolean Management", focusDescription: "Cleaning topology after booleans", suggestedMileage: "5 props" }
+              { id: 'l22', title: "Boolean Management", focusDescription: "Cleaning topology after booleans", suggestedMileage: "5 props", searchQueries: ["hard surface topology cleaning", "boolean workflow blender", "subdivision surface modeling guide"] }
             ]
           }
         ]
@@ -344,7 +356,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'tx-1', title: "PBR Material Theory", tier: 'Foundations',
             description: "Roughness, Albedo, and Metalness logic.",
             lessons: [
-              { id: 'l23', title: "Weathering Logic", focusDescription: "Procedural dirt and rust", suggestedMileage: "5 spheres" }
+              { id: 'l23', title: "Weathering Logic", focusDescription: "Procedural dirt and rust", suggestedMileage: "5 spheres", searchQueries: ["pbr material guide", "substance painter weathering tutorial", "roughness map explanation"] }
             ]
           }
         ]
@@ -361,7 +373,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'gr-1', title: "Strand & Clump Logic", tier: 'Foundations',
             description: "Creating believable hair volume.",
             lessons: [
-              { id: 'l24', title: "Hair Card Creation", focusDescription: "Optimized game-ready hair", suggestedMileage: "1 groom" }
+              { id: 'l24', title: "Hair Card Creation", focusDescription: "Optimized game-ready hair", suggestedMileage: "1 groom", searchQueries: ["hair cards tutorial blender", "realtime hair grooming", "xgen basics"] }
             ]
           }
         ]
@@ -387,7 +399,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'a2d-1', title: "Deformation & Squash", tier: 'Foundations',
             description: "Foundational principles of movement.",
             lessons: [
-              { id: 'l25', title: "Weight Shift", focusDescription: "Center of gravity transition", suggestedMileage: "10 loops" }
+              { id: 'l25', title: "Weight Shift", focusDescription: "Center of gravity transition", suggestedMileage: "10 loops", searchQueries: ["animation squash and stretch tutorial", "weight shift animation", "12 principles of animation"] }
             ]
           }
         ]
@@ -404,7 +416,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'acin-1', title: "Body Mechanics", tier: 'Foundations',
             description: "Mastering weight, balance, and force.",
             lessons: [
-              { id: 'l26', title: "Bipedal Walk Cycles", focusDescription: "Contact and passing positions", suggestedMileage: "5 cycles" }
+              { id: 'l26', title: "Bipedal Walk Cycles", focusDescription: "Contact and passing positions", suggestedMileage: "5 cycles", searchQueries: ["walk cycle animation tutorial", "body mechanics animation", "maya animation basics"] }
             ]
           }
         ]
@@ -421,7 +433,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'agam-1', title: "Responsive Locomotion", tier: 'Foundations',
             description: "Designing for input responsiveness.",
             lessons: [
-              { id: 'l27', title: "Hit Reactions", focusDescription: "Impact and recovery frames", suggestedMileage: "3 sets" }
+              { id: 'l27', title: "Hit Reactions", focusDescription: "Impact and recovery frames", suggestedMileage: "3 sets", searchQueries: ["gameplay animation tutorial", "animation hit reaction", "unreal engine animation blueprint"] }
             ]
           }
         ]
@@ -438,7 +450,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'rig-1', title: "Skeletal Hierarchies", tier: 'Foundations',
             description: "Joint orientation and rigging math.",
             lessons: [
-              { id: 'l28', title: "IK/FK Switch Systems", focusDescription: "Building robust controls", suggestedMileage: "1 biped rig" }
+              { id: 'l28', title: "IK/FK Switch Systems", focusDescription: "Building robust controls", suggestedMileage: "1 biped rig", searchQueries: ["maya rigging tutorial", "ik fk switch python", "joint orientation guide"] }
             ]
           }
         ]
@@ -464,7 +476,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'sh-1', title: "Real-time Shader Math", tier: 'Foundations',
             description: "UV distortion and panner logic.",
             lessons: [
-              { id: 'l29', title: "Vector Operations", focusDescription: "Dot and Cross product in shading", suggestedMileage: "5 shaders" }
+              { id: 'l29', title: "Vector Operations", focusDescription: "Dot and Cross product in shading", suggestedMileage: "5 shaders", searchQueries: ["shader graph tutorial", "dot product explanation gamedev", "uv manipulation shader"] }
             ]
           }
         ]
@@ -481,7 +493,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'li-1', title: "Cinematic 3-Point Setup", tier: 'Foundations',
             description: "Subject separation and rim lighting.",
             lessons: [
-              { id: 'l30', title: "Shadow Quality", focusDescription: "Soft vs Hard light logic", suggestedMileage: "5 scenes" }
+              { id: 'l30', title: "Shadow Quality", focusDescription: "Soft vs Hard light logic", suggestedMileage: "5 scenes", searchQueries: ["cinematic lighting tutorial", "3 point lighting setup", "arnold lighting maya"] }
             ]
           }
         ]
@@ -498,7 +510,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'vfxp-1', title: "Emitter Logic", tier: 'Foundations',
             description: "Velocity, life, and color over time.",
             lessons: [
-              { id: 'l31', title: "Energy Beam Simulation", focusDescription: "Ribbon and sprite logic", suggestedMileage: "3 effects" }
+              { id: 'l31', title: "Energy Beam Simulation", focusDescription: "Ribbon and sprite logic", suggestedMileage: "3 effects", searchQueries: ["niagara vfx tutorial", "unity vfx graph basics", "game effect particle tutorial"] }
             ]
           }
         ]
@@ -515,7 +527,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'vfxs-1', title: "Fracture Solvers", tier: 'Foundations',
             description: "Architectural destruction logic.",
             lessons: [
-              { id: 'l32', title: "Rigid Body Dynamics", focusDescription: "Collision and constraints", suggestedMileage: "1 destruction shot" }
+              { id: 'l32', title: "Rigid Body Dynamics", focusDescription: "Collision and constraints", suggestedMileage: "1 destruction shot", searchQueries: ["houdini rbd tutorial", "destruction fx breakdown", "rigid body dynamics simulation"] }
             ]
           }
         ]
@@ -532,7 +544,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'ta-1', title: "Automation Scripting", tier: 'Foundations',
             description: "Building Python tools for DCCs.",
             lessons: [
-              { id: 'l33', title: "Batch Exporters", focusDescription: "Automating the FBX pipeline", suggestedMileage: "1 custom tool" }
+              { id: 'l33', title: "Batch Exporters", focusDescription: "Automating the FBX pipeline", suggestedMileage: "1 custom tool", searchQueries: ["python for maya tutorial", "pipeline td basics", "automating 3d workflow"] }
             ]
           }
         ]
@@ -549,7 +561,7 @@ export const ACADEMY_FACULTIES: Faculty[] = [
             id: 'clo-1', title: "Pattern Making & Sim", tier: 'Foundations',
             description: "Functional clothing construction.",
             lessons: [
-              { id: 'l34', title: "Drapery Physics", focusDescription: "Pressure and wind interaction", suggestedMileage: "1 full character outfit" }
+              { id: 'l34', title: "Drapery Physics", focusDescription: "Pressure and wind interaction", suggestedMileage: "1 full character outfit", searchQueries: ["marvelous designer tutorial", "cloth simulation basics", "digital fashion workflow"] }
             ]
           }
         ]
@@ -638,6 +650,7 @@ export interface DailyHabit {
   label: string;
   streak: number;
   lastDone: number;
+  lastLessonId?: string; // Optional link to the lesson
 }
 
 export interface IndustryPathTemplate {
