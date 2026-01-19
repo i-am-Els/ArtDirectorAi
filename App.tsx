@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { auth, googleProvider } from './firebase.ts';
-import { onAuthStateChanged, signInWithPopup, signOut, User } from 'firebase/auth';
-import { ArtRole, ExperienceLevel, ArtBrief, AppView, ACADEMY_FACULTIES, GrowthPlan } from './types.ts';
+import { onAuthStateChanged, signInWithRedirect, getRedirectResult, signOut, User } from 'firebase/auth';
+import { ArtRole, ExperienceLevel, ArtBrief, AppView } from './types.ts';
 import RoleIcon from './components/RoleIcon.tsx';
 import BriefDisplay from './components/BriefDisplay.tsx';
 import GrowthStudio from './components/GrowthStudio.tsx';
@@ -16,7 +16,6 @@ const App: React.FC = () => {
   const [brief, setBrief] = useState<ArtBrief | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Mock Active Drill Logic for the Header
   const activeDrill = {
     startDate: 1736899200000, // Jan 15, 2026
     durationDays: 45,
@@ -31,12 +30,26 @@ const App: React.FC = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setAuthLoading(false);
     });
+
+    getRedirectResult(auth)
+      .catch((error) => {
+        console.error("Sign-in redirect error:", error);
+      })
+      .finally(() => {
+        setAuthLoading(false);
+      });
+
     return () => unsubscribe();
   }, []);
 
-  const handleLogin = () => signInWithPopup(auth, googleProvider).catch(console.error);
+  const handleLogin = () => {
+    setAuthLoading(true);
+    signInWithRedirect(auth, googleProvider).catch((error) => {
+        console.error("Error initiating redirect sign-in:", error);
+        setAuthLoading(false);
+    });
+  };
   const handleLogout = () => signOut(auth).catch(console.error);
 
   if (authLoading) return <div className="min-h-screen bg-black flex items-center justify-center"><div className="w-10 h-10 border-t-2 border-blue-500 rounded-full animate-spin"></div></div>;
@@ -86,14 +99,17 @@ const App: React.FC = () => {
         </div>
 
         <nav className="flex bg-black/60 p-1 rounded-2xl border border-white/5 shadow-inner">
-          {['Library', 'Academy', 'Briefs'].map((label, idx) => {
+          {[
+            'Library', 
+            'Academy', 
+            'Briefs'
+          ].map((label, idx) => {
              const views: AppView[] = ['REVIEW', 'GROWTH', 'GENERATOR'];
              return (
                <button 
                  key={label}
                  onClick={() => setCurrentView(views[idx])}
-                 className={`px-6 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all ${currentView === views[idx] ? 'bg-white text-black shadow-lg scale-105' : 'text-zinc-500 hover:text-white'}`}
-               >
+                 className={`px-6 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all ${currentView === views[idx] ? 'bg-white text-black shadow-lg scale-105' : 'text-zinc-500 hover:text-white'}`}>
                  {label}
                </button>
              )
@@ -145,8 +161,7 @@ const App: React.FC = () => {
                       <select 
                         value={selectedRole} 
                         onChange={(e) => setSelectedRole(e.target.value as ArtRole)}
-                        className="w-full bg-zinc-950 border border-white/10 rounded-xl px-4 py-3.5 text-[11px] font-black uppercase outline-none focus:border-blue-500/50 transition-colors"
-                      >
+                        className="w-full bg-zinc-950 border border-white/10 rounded-xl px-4 py-3.5 text-[11px] font-black uppercase outline-none focus:border-blue-500/50 transition-colors">
                         {Object.values(ArtRole).map(r => <option key={r} value={r}>{r}</option>)}
                       </select>
                     </div>
@@ -157,8 +172,7 @@ const App: React.FC = () => {
                           <button 
                             key={l}
                             onClick={() => setExperience(l)}
-                            className={`px-3 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-tighter transition-all ${experience === l ? 'bg-zinc-100 text-black shadow-lg scale-105' : 'bg-zinc-900/50 text-zinc-500 border border-white/5 hover:border-white/10'}`}
-                          >
+                            className={`px-3 py-2.5 rounded-xl text-[9px] font-black uppercase tracking-tighter transition-all ${experience === l ? 'bg-zinc-100 text-black shadow-lg scale-105' : 'bg-zinc-900/50 text-zinc-500 border border-white/5 hover:border-white/10'}`}>
                             {l}
                           </button>
                         ))}
@@ -172,8 +186,7 @@ const App: React.FC = () => {
                           setBrief(res);
                         } finally { setIsLoading(false); }
                       }}
-                      className="w-full py-5 bg-blue-600 text-white font-black uppercase text-[10px] tracking-[0.3em] rounded-2xl mt-4 hover:bg-blue-500 active:scale-95 transition-all shadow-[0_15px_30px_rgba(37,99,235,0.3)]"
-                    >
+                      className="w-full py-5 bg-blue-600 text-white font-black uppercase text-[10px] tracking-[0.3em] rounded-2xl mt-4 hover:bg-blue-500 active:scale-95 transition-all shadow-[0_15px_30px_rgba(37,99,235,0.3)]">
                       {isLoading ? 'Synthesizing...' : 'Initialize Assignment'}
                     </button>
                   </div>
