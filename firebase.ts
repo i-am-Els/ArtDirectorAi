@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
-// import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
+// Correcting the provider to match your reCAPTCHA Enterprise key
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from 'firebase/app-check';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_API_KEY,
@@ -11,15 +12,14 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_APP_ID
 };
 
+// Correcting a typo here: 'firebase' should have been 'firebaseConfig'
 const app = initializeApp(firebaseConfig);
 
-/*
-// Temporarily disabling App Check for diagnostics
+// Re-enabling App Check with the correct Enterprise provider
 initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider(import.meta.env.VITE_RECAPTCHA_SITE_KEY),
+  provider: new ReCaptchaEnterpriseProvider(import.meta.env.VITE_RECAPTCHA_SITE_KEY),
   isTokenAutoRefreshEnabled: true
 });
-*/
 
 export const auth = getAuth(app);
 export const googleProvider = new GoogleAuthProvider();
