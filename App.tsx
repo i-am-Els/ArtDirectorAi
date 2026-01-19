@@ -32,12 +32,7 @@ const App: React.FC = () => {
       setUser(currentUser);
       setAuthLoading(false);
     });
-
-    getRedirectResult(auth).catch((error) => {
-      console.error("Sign-in redirect error:", error);
-    });
-
-    return () => unsubscribe();
+    return unsubscribe;
   }, []);
 
   const handleLogin = () => {
