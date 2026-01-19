@@ -8,6 +8,13 @@ import GrowthStudio from './components/GrowthStudio.tsx';
 import { generateBrief } from './services/geminiService.ts';
 
 const App: React.FC = () => {
+  // Add this block for debugging
+  console.log("--- VERCEL ENV DEBUG ---");
+  console.log("VITE_PROJECT_ID:", import.meta.env.VITE_PROJECT_ID);
+  console.log("VITE_API_KEY:", import.meta.env.VITE_API_KEY);
+  console.log("VITE_RECAPTCHA_SITE_KEY:", import.meta.env.VITE_RECAPTCHA_SITE_KEY);
+  console.log("----------------------");
+  
   const [user, setUser] = useState<User | null>(null);
   const [authLoading, setAuthLoading] = useState(true);
   const [currentView, setCurrentView] = useState<AppView>('GROWTH');
@@ -196,7 +203,7 @@ const App: React.FC = () => {
                  <div className="h-full min-h-[500px] glass border-2 border-dashed border-white/5 rounded-[3.5rem] flex items-center justify-center opacity-30 text-center p-12">
                     <div>
                       <div className="w-20 h-20 bg-zinc-900 rounded-full flex items-center justify-center mx-auto mb-6 opacity-20">
-                         <svg viewBox="0 0 24 24" fill="white" className="w-10 h-10"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                         <svg viewBox="0 0 24 24" fill="white" className="w-10 h-10"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/</svg>
                       </div>
                       <p className="text-xl font-black italic uppercase tracking-tighter">System Offline</p>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-600 mt-2 italic">Awaiting Director Input for Assignment Registry</p>
