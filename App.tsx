@@ -5,6 +5,7 @@ import RoleIcon from './components/RoleIcon.tsx';
 import BriefDisplay from './components/BriefDisplay.tsx';
 import PortfolioReview from './components/PortfolioReview.tsx';
 import GrowthStudio from './components/GrowthStudio.tsx';
+import UserProfile from './components/UserProfile.tsx';
 import { generateBrief } from './services/geminiService.ts';
 
 const RoleTooltip: React.FC<{ text: string; children: React.ReactNode }> = ({ text, children }) => (
@@ -40,14 +41,7 @@ const App: React.FC = () => {
     setExpandedFaculties(next);
   };
 
-  const handleOpenKeySelection = async () => {
-    try {
-      if (window.aistudio?.openSelectKey) {
-        await window.aistudio.openSelectKey();
-        setError(null);
-      }
-    } catch (err) { console.error(err); }
-  };
+
 
   const handleGenerate = async () => {
     setIsLoading(true);
@@ -84,7 +78,7 @@ const App: React.FC = () => {
             <p className="text-[9px] uppercase tracking-[0.4em] text-zinc-500 font-black mt-1">Industrial Pipeline</p>
           </div>
         </div>
-        
+
         <div className="flex items-center space-x-2 bg-zinc-950/80 p-1.5 rounded-2xl border border-white/10 shadow-inner">
           {[
             { id: 'GENERATOR', label: 'Briefs' },
@@ -97,7 +91,7 @@ const App: React.FC = () => {
           ))}
         </div>
 
-        <button onClick={handleOpenKeySelection} className="text-[10px] font-black text-zinc-500 hover:text-blue-400 transition-colors uppercase tracking-[0.2em] border border-white/10 px-4 py-2 rounded-xl hover:bg-white/5">Studio Key</button>
+        <UserProfile />
       </header>
 
       <main className="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto overflow-visible">
@@ -110,7 +104,7 @@ const App: React.FC = () => {
                   <div className="space-y-4">
                     {ACADEMY_FACULTIES.map(faculty => (
                       <div key={faculty.id} className="space-y-2">
-                        <button 
+                        <button
                           onClick={() => toggleFaculty(faculty.id)}
                           className="w-full flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] transition-all group"
                         >
@@ -120,13 +114,13 @@ const App: React.FC = () => {
                           </div>
                           <svg className={`w-3 h-3 text-zinc-600 transition-transform ${expandedFaculties.has(faculty.id) ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 9l-7 7-7-7" /></svg>
                         </button>
-                        
+
                         {expandedFaculties.has(faculty.id) && (
                           <div className="grid grid-cols-1 gap-1.5 pl-2 animate-in slide-in-from-top-2 duration-300">
                             {faculty.majors.map(major => (
                               <RoleTooltip key={major.id} text={major.description}>
-                                <button 
-                                  onClick={() => setSelectedRole(major.role)} 
+                                <button
+                                  onClick={() => setSelectedRole(major.role)}
                                   className={`w-full text-left px-4 py-2.5 rounded-xl border transition-all ${selectedRole === major.role ? 'bg-blue-600/10 border-blue-500/50 text-blue-100' : 'bg-transparent border-transparent text-zinc-600 hover:text-zinc-400 hover:bg-white/5'}`}
                                 >
                                   <div className="flex items-center gap-3">
@@ -170,7 +164,7 @@ const App: React.FC = () => {
                 {!brief && !isLoading && (
                   <div className="flex-1 flex flex-col items-center justify-center p-12 glass border-dashed border-white/10 rounded-[3.5rem] opacity-60 text-center animate-pulse">
                     <div className="w-24 h-24 bg-zinc-900 rounded-full flex items-center justify-center mb-8 shadow-inner border border-white/5">
-                      <svg viewBox="0 0 24 24" className="w-12 h-12 text-zinc-700" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                      <svg viewBox="0 0 24 24" className="w-12 h-12 text-zinc-700" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" /></svg>
                     </div>
                     <h3 className="text-2xl font-black mb-3 text-zinc-300 tracking-tighter uppercase italic">Assignment Registry</h3>
                     <p className="text-zinc-500 max-w-sm text-sm font-medium leading-relaxed">Select a pipeline department and your professional standing to receive an industrial-grade assignment.</p>
