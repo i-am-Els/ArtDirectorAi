@@ -17,17 +17,17 @@ const app = initializeApp(firebaseConfig);
 console.log("Firebase app initialized.");
 
 try {
-  console.log("Attempting to initialize App Check with Enterprise provider...");
   const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
-  console.log("VITE_RECAPTCHA_SITE_KEY:", siteKey);
-  if (!siteKey) {
-    console.error("FATAL: VITE_RECAPTCHA_SITE_KEY is not defined!");
+  if (siteKey) {
+    console.log("Attempting to initialize App Check with Enterprise provider...");
+    initializeAppCheck(app, {
+      provider: new ReCaptchaEnterpriseProvider(siteKey),
+      isTokenAutoRefreshEnabled: true
+    });
+    console.log("App Check initialized successfully.");
+  } else {
+    console.warn("WARNING: VITE_RECAPTCHA_SITE_KEY is not defined. App Check will not be initialized. This is expected in local development if you are not testing App Check, but it MUST be set in production.");
   }
-  initializeAppCheck(app, {
-    provider: new ReCaptchaEnterpriseProvider(siteKey),
-    isTokenAutoRefreshEnabled: true
-  });
-  console.log("App Check initialized successfully.");
 } catch (error) {
   console.error("FATAL: Error during App Check initialization:", error);
 }
