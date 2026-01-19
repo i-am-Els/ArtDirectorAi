@@ -6,7 +6,10 @@ import BriefDisplay from './components/BriefDisplay.tsx';
 import PortfolioReview from './components/PortfolioReview.tsx';
 import GrowthStudio from './components/GrowthStudio.tsx';
 import UserProfile from './components/UserProfile.tsx';
+import LoginPage from './components/LoginPage.tsx';
 import { generateBrief } from './services/geminiService.ts';
+import { onAuthStateChanged, User } from 'firebase/auth';
+import { auth } from './services/firebase.ts';
 
 const RoleTooltip: React.FC<{ text: string; children: React.ReactNode }> = ({ text, children }) => (
   <div className="group relative w-full">
@@ -22,6 +25,17 @@ const RoleTooltip: React.FC<{ text: string; children: React.ReactNode }> = ({ te
 );
 
 const App: React.FC = () => {
+  const [user, setUser] = useState<User | null>(null);
+  const [authLoading, setAuthLoading] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setAuthLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
   const [currentView, setCurrentView] = useState<AppView>('GENERATOR');
   const [selectedRole, setSelectedRole] = useState<ArtRole>(ArtRole.CONCEPT_CHAR);
   const [experience, setExperience] = useState<ExperienceLevel>(ExperienceLevel.INTERMEDIATE);
@@ -65,6 +79,18 @@ const App: React.FC = () => {
       setIsExportingPDF(false);
     }, 500);
   };
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-[#050505] flex items-center justify-center">
+        <div className="w-16 h-16 border-t-4 border-blue-600 rounded-full animate-spin shadow-2xl shadow-blue-500/20"></div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return <LoginPage />;
+  }
 
   return (
     <div className="min-h-screen bg-[#050505] text-zinc-100 selection:bg-blue-500/30 overflow-x-hidden">
