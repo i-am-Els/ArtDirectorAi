@@ -28,26 +28,25 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
+    // This listener now correctly handles the loading state.
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setAuthLoading(false);
     });
 
-    getRedirectResult(auth)
-      .catch((error) => {
-        console.error("Sign-in redirect error:", error);
-      })
-      .finally(() => {
-        setAuthLoading(false);
-      });
+    // We still process the redirect result to handle potential errors,
+    // but it no longer controls the loading state.
+    getRedirectResult(auth).catch((error) => {
+      console.error("Sign-in redirect error:", error);
+    });
 
     return () => unsubscribe();
   }, []);
 
   const handleLogin = () => {
-    setAuthLoading(true);
+    // No need to set loading state here, as the page will navigate away.
     signInWithRedirect(auth, googleProvider).catch((error) => {
         console.error("Error initiating redirect sign-in:", error);
-        setAuthLoading(false);
     });
   };
   const handleLogout = () => signOut(auth).catch(console.error);
@@ -142,7 +141,7 @@ const App: React.FC = () => {
                     <span className="text-sm font-black mono text-purple-400">92%</span>
                  </div>
                </div>
-               <button onClick={handleLogout} className="w-full py-3 bg-red-500/10 text-red-500 rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-red-500/20 transition-colors">Terminate Session</button>
+               <button onClick={handleLogout} className.tsx="w-full py-3 bg-red-500/10 text-red-500 rounded-xl text-[9px] font-black uppercase tracking-widest hover:bg-red-500/20 transition-colors">Terminate Session</button>
             </div>
           </div>
         </div>
