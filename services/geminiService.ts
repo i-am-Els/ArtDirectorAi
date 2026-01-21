@@ -2,8 +2,11 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { ArtBrief, GenerationParams, PortfolioFeedback, ArtRole, ExperienceLevel, GrowthPlan, DrillBlueprint } from "../types.ts";
 
+// Use VITE_API_KEY if available (client-side), otherwise API_KEY (server-side)
+const getApiKey = () => import.meta.env.VITE_API_KEY || process.env.API_KEY || process.env.GEMINI_API_KEY;
+
 export const generateBrief = async (params: GenerationParams): Promise<ArtBrief> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
   const systemPrompt = `You are an elite Art Director. Compose a professional studio brief for ${params.role}. Theme: ${params.theme}. Complexity: ${params.complexity}/10. Use exact terminology.`;
   const response = await ai.models.generateContent({
     model: 'gemini-3-flash-preview',
@@ -36,7 +39,7 @@ export const generateGrowthPlan = async (
   days: number,
   hours: number
 ): Promise<GrowthPlan> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
   const weeks = Math.ceil(days / 7);
 
   const systemPrompt = `You are a legendary Art Professor at a top industry academy. 
@@ -96,7 +99,7 @@ export const generateGrowthPlan = async (
 };
 
 export const analyzePortfolio = async (base64Image: string, role: ArtRole, experience: ExperienceLevel): Promise<PortfolioFeedback> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
   const response = await ai.models.generateContent({
     model: 'gemini-3-flash-preview',
     contents: {
@@ -125,7 +128,7 @@ export const analyzePortfolio = async (base64Image: string, role: ArtRole, exper
 };
 
 export const generateDrill = async (lessonTitle: string, mode: 'FOCUS' | 'MILEAGE', role: string): Promise<DrillBlueprint> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
   const systemPrompt = `You are a strict Art Coach. Create a specific training drill for: "${lessonTitle}". 
   Role: ${role}. Mode: ${mode}.
   FOCUS mode = One high-quality piece.
@@ -155,7 +158,7 @@ export const generateDrill = async (lessonTitle: string, mode: 'FOCUS' | 'MILEAG
 };
 
 export const generateCourseList = async (majorTitle: string, role: string): Promise<any[]> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
   const systemPrompt = `You are a Dean of Arts. Create a comprehensive 5-tier curriculum for: "${majorTitle}".
   Role: ${role}.
   Tiers: Foundations (2 courses), Production (2 courses), Mastery (1 course).
@@ -192,7 +195,7 @@ export const generateCourseList = async (majorTitle: string, role: string): Prom
 };
 
 export const generateLessonOutlines = async (courseTitle: string, tier: string): Promise<any[]> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
   const systemPrompt = `You are a Professor. Create a syllabus of 4-6 lessons for the course: "${courseTitle}" (${tier}).
   Each lesson needs a title, focusDescription (technical goal), suggestedMileage (e.g. "50 sketches"), and searchQueries (3 specific youtube search terms to learn the topic).
   Output JSON.`;
