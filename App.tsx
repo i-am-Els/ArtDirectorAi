@@ -1,6 +1,6 @@
 
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { ArtRole, ExperienceLevel, ArtBrief, AppView, ACADEMY_FACULTIES } from './types.ts';
+import { ArtRole, ExperienceLevel, ArtBrief, AppView } from './types.ts';
 import RoleIcon from './components/RoleIcon.tsx';
 import BriefDisplay from './components/BriefDisplay.tsx';
 import PortfolioReview from './components/PortfolioReview.tsx';
@@ -8,6 +8,7 @@ import Academy from './components/Academy.tsx';
 import UserProfile from './components/UserProfile.tsx';
 import LoginPage from './components/LoginPage.tsx';
 import { generateBrief } from './services/geminiService.ts';
+import { ACADEMY_FACULTIES } from './data/curriculum.ts';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from './services/firebase.ts';
 
