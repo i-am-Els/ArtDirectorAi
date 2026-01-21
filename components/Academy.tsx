@@ -211,9 +211,6 @@ const Academy: React.FC = () => {
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
                         Back to Registrar
                     </button>
-                    <button onClick={handleUnenroll} className="text-[10px] font-black uppercase tracking-widest text-red-900 hover:text-red-500 transition-colors">
-                        Drop Major
-                    </button>
                 </div>
                 <div className="border-l-4 border-blue-600 pl-6 py-2">
                     <h2 className="text-3xl font-black uppercase italic tracking-tighter text-white">{selectedMajor.title}</h2>
@@ -260,6 +257,16 @@ const Academy: React.FC = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                <div className="pt-24 pb-12 border-t border-white/5 mt-12 flex justify-center opacity-30 hover:opacity-100 transition-opacity">
+                    <button
+                        onClick={handleUnenroll}
+                        className="text-[10px] font-black uppercase tracking-widest text-zinc-600 hover:text-red-500 transition-colors flex items-center gap-2"
+                    >
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                        Withdraw from Major
+                    </button>
                 </div>
             </div>
         );
