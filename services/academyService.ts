@@ -30,16 +30,16 @@ export const getUserProgress = async (userId: string): Promise<UserProgress> => 
 
 export const enrollInMajor = async (userId: string, majorId: string) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
-    await updateDoc(docRef, {
+    await setDoc(docRef, {
         enrolledMajors: arrayUnion(majorId)
-    });
+    }, { merge: true });
 };
 
 export const completeLesson = async (userId: string, lessonId: string) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
-    await updateDoc(docRef, {
+    await setDoc(docRef, {
         completedLessons: arrayUnion(lessonId)
-    });
+    }, { merge: true });
 };
 
 export const updateDrill = async (userId: string, lessonId: string, daysToAdd: number = 1) => {

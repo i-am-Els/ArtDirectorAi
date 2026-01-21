@@ -28,10 +28,22 @@ const Academy: React.FC = () => {
 
     const handleEnroll = async (major: AcademyMajor) => {
         if (!auth.currentUser) return;
+        console.log("Starting enrollment for:", major.id);
         setLoading(true);
-        await enrollInMajor(auth.currentUser.uid, major.id);
-        await loadProgress();
-        setSelectedMajor(major);
+        try {
+            console.log("Calling database enroll...");
+            await enrollInMajor(auth.currentUser.uid, major.id);
+            console.log("Enrollment success. Reloading progress...");
+            await loadProgress();
+            console.log("Progress reloaded. Setting selected major.");
+            setSelectedMajor(major);
+        } catch (error) {
+            console.error("Enrollment failed:", error);
+            alert("Failed to enroll. See console for details.");
+        } finally {
+            console.log("Enrollment flow finished.");
+            setLoading(false);
+        }
     };
 
     const handleLessonSelect = (lesson: Lesson) => {
@@ -73,7 +85,17 @@ const Academy: React.FC = () => {
         setActiveLesson(null); // Go back to map
     };
 
-    if (loading) return <div className="p-10 text-center uppercase tracking-widest text-zinc-500 font-black animate-pulse">Connecting to Registrar...</div>;
+    if (loading) return (
+        <div className="p-10 text-center flex flex-col items-center gap-4">
+            <span className="uppercase tracking-widest text-zinc-500 font-black animate-pulse">Connecting to Registrar...</span>
+            <button
+                onClick={() => setLoading(false)}
+                className="text-xs text-red-500 hover:text-red-400 underline uppercase tracking-wider"
+            >
+                Cancel / Force Retry
+            </button>
+        </div>
+    );
 
     if (!selectedMajor) {
         // Registrar View
