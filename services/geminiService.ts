@@ -2,8 +2,8 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { ArtBrief, GenerationParams, PortfolioFeedback, ArtRole, ExperienceLevel, GrowthPlan, DrillBlueprint } from "../types.ts";
 
-// Use VITE_API_KEY if available (client-side), otherwise API_KEY (server-side)
-const getApiKey = () => import.meta.env.VITE_API_KEY || process.env.API_KEY || process.env.GEMINI_API_KEY;
+// Use VITE_GEMINI_API_KEY for Gemini API
+const getApiKey = () => import.meta.env.VITE_GEMINI_API_KEY;
 
 export const generateBrief = async (params: GenerationParams): Promise<ArtBrief> => {
   const ai = new GoogleGenAI({ apiKey: getApiKey() });
