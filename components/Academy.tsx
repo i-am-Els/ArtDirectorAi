@@ -3,16 +3,46 @@ import React, { useEffect, useState } from 'react';
 import { AcademyMajor, Course, Lesson, UserProgress } from '../types';
 import { ACADEMY_FACULTIES } from '../data/curriculum';
 import { auth } from '../services/firebase';
-import { getUserProgress, enrollInMajor, unenrollFromMajor, completeLesson, updateDrill, getNextLesson } from '../services/academyService';
-import { generateBrief, generateDrill } from '../services/geminiService';
+import { getUserProgress, enrollInMajor, unenrollFromMajor, completeLesson, updateDrill, getNextLesson, getMajorCurriculum, saveMajorCurriculum } from '../services/academyService';
+import { generateBrief, generateDrill, generateCourseList, generateLessonOutlines } from '../services/geminiService';
 
 const Academy: React.FC = () => {
     const [progress, setProgress] = useState<UserProgress | null>(null);
     const [selectedMajor, setSelectedMajor] = useState<AcademyMajor | null>(null);
+    // Combined curriculum state: Map of majorId -> Course[]
+    const [dynamicCurriculum, setDynamicCurriculum] = useState<Record<string, Course[]>>({});
+
     const [loading, setLoading] = useState(true);
     const [activeLesson, setActiveLesson] = useState<Lesson | null>(null);
     const [generating, setGenerating] = useState(false);
     const [blueprint, setBlueprint] = useState<any>(null); // Dynamic blueprint from AI
+
+    // Admin / Dean Mode
+    const [isDean, setIsDean] = useState(false); // Secret toggle
+
+    // Toggle Dean Mode with Secret Key (e.g. holding Alt + Shift + D) -> For now just a hidden click
+    const toggleDean = () => setIsDean(!isDean);
+
+    useEffect(() => {
+        if (auth.currentUser) {
+            loadProgress();
+        }
+    }, [auth.currentUser]);
+
+    // Load dynamic curriculum for a major when selected
+    useEffect(() => {
+        if (selectedMajor) {
+            loadMajorCourses(selectedMajor.id);
+        }
+    }, [selectedMajor]);
+
+    const loadMajorCourses = async (majorId: string) => {
+        const storedCourses = await getMajorCurriculum(majorId);
+        if (storedCourses) {
+            setDynamicCurriculum(prev => ({ ...prev, [majorId]: storedCourses }));
+        }
+    };
+
 
     useEffect(() => {
         if (auth.currentUser) {
@@ -68,6 +98,64 @@ const Academy: React.FC = () => {
         setBlueprint(null);
         setActiveLesson(null); // Go back to map
     };
+
+    // Dean Handlers
+    const handleGenerateCurriculum = async (major: AcademyMajor) => {
+        if (!confirm(`Generate FULL Zero-to-Hero curriculum for ${major.title}? This may overwrite existing data.`)) return;
+        setGenerating(true);
+        try {
+            const rawCourses = await generateCourseList(major.title, major.role);
+
+            // Map raw JSON to Course objects with IDs
+            const newCourses: Course[] = rawCourses.map((c, i) => ({
+                id: `${major.id}-c-${i}`,
+                title: c.title,
+                tier: c.tier, // Foundation, Production, Mastery
+                description: c.description,
+                lessons: [] // Empty initially
+            }));
+
+            await saveMajorCurriculum(major.id, newCourses);
+            await loadMajorCourses(major.id); // Refresh
+        } catch (error) {
+            console.error(error);
+            alert("Dean failed to draft curriculum.");
+        } finally {
+            setGenerating(false);
+        }
+    };
+
+    const handleGenerateSyllabus = async (course: Course, majorId: string) => {
+        setGenerating(true);
+        try {
+            // Get current courses for this major
+            const currentCourses = dynamicCurriculum[majorId] || selectedMajor?.courses || [];
+
+            // Generate lessons
+            const rawLessons = await generateLessonOutlines(course.title, course.tier);
+            const newLessons: Lesson[] = rawLessons.map((l, i) => ({
+                id: `${course.id}-l-${i}`,
+                title: l.title,
+                focusDescription: l.focusDescription,
+                suggestedMileage: l.suggestedMileage,
+                searchQueries: l.searchQueries
+            }));
+
+            // Update specific course in the list
+            const updatedCourses = currentCourses.map(c =>
+                c.id === course.id ? { ...c, lessons: newLessons } : c
+            );
+
+            await saveMajorCurriculum(majorId, updatedCourses);
+            await loadMajorCourses(majorId); // Refresh
+        } catch (error) {
+            console.error(error);
+            alert("Dean failed to draft syllabus.");
+        } finally {
+            setGenerating(false);
+        }
+    };
+
 
     if (loading) return <div className="p-10 text-center uppercase tracking-widest text-zinc-500 font-black animate-pulse">Connecting to Registrar...</div>;
 
@@ -181,6 +269,26 @@ const Academy: React.FC = () => {
                     >
                         Enroll in Major
                     </button>
+
+                    {/* Dean Secret Access */}
+                    <div className="pt-10 opacity-30 hover:opacity-100 transition-opacity">
+                        <button onClick={toggleDean} className="text-[9px] font-black uppercase tracking-widest text-zinc-700">
+                            {isDean ? "Exit Dean's Office" : "Authorized Personnel Only"}
+                        </button>
+                    </div>
+
+                    {isDean && (
+                        <div className="mt-8 p-6 bg-yellow-500/10 border border-yellow-500/20 rounded-2xl animate-in slide-in-from-bottom-2">
+                            <h4 className="text-yellow-500 font-black uppercase tracking-widest text-xs mb-4">Dean's Control Panel</h4>
+                            <button
+                                onClick={() => handleGenerateCurriculum(selectedMajor)}
+                                disabled={generating}
+                                className="w-full py-3 bg-yellow-500 text-black font-black uppercase tracking-widest text-[10px] rounded-lg hover:bg-yellow-400 disabled:opacity-50"
+                            >
+                                {generating ? "Drafting..." : "Re-Generate Full Curriculum (Zero to Hero)"}
+                            </button>
+                        </div>
+                    )}
                 </div>
             </div>
         );
@@ -219,14 +327,28 @@ const Academy: React.FC = () => {
                 </div>
 
                 <div className="space-y-16 relative before:absolute before:left-[19px] before:top-4 before:bottom-0 before:w-0.5 before:bg-white/5 before:z-0">
-                    {selectedMajor.courses.map((course, idx) => (
-                        <div key={course.id} className="relative z-10">
+                    {(dynamicCurriculum[selectedMajor.id] || selectedMajor.courses).map((course, idx) => (
+                        <div key={course.id || idx} className="relative z-10">
                             <div className="flex items-center gap-4 mb-6">
-                                <div className="w-10 h-10 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-xs font-black text-zinc-500 shadow-xl">
+                                <div className="w-10 h-10 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-xs font-black text-zinc-500 shadow-xl relative">
                                     {idx + 1}
+                                    {/* Yellow Dot for incomplete courses */}
+                                    {(course.lessons.length === 0 || isDean) && (
+                                        <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-500 rounded-full animate-pulse border border-black" title="Incomplete / Dean Mode"></div>
+                                    )}
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-black text-zinc-200 uppercase tracking-widest">{course.title}</h3>
+                                    <h3 className="text-lg font-black text-zinc-200 uppercase tracking-widest flex items-center gap-3">
+                                        {course.title}
+                                        {isDean && (
+                                            <button
+                                                onClick={() => handleGenerateSyllabus(course, selectedMajor.id)}
+                                                className="text-[8px] bg-zinc-800 px-2 py-1 rounded text-zinc-400 hover:text-white"
+                                            >
+                                                {generating ? "..." : "Generate Syllabus 🪄"}
+                                            </button>
+                                        )}
+                                    </h3>
                                     <div className="flex items-center gap-3">
                                         <span className={`text-[9px] px-2 py-0.5 rounded-md uppercase tracking-wider font-black ${course.tier === 'Foundations' ? 'bg-emerald-500/10 text-emerald-400' : course.tier === 'Production' ? 'bg-blue-500/10 text-blue-400' : 'bg-amber-500/10 text-amber-400'}`}>{course.tier}</span>
                                         <span className="text-[10px] text-zinc-600 font-medium">{course.description}</span>

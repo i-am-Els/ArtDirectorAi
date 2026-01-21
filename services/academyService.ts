@@ -51,12 +51,38 @@ export const unenrollFromMajor = async (userId: string, majorId: string) => {
     }, { merge: true });
 };
 
+
 export const completeLesson = async (userId: string, lessonId: string) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
     await setDoc(docRef, {
         completedLessons: arrayUnion(lessonId)
     }, { merge: true });
 };
+
+export const saveMajorCurriculum = async (majorId: string, courses: Course[]) => {
+    try {
+        const docRef = doc(db, "curriculum", majorId);
+        await setDoc(docRef, { courses }, { merge: true });
+    } catch (error) {
+        console.error("Error saving curriculum:", error);
+        throw error;
+    }
+};
+
+export const getMajorCurriculum = async (majorId: string): Promise<Course[] | null> => {
+    try {
+        const docRef = doc(db, "curriculum", majorId);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+            return docSnap.data().courses as Course[];
+        }
+        return null;
+    } catch (error) {
+        console.error("Error fetching curriculum:", error);
+        return null;
+    }
+};
+
 
 export const updateDrill = async (userId: string, lessonId: string, daysToAdd: number = 1) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
