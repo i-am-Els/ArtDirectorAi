@@ -1,6 +1,6 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
-import { ArtBrief, GenerationParams, PortfolioFeedback, ArtRole, ExperienceLevel, GrowthPlan } from "../types.ts";
+import { ArtBrief, GenerationParams, PortfolioFeedback, ArtRole, ExperienceLevel, GrowthPlan, DrillBlueprint } from "../types.ts";
 
 export const generateBrief = async (params: GenerationParams): Promise<ArtBrief> => {
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
@@ -31,14 +31,14 @@ export const generateBrief = async (params: GenerationParams): Promise<ArtBrief>
 };
 
 export const generateGrowthPlan = async (
-  goal: string, 
-  role: ArtRole, 
-  days: number, 
+  goal: string,
+  role: ArtRole,
+  days: number,
   hours: number
 ): Promise<GrowthPlan> => {
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
   const weeks = Math.ceil(days / 7);
-  
+
   const systemPrompt = `You are a legendary Art Professor at a top industry academy. 
   Create a ${weeks}-week intensive curriculum for a student wanting to: "${goal}".
   Targeting the role: ${role}. They have ${hours} hours per day.
@@ -122,4 +122,34 @@ export const analyzePortfolio = async (base64Image: string, role: ArtRole, exper
     }
   });
   return JSON.parse(response.text || "{}") as PortfolioFeedback;
+};
+
+export const generateDrill = async (lessonTitle: string, mode: 'FOCUS' | 'MILEAGE', role: string): Promise<DrillBlueprint> => {
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const systemPrompt = `You are a strict Art Coach. Create a specific training drill for: "${lessonTitle}". 
+  Role: ${role}. Mode: ${mode}.
+  FOCUS mode = One high-quality piece.
+  MILEAGE mode = High repetition/quantity.
+  Output a JSON blueprint.`;
+
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.0-flash-exp',
+    contents: `Generate drill for ${lessonTitle} in ${mode} mode.`,
+    config: {
+      systemInstruction: systemPrompt,
+      responseMimeType: "application/json",
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          title: { type: Type.STRING },
+          mode: { type: Type.STRING, enum: ["FOCUS", "MILEAGE"] },
+          objective: { type: Type.STRING },
+          constraints: { type: Type.ARRAY, items: { type: Type.STRING } },
+          durationMinutes: { type: Type.INTEGER }
+        },
+        required: ["title", "mode", "objective", "constraints", "durationMinutes"]
+      }
+    }
+  });
+  return JSON.parse(response.text || "{}") as DrillBlueprint;
 };

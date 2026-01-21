@@ -674,3 +674,11 @@ export const INDUSTRY_PATHS: IndustryPathTemplate[] = [
     description: 'High-intensity ZBrush focus on skeletal and muscular accuracy.'
   }
 ];
+
+export interface DrillBlueprint {
+  title: string;
+  mode: StudyMode;
+  objective: string;
+  constraints: string[];
+  durationMinutes: number;
+}

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { ACADEMY_FACULTIES, AcademyMajor, Course, Lesson, UserProgress } from '../types';
 import { auth } from '../services/firebase';
 import { getUserProgress, enrollInMajor, completeLesson, updateDrill, getNextLesson } from '../services/academyService';
-import { generateBrief } from '../services/geminiService';
+import { generateBrief, generateDrill } from '../services/geminiService';
 
 const Academy: React.FC = () => {
     const [progress, setProgress] = useState<UserProgress | null>(null);
@@ -28,20 +28,15 @@ const Academy: React.FC = () => {
 
     const handleEnroll = async (major: AcademyMajor) => {
         if (!auth.currentUser) return;
-        console.log("Starting enrollment for:", major.id);
         setLoading(true);
         try {
-            console.log("Calling database enroll...");
             await enrollInMajor(auth.currentUser.uid, major.id);
-            console.log("Enrollment success. Reloading progress...");
             await loadProgress();
-            console.log("Progress reloaded. Setting selected major.");
             setSelectedMajor(major);
-        } catch (error) {
+        } catch (error: any) {
             console.error("Enrollment failed:", error);
-            alert("Failed to enroll. See console for details.");
+            alert(`Enrollment Failed: ${error.message || "Unknown Error"}`);
         } finally {
-            console.log("Enrollment flow finished.");
             setLoading(false);
         }
     };
@@ -54,27 +49,15 @@ const Academy: React.FC = () => {
     const generateSimulation = async (mode: 'FOCUS' | 'MILEAGE') => {
         if (!activeLesson || !selectedMajor) return;
         setGenerating(true);
-        // Simulation of AI call - in real app would use geminiService with specific prompts
-        // For now we will just use the brief generator as a placeholder or mock it slightly
-        // to match the "Dean" description.
-
-        // We can use the generateBrief but tailored. Since the function signature is specific,
-        // let's just mock the 'Blueprint' structure for UI demonstration as per request "Simulation Blueprint"
-        // In a real implementation we would add a specific method to geminiService.
-
-        setTimeout(() => {
-            setBlueprint({
-                title: `Simulation: ${activeLesson.title}`,
-                mode: mode,
-                constraints: [
-                    "Must use only 3 values",
-                    "Time limit: 45 minutes",
-                    "Focus on the silhouette"
-                ],
-                objective: mode === 'FOCUS' ? "Create one polished portfolio piece demonstrating mastery of the concept." : `Complete ${activeLesson.suggestedMileage} to build muscle memory.`
-            });
+        try {
+            const result = await generateDrill(activeLesson.title, mode, selectedMajor.title);
+            setBlueprint(result);
+        } catch (error) {
+            console.error("Failed to generate drill:", error);
+            alert("The Dean is busy. Please try again.");
+        } finally {
             setGenerating(false);
-        }, 1500);
+        }
     };
 
     const markComplete = async () => {
@@ -85,17 +68,7 @@ const Academy: React.FC = () => {
         setActiveLesson(null); // Go back to map
     };
 
-    if (loading) return (
-        <div className="p-10 text-center flex flex-col items-center gap-4">
-            <span className="uppercase tracking-widest text-zinc-500 font-black animate-pulse">Connecting to Registrar...</span>
-            <button
-                onClick={() => setLoading(false)}
-                className="text-xs text-red-500 hover:text-red-400 underline uppercase tracking-wider"
-            >
-                Cancel / Force Retry
-            </button>
-        </div>
-    );
+    if (loading) return <div className="p-10 text-center uppercase tracking-widest text-zinc-500 font-black animate-pulse">Connecting to Registrar...</div>;
 
     if (!selectedMajor) {
         // Registrar View
@@ -122,7 +95,7 @@ const Academy: React.FC = () => {
                                     return (
                                         <button
                                             key={major.id}
-                                            onClick={() => isEnrolled ? setSelectedMajor(major) : handleEnroll(major)}
+                                            onClick={() => setSelectedMajor(major)}
                                             className={`text-left group relative p-6 rounded-3xl border transition-all hover:-translate-y-1 overflow-visible ${isEnrolled ? 'bg-zinc-900 border-blue-500/30' : 'bg-transparent border-white/10 hover:bg-white/5'}`}
                                         >
                                             <div className="space-y-4 relative z-10">
@@ -143,6 +116,70 @@ const Academy: React.FC = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+            </div>
+        );
+    }
+
+    // Determine Enrollment Status for the selected major
+    const isEnrolled = progress?.enrolledMajors.includes(selectedMajor.id);
+
+    // Prospectus View (Not Enrolled)
+    if (!isEnrolled) {
+        return (
+            <div className="max-w-4xl mx-auto space-y-12 animate-in fade-in duration-500">
+                <button onClick={() => setSelectedMajor(null)} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-zinc-500 hover:text-white transition-colors">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
+                    Back to Registrar
+                </button>
+
+                <header className="space-y-6 pt-8">
+                    <div className="inline-block px-3 py-1 rounded-lg bg-blue-500/10 text-blue-400 text-[10px] font-black uppercase tracking-widest mb-4">
+                        Major Prospectus
+                    </div>
+                    <h1 className="text-5xl font-black text-white uppercase italic tracking-tighter">{selectedMajor.title}</h1>
+                    <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed">{selectedMajor.description}</p>
+                </header>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-b border-white/10 py-12">
+                    <div className="space-y-6">
+                        <h3 className="text-sm font-black text-zinc-200 uppercase tracking-widest flex items-center gap-2">
+                            <span className="text-lg">🎓</span> Career Outcomes
+                        </h3>
+                        <ul className="space-y-3">
+                            {selectedMajor.outcomes.map(outcome => (
+                                <li key={outcome} className="flex items-center gap-3 text-zinc-400 text-sm">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
+                                    {outcome}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="space-y-6">
+                        <h3 className="text-sm font-black text-zinc-200 uppercase tracking-widest flex items-center gap-2">
+                            <span className="text-lg">🛠️</span> Industry Standard Software
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                            {selectedMajor.software.map(tool => (
+                                <span key={tool} className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 text-zinc-300 text-xs font-bold uppercase tracking-wider">
+                                    {tool}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                <div className="bg-zinc-900/50 p-8 rounded-3xl border border-white/5 space-y-8 text-center">
+                    <div className="space-y-2">
+                        <h3 className="text-2xl font-black text-white uppercase tracking-tight">Ready to commit?</h3>
+                        <p className="text-zinc-500 text-sm">Enrollment begins your tracking for this major. This action is tied to your student ID.</p>
+                    </div>
+                    <button
+                        onClick={() => handleEnroll(selectedMajor)}
+                        className="px-12 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-xl font-black uppercase tracking-widest shadow-xl hover:shadow-2xl hover:shadow-blue-900/20 active:scale-95 transition-all"
+                    >
+                        Enroll in Major
+                    </button>
                 </div>
             </div>
         );
