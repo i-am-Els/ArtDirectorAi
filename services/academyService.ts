@@ -37,8 +37,16 @@ export const enrollInMajor = async (userId: string, majorId: string) => {
 
 export const unenrollFromMajor = async (userId: string, majorId: string) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
+
+    // Find all lesson IDs associated with this major
+    const major = ACADEMY_FACULTIES.flatMap(f => f.majors).find(m => m.id === majorId);
+    const lessonIdsToRemove = major
+        ? major.courses.flatMap(c => c.lessons.map(l => l.id))
+        : [];
+
     await setDoc(docRef, {
-        enrolledMajors: arrayRemove(majorId)
+        enrolledMajors: arrayRemove(majorId),
+        completedLessons: arrayRemove(...lessonIdsToRemove)
     }, { merge: true });
 };
 

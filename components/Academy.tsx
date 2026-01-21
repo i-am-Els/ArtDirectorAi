@@ -187,7 +187,7 @@ const Academy: React.FC = () => {
 
     const handleUnenroll = async () => {
         if (!auth.currentUser || !selectedMajor) return;
-        if (confirm("Are you sure you want to drop this Major? Your progress in lessons will be saved, but you will need to re-enroll to continue.")) {
+        if (confirm("DANGER: Are you sure you want to drop this Major? This will WIPE ALL PROGRESS and completed lessons for this major. This cannot be undone.")) {
             setLoading(true);
             try {
                 await unenrollFromMajor(auth.currentUser.uid, selectedMajor.id);
