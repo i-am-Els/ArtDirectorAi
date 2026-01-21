@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
-import { ACADEMY_FACULTIES, AcademyMajor, Course, Lesson, UserProgress } from '../types';
+import { AcademyMajor, Course, Lesson, UserProgress } from '../types';
+import { ACADEMY_FACULTIES } from '../data/curriculum';
 import { auth } from '../services/firebase';
 import { getUserProgress, enrollInMajor, unenrollFromMajor, completeLesson, updateDrill, getNextLesson } from '../services/academyService';
 import { generateBrief, generateDrill } from '../services/geminiService';

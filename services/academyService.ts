@@ -1,7 +1,8 @@
 
 import { db } from "./firebase";
 import { doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
-import { UserProgress, ACADEMY_FACULTIES, AcademyMajor, Course, Lesson } from "../types";
+import { UserProgress, AcademyMajor, Course, Lesson } from "../types";
+import { ACADEMY_FACULTIES } from "../data/curriculum";
 
 const COLLECTION_NAME = "student_progress";
 
