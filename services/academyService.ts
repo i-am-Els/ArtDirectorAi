@@ -1,6 +1,6 @@
 
 import { db } from "./firebase";
-import { doc, getDoc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import { UserProgress, ACADEMY_FACULTIES, AcademyMajor, Course, Lesson } from "../types";
 
 const COLLECTION_NAME = "student_progress";
@@ -32,6 +32,13 @@ export const enrollInMajor = async (userId: string, majorId: string) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
     await setDoc(docRef, {
         enrolledMajors: arrayUnion(majorId)
+    }, { merge: true });
+};
+
+export const unenrollFromMajor = async (userId: string, majorId: string) => {
+    const docRef = doc(db, COLLECTION_NAME, userId);
+    await setDoc(docRef, {
+        enrolledMajors: arrayRemove(majorId)
     }, { merge: true });
 };
 

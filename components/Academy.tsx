@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { ACADEMY_FACULTIES, AcademyMajor, Course, Lesson, UserProgress } from '../types';
 import { auth } from '../services/firebase';
-import { getUserProgress, enrollInMajor, completeLesson, updateDrill, getNextLesson } from '../services/academyService';
+import { getUserProgress, enrollInMajor, unenrollFromMajor, completeLesson, updateDrill, getNextLesson } from '../services/academyService';
 import { generateBrief, generateDrill } from '../services/geminiService';
 
 const Academy: React.FC = () => {
@@ -185,14 +185,36 @@ const Academy: React.FC = () => {
         );
     }
 
+    const handleUnenroll = async () => {
+        if (!auth.currentUser || !selectedMajor) return;
+        if (confirm("Are you sure you want to drop this Major? Your progress in lessons will be saved, but you will need to re-enroll to continue.")) {
+            setLoading(true);
+            try {
+                await unenrollFromMajor(auth.currentUser.uid, selectedMajor.id);
+                await loadProgress();
+                setSelectedMajor(null);
+            } catch (error) {
+                console.error("Unenrollment failed:", error);
+                alert("Failed to drop major.");
+            } finally {
+                setLoading(false);
+            }
+        }
+    };
+
     // Course Map View
     if (!activeLesson) {
         return (
             <div className="space-y-8 animate-in fade-in duration-500">
-                <button onClick={() => setSelectedMajor(null)} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-zinc-500 hover:text-white transition-colors">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
-                    Back to Registrar
-                </button>
+                <div className="flex justify-between items-center">
+                    <button onClick={() => setSelectedMajor(null)} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-zinc-500 hover:text-white transition-colors">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" /></svg>
+                        Back to Registrar
+                    </button>
+                    <button onClick={handleUnenroll} className="text-[10px] font-black uppercase tracking-widest text-red-900 hover:text-red-500 transition-colors">
+                        Drop Major
+                    </button>
+                </div>
                 <div className="border-l-4 border-blue-600 pl-6 py-2">
                     <h2 className="text-3xl font-black uppercase italic tracking-tighter text-white">{selectedMajor.title}</h2>
                     <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest mt-1">Curriculum Map</p>
