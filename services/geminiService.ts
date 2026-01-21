@@ -153,3 +153,76 @@ export const generateDrill = async (lessonTitle: string, mode: 'FOCUS' | 'MILEAG
   });
   return JSON.parse(response.text || "{}") as DrillBlueprint;
 };
+
+export const generateCourseList = async (majorTitle: string, role: string): Promise<any[]> => {
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const systemPrompt = `You are a Dean of Arts. Create a comprehensive 5-tier curriculum for: "${majorTitle}".
+  Role: ${role}.
+  Tiers: Foundations (2 courses), Production (2 courses), Mastery (1 course).
+  Total 5 courses. Each course must have a unique title and description.
+  Output JSON.`;
+
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.0-flash-exp',
+    contents: `Generate course list for ${majorTitle}.`,
+    config: {
+      systemInstruction: systemPrompt,
+      responseMimeType: "application/json",
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          courses: {
+            type: Type.ARRAY,
+            items: {
+              type: Type.OBJECT,
+              properties: {
+                title: { type: Type.STRING },
+                tier: { type: Type.STRING, enum: ["Foundations", "Production", "Mastery"] },
+                description: { type: Type.STRING }
+              },
+              required: ["title", "tier", "description"]
+            }
+          }
+        },
+        required: ["courses"]
+      }
+    }
+  });
+  return JSON.parse(response.text || "{}").courses || [];
+};
+
+export const generateLessonOutlines = async (courseTitle: string, tier: string): Promise<any[]> => {
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const systemPrompt = `You are a Professor. Create a syllabus of 4-6 lessons for the course: "${courseTitle}" (${tier}).
+  Each lesson needs a title, focusDescription (technical goal), suggestedMileage (e.g. "50 sketches"), and searchQueries (3 specific youtube search terms to learn the topic).
+  Output JSON.`;
+
+  const response = await ai.models.generateContent({
+    model: 'gemini-2.0-flash-exp',
+    contents: `Generate lessons for ${courseTitle}.`,
+    config: {
+      systemInstruction: systemPrompt,
+      responseMimeType: "application/json",
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          lessons: {
+            type: Type.ARRAY,
+            items: {
+              type: Type.OBJECT,
+              properties: {
+                title: { type: Type.STRING },
+                focusDescription: { type: Type.STRING },
+                suggestedMileage: { type: Type.STRING },
+                searchQueries: { type: Type.ARRAY, items: { type: Type.STRING } }
+              },
+              required: ["title", "focusDescription", "suggestedMileage", "searchQueries"]
+            }
+          }
+        },
+        required: ["lessons"]
+      }
+    }
+  });
+  return JSON.parse(response.text || "{}").lessons || [];
+};
