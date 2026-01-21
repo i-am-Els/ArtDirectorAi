@@ -117,9 +117,9 @@ const Academy: React.FC = () => {
 
             await saveMajorCurriculum(major.id, newCourses);
             await loadMajorCourses(major.id); // Refresh
-        } catch (error) {
+        } catch (error: any) {
             console.error(error);
-            alert("Dean failed to draft curriculum.");
+            alert(`Dean failed to draft curriculum: ${error?.message || error}`);
         } finally {
             setGenerating(false);
         }
@@ -148,9 +148,9 @@ const Academy: React.FC = () => {
 
             await saveMajorCurriculum(majorId, updatedCourses);
             await loadMajorCourses(majorId); // Refresh
-        } catch (error) {
+        } catch (error: any) {
             console.error(error);
-            alert("Dean failed to draft syllabus.");
+            alert(`Dean failed to draft syllabus: ${error?.message || error}`);
         } finally {
             setGenerating(false);
         }
