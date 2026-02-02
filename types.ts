@@ -13,8 +13,11 @@ export enum ArtRole {
   ILLUSTRATION = 'Keyframe Illustrator',
   UI_UX = 'UI/UX Game Artist',
   ANIMATION_2D = '2D Animator (Classical/Spine)',
+  ANIMATION_2D_SKELETAL = '2D Animator (Spine)', // Added specific
   BG_PAINTER = 'Background Painter',
   COLOR_SCRIPT = 'Color Script/Lighting Keys',
+
+  // 3D & Tech
   CHARACTER_3D = 'Character Artist',
   ENVIRONMENT_3D = 'Environment Artist',
   HARD_SURFACE = 'Hard Surface Modeler',
@@ -31,27 +34,76 @@ export enum ArtRole {
   CLOTH_SIM = 'Cloth/Physics Artist'
 }
 
+export enum ExperienceLevel {
+  BEGINNER = 'Beginner',
+  INTERMEDIATE = 'Intermediate',
+  ADVANCED = 'Advanced',
+  EXPERT = 'Expert/Senior'
+}
+
+// --- NEW ACADEMY SCHEMA ---
+
+export enum LessonType {
+  READ = 'READ',
+  WATCH = 'WATCH',
+  ASSIGNMENT = 'ASSIGNMENT',
+  TEST = 'TEST',
+  QUIZ = 'QUIZ',
+  PROJECT = 'PROJECT'
+}
+
+export enum StudyMode {
+  FOCUS = 'FOCUS',
+  MILEAGE = 'MILEAGE'
+}
+
 export interface Lesson {
   id: string;
+  subjectId: string;
   title: string;
-  focusDescription: string;
-  suggestedMileage: string;
+  type: LessonType;
+  objective: string; // focusDescription / what this proves
+  defaultStudyMode: StudyMode;
+  estimatedEffort: number; // minutes
+  orderIndex: number;
+
+  // Content helper fields (optional/legacy compat)
   searchQueries: string[];
+  suggestedMileage?: string; // e.g. "30 sketches" - useful for UI
+}
+
+export interface Subject {
+  id: string;
+  courseId: string;
+  title: string;
+  description: string;
+  learningOutcome: string;
+  orderIndex: number;
+  lessons: Lesson[];
 }
 
 export interface Course {
   id: string;
+  majorId: string;
+  code: string; // e.g. "CHD 201"
   title: string;
-  tier: 'Foundations' | 'Production' | 'Mastery';
   description: string;
-  lessons: Lesson[];
+  yearLevel: number; // 1, 2, 3, 4
+  isCore: boolean;
+  tier: 'Foundations' | 'Production' | 'Mastery'; // Keeping for UI grouping
+  subjects: Subject[];
+
+  // Backward compat for now (flattened view helper?)
+  lessons?: Lesson[];
 }
 
 export interface AcademyMajor {
   id: string;
-  title: string;
-  role: ArtRole;
+  facultyId: string;
+  code: string; // "CHAR_DES"
+  title: string; // name
   description: string;
+  role: ArtRole;
   outcomes: string[];
   software: string[];
   courses: Course[];
@@ -59,16 +111,39 @@ export interface AcademyMajor {
 
 export interface Faculty {
   id: string;
+  code: string; // "VISDEV"
   name: string;
+  description: string;
   icon: string;
   color: string;
-  description: string;
   majors: AcademyMajor[];
 }
 
+// --- USER PROGRESS ---
+
+export enum LessonStatus {
+  NOT_STARTED = 'NOT_STARTED',
+  IN_PROGRESS = 'IN_PROGRESS',
+  COMPLETED = 'COMPLETED'
+}
+
+export interface UserLessonProgress {
+  userId: string;
+  lessonId: string;
+  status: LessonStatus;
+  chosenStudyMode: StudyMode;
+  completedAt?: number;
+  attemptCount: number;
+}
+
 export interface UserProgress {
-  enrolledMajors: string[];
-  completedLessons: string[]; // IDs of completed lessons
+  userId: string;
+  enrolledMajorId: string | null; // Single major enrollment
+  enrolledMinorId: string | null;
+
+  completedLessonIds: string[]; // Fast lookup
+  lessonProgress: Record<string, UserLessonProgress>; // Detailed lookup
+
   activeDrills: Record<string, {
     startDate: number;
     daysCompleted: number;
@@ -76,12 +151,7 @@ export interface UserProgress {
   }>;
 }
 
-export enum ExperienceLevel {
-  BEGINNER = 'Beginner',
-  INTERMEDIATE = 'Intermediate',
-  ADVANCED = 'Advanced',
-  EXPERT = 'Expert/Senior'
-}
+// --- LEGACY / OTHER ---
 
 export interface GenerationParams {
   role: ArtRole;
@@ -121,8 +191,8 @@ export interface ArtBrief {
 
 export interface Submission {
   id: string;
-  planId: string;
-  taskId: string;
+  planId: string; // Can map to Course ID or Major ID in new system
+  taskId: string; // Lesson ID
   timestamp: number;
   notes: string;
   mode: StudyMode;
@@ -149,14 +219,12 @@ export interface GrowthPlan {
   completedTasks: string[];
 }
 
-export type StudyMode = 'FOCUS' | 'MILEAGE';
-
 export interface DailyHabit {
   id: string;
   label: string;
   streak: number;
   lastDone: number;
-  lastLessonId?: string; // Optional link to the lesson
+  lastLessonId?: string;
 }
 
 export interface IndustryPathTemplate {

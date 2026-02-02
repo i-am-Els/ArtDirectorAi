@@ -1,4 +1,4 @@
-
+```typescript
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { ArtRole, ExperienceLevel, ArtBrief, AppView } from './types.ts';
 import RoleIcon from './components/RoleIcon.tsx';
@@ -7,6 +7,7 @@ import PortfolioReview from './components/PortfolioReview.tsx';
 import Academy from './components/Academy.tsx';
 import UserProfile from './components/UserProfile.tsx';
 import LoginPage from './components/LoginPage.tsx';
+import SeedButton from './components/Admin/SeedButton.tsx'; // New Import
 import { generateBrief } from './services/geminiService.ts';
 import { ACADEMY_FACULTIES } from './data/curriculum.ts';
 import { onAuthStateChanged, User } from 'firebase/auth';
@@ -112,7 +113,7 @@ const App: React.FC = () => {
             { id: 'REVIEW', label: 'Review' },
             { id: 'GROWTH', label: 'Academy' }
           ].map(v => (
-            <button key={v.id} onClick={() => setCurrentView(v.id as AppView)} className={`px-5 py-2 rounded-xl text-[10px] font-black transition-all uppercase tracking-widest ${currentView === v.id ? 'bg-zinc-100 text-zinc-950 shadow-md scale-105' : 'text-zinc-500 hover:text-white'}`}>
+            <button key={v.id} onClick={() => setCurrentView(v.id as AppView)} className={`px - 5 py - 2 rounded - xl text - [10px] font - black transition - all uppercase tracking - widest ${ currentView === v.id ? 'bg-zinc-100 text-zinc-950 shadow-md scale-105' : 'text-zinc-500 hover:text-white' } `}>
               {v.label}
             </button>
           ))}
@@ -139,7 +140,7 @@ const App: React.FC = () => {
                             <span className="text-lg">{faculty.icon}</span>
                             <span className="text-[11px] font-black text-zinc-400 uppercase tracking-tight group-hover:text-zinc-200">{faculty.name}</span>
                           </div>
-                          <svg className={`w-3 h-3 text-zinc-600 transition-transform ${expandedFaculties.has(faculty.id) ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 9l-7 7-7-7" /></svg>
+                          <svg className={`w - 3 h - 3 text - zinc - 600 transition - transform ${ expandedFaculties.has(faculty.id) ? 'rotate-180' : '' } `} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M19 9l-7 7-7-7" /></svg>
                         </button>
 
                         {expandedFaculties.has(faculty.id) && (
@@ -148,7 +149,7 @@ const App: React.FC = () => {
                               <RoleTooltip key={major.id} text={major.description}>
                                 <button
                                   onClick={() => setSelectedRole(major.role)}
-                                  className={`w-full text-left px-4 py-2.5 rounded-xl border transition-all ${selectedRole === major.role ? 'bg-blue-600/10 border-blue-500/50 text-blue-100' : 'bg-transparent border-transparent text-zinc-600 hover:text-zinc-400 hover:bg-white/5'}`}
+                                  className={`w - full text - left px - 4 py - 2.5 rounded - xl border transition - all ${ selectedRole === major.role ? 'bg-blue-600/10 border-blue-500/50 text-blue-100' : 'bg-transparent border-transparent text-zinc-600 hover:text-zinc-400 hover:bg-white/5' } `}
                                 >
                                   <div className="flex items-center gap-3">
                                     <RoleIcon role={major.role} className="w-3.5 h-3.5" />
@@ -168,7 +169,7 @@ const App: React.FC = () => {
                   <label className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em] mb-4 block">Professional Standing</label>
                   <div className="flex flex-wrap gap-2">
                     {Object.values(ExperienceLevel).map(lvl => (
-                      <button key={lvl} onClick={() => setExperience(lvl)} className={`flex-1 min-w-[80px] px-3 py-2 rounded-xl text-[9px] font-black transition-all uppercase tracking-tighter ${experience === lvl ? 'bg-zinc-100 text-zinc-900 shadow-md' : 'bg-zinc-900/50 text-zinc-500 border border-white/10 hover:border-white/20'}`}>{lvl}</button>
+                      <button key={lvl} onClick={() => setExperience(lvl)} className={`flex - 1 min - w - [80px] px - 3 py - 2 rounded - xl text - [9px] font - black transition - all uppercase tracking - tighter ${ experience === lvl ? 'bg-zinc-100 text-zinc-900 shadow-md' : 'bg-zinc-900/50 text-zinc-500 border border-white/10 hover:border-white/20' } `}>{lvl}</button>
                     ))}
                   </div>
                 </section>
@@ -184,7 +185,7 @@ const App: React.FC = () => {
             </aside>
           )}
 
-          <section className={`${currentView === 'GROWTH' ? 'lg:col-span-12' : 'lg:col-span-8'} min-h-[600px] flex flex-col overflow-visible`}>
+          <section className={`${ currentView === 'GROWTH' ? 'lg:col-span-12' : 'lg:col-span-8' } min - h - [600px] flex flex - col overflow - visible`}>
             {error && <div className="mb-8 p-5 bg-red-500/10 border border-red-500/30 rounded-2xl flex items-center justify-between no-print text-red-400 text-xs font-bold uppercase tracking-widest"><span>{error}</span></div>}
             {currentView === 'GENERATOR' && (
               <>
@@ -228,6 +229,7 @@ const App: React.FC = () => {
       <footer className="py-12 border-t border-white/5 text-center no-print opacity-50">
         <p className="text-zinc-700 text-[9px] tracking-[0.8em] font-black uppercase">ArtDirector AI • Zero to Hero Pipeline • Industrial Training Hub</p>
       </footer>
+      <SeedButton />
     </div>
   );
 };

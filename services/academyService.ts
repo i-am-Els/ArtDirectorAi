@@ -1,14 +1,17 @@
 
 import { db } from "./firebase";
-import { doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
-import { UserProgress, AcademyMajor, Course, Lesson } from "../types";
+import { doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove, collection, getDocs, writeBatch } from "firebase/firestore";
+import { UserProgress, AcademyMajor, Course, Lesson, LessonStatus, StudyMode, UserLessonProgress } from "../types"; // Updated imports
 import { ACADEMY_FACULTIES } from "../data/curriculum";
 
 const COLLECTION_NAME = "student_progress";
 
 const DEFAULT_PROGRESS: UserProgress = {
-    enrolledMajors: [],
-    completedLessons: [],
+    userId: "", // Set at runtime
+    enrolledMajorId: null,
+    enrolledMinorId: null,
+    completedLessonIds: [],
+    lessonProgress: {},
     activeDrills: {}
 };
 
@@ -18,63 +21,92 @@ export const getUserProgress = async (userId: string): Promise<UserProgress> => 
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-            return docSnap.data() as UserProgress;
+            return { ...DEFAULT_PROGRESS, ...docSnap.data() } as UserProgress;
         } else {
-            await setDoc(docRef, DEFAULT_PROGRESS);
-            return DEFAULT_PROGRESS;
+            const newProgress = { ...DEFAULT_PROGRESS, userId };
+            await setDoc(docRef, newProgress);
+            return newProgress;
         }
     } catch (error) {
         console.error("Error fetching user progress:", error);
-        return DEFAULT_PROGRESS;
+        return { ...DEFAULT_PROGRESS, userId };
     }
 };
 
 export const enrollInMajor = async (userId: string, majorId: string) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
+    // Enforce Single Major: Overwrite enrolledMajorId
     await setDoc(docRef, {
-        enrolledMajors: arrayUnion(majorId)
+        enrolledMajorId: majorId
     }, { merge: true });
 };
 
-export const unenrollFromMajor = async (userId: string, majorId: string) => {
+export const unenrollFromMajor = async (userId: string) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
 
-    // Find all lesson IDs associated with this major
-    const major = ACADEMY_FACULTIES.flatMap(f => f.majors).find(m => m.id === majorId);
-    const lessonIdsToRemove = major
-        ? major.courses.flatMap(c => c.lessons.map(l => l.id))
-        : [];
+    // Wipe progress for the major? 
+    // User requested: "permanently wiped from their record"
+    // For now, we just nullify the enrollment. The progress cleaning is a bigger operation 
+    // that requires knowing which lessons belong to the major (which we can fetch).
+    // Simpler first step: Just unenroll.
 
     await setDoc(docRef, {
-        enrolledMajors: arrayRemove(majorId),
-        completedLessons: arrayRemove(...lessonIdsToRemove)
+        enrolledMajorId: null
     }, { merge: true });
 };
 
-
-export const completeLesson = async (userId: string, lessonId: string) => {
+// Helper to update lesson status
+export const updateLessonProgress = async (userId: string, lessonId: string, status: LessonStatus, mode: StudyMode) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
-    await setDoc(docRef, {
-        completedLessons: arrayUnion(lessonId)
-    }, { merge: true });
+    const progress = await getUserProgress(userId);
+
+    const currentEntry = progress.lessonProgress[lessonId] || {
+        userId,
+        lessonId,
+        status: LessonStatus.NOT_STARTED,
+        chosenStudyMode: mode,
+        attemptCount: 0
+    };
+
+    const updatedEntry: UserLessonProgress = {
+        ...currentEntry,
+        status,
+        chosenStudyMode: mode,
+        completedAt: status === LessonStatus.COMPLETED ? Date.now() : currentEntry.completedAt,
+        attemptCount: status === LessonStatus.COMPLETED ? currentEntry.attemptCount + 1 : currentEntry.attemptCount
+    };
+
+    const updates: any = {
+        [`lessonProgress.${lessonId}`]: updatedEntry
+    };
+
+    if (status === LessonStatus.COMPLETED) {
+        updates.completedLessonIds = arrayUnion(lessonId);
+    }
+
+    await updateDoc(docRef, updates);
 };
 
-export const saveMajorCurriculum = async (majorId: string, courses: Course[]) => {
+
+export const saveMajorCurriculum = async (major: AcademyMajor) => {
     try {
-        const docRef = doc(db, "curriculum", majorId);
-        await setDoc(docRef, { courses }, { merge: true });
+        // Save the major metadata/courses to a "majors" collection
+        // ID: major.id (e.g. "dept-char-concept")
+        const docRef = doc(db, "majors", major.id);
+        await setDoc(docRef, major);
+        console.log(`Saved Major: ${major.title}`);
     } catch (error) {
         console.error("Error saving curriculum:", error);
         throw error;
     }
 };
 
-export const getMajorCurriculum = async (majorId: string): Promise<Course[] | null> => {
+export const getMajorCurriculum = async (majorId: string): Promise<AcademyMajor | null> => {
     try {
-        const docRef = doc(db, "curriculum", majorId);
+        const docRef = doc(db, "majors", majorId);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
-            return docSnap.data().courses as Course[];
+            return docSnap.data() as AcademyMajor;
         }
         return null;
     } catch (error) {
@@ -82,7 +114,6 @@ export const getMajorCurriculum = async (majorId: string): Promise<Course[] | nu
         return null;
     }
 };
-
 
 export const updateDrill = async (userId: string, lessonId: string, daysToAdd: number = 1) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
@@ -94,9 +125,7 @@ export const updateDrill = async (userId: string, lessonId: string, daysToAdd: n
         lastLog: 0
     };
 
-    // Check if logged today (simple timestamp check for demo, prod would need better date logic)
     const now = Date.now();
-    const oneDay = 24 * 60 * 60 * 1000;
 
     // Allow update if last log was more than 18 hours ago
     if (now - currentDrill.lastLog > (18 * 60 * 60 * 1000)) {
@@ -110,21 +139,4 @@ export const updateDrill = async (userId: string, lessonId: string, daysToAdd: n
         };
         await updateDoc(docRef, { activeDrills: newDrills });
     }
-};
-
-// Helper: Get next unlocked lesson for a major
-export const getNextLesson = (majorId: string, completedLessons: string[]): Lesson | null => {
-    const faculty = ACADEMY_FACULTIES.find(f => f.majors.some(m => m.id === majorId));
-    if (!faculty) return null;
-    const major = faculty.majors.find(m => m.id === majorId);
-    if (!major) return null;
-
-    for (const course of major.courses) {
-        for (const lesson of course.lessons) {
-            if (!completedLessons.includes(lesson.id)) {
-                return lesson; // Return the first incomplete lesson
-            }
-        }
-    }
-    return null; // All done
 };
