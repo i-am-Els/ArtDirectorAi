@@ -4,7 +4,7 @@ import { ArtRole, ExperienceLevel, ArtBrief, AppView } from './types.ts';
 import RoleIcon from './components/RoleIcon.tsx';
 import BriefDisplay from './components/BriefDisplay.tsx';
 import PortfolioReview from './components/PortfolioReview.tsx';
-import Academy from './components/Academy.tsx';
+import GrowthStudio from './components/GrowthStudio.tsx';
 import UserProfile from './components/UserProfile.tsx';
 import LoginPage from './components/LoginPage.tsx';
 import SeedButton from './components/Admin/SeedButton.tsx'; // New Import
@@ -221,7 +221,7 @@ const App: React.FC = () => {
               </>
             )}
             {currentView === 'REVIEW' && <div className="glass rounded-[3.5rem] p-10 border border-white/10 min-h-[650px] no-print shadow-2xl"><PortfolioReview role={selectedRole} experience={experience} /></div>}
-            {currentView === 'GROWTH' && <Academy />}
+            {currentView === 'GROWTH' && <GrowthStudio currentRole={selectedRole} userId={user.uid} />}
           </section>
         </div>
       </main>
