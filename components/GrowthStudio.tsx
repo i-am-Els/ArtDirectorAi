@@ -365,24 +365,24 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
                       <div className="flex flex-col lg:flex-row gap-8 items-start">
                         <div className="lg:w-1/4 space-y-4">
                           <span className={`px-2.5 py-1 rounded-lg text-[9px] font-black uppercase tracking-widest ${course.tier === 'Foundations' ? 'bg-zinc-800 text-zinc-400' :
-                              course.tier === 'Production' ? 'bg-blue-600/20 text-blue-400' :
-                                'bg-purple-600/20 text-purple-400'
+                            course.tier === 'Production' ? 'bg-blue-600/20 text-blue-400' :
+                              'bg-purple-600/20 text-purple-400'
                             }`}>{course.tier}</span>
                           <h4 className="text-2xl font-black italic uppercase text-white leading-tight tracking-tight">{course.title}</h4>
-                          <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">{course.subjects.length} Subjects • {course.lessons.length} Lessons</p>
+                          <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">{(course.subjects || []).length} Subjects • {(course.lessons || []).length + (course.subjects || []).flatMap(s => s.lessons).length} Lessons</p>
                         </div>
                         <div className="lg:w-3/4">
                           <p className="text-sm text-zinc-400 font-medium italic leading-relaxed mb-6">{course.description}</p>
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            {course.subjects.slice(0, 4).map(sub => (
+                            {(course.subjects || []).slice(0, 4).map(sub => (
                               <div key={sub.id} className="p-4 bg-black/40 border border-white/5 rounded-xl">
                                 <h5 className="text-xs font-bold text-zinc-200">{sub.title}</h5>
                                 <p className="text-[10px] text-zinc-500 mt-1 truncate">{sub.description}</p>
                               </div>
                             ))}
-                            {course.subjects.length > 4 && (
+                            {(course.subjects || []).length > 4 && (
                               <div className="p-4 flex items-center justify-center text-[10px] font-black uppercase text-zinc-600">
-                                + {course.subjects.length - 4} More Subjects
+                                + {(course.subjects || []).length - 4} More Subjects
                               </div>
                             )}
                           </div>
@@ -410,7 +410,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
             <div className="text-right">
               <span className="text-[10px] font-black text-zinc-600 uppercase tracking-widest block mb-2">Completion</span>
               <span className="text-4xl font-black text-zinc-200 mono">
-                {Math.round((progress?.completedLessonIds.length || 0) / Math.max(1, activeMajor.courses.flatMap(c => c.subjects.flatMap(s => s.lessons)).length) * 100)}%
+                {Math.round((progress?.completedLessonIds.length || 0) / Math.max(1, activeMajor.courses.flatMap(c => (c.subjects || []).flatMap(s => s.lessons).concat(c.lessons || [])).length) * 100)}%
               </span>
             </div>
           </div>
@@ -428,7 +428,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
                     </span>
                     <div>
                       <h3 className="text-2xl font-black italic uppercase text-white">{course.title}</h3>
-                      <p className="text-xs text-zinc-500 font-bold uppercase tracking-widest mt-1">{course.subjects.length} Subjects</p>
+                      <p className="text-xs text-zinc-500 font-bold uppercase tracking-widest mt-1">{(course.subjects || []).length} Subjects</p>
                     </div>
                   </div>
                   <div className={`w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center transition-transform ${expandedCourseId === course.id ? 'rotate-180' : ''}`}>
@@ -438,7 +438,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
 
                 {expandedCourseId === course.id && (
                   <div className="bg-black/20 p-8 pt-0 space-y-4">
-                    {course.subjects.map(subject => (
+                    {(course.subjects || []).map(subject => (
                       <div key={subject.id} className="border-l-2 border-white/10 pl-6 ml-4 space-y-4 py-4">
                         <div
                           className="flex items-center justify-between cursor-pointer group"
