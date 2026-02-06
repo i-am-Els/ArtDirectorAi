@@ -8,7 +8,7 @@ const COLLECTION_NAME = "student_progress";
 
 const DEFAULT_PROGRESS: UserProgress = {
     userId: "", // Set at runtime
-    enrolledMajorId: null,
+    enrolledMajorIds: [],
     enrolledMinorId: null,
     completedLessonIds: [],
     lessonProgress: {},
@@ -21,6 +21,7 @@ export const getUserProgress = async (userId: string): Promise<UserProgress> => 
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
+            // Migration helper: If existing data has old field, could migrate here, but for dev we assume fresh or compatible
             return { ...DEFAULT_PROGRESS, ...docSnap.data() } as UserProgress;
         } else {
             const newProgress = { ...DEFAULT_PROGRESS, userId };
@@ -35,23 +36,17 @@ export const getUserProgress = async (userId: string): Promise<UserProgress> => 
 
 export const enrollInMajor = async (userId: string, majorId: string) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
-    // Enforce Single Major: Overwrite enrolledMajorId
+    // Allow Multi-Major: ArrayUnion
     await setDoc(docRef, {
-        enrolledMajorId: majorId
+        enrolledMajorIds: arrayUnion(majorId)
     }, { merge: true });
 };
 
-export const unenrollFromMajor = async (userId: string) => {
+export const unenrollFromMajor = async (userId: string, majorId: string) => { // Added majorId param
     const docRef = doc(db, COLLECTION_NAME, userId);
 
-    // Wipe progress for the major? 
-    // User requested: "permanently wiped from their record"
-    // For now, we just nullify the enrollment. The progress cleaning is a bigger operation 
-    // that requires knowing which lessons belong to the major (which we can fetch).
-    // Simpler first step: Just unenroll.
-
     await setDoc(docRef, {
-        enrolledMajorId: null
+        enrolledMajorIds: arrayRemove(majorId)
     }, { merge: true });
 };
 

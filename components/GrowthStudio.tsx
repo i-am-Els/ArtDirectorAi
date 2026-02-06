@@ -265,7 +265,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
                       key={major.id}
                       onClick={() => setViewingMajor({ faculty, major })}
                       className={`text-left p-6 rounded-[2rem] border transition-all relative overflow-hidden group
-                        ${progress?.enrolledMajorId === major.id
+                        ${progress?.enrolledMajorIds?.includes(major.id)
                           ? 'bg-blue-600/10 border-blue-500/50'
                           : 'bg-zinc-900/50 border-white/5 hover:border-white/20 hover:bg-zinc-800'
                         }`}
@@ -279,7 +279,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
                           ))}
                         </div>
                         <div className="text-[10px] font-black text-zinc-600 uppercase group-hover:text-white transition-colors">
-                          {progress?.enrolledMajorId === major.id ? 'View Enrolled Major →' : 'View Details →'}
+                          {progress?.enrolledMajorIds?.includes(major.id) ? 'View Enrolled Major →' : 'View Details →'}
                         </div>
                       </div>
                     </button>

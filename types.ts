@@ -138,7 +138,7 @@ export interface UserLessonProgress {
 
 export interface UserProgress {
   userId: string;
-  enrolledMajorId: string | null; // Single major enrollment
+  enrolledMajorIds: string[]; // Multi-major enrollment support
   enrolledMinorId: string | null;
 
   completedLessonIds: string[]; // Fast lookup
