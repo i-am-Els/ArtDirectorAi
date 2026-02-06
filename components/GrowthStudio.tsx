@@ -102,8 +102,9 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
   };
 
   const handleWithdraw = async () => {
+    if (!activeMajor) return;
     if (window.confirm("Are you sure you want to withdraw? Your progress record will be retained but your enrollment slot will be freed.")) {
-      await unenrollFromMajor(userId);
+      await unenrollFromMajor(userId, activeMajor.id);
       await fetchProgress();
       setActiveMajor(null);
       setActiveTab('ENROLLMENT');
@@ -112,9 +113,9 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
 
   const startLesson = (lesson: Lesson) => {
     setActiveLesson(lesson);
-    setSessionMode(lesson.defaultStudyMode);
+    setSessionMode(lesson.defaultStudyMode || lesson.default_study_mode || StudyMode.FOCUS);
     setSessionObjective(lesson.objective);
-    setTimeLeft(lesson.estimatedEffort * 60);
+    setTimeLeft((lesson.estimatedEffort || lesson.estimated_effort_minutes || 45) * 60);
     setActiveTab('WORKBENCH');
   };
 
@@ -468,8 +469,8 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
                                   <div className={`w-3 h-3 rounded-full ${isCompleted ? 'bg-green-500' : 'bg-zinc-700'}`}></div>
                                   <div>
                                     <div className="flex items-center gap-2 mb-1">
-                                      <span className={`text-[8px] font-black uppercase px-1.5 py-0.5 rounded ${lesson.defaultStudyMode === StudyMode.FOCUS ? 'bg-blue-500/20 text-blue-300' : 'bg-purple-500/20 text-purple-300'}`}>{lesson.defaultStudyMode}</span>
-                                      <span className="text-[8px] font-black text-zinc-600 uppercase tracking-widest">{lesson.type}</span>
+                                      <span className={`text-[8px] font-black uppercase px-1.5 py-0.5 rounded ${(lesson.defaultStudyMode || lesson.default_study_mode) === StudyMode.FOCUS ? 'bg-blue-500/20 text-blue-300' : 'bg-purple-500/20 text-purple-300'}`}>{lesson.defaultStudyMode || lesson.default_study_mode}</span>
+                                      <span className="text-[8px] font-black text-zinc-600 uppercase tracking-widest">{lesson.type || lesson.lesson_type}</span>
                                     </div>
                                     <h5 className="text-xs font-bold text-zinc-300 leading-tight">{lesson.title}</h5>
                                   </div>

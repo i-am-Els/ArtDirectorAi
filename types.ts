@@ -70,6 +70,11 @@ export interface Lesson {
   // Content helper fields (optional/legacy compat)
   searchQueries: string[];
   suggestedMileage?: string; // e.g. "30 sketches" - useful for UI
+
+  // JSON Schema Compatibility
+  lesson_type?: LessonType;
+  estimated_effort_minutes?: number;
+  default_study_mode?: StudyMode;
 }
 
 export interface Subject {
@@ -107,6 +112,10 @@ export interface AcademyMajor {
   outcomes: string[];
   software: string[];
   courses: Course[];
+
+  // JSON Schema Compatibility
+  role_enum?: ArtRole;
+  name?: string; // Maps to title
 }
 
 export interface Faculty {
