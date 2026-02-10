@@ -13,7 +13,7 @@ export enum ArtRole {
   ILLUSTRATION = 'Keyframe Illustrator',
   UI_UX = 'UI/UX Game Artist',
   ANIMATION_2D = '2D Animator (Classical/Spine)',
-  ANIMATION_2D_SKELETAL = '2D Animator (Spine)', // Added specific
+  ANIMATION_2D_SKELETAL = '2D Animator (Spine)',
   BG_PAINTER = 'Background Painter',
   COLOR_SCRIPT = 'Color Script/Lighting Keys',
 
@@ -147,7 +147,7 @@ export interface UserLessonProgress {
 
 export interface UserProgress {
   userId: string;
-  enrolledMajorIds: string[]; // Multi-major enrollment support
+  enrolledMajorId: string | null;
   enrolledMinorId: string | null;
 
   completedLessonIds: string[]; // Fast lookup

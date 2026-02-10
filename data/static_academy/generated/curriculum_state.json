@@ -1,0 +1,2625 @@
+{
+  "faculties": [
+    {
+      "id": "fac-visdev",
+      "code": "VISDEV",
+      "name": "Faculty of Visual Development",
+      "majors": [
+        {
+          "id": "dept-char-concept",
+          "faculty_id": "fac-visdev",
+          "code": "CHAR_DES",
+          "title": "Character Design",
+          "role": "Character Concept Artist",
+          "description": "Designing character archetypes with anatomical and narrative depth.",
+          "courses": [
+            {
+              "code": "CD101",
+              "description": "Explore the core principles of character design, including understanding archetypes, basic silhouettes, and visual storytelling.",
+              "id": "char_design_intro",
+              "is_core": true,
+              "tier": "Foundations",
+              "title": "Introduction to Character Design",
+              "year_level": 1,
+              "subjects": [
+                {
+                  "description": "Introduces the fundamental concepts of character design, its role in various media, and the core elements that make a character memorable.",
+                  "id": "CD101-01",
+                  "learning_outcome": "Students will be able to articulate the importance of character design and identify key components of successful character development.",
+                  "order_index": 1,
+                  "title": "Foundations of Character Design",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "FCD-L1",
+                      "lesson_type": "READ",
+                      "objective": "Define character design and articulate its foundational role across various entertainment and communication media.",
+                      "order_index": 1,
+                      "title": "Introduction to Character Design: More Than Just a Drawing"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "FCD-L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze case studies of iconic characters to identify key design choices that contribute to their memorability and impact.",
+                      "order_index": 2,
+                      "title": "Anatomy of an Icon: Dissecting Memorable Characters"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "FCD-L3",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core elements of character development, including silhouette, shape language, personality, and backstory.",
+                      "order_index": 3,
+                      "title": "The Pillars of Personality: Core Elements of Character"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "FCD-L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice creating distinct character silhouettes that convey personality and role without additional detail.",
+                      "order_index": 4,
+                      "title": "Sketching Silhouettes: First Impressions"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "FCD-L5",
+                      "lesson_type": "READ",
+                      "objective": "Explore how context and medium influence character design choices and audience perception.",
+                      "order_index": 5,
+                      "title": "Characters in Context: Design for Different Media"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Explores common character archetypes and methods for developing unique personalities, backstories, and motivations for characters.",
+                  "id": "CD101-02",
+                  "learning_outcome": "Students will learn to utilize character archetypes as a starting point and develop compelling character personas.",
+                  "order_index": 2,
+                  "title": "Archetypes and Persona Development",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "APD-L01",
+                      "lesson_type": "READ",
+                      "objective": "Introduce the concept of character archetypes, their origins (e.g., Jungian), and common examples in storytelling.",
+                      "order_index": 1,
+                      "title": "Understanding Character Archetypes: The Building Blocks"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "APD-L02",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze how classic archetypes are used and subverted in popular movies, literature, and games to create relatable yet unique characters.",
+                      "order_index": 2,
+                      "title": "Archetypes in Action: Case Studies from Media"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "APD-L03",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Identify a core archetype in an existing character and propose ways to personalize or subvert it for a new narrative context.",
+                      "order_index": 3,
+                      "title": "Archetype Remix: Identifying and Personalizing"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "APD-L04",
+                      "lesson_type": "READ",
+                      "objective": "Explore methodologies for developing detailed character personas, including defining motivations, fears, desires, and core personality traits beyond archetypes.",
+                      "order_index": 4,
+                      "title": "Persona Deep Dive: Crafting Unique Personalities"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "APD-L05",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe a practical demonstration of building a character persona from an initial idea, detailing their backstory, relationships, and internal conflicts.",
+                      "order_index": 5,
+                      "title": "The Persona Workshop: A Step-by-Step Guide"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "APD-L06",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned techniques to develop a unique character persona, starting with an archetype and expanding it with a rich backstory, motivations, and personality profile.",
+                      "order_index": 6,
+                      "title": "Your First Persona: From Archetype to Original Character"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Focuses on the power of basic shapes and strong silhouettes in conveying personality, role, and immediate recognition for a character.",
+                  "id": "CD101-03",
+                  "learning_outcome": "Students will be able to design characters with clear and distinctive silhouettes using fundamental shape language principles.",
+                  "order_index": 3,
+                  "title": "Mastering Shape Language and Silhouettes",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "MSL_L1",
+                      "lesson_type": "READ",
+                      "objective": "Students will identify and understand the fundamental characteristics and psychological associations of circles, squares, and triangles in character design.",
+                      "order_index": 1,
+                      "title": "Understanding Basic Geometric Shapes in Design"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "MSL_L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Students will analyze and articulate how renowned characters utilize distinct silhouettes and shape language to convey personality and role.",
+                      "order_index": 2,
+                      "title": "Analyzing Iconic Silhouettes: From Mickey to Batman"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "MSL_L3",
+                      "lesson_type": "READ",
+                      "objective": "Students will explore the nuances of combining different shapes and their psychological impact to create more complex character personas.",
+                      "order_index": 3,
+                      "title": "Advanced Shape Psychology and Combinations"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "MSL_L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Students will generate multiple unique character silhouettes based on given personality traits or archetypes, focusing on clear communication.",
+                      "order_index": 4,
+                      "title": "Rapid Silhouette Ideation Exercise"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "MSL_L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Students will observe the process of refining a basic silhouette into a detailed character, maintaining its initial visual impact.",
+                      "order_index": 5,
+                      "title": "Demo: Iterating Character Designs from a Single Silhouette"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "MSL_L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Students will apply all learned principles to design an original character, starting with a strong and communicative silhouette.",
+                      "order_index": 6,
+                      "title": "Project: Designing a Character Through Silhouette First"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Covers how facial expressions, body language, costumes, and props contribute to a character's narrative and communicate information non-verbally.",
+                  "id": "CD101-04",
+                  "learning_outcome": "Students will be able to infuse characters with narrative depth through deliberate choices in expression, posture, and accessory design.",
+                  "order_index": 4,
+                  "title": "Visual Storytelling: Expressions, Gestures & Attire",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "VS-01-EXPRESSIONS-READ",
+                      "lesson_type": "READ",
+                      "objective": "Understand how subtle facial cues convey specific emotions, personality traits, and reactions.",
+                      "order_index": 0,
+                      "title": "The Language of Faces: Expressions for Emotion"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 45,
+                      "id": "VS-02-EXPRESSIONS-WATCH",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and learn practical techniques for effectively rendering a range of character expressions and micro-expressions.",
+                      "order_index": 1,
+                      "title": "Drawing Dynamic Expressions: A Practical Demo"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "VS-03-GESTURES-READ",
+                      "lesson_type": "READ",
+                      "objective": "Explore how body language, posture, and specific gestures reveal a character's personality, mood, intentions, and relationships.",
+                      "order_index": 2,
+                      "title": "Gestures & Posture: Communicating Character Intent"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "VS-04-POSING-ASSIGNMENT",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice translating character emotions, actions, and personality into compelling poses and gestures through interpretive sketching.",
+                      "order_index": 3,
+                      "title": "Posing for Narrative: An Interpretive Sketch Assignment"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 35,
+                      "id": "VS-05-ATTIRE-READ",
+                      "lesson_type": "READ",
+                      "objective": "Analyze how clothing, accessories, and props function as visual storytelling devices, conveying character backstory, social status, and role.",
+                      "order_index": 4,
+                      "title": "Costume & Props: Visual Cues for Backstory & Role"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "VS-06-NARRATIVE-ASSIGNMENT",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Integrate knowledge of expressions, gestures, attire, and props to design a new character that tells a comprehensive visual story.",
+                      "order_index": 5,
+                      "title": "Designing a Character's Complete Visual Story"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Examines the application of color theory to character design, including mood, symbolism, and differentiating characters, alongside material indications.",
+                  "id": "CD101-05",
+                  "learning_outcome": "Students will understand how to use color palettes and material textures effectively to enhance character personality and visual appeal.",
+                  "order_index": 5,
+                  "title": "Color Theory and Materiality in Character Design",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "CTMCD_L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the foundational principles of color theory, including hue, saturation, and value, and their initial application to character mood and identity.",
+                      "order_index": 1,
+                      "title": "Fundamentals of Color Theory for Characters"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "CTMCD_L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe professional techniques for using color to evoke specific emotions, symbolize character traits, and differentiate characters within a design set.",
+                      "order_index": 2,
+                      "title": "Emotional Impact and Symbolism: A Color Application Demo"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "CTMCD_L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design three distinct character color palettes for given character descriptions, focusing on enhancing personality and visual separation.",
+                      "order_index": 3,
+                      "title": "Palette Creation: Bringing Characters to Life with Color"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "CTMCD_L4",
+                      "lesson_type": "READ",
+                      "objective": "Learn how different materials (e.g., fabric, metal, skin) are visually represented through texture, reflectivity, and light interaction in character art.",
+                      "order_index": 4,
+                      "title": "Understanding Materiality: Surface and Texture in Design"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "CTMCD_L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Examine a step-by-step demonstration of rendering various materials on a character, focusing on techniques for conveying texture and material properties.",
+                      "order_index": 5,
+                      "title": "Material Rendering Techniques: A Practical Guide"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "CTMCD_L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Create a fully colored character design that effectively integrates both a coherent color palette and detailed material indications to convey personality and narrative.",
+                      "order_index": 6,
+                      "title": "Integrated Character Design: Color and Material Final Project"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Guides students through the iterative process of character design, from initial brainstorming and sketching to iteration, refinement, and presenting final designs.",
+                  "id": "CD101-06",
+                  "learning_outcome": "Students will be able to follow a structured character design workflow and present their design choices effectively.",
+                  "order_index": 6,
+                  "title": "The Character Design Process: From Concept to Presentation",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "CDP-01-01",
+                      "lesson_type": "READ",
+                      "objective": "To understand the complete, iterative process of character design from initial concept to final presentation.",
+                      "order_index": 1,
+                      "title": "Understanding the Character Design Workflow"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "CDP-01-02",
+                      "lesson_type": "WATCH",
+                      "objective": "To observe and learn effective techniques for brainstorming character ideas and translating them into initial sketches.",
+                      "order_index": 2,
+                      "title": "Brainstorming and Initial Sketching Techniques Demo"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "CDP-01-03",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "To practice generating diverse character concepts through brainstorming and creating initial sketches based on specific prompts.",
+                      "order_index": 3,
+                      "title": "Concept Development: From Idea to Initial Sketch"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "CDP-01-04",
+                      "lesson_type": "READ",
+                      "objective": "To learn strategies for iterating on character designs, refining details, and effectively incorporating feedback for improvement.",
+                      "order_index": 4,
+                      "title": "Iteration, Refinement, and Incorporating Feedback"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "CDP-01-05",
+                      "lesson_type": "WATCH",
+                      "objective": "To see examples and best practices for compiling and presenting character designs to effectively communicate design choices and intent.",
+                      "order_index": 5,
+                      "title": "Preparing and Presenting Your Character Design Demo"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "CDP-01-06",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "To apply iterative design principles to refine a chosen character concept and prepare a professional presentation showcasing the design process and final output.",
+                      "order_index": 6,
+                      "title": "Final Character Design Presentation"
+                    }
+                  ],
+                  "is_complete": true
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "CD102",
+              "description": "A deep dive into human and animal anatomy, focusing on skeletal and muscular structures relevant to drawing dynamic and believable characters.",
+              "id": "artistic_anatomy",
+              "is_core": true,
+              "tier": "Foundations",
+              "title": "Artistic Anatomy for Character Artists",
+              "year_level": 1,
+              "subjects": [
+                {
+                  "description": "Introduces core principles of artistic anatomy, emphasizing foundational concepts like skeletal landmarks, basic human proportions, and the block-in method for constructing figures.",
+                  "id": "CD102-S1",
+                  "learning_outcome": "Students will be able to identify major skeletal landmarks and accurately apply fundamental human proportions to character drawings.",
+                  "order_index": 1,
+                  "title": "Foundations of Artistic Anatomy and Proportion",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "faa_fap_l1",
+                      "lesson_type": "READ",
+                      "objective": "Understand and identify the major palpable skeletal landmarks critical for foundational figure drawing.",
+                      "order_index": 1,
+                      "title": "Identifying Key Skeletal Landmarks and Their Importance"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "faa_fap_l2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and learn the standard eight-head canon for human proportions and its initial application to the figure.",
+                      "order_index": 2,
+                      "title": "The Eight-Head Canon: Basic Human Proportions Demystified"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "faa_fap_l3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice using the block-in method to construct a simplified human figure, incorporating identified skeletal landmarks and basic proportional guidelines.",
+                      "order_index": 3,
+                      "title": "Introduction to the Block-In Method for Figure Construction"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "faa_fap_l4",
+                      "lesson_type": "READ",
+                      "objective": "Explore common proportional differences and variations between male and female figures, and across different age groups, for more diverse character design.",
+                      "order_index": 4,
+                      "title": "Understanding Proportional Variations: Gender, Age, and Body Types"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "faa_fap_l5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned proportional systems and the block-in method to draw figures in various basic poses, focusing on accurate structure before details.",
+                      "order_index": 5,
+                      "title": "Applying Foundations: Figure Block-Ins in Simple Poses"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "A detailed examination of the human skeleton, focusing on the skull, rib cage, spine, pelvis, and limbs. Emphasis is placed on how skeletal structure dictates overall form and movement.",
+                  "id": "CD102-S2",
+                  "learning_outcome": "Students will understand the major bones of the human body and their influence on character silhouette, posture, and potential range of motion.",
+                  "order_index": 2,
+                  "title": "The Human Skeletal System",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "skeletal_regions_01",
+                      "lesson_type": "READ",
+                      "objective": "Identify and understand the primary sections of the human skeleton: axial and appendicular, and their foundational role in character design.",
+                      "order_index": 1,
+                      "title": "Lesson 1: The Blueprint - Major Skeletal Regions"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "skull_ribcage_02",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and analyze the forms of the skull and rib cage, understanding their landmarks and how they influence the outer silhouette of the head and torso.",
+                      "order_index": 2,
+                      "title": "Lesson 2: Anatomy of the Head and Torso - Skull and Ribcage"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "spine_pelvis_03",
+                      "lesson_type": "READ",
+                      "objective": "Learn the structure and function of the spine and pelvis, recognizing their critical role in defining character posture, balance, and core movement.",
+                      "order_index": 3,
+                      "title": "Lesson 3: The Spine and Pelvis - Foundation of Posture"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "limbs_motion_04",
+                      "lesson_type": "WATCH",
+                      "objective": "Examine the bone structure of the upper and lower limbs, focusing on joints and how they facilitate a character's range of motion and weight bearing.",
+                      "order_index": 4,
+                      "title": "Lesson 4: Understanding the Limbs - Structure for Motion"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "skeletal_drawing_05",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply theoretical knowledge by sketching a full human skeleton from reference, emphasizing proportional accuracy and the relationship of major bone groups.",
+                      "order_index": 5,
+                      "title": "Lesson 5: Skeletal Study Drawing - Full Body Analysis"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Covers the primary muscle groups of the chest, back, abdomen, shoulders, and arms. Focuses on muscle origins, insertions, and how they define surface anatomy and enable complex movements.",
+                  "id": "CD102-S3",
+                  "learning_outcome": "Students will be able to identify and draw the key muscles of the upper body, understanding their function and impact on character form in various poses.",
+                  "order_index": 3,
+                  "title": "Musculature of the Torso and Upper Limbs",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L-TORSO-UPPER-MUSCLE-001",
+                      "lesson_type": "READ",
+                      "objective": "Understand the major muscle groups of the torso and upper limbs, their anatomical terminology, and their general function in character movement.",
+                      "order_index": 1,
+                      "title": "Torso & Upper Limb Musculature - An Overview"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L-TORSO-UPPER-MUSCLE-002",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe the origins, insertions, and surface forms of the chest (Pectorals), shoulder (Deltoids), and upper arm (Biceps, Triceps) muscles through guided drawing and sculpting demonstrations.",
+                      "order_index": 2,
+                      "title": "Watch - Chest, Shoulders, & Arms in Action"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 55,
+                      "id": "L-TORSO-UPPER-MUSCLE-003",
+                      "lesson_type": "READ",
+                      "objective": "Study the detailed anatomy of the back (Trapezius, Latissimus Dorsi, Erector Spinae) and abdominal muscles (Rectus Abdominis, Obliques), understanding their layers and impact on torso form.",
+                      "order_index": 3,
+                      "title": "Deep Dive into Back & Abdominal Muscles"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L-TORSO-UPPER-MUSCLE-004",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice drawing and labeling the key muscles of the torso and upper limbs from various reference images, focusing on their proportional relationships and attachment points in different poses.",
+                      "order_index": 4,
+                      "title": "Assignment - Sketching Upper Body Muscle Groups"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L-TORSO-UPPER-MUSCLE-005",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze how the muscles of the torso and upper limbs stretch, contract, and change form in complex and dynamic character poses, paying attention to how they interact with underlying skeletal structures.",
+                      "order_index": 5,
+                      "title": "Watch - Muscle Interaction in Dynamic Poses"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Explores the muscles of the glutes, thighs, calves, and feet, alongside a focused study of the skull and facial muscles. Examines how these structures contribute to character weight, balance, and expression.",
+                  "id": "CD102-S4",
+                  "learning_outcome": "Students will grasp the anatomy of the lower body and head, enabling them to render believable weight distribution, dynamic poses, and expressive facial features.",
+                  "order_index": 4,
+                  "title": "Musculature of the Lower Limbs and Head",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "MLLH-L01",
+                      "lesson_type": "READ",
+                      "objective": "Understand the major muscle groups of the glutes and thighs, their origins, insertions, and primary functions in character movement and weight bearing.",
+                      "order_index": 1,
+                      "title": "The Powerhouses: Glutes and Thigh Muscles"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "MLLH-L02",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe the interplay of calf and foot muscles, learning how they contribute to balance, locomotion, and the overall silhouette of the lower leg.",
+                      "order_index": 2,
+                      "title": "Sculpting the Stride: Calves and Feet in Motion"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "MLLH-L03",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply theoretical knowledge by sketching the muscle groups of the glutes, thighs, calves, and feet from various angles, focusing on form and volume.",
+                      "order_index": 3,
+                      "title": "Constructing Lower Limbs: Muscle Layering Practice"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "MLLH-L04",
+                      "lesson_type": "READ",
+                      "objective": "Identify the major bones of the skull and the superficial muscle groups of the head and neck, understanding their basic functions.",
+                      "order_index": 4,
+                      "title": "Foundations of Expression: Skull Structure and Key Head Muscles"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "MLLH-L05",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze how different facial muscle contractions create specific expressions, and learn to translate this understanding into compelling character portrayals.",
+                      "order_index": 5,
+                      "title": "Mapping Emotions: Facial Muscles and Expressive Forms"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 150,
+                      "id": "MLLH-L06",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice drawing the musculature of the head and face, applying knowledge to create sketches that convey distinct emotions and character.",
+                      "order_index": 6,
+                      "title": "Expressive Faces: Drawing Muscle Groups and Expressions"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Applies anatomical knowledge to understand the principles of movement, balance, and rhythm. Introduces gesture drawing techniques for capturing the essence of a pose rapidly and expressively.",
+                  "id": "CD102-S5",
+                  "learning_outcome": "Students will integrate anatomical understanding with dynamic principles to create characters that convey energy, movement, and emotional intent through their poses.",
+                  "order_index": 5,
+                  "title": "Dynamic Anatomy and Gesture",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "DAGN-L01",
+                      "lesson_type": "READ",
+                      "objective": "Understand the concept of the line of action and its importance in conveying movement and flow in a pose.",
+                      "order_index": 1,
+                      "title": "Foundations: Line of Action and Dynamic Flow"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 60,
+                      "id": "DAGN-L02",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn fundamental gesture drawing techniques to rapidly capture the energy, weight, and overall movement of a figure.",
+                      "order_index": 2,
+                      "title": "Demo: Seeing and Drawing the Gesture"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "DAGN-L03",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Develop speed and expressiveness in gesture drawing through timed practice sessions, focusing on capturing the essential action.",
+                      "order_index": 3,
+                      "title": "Assignment: Timed Gesture Drawing Marathon"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "DAGN-L04",
+                      "lesson_type": "READ",
+                      "objective": "Explore how anatomical landmarks influence weight distribution, balance, and the creation of rhythmic curves in dynamic poses.",
+                      "order_index": 4,
+                      "title": "Theory: The Mechanics of Movement"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "DAGN-L05",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe demonstrations of integrating anatomical knowledge into dynamic figure construction, emphasizing tension, compression, and asymmetry.",
+                      "order_index": 5,
+                      "title": "Demo: Building Expressive Poses"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "DAGN-L06",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply all learned principles to create a fully rendered dynamic character pose, conveying strong emotional intent and movement.",
+                      "order_index": 6,
+                      "title": "Project: Dynamic Character Pose Portfolio Piece"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "An introduction to the basic anatomical differences between humans and common animals, such as quadrupeds (e.g., canines, felines) and avians. Focuses on skeletal and muscular adaptations relevant to character design.",
+                  "id": "CD102-S6",
+                  "learning_outcome": "Students will be able to identify fundamental anatomical variations in different animal types and apply this knowledge to create believable animal-inspired characters or creatures.",
+                  "order_index": 6,
+                  "title": "Comparative Animal Anatomy Fundamentals",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "CAA-CAAF-L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core principles of comparative anatomy and identify key skeletal differences between humans, quadrupeds, and avians.",
+                      "order_index": 1,
+                      "title": "Introduction to Comparative Anatomy & Skeletal Basics"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "CAA-CAAF-L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and analyze the specific skeletal structures of common quadrupeds (canines, felines) and compare them to human anatomy, focusing on locomotion.",
+                      "order_index": 2,
+                      "title": "Quadruped Skeletal System Deep Dive"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "CAA-CAAF-L3",
+                      "lesson_type": "READ",
+                      "objective": "Learn about the unique skeletal and muscular adaptations that enable flight in avians, contrasting them with human and quadruped anatomy.",
+                      "order_index": 3,
+                      "title": "Avian Skeletal and Muscular Adaptations"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "CAA-CAAF-L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Explore the primary muscular groups in humans, quadrupeds, and avians, noting similarities and divergences related to function and form.",
+                      "order_index": 4,
+                      "title": "Comparative Musculature: Limbs and Torso"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "CAA-CAAF-L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply knowledge of skeletal differences by sketching comparative skeletal structures of a human, a quadruped, and an avian.",
+                      "order_index": 5,
+                      "title": "Assignment: Animal Skeleton Sketch Study"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "CAA-CAAF-L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Synthesize comparative anatomical knowledge to design a believable animal-inspired character or creature, justifying anatomical choices.",
+                      "order_index": 6,
+                      "title": "Assignment: Creature Design with Comparative Anatomy"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Explores how to leverage anatomical understanding to stylize characters effectively, exaggerating or simplifying forms while maintaining believability and avoiding anatomical errors.",
+                  "id": "CD102-S7",
+                  "learning_outcome": "Students will develop the ability to adapt and stylize anatomical knowledge to fit various character design aesthetics, from realistic to highly stylized.",
+                  "order_index": 7,
+                  "title": "Anatomy for Stylization and Character Design",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "styl_lesson_001",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core principles of stylization in character design, including exaggeration, simplification, and abstraction, and their foundational connection to anatomical knowledge.",
+                      "order_index": 1,
+                      "title": "Introduction to Stylization Principles"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "styl_lesson_002",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe practical demonstrations of how to effectively alter and exaggerate anatomical proportions to achieve diverse stylized character types (e.g., heroic, cartoony, slender) without losing structural believability.",
+                      "order_index": 2,
+                      "title": "Stylized Proportions and Anatomical Distortion Demo"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "styl_lesson_003",
+                      "lesson_type": "READ",
+                      "objective": "Explore techniques for simplifying complex anatomical forms into fundamental geometric or organic shapes, ensuring that the character's pose, movement, and overall functionality remain clear and convincing.",
+                      "order_index": 3,
+                      "title": "Form Simplification: Retaining Function and Believability"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "styl_lesson_004",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze various professional examples of stylized characters from different genres, dissecting how artists have adapted and interpreted human anatomy to achieve specific aesthetic and narrative goals.",
+                      "order_index": 4,
+                      "title": "Case Studies: Deconstructing Stylized Anatomy"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "styl_lesson_005",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned principles of exaggeration and simplification to design a unique character, translating basic anatomical understanding into a distinct stylized aesthetic.",
+                      "order_index": 5,
+                      "title": "Stylized Character Design: Basic Forms and Expression"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Focuses on translating underlying anatomical structures into convincing surface forms using principles of light, shadow, and volume. Emphasizes how muscle groups and fat pads contribute to the overall rendering of a character.",
+                  "id": "CD102-S8",
+                  "learning_outcome": "Students will be able to render characters with a strong sense of three-dimensionality, accurately depicting surface anatomy influenced by internal structures and lighting.",
+                  "order_index": 8,
+                  "title": "Surface Anatomy, Form, and Rendering",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "SA_L1_READ_01",
+                      "lesson_type": "READ",
+                      "objective": "Understand how skeletal and major muscle groups influence visible surface forms and identify key anatomical landmarks.",
+                      "order_index": 1,
+                      "title": "Deconstructing Surface Anatomy: Bone and Muscle Landmarks"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "SA_L2_WATCH_01",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn how to use light and shadow to articulate anatomical forms, emphasizing core shadows, cast shadows, and highlights.",
+                      "order_index": 2,
+                      "title": "Principles of Light, Shadow, and Volume for Anatomy"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "SA_L3_ASSIGN_01",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply lighting principles to render simplified anatomical shapes (e.g., spheres, cylinders representing limbs, torso blocks) to create a sense of volume.",
+                      "order_index": 3,
+                      "title": "Practice: Rendering Basic Anatomical Forms"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "SA_L4_READ_01",
+                      "lesson_type": "READ",
+                      "objective": "Explore how fat distribution, skin elasticity, and superficial veins contribute to the subtle nuances and individual variations in surface anatomy.",
+                      "order_index": 4,
+                      "title": "The Role of Fat Pads and Skin in Surface Definition"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "SA_L5_WATCH_01",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe a detailed demonstration of rendering a complex anatomical segment (e.g., a human arm or leg) from skeletal structure to final surface detail, integrating all learned principles.",
+                      "order_index": 5,
+                      "title": "Advanced Rendering: Bringing a Figure Segment to Life"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "SA_L6_ASSIGN_01",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply all concepts of surface anatomy, form, and rendering to create a fully rendered study of a character pose, focusing on accurately depicting volume, lighting, and anatomical details.",
+                      "order_index": 6,
+                      "title": "Final Project: Full Figure Surface Rendering Study"
+                    }
+                  ],
+                  "is_complete": true
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "CD103",
+              "description": "Develop skills in drawing the human figure from observation, focusing on gesture, proportion, perspective, and form.",
+              "id": "figure_drawing",
+              "is_core": true,
+              "tier": "Foundations",
+              "title": "Figure Drawing and Proportions",
+              "year_level": 1,
+              "subjects": [
+                {
+                  "description": "Overview of figure drawing principles, essential tools, and basic observational drawing techniques.",
+                  "id": "CD103-S01",
+                  "learning_outcome": "Students will be able to identify and utilize appropriate drawing materials and understand basic observational drawing approaches for the human figure.",
+                  "order_index": 1,
+                  "title": "Foundations of Figure Drawing",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "foundations-01-intro-materials",
+                      "lesson_type": "READ",
+                      "objective": "Understand the importance of figure drawing and identify essential drawing tools and their uses.",
+                      "order_index": 1,
+                      "title": "Introduction to Figure Drawing & Essential Materials"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "foundations-02-observational-demo",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and learn fundamental observational drawing techniques, including sighting and measuring.",
+                      "order_index": 2,
+                      "title": "Demonstration: Basic Observational Drawing Techniques"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 20,
+                      "id": "foundations-03-gesture-principles",
+                      "lesson_type": "READ",
+                      "objective": "Comprehend the principles and purpose of gesture drawing for capturing energy and movement.",
+                      "order_index": 3,
+                      "title": "The Art of Gesture Drawing: Capturing Life"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 60,
+                      "id": "foundations-04-gesture-practice",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply gesture drawing techniques to capture the essence and flow of various human poses from reference images.",
+                      "order_index": 4,
+                      "title": "Practice Session: Timed Gesture Drawing"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "foundations-05-basic-proportions",
+                      "lesson_type": "READ",
+                      "objective": "Learn fundamental human anatomical proportions and how to apply simple measurement systems.",
+                      "order_index": 5,
+                      "title": "Understanding Basic Human Proportions and Landmarks"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 75,
+                      "id": "foundations-06-simple-pose-sketch",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Sketch a simple human figure using observational techniques combined with basic proportional guidelines.",
+                      "order_index": 6,
+                      "title": "Assignment: Sketching a Simple Standing Pose"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Focus on quick sketches to capture the essence of movement, rhythm, and flow of the human body.",
+                  "id": "CD103-S02",
+                  "learning_outcome": "Students will develop the ability to quickly capture the gesture and dynamic energy of the human figure through timed drawing exercises.",
+                  "order_index": 2,
+                  "title": "Gesture and Dynamic Poses",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "gesture_intro_read",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core principles and importance of gesture drawing in figure studies.",
+                      "order_index": 1,
+                      "title": "The Power of Gesture: Capturing Movement"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "gesture_demo_watch",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and learn various techniques for quickly capturing the essence of movement and energy in figures.",
+                      "order_index": 2,
+                      "title": "Quick Sketching for Dynamic Poses (Video Demo)"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 60,
+                      "id": "gesture_practice_1",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice rapid gesture drawing, focusing on capturing the overall movement and flow within short time limits.",
+                      "order_index": 3,
+                      "title": "30-Second to 2-Minute Gesture Studies"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 20,
+                      "id": "line_of_action_read",
+                      "lesson_type": "READ",
+                      "objective": "Learn how to identify and utilize the line of action and rhythmic curves to convey stronger dynamic poses.",
+                      "order_index": 4,
+                      "title": "Enhancing Dynamics: Line of Action and Rhythmic Flow"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "line_of_action_demo",
+                      "lesson_type": "WATCH",
+                      "objective": "Witness the application of the line of action and rhythmic lines in constructing dynamic figure poses.",
+                      "order_index": 5,
+                      "title": "Instructor Demo: Line of Action in Action"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 75,
+                      "id": "gesture_practice_2",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply line of action and rhythmic principles in longer gesture drawings to create more compelling dynamic poses.",
+                      "order_index": 6,
+                      "title": "Extended Gesture Studies: Emphasizing Line of Action"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Study of standard human proportions (e.g., 8-head rule), simplified anatomical landmarks, and their application in figure construction.",
+                  "id": "CD103-S03",
+                  "learning_outcome": "Students will be able to accurately measure and apply standard human proportions and locate key anatomical reference points in their figure drawings.",
+                  "order_index": 3,
+                  "title": "Human Proportions and Basic Anatomy",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the standard 8-head rule and other fundamental proportional systems for the human figure.",
+                      "order_index": 1,
+                      "title": "Introduction to the 8-Head Rule and Proportional Systems"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe a demonstration on how to accurately measure and apply the 8-head rule and other proportional guidelines to a figure drawing.",
+                      "order_index": 2,
+                      "title": "Demonstration: Applying Human Proportions to a Figure"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Identify and comprehend the role of key anatomical landmarks (e.g., clavicle, sternum, ASIS, patella) in constructing a believable human form.",
+                      "order_index": 3,
+                      "title": "Key Anatomical Landmarks for Figure Drawing"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice drawing a full human figure, accurately applying the 8-head rule and marking all major anatomical landmarks learned.",
+                      "order_index": 4,
+                      "title": "Assignment: Figure Construction with Proportions and Landmarks"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Review common mistakes in applying proportions and identifying landmarks, and learn techniques for self-correction and refinement in figure drawing.",
+                      "order_index": 5,
+                      "title": "Critique and Refinement: Common Errors in Proportions and Landmarks"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Techniques for building the figure using basic geometric forms, understanding perspective as it applies to the human body, and an introduction to foreshortening.",
+                  "id": "CD103-S04",
+                  "learning_outcome": "Students will be able to construct the human figure in three-dimensional space, applying principles of perspective and foreshortening to convey depth and volume.",
+                  "order_index": 4,
+                  "title": "Form, Volume, and Perspective",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "formvol_01",
+                      "lesson_type": "READ",
+                      "objective": "Understand how to simplify the human figure into basic geometric shapes like cubes, cylinders, and spheres for three-dimensional representation.",
+                      "order_index": 1,
+                      "title": "Simplifying the Figure: Basic Forms"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "formvol_02",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe practical demonstrations of constructing the human figure using geometric forms from various angles and poses.",
+                      "order_index": 2,
+                      "title": "Demo: Building Figures with Geometric Blocks"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "formvol_03",
+                      "lesson_type": "READ",
+                      "objective": "Learn the fundamentals of one-point and two-point perspective and how to accurately place simplified figures within a spatial environment.",
+                      "order_index": 3,
+                      "title": "Introduction to Perspective for the Human Body"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "formvol_04",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice drawing multiple figures from imagination and reference using geometric forms, applying basic perspective principles to create depth.",
+                      "order_index": 4,
+                      "title": "Practice: Form-Based Figure Construction"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "formvol_05",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the concept of foreshortening and its visual effect on body parts or entire figures receding into space, conveying dynamic poses and depth.",
+                      "order_index": 5,
+                      "title": "Understanding Foreshortening: Theory and Examples"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 150,
+                      "id": "formvol_06",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply foreshortening principles to draw figures or body parts in challenging poses that emphasize depth and dimension.",
+                      "order_index": 6,
+                      "title": "Practice: Drawing Figures with Foreshortening"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Exploration of light and shadow patterns to enhance the volumetric quality of the figure, introduction to rendering techniques for muscle groups and skin texture.",
+                  "id": "CD103-S05",
+                  "learning_outcome": "Students will be able to use light and shadow to articulate the form of the human figure and suggest surface details, creating a sense of realism and depth.",
+                  "order_index": 5,
+                  "title": "Rendering Form and Surface Detail",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "RFSD-L1",
+                      "lesson_type": "READ",
+                      "objective": "Familiarize with fundamental concepts of light interaction on 3D forms, including highlights, core shadows, and reflected light.",
+                      "order_index": 1,
+                      "title": "Understanding Light and Shadow Principles"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 60,
+                      "id": "RFSD-L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe techniques for applying tonal values to create volumetric illusion on basic geometric shapes and simple anatomical forms.",
+                      "order_index": 2,
+                      "title": "Demo: Sculpting Form with Tone"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "RFSD-L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply light and shadow principles to render basic anatomical muscle forms, focusing on enhancing their volumetric quality.",
+                      "order_index": 3,
+                      "title": "Practice: Tonal Studies of Muscle Groups"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "RFSD-L4",
+                      "lesson_type": "READ",
+                      "objective": "Learn methods for suggesting skin texture, hair, and other surface details through subtle rendering techniques without over-rendering.",
+                      "order_index": 4,
+                      "title": "Texturing the Figure: Suggesting Surface Detail"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 50,
+                      "id": "RFSD-L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Witness techniques for creating realistic and suggestive skin and hair textures, focusing on economy of line and value.",
+                      "order_index": 5,
+                      "title": "Demo: Subtle Skin and Hair Rendering"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 180,
+                      "id": "RFSD-L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Render a complete human figure, articulating form with light and shadow and suggesting surface details effectively to create depth and realism.",
+                      "order_index": 6,
+                      "title": "Project: Full Figure Form and Texture Study"
+                    }
+                  ],
+                  "is_complete": true
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "CD104",
+              "description": "Introduction to essential digital painting tools and techniques (e.g., Photoshop/Procreate), covering brushes, layers, color theory, and basic rendering.",
+              "id": "digital_paint_found",
+              "is_core": true,
+              "tier": "Foundations",
+              "title": "Digital Painting Fundamentals",
+              "year_level": 2,
+              "subjects": [
+                {
+                  "description": "Familiarization with common digital painting software interfaces (e.g., Photoshop, Procreate), basic navigation, canvas setup, and essential tool identification.",
+                  "id": "CD104-S01",
+                  "learning_outcome": "Students will be able to navigate a digital painting software interface and set up a new canvas for their artwork.",
+                  "order_index": 1,
+                  "title": "Introduction to Digital Painting Environments",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 20,
+                      "id": "DPE_L1_INT_READ",
+                      "lesson_type": "READ",
+                      "objective": "Identify and understand the purpose of key interface elements in common digital painting software.",
+                      "order_index": 1,
+                      "title": "Digital Painting Software Interfaces: A Guided Tour"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "DPE_L2_NAV_WATCH",
+                      "lesson_type": "WATCH",
+                      "objective": "Demonstrate proficiency in basic canvas navigation (zoom, pan, rotate) and workspace customization.",
+                      "order_index": 2,
+                      "title": "Essential Navigation: Zoom, Pan, and Workspace Setup"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 20,
+                      "id": "DPE_L3_CANVAS_READ",
+                      "lesson_type": "READ",
+                      "objective": "Comprehend the concepts of canvas dimensions, resolution, and color modes for digital artwork.",
+                      "order_index": 3,
+                      "title": "Understanding Your Canvas: Size, Resolution, and Color Modes"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "DPE_L4_TOOLS_WATCH",
+                      "lesson_type": "WATCH",
+                      "objective": "Identify and understand the basic functions of essential tools like brushes, erasers, and layers.",
+                      "order_index": 4,
+                      "title": "Core Tools Explained: Brushes, Erasers, and Layers"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 50,
+                      "id": "DPE_L5_PRACTICE_ASSIGN",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Successfully set up new canvases with specified parameters and navigate the software interface efficiently.",
+                      "order_index": 5,
+                      "title": "Hands-On Practice: Canvas Setup and Interface Exploration"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "In-depth exploration of layer functionality, including blending modes, opacity, grouping, and non-destructive editing techniques using masks. Introduction to various selection tools.",
+                  "id": "CD104-S02",
+                  "learning_outcome": "Students will be proficient in using layers, layer masks, and selection tools to manage and manipulate digital artwork non-destructively.",
+                  "order_index": 2,
+                  "title": "Layers, Masks, and Selections",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "LMS-01",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental concept of layers, how to create, organize, and group them, and adjust basic layer properties like visibility and naming.",
+                      "order_index": 1,
+                      "title": "Layer Fundamentals: Stacking and Organization"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "LMS-02",
+                      "lesson_type": "WATCH",
+                      "objective": "Demonstrate and apply various layer blending modes to achieve different visual effects and manipulate layer opacity for subtle integration.",
+                      "order_index": 2,
+                      "title": "Mastering Blending Modes and Opacity Controls"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 20,
+                      "id": "LMS-03",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the core principles of non-destructive editing using layer masks and understand the distinction between layer masks and clipping masks.",
+                      "order_index": 3,
+                      "title": "Introduction to Layer Masks: Non-Destructive Editing"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "LMS-04",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and practice the application of layer masks for precise image adjustments, blending elements, and creating complex compositions without altering original pixels.",
+                      "order_index": 4,
+                      "title": "Applying Layer Masks for Precision and Blending"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "LMS-05",
+                      "lesson_type": "READ",
+                      "objective": "Learn about the different types of selection tools available in digital painting software, including marquee, lasso, magic wand, and quick selection tools, and their primary uses.",
+                      "order_index": 5,
+                      "title": "Exploring Selection Tools: Marquee, Lasso, and Magic Wand"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "LMS-06",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply knowledge of layers, blending modes, layer masks, and selection tools to complete a small digital painting or photo manipulation exercise, demonstrating non-destructive workflow.",
+                      "order_index": 6,
+                      "title": "Project: Building a Composition with Layers and Masks"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Exploration of different brush types, brush settings, pressure sensitivity, and creating custom brushes to achieve various textures and effects.",
+                  "id": "CD104-S03",
+                  "learning_outcome": "Students will be able to select, customize, and effectively use a variety of digital brushes to create different artistic effects.",
+                  "order_index": 3,
+                  "title": "Brushes: Types, Customization, and Application",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 20,
+                      "id": "intro_brush_types",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental categories of digital brushes (e.g., hard, soft, textured) and their basic applications in digital painting.",
+                      "order_index": 1,
+                      "title": "Introduction to Digital Brush Types"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "brush_settings_explored",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to navigate and manipulate essential brush settings such as size, opacity, flow, spacing, angle, and roundness for precise control.",
+                      "order_index": 2,
+                      "title": "Exploring Core Brush Settings and Properties"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 45,
+                      "id": "pressure_sensitivity_mastery",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice using pen pressure to control brush parameters like size, opacity, and color dynamics, creating varied and expressive lines and strokes.",
+                      "order_index": 3,
+                      "title": "Leveraging Pressure Sensitivity for Dynamic Strokes"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 60,
+                      "id": "creating_custom_brushes",
+                      "lesson_type": "WATCH",
+                      "objective": "Follow a step-by-step demonstration to create and save custom brushes from scratch or by modifying existing ones, incorporating various textures and shapes.",
+                      "order_index": 4,
+                      "title": "Designing Your Own Custom Brushes"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 75,
+                      "id": "brush_application_effects",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Utilize a range of brush types and custom brushes to effectively render different textures (e.g., skin, foliage, fabric) and achieve specific artistic effects in a practical exercise.",
+                      "order_index": 5,
+                      "title": "Practical Brush Application for Textures and Effects"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Fundamental concepts of color theory (hue, saturation, value), color harmonies, creating effective color palettes, and techniques for color picking in digital art.",
+                  "id": "CD104-S04",
+                  "learning_outcome": "Students will understand and apply core color theory principles to create harmonious and impactful digital paintings.",
+                  "order_index": 4,
+                  "title": "Color Theory for Digital Artists",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "CTDA-L01",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental components of color: Hue, Saturation, and Value, and how they interact.",
+                      "order_index": 1,
+                      "title": "The Building Blocks of Color: Hue, Saturation, and Value"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 45,
+                      "id": "CTDA-L02",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to identify and apply basic color harmonies (monochromatic, analogous, complementary) using the color wheel.",
+                      "order_index": 2,
+                      "title": "Exploring the Color Wheel and Basic Color Harmonies"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 60,
+                      "id": "CTDA-L03",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice generating effective color palettes for different moods and purposes using learned harmony principles.",
+                      "order_index": 3,
+                      "title": "Practical Exercise: Crafting Impactful Color Palettes"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "CTDA-L04",
+                      "lesson_type": "READ",
+                      "objective": "Explore advanced color schemes (triadic, tetradic) and understand the psychological associations of different colors.",
+                      "order_index": 4,
+                      "title": "Beyond Basics: Advanced Harmonies and Color Psychology"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 50,
+                      "id": "CTDA-L05",
+                      "lesson_type": "WATCH",
+                      "objective": "Master various digital tools and techniques for efficient and accurate color picking in digital painting software.",
+                      "order_index": 5,
+                      "title": "Digital Tools: Smart Color Picking and Adjustment"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "CTDA-L06",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply all learned color theory principles to create a small digital painting, focusing on harmonious color usage.",
+                      "order_index": 6,
+                      "title": "Project: Bringing Color Theory to Life in a Painting"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Introduction to understanding light sources, rendering basic 3D forms using light and shadow (midtones, highlights, core shadows, cast shadows), and basic material indication.",
+                  "id": "CD104-S05",
+                  "learning_outcome": "Students will be able to identify light sources and apply basic rendering techniques to give forms a sense of volume and dimension.",
+                  "order_index": 5,
+                  "title": "Fundamentals of Light, Form, and Rendering",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "FLFR-L01",
+                      "lesson_type": "READ",
+                      "objective": "Understand different types of light sources (e.g., directional, point, ambient) and their fundamental impact on objects.",
+                      "order_index": 1,
+                      "title": "Identifying Light Sources and Their Qualities"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 30,
+                      "id": "FLFR-L02",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe the practical application of light and shadow principles (midtones, highlights, core shadows) to render a basic sphere and cube with volume.",
+                      "order_index": 2,
+                      "title": "Rendering Basic Forms: Sphere and Cube Demo"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 105,
+                      "id": "FLFR-L03",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned light and shadow principles to independently render a sphere, cube, and cylinder, demonstrating a sense of volume and dimension.",
+                      "order_index": 3,
+                      "title": "Practice: Rendering Geometric Forms with Light and Shadow"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "FLFR-L04",
+                      "lesson_type": "READ",
+                      "objective": "Learn the mechanics of cast shadows, reflected light, and occlusion shadows, and how they contribute to realism.",
+                      "order_index": 4,
+                      "title": "Understanding Cast Shadows and Reflected Light"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 150,
+                      "id": "FLFR-L05",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Render a simple still life composed of 2-3 basic objects, accurately depicting light sources, shadows, and reflective qualities to create a cohesive scene.",
+                      "order_index": 5,
+                      "title": "Project: Simple Still Life Rendering"
+                    }
+                  ],
+                  "is_complete": true
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "CD201",
+              "description": "Learn how to imbue characters with narrative depth, exploring visual cues, body language, and expressions to communicate personality and backstory.",
+              "id": "visual_storytelling_char",
+              "is_core": true,
+              "tier": "Foundations",
+              "title": "Visual Storytelling for Characters",
+              "year_level": 2,
+              "subjects": [
+                {
+                  "description": "An introduction to the core principles of visual storytelling in character design, focusing on how visual elements communicate narrative and personality.",
+                  "id": "CD201-01",
+                  "learning_outcome": "Students will be able to identify key visual storytelling principles and analyze how they are applied in existing character designs.",
+                  "order_index": 1,
+                  "title": "Foundations of Character Visual Storytelling",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "FOCVS_L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the definition and fundamental importance of visual storytelling in crafting compelling character designs.",
+                      "order_index": 1,
+                      "title": "What is Visual Storytelling in Character Design?"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "FOCVS_L2",
+                      "lesson_type": "READ",
+                      "objective": "Learn how basic shapes and character silhouettes communicate personality, role, and narrative at a glance.",
+                      "order_index": 2,
+                      "title": "Shape Language and Silhouette: The First Impression"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "FOCVS_L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Explore through examples how color palettes, material textures, and costume details deepen a character's backstory and traits.",
+                      "order_index": 3,
+                      "title": "Visual Cues: Color, Texture, and Costume"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "FOCVS_L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Identify key visual elements in facial expressions and body posture that convey a character's emotions and intentions non-verbally.",
+                      "order_index": 4,
+                      "title": "Expressing Emotion: Facial Features and Body Language"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "FOCVS_L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned principles to deconstruct and analyze the visual storytelling embedded in existing character designs, identifying how elements contribute to their narrative.",
+                      "order_index": 5,
+                      "title": "Character Deconstruction: Analyzing Visual Narratives"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Exploration of human and creature anatomy, focusing on how to stylize and exaggerate forms to enhance character expression and narrative.",
+                  "id": "CD201-02",
+                  "learning_outcome": "Students will develop a foundational understanding of anatomical principles and apply them to create stylized, expressive character forms.",
+                  "order_index": 2,
+                  "title": "Anatomy and Stylization for Expressive Forms",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "anastyl_lesson_01",
+                      "lesson_type": "READ",
+                      "objective": "Understand fundamental human skeletal and muscular structures relevant to character drawing and stylization.",
+                      "order_index": 1,
+                      "title": "The Building Blocks: Core Human Anatomy for Stylization"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "anastyl_lesson_02",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn various techniques to simplify, exaggerate, and distort anatomical forms for expressive and stylistic character development.",
+                      "order_index": 2,
+                      "title": "Beyond Reality: Principles of Stylization and Exaggeration"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "anastyl_lesson_03",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice applying stylization principles to create expressive human character sketches from anatomical references.",
+                      "order_index": 3,
+                      "title": "Stylized Human Forms: Exaggeration in Practice"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "anastyl_lesson_04",
+                      "lesson_type": "READ",
+                      "objective": "Explore how to derive believable yet stylized creature anatomy from real-world animal forms and imaginative concepts.",
+                      "order_index": 4,
+                      "title": "Imagined Biology: Anatomy and Stylization for Creatures"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 150,
+                      "id": "anastyl_lesson_05",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Synthesize all learned principles to design and develop a stylized character (human or creature), focusing on its expressive anatomical forms.",
+                      "order_index": 5,
+                      "title": "Expressive Character Form: Final Design Project"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Delving into body language, gesture, and posing to communicate a character's emotions, intentions, and backstory without dialogue.",
+                  "id": "CD201-03",
+                  "learning_outcome": "Students will be able to design dynamic poses and gestures that effectively convey a character's personality and current emotional state.",
+                  "order_index": 3,
+                  "title": "The Language of Body and Pose",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "language-body-pose-L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the foundational principles of non-verbal communication and how basic body language informs character expression.",
+                      "order_index": 1,
+                      "title": "Decoding Non-Verbal Communication: The Basics"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "language-body-pose-L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and analyze how subtle gestures and micro-expressions are used by animators and artists to convey character emotions and intentions effectively.",
+                      "order_index": 2,
+                      "title": "Watch: Mastering Expressive Gestures and Micro-Expressions"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "language-body-pose-L3",
+                      "lesson_type": "READ",
+                      "objective": "Learn key techniques for designing dynamic and emotionally resonant character poses, focusing on line of action, silhouette, and weight distribution.",
+                      "order_index": 3,
+                      "title": "The Art of Dynamic Posing: Conveying Emotion"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 50,
+                      "id": "language-body-pose-L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice applying dynamic posing principles to create a series of character poses that distinctly communicate a range of specific emotions (e.g., anger, joy, fear).",
+                      "order_index": 4,
+                      "title": "Assignment: Expressive Poses - Emotion in Action"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "language-body-pose-L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze advanced demonstrations of how a character's pose can subtly hint at their immediate intentions, relationships, and elements of their backstory without explicit dialogue.",
+                      "order_index": 5,
+                      "title": "Watch: Narrative Through Pose - Intention & Backstory Demo"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 75,
+                      "id": "language-body-pose-L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design a complex character pose that integrates learned body language, gestures, and posing techniques to tell a comprehensive story, conveying personality, emotional state, and a narrative element.",
+                      "order_index": 6,
+                      "title": "Assignment: Character Story in a Single Pose"
+                    }
+                  ],
+                  "is_complete": true
+                },
+                {
+                  "description": "Focusing on the intricacies of facial anatomy and expression to convey a wide range of emotions and subtle personality traits.",
+                  "id": "CD201-04",
+                  "learning_outcome": "Students will master the ability to draw compelling facial expressions that accurately reflect a character's inner world and emotional nuances.",
+                  "order_index": 4,
+                  "title": "Facial Expressions and Emotional Depth",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Analyzing how clothing, accessories, and personal objects serve as powerful narrative devices to reveal a character's history, social status, and personality.",
+                  "id": "CD201-05",
+                  "learning_outcome": "Students will learn to design costumes and select props that enrich a character's backstory and contribute significantly to their visual narrative.",
+                  "order_index": 5,
+                  "title": "Costume, Props, and Personal Narratives",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Exploring the use of color palettes, value hierarchies, and lighting techniques to enhance a character's mood, presence, and storytelling impact.",
+                  "id": "CD201-06",
+                  "learning_outcome": "Students will effectively apply color theory, value studies, and lighting principles to create visually impactful characters that evoke specific moods and personalities.",
+                  "order_index": 6,
+                  "title": "Color, Value, and Lighting for Character Impact",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Understanding how a character interacts with and is defined by their environment, and how setting can be used to further develop character narrative.",
+                  "id": "CD201-07",
+                  "learning_outcome": "Students will be able to integrate characters seamlessly into their environments, using the setting to enhance the character's story and visual presence.",
+                  "order_index": 7,
+                  "title": "Character in Context: Environment and Interaction",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "An advanced look at how to communicate a character's development and transformation over time through sequential visual cues and design changes.",
+                  "id": "CD201-08",
+                  "learning_outcome": "Students will design characters capable of communicating a visual arc, showing growth or change through evolving visual traits.",
+                  "order_index": 8,
+                  "title": "Developing Character Arcs and Visual Progression",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "CD202",
+              "description": "Understand professional character design workflows, explore various stylistic approaches, and develop unique visual languages for characters.",
+              "id": "char_design_pipeline",
+              "is_core": true,
+              "tier": "Production",
+              "title": "Character Design Pipeline & Styles",
+              "year_level": 2,
+              "subjects": [
+                {
+                  "description": "Explore the core principles of character design including anatomy, proportion, gesture, and understanding personality through silhouette.",
+                  "id": "CD202-S1",
+                  "learning_outcome": "Students will be able to apply fundamental design principles to create characters with clear anatomy, appealing proportions, and expressive gestures.",
+                  "order_index": 1,
+                  "title": "Character Design Fundamentals",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Understand the professional character design workflow from initial brief interpretation to final asset delivery, covering each stage of the production pipeline.",
+                  "id": "CD202-S2",
+                  "learning_outcome": "Students will grasp the end-to-end process of character design within a production environment and identify key deliverables at each stage.",
+                  "order_index": 2,
+                  "title": "The Character Design Pipeline",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Dive into various character art styles, learn techniques for stylization, and develop a unique visual language to suit different project needs and target audiences.",
+                  "id": "CD202-S3",
+                  "learning_outcome": "Students will be able to analyze and replicate diverse stylistic approaches and begin developing a distinctive personal artistic voice for character creation.",
+                  "order_index": 3,
+                  "title": "Stylization and Aesthetic Exploration",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Master the process of brainstorming, mood boarding, thumbnailing, and iterative sketching to generate a wide range of character ideas and refine them effectively.",
+                  "id": "CD202-S4",
+                  "learning_outcome": "Students will develop robust conceptualization skills, enabling them to explore multiple design solutions and iteratively refine their character ideas from initial brief to detailed concept.",
+                  "order_index": 4,
+                  "title": "Concept Development & Iteration",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Learn to design compelling costumes, props, and accessories that enhance character personality, backstory, and integrate seamlessly into their narrative world.",
+                  "id": "CD202-S5",
+                  "learning_outcome": "Students will be proficient in designing supportive elements that enrich character identity and contribute to a cohesive visual narrative within a given setting.",
+                  "order_index": 5,
+                  "title": "Costume, Props, and World Integration",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focus on creating professional character sheets, including turnarounds, expression sheets, pose sheets, and effective presentation techniques for production.",
+                  "id": "CD202-S6",
+                  "learning_outcome": "Students will be capable of producing industry-standard character sheets that clearly communicate all necessary information for 3D modeling, animation, or further production stages.",
+                  "order_index": 6,
+                  "title": "Character Sheet Production & Presentation",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "CD203",
+              "description": "Focus on designing detailed and contextually appropriate clothing, hairstyles, and personal items that enhance character identity and world-building.",
+              "id": "costume_prop_design",
+              "is_core": true,
+              "tier": "Production",
+              "title": "Costume, Hair, and Prop Design",
+              "year_level": 3,
+              "subjects": [
+                {
+                  "description": "This module introduces the fundamental principles of character readability through costume, hair, and props. Students will learn how these elements visually communicate identity, backstory, and role within a narrative or world.",
+                  "id": "CD203-S1",
+                  "learning_outcome": "Students will be able to analyze and articulate how costume, hair, and props contribute to a character's identity and narrative function.",
+                  "order_index": 1,
+                  "title": "Character & Contextual Analysis",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explore the visual language of clothing, including silhouette, color theory, fabric properties, and their historical/cultural significance. This module covers how to design costumes that are appropriate to a character's environment and era.",
+                  "id": "CD203-S2",
+                  "learning_outcome": "Students will master principles of costume design, including historical research, material representation, and color palettes, to convey specific character traits and world elements.",
+                  "order_index": 2,
+                  "title": "Garment Storytelling: Form, Fabric, and Function",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focus on the transformative power of hair and makeup design. This module covers various styles, textures, and age indicators, as well as how to use these elements to emphasize personality, emotional state, and cultural background.",
+                  "id": "CD203-S3",
+                  "learning_outcome": "Students will develop skills in designing hair and makeup that enhance character expressiveness, age, and cultural context.",
+                  "order_index": 3,
+                  "title": "Crafting Identity: Hair, Makeup, and Facial Features",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module delves into the design of personal props and accessories that enrich a character's narrative and deepen world-building. Emphasis is placed on functionality, cultural relevance, and visual storytelling through objects.",
+                  "id": "CD203-S4",
+                  "learning_outcome": "Students will design props that are both functional and rich in narrative detail, integrating them seamlessly into character profiles and environmental settings.",
+                  "order_index": 4,
+                  "title": "Prop Storytelling: Items, Tools, and Accessories",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Practical application of understanding how different materials (fabric, metal, wood, skin, hair) behave and how to visually represent them. This module covers rendering techniques for various textures and surfaces, ensuring designs feel tangible and realistic.",
+                  "id": "CD203-S5",
+                  "learning_outcome": "Students will acquire proficiency in rendering a wide range of materials and textures, making their designs visually convincing and tactile.",
+                  "order_index": 5,
+                  "title": "Representing Texture & Surface: Digital and Traditional Techniques",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Learn to effectively communicate costume, hair, and prop designs through professional character sheets, orthographic views, and presentation boards. This module focuses on clarity, detail, and industry-standard documentation.",
+                  "id": "CD203-S6",
+                  "learning_outcome": "Students will be able to produce clear, detailed, and professional character sheets and presentation materials for their designs, effectively communicating all necessary information.",
+                  "order_index": 6,
+                  "title": "Communicating Design: Orthographics & Presentation Boards",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module focuses on ensuring stylistic cohesion across all design elements (costume, hair, props) within a character or project. It also touches upon adapting designs for different production pipelines and collaborative environments.",
+                  "id": "CD203-S7",
+                  "learning_outcome": "Students will develop the ability to maintain thematic and stylistic consistency across all character design elements, understanding their role within a larger production context.",
+                  "order_index": 7,
+                  "title": "Unifying Vision: Style, Theme, and Production Pipeline",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "CD301",
+              "description": "Master the creation of professional-grade character turnarounds, model sheets, and expression sheets vital for production readiness in animation and games.",
+              "id": "char_turnarounds",
+              "is_core": true,
+              "tier": "Production",
+              "title": "Character Turnarounds & Expression Sheets",
+              "year_level": 3,
+              "subjects": [
+                {
+                  "description": "Introduction to the purpose and importance of character turnarounds and model sheets in animation and game production. Overview of industry standards and best practices for creating consistent character representations.",
+                  "id": "CD301_S1",
+                  "learning_outcome": "Understand the role and significance of turnarounds and model sheets within the character design and production workflow.",
+                  "order_index": 1,
+                  "title": "Foundations of Character Turnarounds",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Practical application of drawing characters from multiple orthogonal views (front, side, back, 3/4 views). Focus on maintaining character volume, proportions, and stylistic consistency across all angles.",
+                  "id": "CD301_S2",
+                  "learning_outcome": "Accurately construct a character from various angles, ensuring proportional and stylistic consistency throughout the turnaround.",
+                  "order_index": 2,
+                  "title": "Technical Construction of Turnarounds",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Compiling the character turnaround with additional essential elements such as character details, key features, color guides, and vital production notes. Introduction to handling accessories and simple props within model sheets.",
+                  "id": "CD301_S3",
+                  "learning_outcome": "Create a comprehensive and professional model sheet, integrating turnarounds, detailed call-outs, and production information.",
+                  "order_index": 3,
+                  "title": "Assembling Comprehensive Model Sheets",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Exploration of facial anatomy and body language principles to effectively convey a wide range of emotions and personality. Study of caricature and exaggeration techniques for impactful and readable character expressions.",
+                  "id": "CD301_S4",
+                  "learning_outcome": "Analyze and apply fundamental principles of expression to communicate diverse character emotions effectively.",
+                  "order_index": 4,
+                  "title": "Principles of Character Expression",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Hands-on creation of expression sheets, depicting a character's full emotional range. Emphasis on maintaining consistency, clarity, and the character's unique personality through various expressions.",
+                  "id": "CD301_S5",
+                  "learning_outcome": "Produce a comprehensive and consistent expression sheet that visually articulates a character's emotional spectrum.",
+                  "order_index": 5,
+                  "title": "Developing Dynamic Expression Sheets",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Integrating completed turnarounds and expression sheets into a professional production pipeline. Best practices for file management, presentation, and preparing assets for seamless handover to other departments like rigging and animation.",
+                  "id": "CD301_S6",
+                  "learning_outcome": "Prepare and present character turnaround and expression sheet assets according to professional production standards.",
+                  "order_index": 6,
+                  "title": "Production Integration and Finalization",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "CD302",
+              "description": "Explore the principles of designing fantastical creatures, monsters, and anthropomorphic characters, focusing on anatomy, function, and personality.",
+              "id": "creature_design",
+              "is_core": true,
+              "tier": "Production",
+              "title": "Creature & Non-Human Character Design",
+              "year_level": 3,
+              "subjects": [
+                {
+                  "description": "Explore the foundational principles of animal anatomy, skeletal structures, musculature, and locomotion, adapting these concepts for fantastical creature design.",
+                  "id": "CD302-S1",
+                  "learning_outcome": "Students will be able to construct biologically plausible skeletal and muscular systems for diverse creature types.",
+                  "order_index": 1,
+                  "title": "Foundations of Creature Anatomy & Biomechanics",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Delve into the power of silhouette, shape language, and visual hierarchy to convey personality, threat, or friendliness, ensuring clear visual communication.",
+                  "id": "CD302-S2",
+                  "learning_outcome": "Students will effectively utilize shape language and strong silhouettes to communicate character traits and roles.",
+                  "order_index": 2,
+                  "title": "Shape Language, Silhouette & Readability",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Understand how environmental factors influence creature design, focusing on adaptations, habitats, and the creature's role within a fictional ecosystem.",
+                  "id": "CD302-S3",
+                  "learning_outcome": "Students will design creatures that exhibit believable adaptations to specific environments and roles within a fictional ecosystem.",
+                  "order_index": 3,
+                  "title": "Ecological Integration & Adaptation",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Learn techniques for infusing non-human characters with distinct personalities, emotions, and believable expressions, including considerations for anthropomorphism.",
+                  "id": "CD302-S4",
+                  "learning_outcome": "Students will be able to convey clear personality and emotional states through non-human character design.",
+                  "order_index": 4,
+                  "title": "Personality, Expression & Anthropomorphism",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focus on rendering diverse surface materials like fur, scales, feathers, skin, and chitin, and developing intricate surface details that enhance the creature's design.",
+                  "id": "CD302-S5",
+                  "learning_outcome": "Students will demonstrate proficiency in designing and depicting varied creature materialities and surface textures.",
+                  "order_index": 5,
+                  "title": "Fantastic Materiality & Surface Detail",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explore how creature designs contribute to worldbuilding and storytelling, understanding their lore, cultural significance, and narrative purpose within a fictional setting.",
+                  "id": "CD302-S6",
+                  "learning_outcome": "Students will design creatures that are deeply integrated into a fictional world's lore and narrative context.",
+                  "order_index": 6,
+                  "title": "Worldbuilding & Narrative Integration",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "CD303",
+              "description": "Learn foundational 3D sculpting techniques using software like ZBrush or Blender to create basic character forms and validate designs in three dimensions.",
+              "id": "intro_3d_char_concepts",
+              "is_core": true,
+              "tier": "Production",
+              "title": "Introduction to 3D for Character Concepts",
+              "year_level": 3,
+              "subjects": [
+                {
+                  "description": "Introduces students to the fundamentals of 3D sculpting, core concepts of digital clay, and setting up their chosen software (ZBrush/Blender) for character creation.",
+                  "id": "CD303-S01",
+                  "learning_outcome": "Students will be able to set up their sculpting environment and understand basic 3D navigation and interface.",
+                  "order_index": 1,
+                  "title": "Getting Started with 3D Sculpting Software",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Covers fundamental sculpting brushes, tools, and techniques for creating basic geometric forms and understanding form language relevant to character design. Focus on primary and secondary forms.",
+                  "id": "CD303-S02",
+                  "learning_outcome": "Students will master core sculpting tools and apply them to create robust base forms for characters.",
+                  "order_index": 2,
+                  "title": "Essential Sculpting Tools and Principles",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focuses on understanding and sculpting simplified human and creature anatomy, emphasizing proportion, gesture, and establishing a strong silhouette suitable for character concepts.",
+                  "id": "CD303-S03",
+                  "learning_outcome": "Students will be able to sculpt foundational character forms with appropriate proportions and anatomical understanding.",
+                  "order_index": 3,
+                  "title": "Sculpting Basic Character Anatomy and Proportions",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Teaches techniques for refining primary forms, adding secondary details, and emphasizing key design elements to enhance character appeal and validate conceptual silhouettes in 3D.",
+                  "id": "CD303-S04",
+                  "learning_outcome": "Students will develop skills in refining sculpted forms and adding expressive details to bring character concepts to life.",
+                  "order_index": 4,
+                  "title": "Refining Forms and Adding Character Details",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explores methods for iterating on 3D character concepts, creating quick variations, and presenting sculpts effectively for design review and feedback, focusing on validating the 2D design in 3D.",
+                  "id": "CD303-S05",
+                  "learning_outcome": "Students will be able to iterate on character designs in 3D and prepare compelling presentations for concept validation.",
+                  "order_index": 5,
+                  "title": "Iteration, Presentation, and Design Validation",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "CD401",
+              "description": "Design characters specifically tailored to fit within established or original fictional universes, considering lore, culture, and environmental impact.",
+              "id": "world_build_char_int",
+              "is_core": true,
+              "tier": "Mastery",
+              "title": "World-Building & Character Integration",
+              "year_level": 4,
+              "subjects": [
+                {
+                  "description": "Deep dive into understanding and interpreting established world lore, historical events, and canonical rules to inform character origins, motivations, and limitations.",
+                  "id": "CD401-S1",
+                  "learning_outcome": "Students will be able to deconstruct complex world lore to identify key elements that directly influence character design and narrative potential.",
+                  "order_index": 1,
+                  "title": "Lore-Driven Character Foundations",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explore how societal structures, cultural norms, belief systems, and political landscapes shape a character's appearance, personality, values, and social role.",
+                  "id": "CD401-S2",
+                  "learning_outcome": "Students will master the ability to design characters whose identities and behaviors are authentically rooted in their world's specific cultural and societal contexts.",
+                  "order_index": 2,
+                  "title": "Sociocultural Character Genesis",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focus on designing characters whose physical attributes, unique abilities, and daily routines are directly influenced by the natural environment, climate, geography, and biology of their world.",
+                  "id": "CD401-S3",
+                  "learning_outcome": "Students will learn to conceptualize characters whose forms and functions demonstrate a logical and creative adaptation to their specific environmental niches.",
+                  "order_index": 3,
+                  "title": "Eco-Physical Character Integration",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Examine how characters serve specific narrative functions within the world's overarching story, and how their designs communicate their roles, relationships, and potential character arcs.",
+                  "id": "CD401-S4",
+                  "learning_outcome": "Students will be able to design characters that not only fit their world but also actively contribute to and advance the narrative, reflecting their purpose through design.",
+                  "order_index": 4,
+                  "title": "Narrative & Functional Character Roles",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Investigate the integration of advanced technology or unique magic systems into character design, exploring how these elements affect physical form, abilities, societal status, and personal identity.",
+                  "id": "CD401-S5",
+                  "learning_outcome": "Students will develop characters that compellingly incorporate technological or magical elements, demonstrating their impact on both individual and world-level characterization.",
+                  "order_index": 5,
+                  "title": "Augmented Identity: Tech & Arcane Influence",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Develop strategies for ensuring visual consistency between characters and their world, focusing on artistic style, design language, color palettes, and thematic elements that reinforce world identity.",
+                  "id": "CD401-S6",
+                  "learning_outcome": "Students will be proficient in crafting character designs that are aesthetically coherent with the established visual language of their fictional universe, enhancing immersion and world identity.",
+                  "order_index": 6,
+                  "title": "Aesthetic Harmony & Visual Lore",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "CD402",
+              "description": "Master sophisticated digital rendering techniques, including advanced lighting, material representation, and atmospheric effects for compelling character presentation.",
+              "id": "advanced_rendering",
+              "is_core": true,
+              "tier": "Mastery",
+              "title": "Advanced Digital Rendering & Lighting",
+              "year_level": 4,
+              "subjects": [
+                {
+                  "description": "Delve into the intricate theories and practical applications of physically-based rendering (PBR) lighting models, including global illumination, HDRI environments, and advanced light source types (e.g., area lights, volumetric lights) for realistic and stylized illumination.",
+                  "id": "CD402-S01",
+                  "learning_outcome": "Students will be able to design and implement complex lighting setups using advanced PBR principles to achieve realistic and mood-driven illumination for character scenes.",
+                  "order_index": 1,
+                  "title": "Advanced Lighting Theory & Application",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explore the creation of highly detailed and physically accurate materials and shaders. Topics include advanced texture mapping, procedural material generation, subsurface scattering, anisotropy, and layered material blending to represent diverse surfaces.",
+                  "id": "CD402-S02",
+                  "learning_outcome": "Students will be able to author and apply complex materials and shaders that accurately simulate a wide range of real-world surfaces and artistic styles for character assets.",
+                  "order_index": 2,
+                  "title": "Sophisticated Material & Shader Development",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Master techniques for integrating characters within dynamic environments through advanced atmospheric effects. This includes volumetric fog, god rays, environmental particle systems, and realistic interaction between character and environment.",
+                  "id": "CD402-S03",
+                  "learning_outcome": "Students will be able to create compelling atmospheric effects and seamlessly integrate characters into diverse environments, enhancing realism and mood.",
+                  "order_index": 3,
+                  "title": "Atmospheric Effects & Environmental Integration",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focus on optimizing render times and preparing renders for post-production. Topics include render pass management, AOV (Arbitrary Output Variables) utilization, render layer separation, and efficient compositing workflows to achieve final high-quality output.",
+                  "id": "CD402-S04",
+                  "learning_outcome": "Students will be able to optimize rendering workflows, utilize render passes effectively, and prepare character renders for seamless integration into a compositing pipeline.",
+                  "order_index": 4,
+                  "title": "Advanced Rendering & Output Optimization",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Apply all learned techniques to develop compelling character presentations. This subject emphasizes artistic direction, cinematic lighting principles, storytelling through light and shadow, and creating a strong visual impact for character portfolios and showcases.",
+                  "id": "CD402-S05",
+                  "learning_outcome": "Students will be able to conceptualize and execute professional-grade character presentations, employing advanced rendering and lighting to convey narrative and artistic intent.",
+                  "order_index": 5,
+                  "title": "Character Presentation & Cinematic Lighting",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "CD403",
+              "description": "Cultivate a unique personal art style, learn to interpret and execute art direction briefs, and adapt designs to various project requirements.",
+              "id": "signature_style_art_dir",
+              "is_core": true,
+              "tier": "Mastery",
+              "title": "Developing a Signature Style & Art Direction",
+              "year_level": 4,
+              "subjects": [
+                {
+                  "description": "This module guides students through an introspective process to identify core aesthetic preferences, artistic influences, and recurring visual motifs that form the basis of their unique style.",
+                  "id": "CD403-S01",
+                  "learning_outcome": "Students will be able to articulate and visually demonstrate the fundamental elements comprising their individual artistic signature.",
+                  "order_index": 1,
+                  "title": "Foundations of Signature Style",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focuses on translating identified preferences into a consistent and recognizable visual language across different design elements (line, shape, color, texture, form). Emphasizes experimentation and refinement.",
+                  "id": "CD403-S02",
+                  "learning_outcome": "Students will develop a cohesive visual toolkit that defines their signature style, capable of being applied across various character designs.",
+                  "order_index": 2,
+                  "title": "Crafting Your Visual Language",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Students learn to critically analyze art direction briefs, identifying key requirements, stylistic parameters, target audience, and project goals. Emphasis on effective communication and initial concept generation based on interpretation.",
+                  "id": "CD403-S03",
+                  "learning_outcome": "Students will effectively deconstruct complex art direction briefs, extracting essential information to inform their design process and initial conceptualization.",
+                  "order_index": 3,
+                  "title": "Decoding Art Direction",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module covers the practical application of art direction, focusing on iterative design processes, incorporating feedback, and maintaining stylistic consistency while adapting to specific project constraints and creative mandates.",
+                  "id": "CD403-S04",
+                  "learning_outcome": "Students will proficiently execute character designs that adhere to specific art direction, demonstrating flexibility and iterative improvement based on feedback.",
+                  "order_index": 4,
+                  "title": "Translating Vision into Design",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explores how to leverage a signature style while adapting it to different genres, mediums, platforms, and client needs without losing its core identity. Focuses on maintaining stylistic integrity across varied requirements.",
+                  "id": "CD403-S05",
+                  "learning_outcome": "Students will demonstrate the ability to adapt their signature style to meet diverse project requirements and creative constraints, proving stylistic versatility.",
+                  "order_index": 5,
+                  "title": "Adapting Style for Diverse Projects",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This final module focuses on curating a professional portfolio that effectively showcases a developed signature style and the ability to work under art direction. Includes strategies for presenting and articulating design choices and stylistic approach to potential clients or employers.",
+                  "id": "CD403-S06",
+                  "learning_outcome": "Students will assemble a compelling portfolio demonstrating their signature style and art direction skills, and effectively articulate their design process and artistic vision.",
+                  "order_index": 6,
+                  "title": "Professional Showcase & Articulation",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "CD404",
+              "description": "Guide students through building a professional portfolio, understanding industry pipelines, networking, and the business aspects of a character concept artist.",
+              "id": "professional_portfolio",
+              "is_core": true,
+              "tier": "Mastery",
+              "title": "Professional Character Portfolio & Business",
+              "year_level": 4,
+              "subjects": [
+                {
+                  "description": "Focus on curating, refining, and presenting a compelling portfolio tailored to industry standards, including best practices for online portfolios, physical presentation, and case studies.",
+                  "id": "CD404-S1",
+                  "learning_outcome": "Students will be able to construct and critically evaluate a professional character design portfolio that effectively showcases their skills, artistic vision, and adaptability to various project needs.",
+                  "order_index": 1,
+                  "title": "Professional Portfolio Development & Curation",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Exploration of various industry pipelines (games, film, animation, collectibles) for character concept artists, understanding departmental roles, workflow integration, and effective collaboration practices within a professional studio environment.",
+                  "id": "CD404-S2",
+                  "learning_outcome": "Students will comprehend the diverse professional production pipelines for character design and understand how to effectively integrate their work into collaborative team environments while adapting to industry-specific demands.",
+                  "order_index": 2,
+                  "title": "Navigating Industry Pipelines & Collaboration",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Strategies for developing a strong personal brand, leveraging social media and professional online platforms, and effective networking techniques to connect with industry professionals, recruiters, and potential clients.",
+                  "id": "CD404-S3",
+                  "learning_outcome": "Students will be able to establish a compelling professional online presence and actively network to cultivate valuable industry connections and opportunities.",
+                  "order_index": 3,
+                  "title": "Personal Branding & Professional Networking",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Covering essential business aspects such as understanding contracts, intellectual property rights, negotiation tactics, pricing strategies for freelance work, invoicing, and financial management for artists.",
+                  "id": "CD404-S4",
+                  "learning_outcome": "Students will gain foundational knowledge in the business and legal aspects pertinent to a character concept artist, enabling them to make informed professional decisions and manage their artistic career effectively.",
+                  "order_index": 4,
+                  "title": "The Business & Legalities of Character Art",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Guidance on identifying job opportunities, tailoring applications, crafting effective resumes/CVs, preparing for interviews (portfolio reviews, art tests, behavioral questions), and understanding different career pathways (freelance vs. in-house).",
+                  "id": "CD404-S5",
+                  "learning_outcome": "Students will develop comprehensive job search strategies and be well-prepared to navigate the application and interview processes successfully, securing desirable positions in the character design industry.",
+                  "order_index": 5,
+                  "title": "Career Strategies & Interview Preparation",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "CD405",
+              "description": "An intensive project-based workshop allowing students to focus on a specific niche of character design (e.g., mech design, historical, cartoon, realistic VFX characters).",
+              "id": "specialized_char_workshop",
+              "is_core": true,
+              "tier": "Mastery",
+              "title": "Specialized Character Design Workshop",
+              "year_level": 4,
+              "subjects": [
+                {
+                  "description": "Students will explore various specialized character design niches, identify their primary area of interest, and develop a comprehensive project proposal for their workshop focus. This module emphasizes understanding the scope and demands of a chosen specialization.",
+                  "id": "CD405-S1",
+                  "learning_outcome": "Students will be able to articulate a clear design niche, research its specific requirements, and formulate a detailed project plan that aligns with their artistic goals and the course objectives.",
+                  "order_index": 1,
+                  "title": "Defining Your Niche & Project Proposal",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module focuses on intensive research methodologies tailored to specific character design genres. Students will learn to deeply analyze references, historical contexts, mechanical functions, or anatomical structures to inform their design choices within their chosen style.",
+                  "id": "CD405-S2",
+                  "learning_outcome": "Students will demonstrate mastery in conducting specialized research, translating complex information into visual design elements, and adapting stylistic conventions to enhance their character's narrative and aesthetic within their chosen niche.",
+                  "order_index": 2,
+                  "title": "Advanced Research & Stylistic Adaptation",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Diving into the unique anatomical and structural considerations of various niches, this module teaches students to manipulate form language, silhouette, and proportions to convey specific traits, functions, or personalities. This includes understanding stylized exaggerations, mechanical articulation, or realistic physiological accuracy.",
+                  "id": "CD405-S3",
+                  "learning_outcome": "Students will expertly apply specialized form language and anatomical principles to their character designs, effectively communicating function, emotion, and narrative intent through their character's physicality and structure.",
+                  "order_index": 3,
+                  "title": "Form Language & Expressive Anatomy",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module explores advanced techniques for designing and rendering diverse materials and textures relevant to specialized characters. Students will learn to depict realistic surface details, wear and tear, and material properties that enhance the believability and depth of their designs, whether organic, mechanical, or fantastical.",
+                  "id": "CD405-S4",
+                  "learning_outcome": "Students will demonstrate advanced proficiency in conceptualizing and rendering varied materials and textures, accurately conveying surface qualities and material interactions to enrich their specialized character designs.",
+                  "order_index": 4,
+                  "title": "Materiality, Texture & Surface Fidelity",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focusing on how specialized characters interact with their environment and narrative, this module covers designing characters within a broader world. It includes considerations for storytelling through pose, expression, props, and how the character functions within a scene or universe.",
+                  "id": "CD405-S5",
+                  "learning_outcome": "Students will be able to design characters that are deeply integrated into their contextual environments, utilizing visual storytelling elements to enhance narrative coherence and character presence.",
+                  "order_index": 5,
+                  "title": "Character Integration & Contextualization",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "The final module focuses on refining the specialized character project to professional standards. Students will learn how to curate, present, and articulate their design process and final work effectively for a target audience or industry, preparing them for portfolio reviews and professional practice.",
+                  "id": "CD405-S6",
+                  "learning_outcome": "Students will develop a professional-quality presentation of their specialized character design project, demonstrating critical self-assessment and strategic portfolio development for industry engagement.",
+                  "order_index": 6,
+                  "title": "Portfolio Refinement & Professional Presentation",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            }
+          ]
+        },
+        {
+          "id": "dept-env-concept",
+          "faculty_id": "fac-visdev",
+          "code": "ENV_ART",
+          "title": "Environment Design",
+          "role": "Environment Concept Artist",
+          "description": "World-building, layout, and lighting design.",
+          "courses": []
+        },
+        {
+          "id": "dept-prop",
+          "faculty_id": "fac-visdev",
+          "code": "PROP_DES",
+          "title": "Prop & Vehicle Design",
+          "role": "Prop & Vehicle Designer",
+          "description": "Functional industrial and mechanical design.",
+          "courses": []
+        },
+        {
+          "id": "dept-sb",
+          "faculty_id": "fac-visdev",
+          "code": "STORYBOARD",
+          "title": "Storyboard Artist",
+          "role": "Storyboard Artist",
+          "description": "Visualizing narrative pacing and cinematic grammar.",
+          "courses": []
+        },
+        {
+          "id": "dept-mp",
+          "faculty_id": "fac-visdev",
+          "code": "MATTE_PAINT",
+          "title": "Digital Matte Painter",
+          "role": "Digital Matte Painter",
+          "description": "Creating realistic set extensions for film.",
+          "courses": []
+        },
+        {
+          "id": "dept-illu",
+          "faculty_id": "fac-visdev",
+          "code": "ILLUSTRATION",
+          "title": "Keyframe Illustration",
+          "role": "Keyframe Illustrator",
+          "description": "Marketing and narrative marketing illustration.",
+          "courses": []
+        },
+        {
+          "id": "dept-ui",
+          "faculty_id": "fac-visdev",
+          "code": "UI_UX",
+          "title": "UI/UX Game Artist",
+          "role": "UI/UX Game Artist",
+          "description": "Interactive feedback and icon systems.",
+          "courses": []
+        },
+        {
+          "id": "dept-bg",
+          "faculty_id": "fac-visdev",
+          "code": "BG_PAINT",
+          "title": "Background Painter",
+          "role": "Background Painter",
+          "description": "Set painting for animation series.",
+          "courses": []
+        },
+        {
+          "id": "dept-cs",
+          "faculty_id": "fac-visdev",
+          "code": "COLOR_SCRIPT",
+          "title": "Color & Lighting Keys",
+          "role": "Color Script/Lighting Keys",
+          "description": "Emotional color arc development.",
+          "courses": []
+        }
+      ]
+    },
+    {
+      "id": "fac-3d",
+      "code": "3D_PROD",
+      "name": "Faculty of 3D Production",
+      "majors": [
+        {
+          "id": "dept-char-3d",
+          "faculty_id": "fac-3d",
+          "code": "CHAR_3D",
+          "title": "3D Character Art",
+          "role": "Character Artist",
+          "description": "High-fidelity sculpting and production modeling.",
+          "courses": []
+        },
+        {
+          "id": "dept-env-3d",
+          "faculty_id": "fac-3d",
+          "code": "ENV_3D",
+          "title": "3D Environment Art",
+          "role": "Environment Artist",
+          "description": "World building and scene assembly.",
+          "courses": []
+        },
+        {
+          "id": "dept-hs",
+          "faculty_id": "fac-3d",
+          "code": "HARD_SURFACE",
+          "title": "Hard Surface Modeling",
+          "role": "Hard Surface Modeler",
+          "description": "Mechanical modeling and clean topology.",
+          "courses": []
+        },
+        {
+          "id": "dept-surf",
+          "faculty_id": "fac-3d",
+          "code": "SURFACING",
+          "title": "Texture & Surfacing",
+          "role": "Texture & Material Artist",
+          "description": "PBR materials and look-dev.",
+          "courses": []
+        },
+        {
+          "id": "dept-groom",
+          "faculty_id": "fac-3d",
+          "code": "GROOM",
+          "title": "Grooming & Hair",
+          "role": "Grooming/Hair Artist",
+          "description": "Realistic hair and fur digital production.",
+          "courses": []
+        }
+      ]
+    },
+    {
+      "id": "fac-anim",
+      "code": "ANIMATION",
+      "name": "Faculty of Animation",
+      "majors": [
+        {
+          "id": "dept-a2d",
+          "faculty_id": "fac-anim",
+          "code": "ANIM_2D",
+          "title": "2D Animation",
+          "role": "2D Animator (Classical/Spine)",
+          "description": "Traditional and technical 2D performance.",
+          "courses": []
+        },
+        {
+          "id": "dept-acine",
+          "faculty_id": "fac-anim",
+          "code": "ANIM_CINE",
+          "title": "Cinematic Animation",
+          "role": "3D Animator (Cinematic)",
+          "description": "Performance and acting-driven character animation.",
+          "courses": []
+        },
+        {
+          "id": "dept-agame",
+          "faculty_id": "fac-anim",
+          "code": "ANIM_GAME",
+          "title": "Gameplay Animation",
+          "role": "3D Animator (Gameplay)",
+          "description": "Responsive combat and locomotion cycles.",
+          "courses": []
+        },
+        {
+          "id": "dept-rig",
+          "faculty_id": "fac-anim",
+          "code": "RIGGING",
+          "title": "Rigging",
+          "role": "Rigging Technical Director",
+          "description": "Skeletal technical deformation and control systems.",
+          "courses": []
+        }
+      ]
+    },
+    {
+      "id": "fac-tech",
+      "code": "TECH_ART",
+      "name": "Faculty of Tech Art & VFX",
+      "majors": [
+        {
+          "id": "dept-sha",
+          "faculty_id": "fac-tech",
+          "code": "SHADER",
+          "title": "Shader & Lookdev",
+          "role": "Shader/Technical Artist",
+          "description": "Mathematical material rendering and real-time effects.",
+          "courses": []
+        },
+        {
+          "id": "dept-light",
+          "faculty_id": "fac-tech",
+          "code": "LIGHTING",
+          "title": "Lighting & Lookdev",
+          "role": "Lighting & Lookdev Artist",
+          "description": "Cinematic rendering and light set extensions.",
+          "courses": []
+        },
+        {
+          "id": "dept-vfx-p",
+          "faculty_id": "fac-tech",
+          "code": "VFX_PARTICLE",
+          "title": "VFX Particles",
+          "role": "VFX Artist (Particles/FX)",
+          "description": "Magic, fire, and kinetic particle systems.",
+          "courses": []
+        },
+        {
+          "id": "dept-vfx-s",
+          "faculty_id": "fac-tech",
+          "code": "VFX_SIM",
+          "title": "VFX Simulation",
+          "role": "VFX Artist (Fluid/Crowd Sim)",
+          "description": "Fluid and rigid body dynamics.",
+          "courses": []
+        },
+        {
+          "id": "dept-ta",
+          "faculty_id": "fac-tech",
+          "code": "TECH_DEV",
+          "title": "Technical Art",
+          "role": "Technical Artist",
+          "description": "Pipeline engineering and tool development.",
+          "courses": []
+        },
+        {
+          "id": "dept-clo",
+          "faculty_id": "fac-tech",
+          "code": "CLOTH_SIM",
+          "title": "Cloth & Physics",
+          "role": "Cloth/Physics Artist",
+          "description": "Dynamic character fabric and hair behavior.",
+          "courses": []
+        }
+      ]
+    }
+  ]
+}

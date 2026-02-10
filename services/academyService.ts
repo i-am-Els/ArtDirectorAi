@@ -3,12 +3,18 @@ import { db } from "./firebase";
 import { doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove, collection, getDocs, writeBatch } from "firebase/firestore";
 import { UserProgress, AcademyMajor, Course, Lesson, LessonStatus, StudyMode, UserLessonProgress } from "../types"; // Updated imports
 import { ACADEMY_FACULTIES } from "../data/curriculum";
+import { getMajorFromJSON } from "./curriculumLoader"; // Import JSON loader
+
+// Feature flag: Use generated JSON instead of Firestore
+// Set to true to test with generated curriculum during development
+// Set to false to use Firestore in production
+const USE_GENERATED_JSON = true;
 
 const COLLECTION_NAME = "student_progress";
 
 const DEFAULT_PROGRESS: UserProgress = {
     userId: "", // Set at runtime
-    enrolledMajorIds: [],
+    enrolledMajorId: null,
     enrolledMinorId: null,
     completedLessonIds: [],
     lessonProgress: {},
@@ -36,17 +42,24 @@ export const getUserProgress = async (userId: string): Promise<UserProgress> => 
 
 export const enrollInMajor = async (userId: string, majorId: string) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
-    // Allow Multi-Major: ArrayUnion
     await setDoc(docRef, {
-        enrolledMajorIds: arrayUnion(majorId)
+        enrolledMajorId: majorId
     }, { merge: true });
 };
 
-export const unenrollFromMajor = async (userId: string, majorId: string) => { // Added majorId param
+export const enrollInMinor = async (userId: string, minorId: string) => {
+    const docRef = doc(db, COLLECTION_NAME, userId);
+    await setDoc(docRef, {
+        enrolledMinorId: minorId
+    }, { merge: true });
+};
+
+export const unenrollFromMajor = async (userId: string, majorId: string) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
 
     await setDoc(docRef, {
-        enrolledMajorIds: arrayRemove(majorId)
+        enrolledMajorId: null,
+        enrolledMinorId: null
     }, { merge: true });
 };
 
@@ -98,6 +111,19 @@ export const saveMajorCurriculum = async (major: AcademyMajor) => {
 
 export const getMajorCurriculum = async (majorId: string): Promise<AcademyMajor | null> => {
     try {
+        // Use JSON loader if feature flag is enabled
+        if (USE_GENERATED_JSON) {
+            console.log(`📚 Loading curriculum from JSON for major: ${majorId}`);
+            const major = getMajorFromJSON(majorId);
+            if (major) {
+                console.log(`✅ Loaded ${major.title} with ${major.courses.length} courses from JSON`);
+            } else {
+                console.warn(`⚠️ Major ${majorId} not found in generated JSON`);
+            }
+            return major;
+        }
+
+        // Otherwise load from Firestore (production mode)
         const docRef = doc(db, "majors", majorId);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {

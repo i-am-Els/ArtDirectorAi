@@ -15,6 +15,7 @@ import { ACADEMY_FACULTIES } from '../data/curriculum';
 import {
   getUserProgress,
   enrollInMajor,
+  enrollInMinor,
   unenrollFromMajor,
   getMajorCurriculum,
   updateLessonProgress
@@ -99,6 +100,12 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
     await fetchProgress();
     setViewingMajor(null);
     setActiveTab('CURRICULUM');
+  };
+
+  const handleEnrollMinor = async (minorId: string) => {
+    if (progress?.enrolledMinorId === minorId) return;
+    await enrollInMinor(userId, minorId);
+    await fetchProgress();
   };
 
   const handleWithdraw = async () => {
@@ -353,8 +360,23 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <h4 className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Curriculum Stats</h4>
-                  <p className="text-zinc-300 text-sm font-bold uppercase tracking-tighter italic">{viewingMajor.major.courses.length} Multi-Tier Course Modules</p>
+                  <h4 className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Select Minor (Secondary Skill)</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {ACADEMY_FACULTIES.flatMap(f => f.majors)
+                      .filter(m => m.id !== viewingMajor.major.id)
+                      .map(m => (
+                        <button
+                          key={m.id}
+                          onClick={() => handleEnrollMinor(m.id)}
+                          className={`px-3 py-1.5 rounded-xl text-[10px] font-black tracking-widest uppercase italic transition-all border ${progress?.enrolledMinorId === m.id
+                            ? 'bg-purple-500 text-white border-purple-400'
+                            : 'bg-zinc-950 border-white/5 text-zinc-500 hover:text-zinc-300 hover:border-white/20'
+                            }`}
+                        >
+                          {m.title}
+                        </button>
+                      ))}
+                  </div>
                 </div>
               </div>
 
@@ -404,8 +426,19 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="flex items-end justify-between border-b border-white/10 pb-8">
             <div>
-              <span className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Active Major</span>
-              <h2 className="text-5xl font-black italic uppercase text-white tracking-tighter leading-none mt-2">{activeMajor.title}</h2>
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Active Major</span>
+                {progress?.enrolledMinorId && (
+                  <>
+                    <span className="text-zinc-700 font-bold text-xs">•</span>
+                    <span className="text-[10px] font-black text-purple-500 uppercase tracking-widest flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
+                      Secondary: {ACADEMY_FACULTIES.flatMap(f => f.majors).find(m => m.id === progress.enrolledMinorId)?.title}
+                    </span>
+                  </>
+                )}
+              </div>
+              <h2 className="text-5xl font-black italic uppercase text-white tracking-tighter leading-none">{activeMajor.title}</h2>
               <p className="text-lg text-zinc-400 font-medium mt-4 max-w-2xl">{activeMajor.description}</p>
             </div>
             <div className="text-right">
@@ -469,8 +502,8 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
                                   <div className={`w-3 h-3 rounded-full ${isCompleted ? 'bg-green-500' : 'bg-zinc-700'}`}></div>
                                   <div>
                                     <div className="flex items-center gap-2 mb-1">
-                                      <span className={`text-[8px] font-black uppercase px-1.5 py-0.5 rounded ${(lesson.defaultStudyMode || lesson.default_study_mode) === StudyMode.FOCUS ? 'bg-blue-500/20 text-blue-300' : 'bg-purple-500/20 text-purple-300'}`}>{lesson.defaultStudyMode || lesson.default_study_mode}</span>
-                                      <span className="text-[8px] font-black text-zinc-600 uppercase tracking-widest">{lesson.type || lesson.lesson_type}</span>
+                                      <span className={`text-[8px] font-black uppercase px-1.5 py-0.5 rounded ${lesson.defaultStudyMode === StudyMode.FOCUS ? 'bg-blue-500/20 text-blue-300' : 'bg-purple-500/20 text-purple-300'}`}>{lesson.defaultStudyMode}</span>
+                                      <span className="text-[8px] font-black text-zinc-600 uppercase tracking-widest">{lesson.type}</span>
                                     </div>
                                     <h5 className="text-xs font-bold text-zinc-300 leading-tight">{lesson.title}</h5>
                                   </div>
