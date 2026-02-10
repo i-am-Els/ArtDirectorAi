@@ -1,0 +1,31 @@
+========================================
+CURRICULUM COUNTS
+========================================
+Faculties: 4
+Majors:    24
+Courses:   380
+Subjects:  3047
+Lessons:   15193
+========================================
+
+========================================
+SCHEMA ANALYSIS (First Item Samples)
+========================================
+Faculty keys: ['id', 'name', 'majors']
+Major keys:   ['id', 'title', 'role', 'courses']
+Course keys:  ['id', 'title', 'level', 'subjects']
+Subject keys: ['id', 'title', 'lessons']
+Lesson keys:  ['title', 'objective', 'searchKeywords', 'mode', 'durationMinutes', 'id']
+Sample Lesson: {
+  "title": "Lines and Shapes",
+  "objective": "Understand and practice drawing fundamental lines and basic geometric shapes.",
+  "searchKeywords": [
+    "drawing lines",
+    "basic shapes drawing",
+    "line exercises"
+  ],
+  "mode": "Mileage",
+  "durationMinutes": 60,
+  "id": "lines-and-shapes"
+}
+========================================

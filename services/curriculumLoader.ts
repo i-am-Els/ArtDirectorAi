@@ -1,5 +1,5 @@
-import { AcademyMajor, Course, Subject, Lesson, Faculty, StudyMode, LessonType } from '../types';
-import curriculumStateData from '../data/static_academy/generated/curriculum_state.json';
+import { AcademyMajor, Course, Subject, Lesson, Faculty, StudyMode, LessonType, ArtRole } from '../types';
+import curriculumStateData from '../data/static_academy/manual_import.json';
 
 // Type for the raw JSON structure (snake_case from generator)
 interface RawCurriculumState {
@@ -53,6 +53,7 @@ interface RawLesson {
     objective: string;
     order_index: number;
     title: string;
+    search_queries?: string[];
 }
 
 /**
@@ -68,7 +69,7 @@ function transformLesson(raw: RawLesson, subjectId: string): Lesson {
         defaultStudyMode: raw.default_study_mode === 'FOCUS' ? StudyMode.FOCUS : StudyMode.MILEAGE,
         estimatedEffort: raw.estimated_effort_minutes,
         orderIndex: raw.order_index,
-        searchQueries: [],
+        searchQueries: raw.search_queries || [],
         suggestedMileage: `${raw.estimated_effort_minutes} min`
     };
 }
@@ -99,13 +100,41 @@ function transformCourse(raw: RawCourse, majorId: string): Course {
     };
 }
 
+// Map string roles from JSON to ArtRole enum values
+const ROLE_MAP: Record<string, ArtRole> = {
+    'CONCEPT_CHAR': ArtRole.CONCEPT_CHAR,
+    'CONCEPT_ENV': ArtRole.CONCEPT_ENV,
+    'CONCEPT_PROP': ArtRole.CONCEPT_PROP,
+    'STORYBOARD': ArtRole.STORYBOARD,
+    'MATTE_PAINTING': ArtRole.MATTE_PAINTING,
+    'ILLUSTRATION': ArtRole.ILLUSTRATION,
+    'UI_UX': ArtRole.UI_UX,
+    'ANIMATION_2D': ArtRole.ANIMATION_2D,
+    'BG_PAINTER': ArtRole.BG_PAINTER,
+    'COLOR_SCRIPT': ArtRole.COLOR_SCRIPT,
+    'CHARACTER_3D': ArtRole.CHARACTER_3D,
+    'ENVIRONMENT_3D': ArtRole.ENVIRONMENT_3D,
+    'HARD_SURFACE': ArtRole.HARD_SURFACE,
+    'SURFACING_ARTIST': ArtRole.SURFACING_ARTIST,
+    'SHADER_ARTIST': ArtRole.SHADER_ARTIST,
+    'RIGGING': ArtRole.RIGGING,
+    'ANIMATION_CINEMATIC': ArtRole.ANIMATION_CINEMATIC,
+    'ANIMATION_GAMEPLAY': ArtRole.ANIMATION_GAMEPLAY,
+    'LIGHTING_LOOKDEV': ArtRole.LIGHTING_LOOKDEV,
+    'VFX_PARTICLE': ArtRole.VFX_PARTICLE,
+    'VFX_SIM': ArtRole.VFX_SIM,
+    'TECH_ART': ArtRole.TECH_ART,
+    'GROOMING': ArtRole.GROOMING,
+    'CLOTH_SIM': ArtRole.CLOTH_SIM
+};
+
 function transformMajor(raw: RawMajor, facultyId: string): AcademyMajor {
     return {
         id: raw.id,
         facultyId: facultyId,
         code: raw.code,
         title: raw.title,
-        role: raw.role as any, // Type assertion for ArtRole enum
+        role: ROLE_MAP[raw.role] || raw.role as any,
         description: raw.description,
         software: [], // Not in generated data yet
         outcomes: [], // Not in generated data yet
