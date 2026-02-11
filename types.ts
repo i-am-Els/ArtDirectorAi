@@ -147,8 +147,7 @@ export interface UserLessonProgress {
 
 export interface UserProgress {
   userId: string;
-  enrolledMajorId: string | null;
-  enrolledMinorId: string | null;
+  enrolledMajorIds: string[]; // Multi-major enrollment support
 
   completedLessonIds: string[]; // Fast lookup
   lessonProgress: Record<string, UserLessonProgress>; // Detailed lookup

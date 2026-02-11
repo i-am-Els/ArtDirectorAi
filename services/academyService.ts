@@ -14,8 +14,7 @@ const COLLECTION_NAME = "student_progress";
 
 const DEFAULT_PROGRESS: UserProgress = {
     userId: "", // Set at runtime
-    enrolledMajorId: null,
-    enrolledMinorId: null,
+    enrolledMajorIds: [],
     completedLessonIds: [],
     lessonProgress: {},
     activeDrills: {}
@@ -43,23 +42,17 @@ export const getUserProgress = async (userId: string): Promise<UserProgress> => 
 export const enrollInMajor = async (userId: string, majorId: string) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
     await setDoc(docRef, {
-        enrolledMajorId: majorId
+        enrolledMajorIds: arrayUnion(majorId)
     }, { merge: true });
 };
 
-export const enrollInMinor = async (userId: string, minorId: string) => {
-    const docRef = doc(db, COLLECTION_NAME, userId);
-    await setDoc(docRef, {
-        enrolledMinorId: minorId
-    }, { merge: true });
-};
+// enrollInMinor removed as per Multi-Major pivot
 
 export const unenrollFromMajor = async (userId: string, majorId: string) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
 
     await setDoc(docRef, {
-        enrolledMajorId: null,
-        enrolledMinorId: null
+        enrolledMajorIds: arrayRemove(majorId)
     }, { merge: true });
 };
 

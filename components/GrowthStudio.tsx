@@ -12,13 +12,13 @@ import {
   Faculty
 } from '../types';
 import { ACADEMY_FACULTIES } from '../data/curriculum';
+import { getFacultiesFromJSON } from '../services/curriculumLoader';
 import {
-  getUserProgress,
   enrollInMajor,
-  enrollInMinor,
   unenrollFromMajor,
   getMajorCurriculum,
-  updateLessonProgress
+  updateLessonProgress,
+  getUserProgress
 } from '../services/academyService';
 import RoleIcon from './RoleIcon';
 import SeedButton from './Admin/SeedButton';
@@ -39,10 +39,10 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
   const [progress, setProgress] = useState<UserProgress | null>(null);
   const [activeTab, setActiveTab] = useState<'STATUS' | 'ENROLLMENT' | 'CURRICULUM' | 'WORKBENCH'>('STATUS');
 
-  // Data State
   const [activeMajor, setActiveMajor] = useState<AcademyMajor | null>(null);
   const [loadingMajor, setLoadingMajor] = useState(false);
   const [viewingMajor, setViewingMajor] = useState<{ faculty: Faculty, major: AcademyMajor } | null>(null);
+  const [faculties, setFaculties] = useState<Faculty[]>(ACADEMY_FACULTIES);
 
   // Navigation State
   const [expandedCourseId, setExpandedCourseId] = useState<string | null>(null);
@@ -58,18 +58,19 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
   // Initial Data Fetch
   useEffect(() => {
     fetchProgress();
+    setFaculties(getFacultiesFromJSON());
   }, [userId]);
 
   // Fetch Major Data when enrolled
   useEffect(() => {
-    if (progress?.enrolledMajorId) {
-      loadMajorData(progress.enrolledMajorId);
+    if (progress?.enrolledMajorIds?.length && !activeMajor) {
+      loadMajorData(progress.enrolledMajorIds[0]);
     }
   }, [progress, userId]);
 
   // Auto-switch to curriculum only if actively enrolled and data loaded
   useEffect(() => {
-    if (progress?.enrolledMajorId && activeMajor && activeTab === 'ENROLLMENT') {
+    if (progress?.enrolledMajorIds?.length && activeMajor && activeTab === 'ENROLLMENT') {
       setActiveTab('CURRICULUM');
     }
   }, [activeMajor]);
@@ -91,30 +92,21 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
   };
 
   const handleEnroll = async (majorId: string) => {
-    if (progress?.enrolledMajorId) {
-      if (!window.confirm("You are already enrolled in a Major. Switching Majors will archive your current progress but you may lose momentum. Are you sure?")) {
-        return;
-      }
-    }
     await enrollInMajor(userId, majorId);
     await fetchProgress();
+    loadMajorData(majorId);
     setViewingMajor(null);
     setActiveTab('CURRICULUM');
   };
 
-  const handleEnrollMinor = async (minorId: string) => {
-    if (progress?.enrolledMinorId === minorId) return;
-    await enrollInMinor(userId, minorId);
-    await fetchProgress();
-  };
-
-  const handleWithdraw = async () => {
-    if (!activeMajor) return;
+  const handleWithdraw = async (majorId: string) => {
     if (window.confirm("Are you sure you want to withdraw? Your progress record will be retained but your enrollment slot will be freed.")) {
-      await unenrollFromMajor(userId, activeMajor.id);
+      await unenrollFromMajor(userId, majorId);
       await fetchProgress();
-      setActiveMajor(null);
-      setActiveTab('ENROLLMENT');
+      if (activeMajor?.id === majorId) {
+        setActiveMajor(null);
+        setActiveTab('ENROLLMENT');
+      }
     }
   };
 
@@ -212,22 +204,42 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
               </div>
             </div>
 
-            {activeMajor && (
-              <div className="glass p-8 rounded-[2rem] border-blue-500/20 shadow-xl space-y-6 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-3xl rounded-full -mr-10 -mt-10"></div>
-                <h4 className="text-[10px] font-black text-blue-500 uppercase tracking-widest relative z-10">Generative Enrollment</h4>
-                <div className="space-y-2 relative z-10">
-                  <h3 className="text-2xl font-black italic uppercase text-white leading-none">{activeMajor.title}</h3>
-                  <p className="text-xs text-zinc-400 font-medium">{activeMajor.code}</p>
+            {progress?.enrolledMajorIds?.map(majorId => {
+              const faculty = faculties.find(f => f.majors.some(m => m.id === majorId));
+              const major = faculty?.majors.find(m => m.id === majorId);
+              if (!major) return null;
+
+              return (
+                <div key={majorId} className={`glass p-8 rounded-[2rem] border shadow-xl space-y-6 relative overflow-hidden transition-all ${activeMajor?.id === majorId ? 'border-blue-500/50' : 'border-white/10'}`}>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-3xl rounded-full -mr-10 -mt-10"></div>
+                  <div className="flex justify-between items-start">
+                    <h4 className="text-[10px] font-black text-blue-500 uppercase tracking-widest relative z-10">Enrolled Major</h4>
+                    <button
+                      onClick={() => handleWithdraw(majorId)}
+                      className="text-[9px] font-black text-red-500/50 hover:text-red-500 uppercase tracking-widest relative z-20"
+                    >
+                      Withdraw
+                    </button>
+                  </div>
+                  <div className="space-y-2 relative z-10">
+                    <h3 className="text-2xl font-black italic uppercase text-white leading-none">{major.title}</h3>
+                    <p className="text-xs text-zinc-400 font-medium">{major.code}</p>
+                  </div>
+                  <button
+                    onClick={() => {
+                      loadMajorData(majorId);
+                      setActiveTab('CURRICULUM');
+                    }}
+                    className={`w-full py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${activeMajor?.id === majorId
+                        ? 'bg-blue-600 text-white shadow-lg'
+                        : 'bg-zinc-900 border border-white/10 text-zinc-400 hover:text-white'
+                      }`}
+                  >
+                    {activeMajor?.id === majorId ? 'Viewing Curriculum' : 'View Curriculum'}
+                  </button>
                 </div>
-                <button
-                  onClick={handleWithdraw}
-                  className="w-full py-3 bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-500 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all"
-                >
-                  Withdraw Major
-                </button>
-              </div>
-            )}
+              );
+            })}
           </div>
 
           <div className="lg:col-span-8">
@@ -257,7 +269,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
           </div>
 
           <div className="grid grid-cols-1 gap-8">
-            {ACADEMY_FACULTIES.map(faculty => (
+            {faculties.map(faculty => (
               <div key={faculty.id} className="glass rounded-[3rem] border-white/10 p-8 space-y-8">
                 <div className="flex items-center gap-6 border-b border-white/5 pb-6">
                   <span className="text-4xl">{faculty.icon}</span>
@@ -329,7 +341,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
                 </div>
 
                 <div>
-                  {progress?.enrolledMajorId === viewingMajor.major.id ? (
+                  {progress?.enrolledMajorIds?.includes(viewingMajor.major.id) ? (
                     <div className="px-8 py-4 bg-green-500/10 border border-green-500/20 text-green-500 rounded-2xl font-black uppercase tracking-widest text-xs">Currently Enrolled</div>
                   ) : (
                     <button
@@ -360,22 +372,12 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <h4 className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Select Minor (Secondary Skill)</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {ACADEMY_FACULTIES.flatMap(f => f.majors)
-                      .filter(m => m.id !== viewingMajor.major.id)
-                      .map(m => (
-                        <button
-                          key={m.id}
-                          onClick={() => handleEnrollMinor(m.id)}
-                          className={`px-3 py-1.5 rounded-xl text-[10px] font-black tracking-widest uppercase italic transition-all border ${progress?.enrolledMinorId === m.id
-                            ? 'bg-purple-500 text-white border-purple-400'
-                            : 'bg-zinc-950 border-white/5 text-zinc-500 hover:text-zinc-300 hover:border-white/20'
-                            }`}
-                        >
-                          {m.title}
-                        </button>
-                      ))}
+                  <h4 className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Enrollment Status</h4>
+                  <div className="flex items-center gap-3">
+                    <div className={`w-3 h-3 rounded-full ${progress?.enrolledMajorIds?.includes(viewingMajor.major.id) ? 'bg-green-500' : 'bg-zinc-700'}`}></div>
+                    <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest">
+                      {progress?.enrolledMajorIds?.includes(viewingMajor.major.id) ? 'Active Admission' : 'Open for Enrollment'}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -427,16 +429,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
           <div className="flex items-end justify-between border-b border-white/10 pb-8">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <span className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Active Major</span>
-                {progress?.enrolledMinorId && (
-                  <>
-                    <span className="text-zinc-700 font-bold text-xs">•</span>
-                    <span className="text-[10px] font-black text-purple-500 uppercase tracking-widest flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-purple-500"></span>
-                      Secondary: {ACADEMY_FACULTIES.flatMap(f => f.majors).find(m => m.id === progress.enrolledMinorId)?.title}
-                    </span>
-                  </>
-                )}
+                <span className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Enrolled Major</span>
               </div>
               <h2 className="text-5xl font-black italic uppercase text-white tracking-tighter leading-none">{activeMajor.title}</h2>
               <p className="text-lg text-zinc-400 font-medium mt-4 max-w-2xl">{activeMajor.description}</p>
