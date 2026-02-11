@@ -1705,8 +1705,54 @@
                   "learning_outcome": "Students will master the ability to draw compelling facial expressions that accurately reflect a character's inner world and emotional nuances.",
                   "order_index": 4,
                   "title": "Facial Expressions and Emotional Depth",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "facial_exp_01",
+                      "lesson_type": "READ",
+                      "objective": "To identify key facial muscles and bone structures that dictate various expressions.",
+                      "order_index": 1,
+                      "title": "Understanding Facial Anatomy for Expression"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "facial_exp_02",
+                      "lesson_type": "WATCH",
+                      "objective": "To observe and analyze the visual cues for universal emotions (joy, sadness, anger, fear, surprise, disgust) in real-world examples.",
+                      "order_index": 2,
+                      "title": "Universal Emotions: The Six Core Expressions"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "facial_exp_03",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "To apply anatomical knowledge and observation skills to draw accurate basic expressions from reference images.",
+                      "order_index": 3,
+                      "title": "Drawing Basic Expressions: Practice Sheet"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "facial_exp_04",
+                      "lesson_type": "READ",
+                      "objective": "To explore how to convey complex emotions, micro-expressions, and subtle shifts in feeling through facial cues.",
+                      "order_index": 4,
+                      "title": "Beyond the Basics: Nuance, Subtlety, and Combined Emotions"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "facial_exp_05",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "To create expressions that reflect a character's unique personality and story context, moving beyond generic templates.",
+                      "order_index": 5,
+                      "title": "Character-Driven Expressions: Personality and Context"
+                    }
+                  ],
+                  "is_complete": true
                 },
                 {
                   "description": "Analyzing how clothing, accessories, and personal objects serve as powerful narrative devices to reveal a character's history, social status, and personality.",
@@ -1714,8 +1760,45 @@
                   "learning_outcome": "Students will learn to design costumes and select props that enrich a character's backstory and contribute significantly to their visual narrative.",
                   "order_index": 5,
                   "title": "Costume, Props, and Personal Narratives",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "CPPN_L01",
+                      "lesson_type": "READ",
+                      "objective": "Understand how costume elements such as fabric, color, silhouette, and accessories serve as non-verbal communication tools to convey a character's social status, personality, and historical context.",
+                      "order_index": 1,
+                      "title": "The Silent Language of Clothing: Costume as Narrative Device"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 55,
+                      "id": "CPPN_L02",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze specific examples from film and television to deconstruct how iconic character costumes are designed to reveal backstory, motivations, and character arcs visually.",
+                      "order_index": 2,
+                      "title": "Case Studies: Iconic Costumes That Tell Tales"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "CPPN_L03",
+                      "lesson_type": "READ",
+                      "objective": "Explore the significance of personal objects and props in visual storytelling, learning how they can symbolize relationships, past events, aspirations, or hidden aspects of a character's life.",
+                      "order_index": 3,
+                      "title": "Objects with Meaning: The Narrative Power of Props"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 110,
+                      "id": "CPPN_L04",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply principles of costume and prop design to create a visual narrative for a given character, justifying choices based on the character's backstory, personality, and desired impact.",
+                      "order_index": 4,
+                      "title": "Design Challenge: Crafting a Character's Visual Narrative Through Costume & Props"
+                    }
+                  ],
+                  "is_complete": true
                 },
                 {
                   "description": "Exploring the use of color palettes, value hierarchies, and lighting techniques to enhance a character's mood, presence, and storytelling impact.",
@@ -1723,8 +1806,54 @@
                   "learning_outcome": "Students will effectively apply color theory, value studies, and lighting principles to create visually impactful characters that evoke specific moods and personalities.",
                   "order_index": 6,
                   "title": "Color, Value, and Lighting for Character Impact",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L_CVC_001",
+                      "lesson_type": "READ",
+                      "objective": "To understand how different colors evoke specific emotions and how to apply this to character design.",
+                      "order_index": 1,
+                      "title": "The Emotional Spectrum: Color Psychology in Character Design"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L_CVC_002",
+                      "lesson_type": "WATCH",
+                      "objective": "To observe practical application of color theory in creating diverse character moods and personalities through specific palettes.",
+                      "order_index": 2,
+                      "title": "Palette Power: Demonstrating Character Mood with Color"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L_CVC_003",
+                      "lesson_type": "READ",
+                      "objective": "To learn the principles of value hierarchy and how to use light and shadow to create clear character forms and direct the viewer's eye.",
+                      "order_index": 3,
+                      "title": "Light & Shadow Play: Value Hierarchy for Character Readability"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L_CVC_004",
+                      "lesson_type": "WATCH",
+                      "objective": "To analyze various lighting setups and their impact on character emotion, form, and narrative.",
+                      "order_index": 4,
+                      "title": "Illuminating Emotion: Advanced Lighting Techniques for Characters"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L_CVC_005",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "To apply learned principles of color, value, and lighting to create a character study that effectively conveys a specific mood and story element.",
+                      "order_index": 5,
+                      "title": "Character Impact Project: Designing with Light and Color"
+                    }
+                  ],
+                  "is_complete": true
                 },
                 {
                   "description": "Understanding how a character interacts with and is defined by their environment, and how setting can be used to further develop character narrative.",
@@ -1732,8 +1861,63 @@
                   "learning_outcome": "Students will be able to integrate characters seamlessly into their environments, using the setting to enhance the character's story and visual presence.",
                   "order_index": 7,
                   "title": "Character in Context: Environment and Interaction",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "VISUAL_STORY_CHAR_CONTEXT_LESSON_01",
+                      "lesson_type": "READ",
+                      "objective": "To understand the fundamental principles of how a character's identity and narrative are shaped by their surrounding environment.",
+                      "order_index": 1,
+                      "title": "Foundations: Character & Environment Synergy"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 55,
+                      "id": "VISUAL_STORY_CHAR_CONTEXT_LESSON_02",
+                      "lesson_type": "WATCH",
+                      "objective": "To analyze visual examples of how environmental details and props reveal character traits, history, and current emotional state.",
+                      "order_index": 2,
+                      "title": "Demo: Decoding Environments for Character Insights"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 105,
+                      "id": "VISUAL_STORY_CHAR_CONTEXT_LESSON_03",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "To design a simple environment that clearly reflects the personality, background, and current situation of a given character.",
+                      "order_index": 3,
+                      "title": "Practice: Environment Design for Character"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "VISUAL_STORY_CHAR_CONTEXT_LESSON_04",
+                      "lesson_type": "READ",
+                      "objective": "To explore how characters interact with objects and space within their environment, using these interactions to convey narrative and emotion.",
+                      "order_index": 4,
+                      "title": "Theory: Character Interaction & Environmental Storytelling"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 65,
+                      "id": "VISUAL_STORY_CHAR_CONTEXT_LESSON_05",
+                      "lesson_type": "WATCH",
+                      "objective": "To observe professional techniques for seamlessly integrating characters into complex environments, ensuring visual coherence and narrative impact.",
+                      "order_index": 5,
+                      "title": "Live Demo: Seamless Character-Environment Integration"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 210,
+                      "id": "VISUAL_STORY_CHAR_CONTEXT_LESSON_06",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "To create a complete visual scene where a character is actively engaged with their environment, enhancing their story and visual presence.",
+                      "order_index": 6,
+                      "title": "Final Project: Narrative Scene Development"
+                    }
+                  ],
+                  "is_complete": true
                 },
                 {
                   "description": "An advanced look at how to communicate a character's development and transformation over time through sequential visual cues and design changes.",
@@ -1741,8 +1925,54 @@
                   "learning_outcome": "Students will design characters capable of communicating a visual arc, showing growth or change through evolving visual traits.",
                   "order_index": 8,
                   "title": "Developing Character Arcs and Visual Progression",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "DCAVP-L01",
+                      "lesson_type": "READ",
+                      "objective": "Understand the definition and importance of visual character arcs, and how visual elements can communicate internal change.",
+                      "order_index": 0,
+                      "title": "Introduction to Visual Character Arcs: Communicating Change"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "DCAVP-L02",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze case studies from various media to identify effective visual strategies for showing character growth and transformation.",
+                      "order_index": 1,
+                      "title": "Deconstructing Visual Progression: Case Studies in Character Evolution"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "DCAVP-L03",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design a character's initial visual state and plan 2-3 key visual milestones that reflect significant moments in their potential arc.",
+                      "order_index": 2,
+                      "title": "Charting the Journey: Initial Design and Visual Arc Milestones"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "DCAVP-L04",
+                      "lesson_type": "READ",
+                      "objective": "Explore techniques for implementing both subtle and dramatic visual shifts to convey different types of character development.",
+                      "order_index": 3,
+                      "title": "The Spectrum of Change: Subtle Cues vs. Dramatic Transformations"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "DCAVP-L05",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Develop a complete visual character progression, creating sequential designs that demonstrate the character's arc from start to finish.",
+                      "order_index": 4,
+                      "title": "Crafting the Full Arc: Sequential Visual Progression Project"
+                    }
+                  ],
+                  "is_complete": true
                 }
               ],
               "is_complete": true
@@ -1762,8 +1992,54 @@
                   "learning_outcome": "Students will be able to apply fundamental design principles to create characters with clear anatomy, appealing proportions, and expressive gestures.",
                   "order_index": 1,
                   "title": "Character Design Fundamentals",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "CDF-L1",
+                      "lesson_type": "READ",
+                      "objective": "Identify key anatomical landmarks and apply standard and stylized proportional systems to character figures.",
+                      "order_index": 1,
+                      "title": "The Building Blocks: Anatomy & Proportion"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 60,
+                      "id": "CDF-L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and practice techniques for conveying dynamic poses and energy through quick gesture sketches.",
+                      "order_index": 2,
+                      "title": "Capturing Movement: Gesture Drawing Demo"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "CDF-L3",
+                      "lesson_type": "READ",
+                      "objective": "Understand how character silhouettes communicate personality, role, and emotional state effectively.",
+                      "order_index": 3,
+                      "title": "Silhouette Storytelling: Personality & Readability"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "CDF-L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design 5 distinct character silhouettes, each conveying a unique personality and role without internal details.",
+                      "order_index": 4,
+                      "title": "Assignment: Expressive Silhouette Exploration"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "CDF-L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Witness the practical application of anatomy, proportion, and gesture in developing a refined character sketch from initial concepts.",
+                      "order_index": 5,
+                      "title": "Integrating Fundamentals: From Gesture to Form Demo"
+                    }
+                  ],
+                  "is_complete": true
                 },
                 {
                   "description": "Understand the professional character design workflow from initial brief interpretation to final asset delivery, covering each stage of the production pipeline.",
@@ -1771,8 +2047,63 @@
                   "learning_outcome": "Students will grasp the end-to-end process of character design within a production environment and identify key deliverables at each stage.",
                   "order_index": 2,
                   "title": "The Character Design Pipeline",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "cdp-01",
+                      "lesson_type": "READ",
+                      "objective": "Define the key stages and roles within a professional character design pipeline, from initial concept to final asset.",
+                      "order_index": 1,
+                      "title": "Introduction to the Character Design Production Pipeline"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "cdp-02",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe how to effectively interpret a design brief, identify core requirements, and conduct relevant visual research.",
+                      "order_index": 2,
+                      "title": "Brief Interpretation and Visual Research Demystified"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "cdp-03",
+                      "lesson_type": "READ",
+                      "objective": "Understand various ideation techniques and iterative sketching methods for generating diverse character concepts.",
+                      "order_index": 3,
+                      "title": "Concept Generation: From Thumbnails to Initial Sketches"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "cdp-04",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn the process of refining chosen concepts, developing design variations, and preparing for model sheet creation.",
+                      "order_index": 4,
+                      "title": "Refining Concepts and Presenting Initial Designs"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "cdp-05",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Create a detailed character turnaround and expression sheet based on a provided character brief, adhering to production standards.",
+                      "order_index": 5,
+                      "title": "Practical: Developing a Full Character Model Sheet"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "cdp-06",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the importance of clear communication, proper asset hand-off, and feedback integration in a production environment.",
+                      "order_index": 6,
+                      "title": "Finalizing Assets and Production Hand-off"
+                    }
+                  ],
+                  "is_complete": true
                 },
                 {
                   "description": "Dive into various character art styles, learn techniques for stylization, and develop a unique visual language to suit different project needs and target audiences.",
@@ -1780,8 +2111,54 @@
                   "learning_outcome": "Students will be able to analyze and replicate diverse stylistic approaches and begin developing a distinctive personal artistic voice for character creation.",
                   "order_index": 3,
                   "title": "Stylization and Aesthetic Exploration",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "SAE-L01",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core principles and continuum of character stylization, identifying key elements that define different aesthetic approaches.",
+                      "order_index": 1,
+                      "title": "Foundations of Stylization: From Realism to Abstraction"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "SAE-L02",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and analyze the visual characteristics, design choices, and cultural influences behind prominent character art styles through demonstrations.",
+                      "order_index": 2,
+                      "title": "Analyzing Diverse Aesthetics: Anime, Western Animation, and Game Art"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "SAE-L03",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply analytical skills to accurately replicate the defining features and stylistic essence of a pre-existing character art style.",
+                      "order_index": 3,
+                      "title": "Mimicking Masters: Replicating a Chosen Character Style"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "SAE-L04",
+                      "lesson_type": "READ",
+                      "objective": "Learn methods for blending influences, defining stylistic rules, and translating personal vision into a cohesive and unique character art style.",
+                      "order_index": 4,
+                      "title": "Developing Your Signature Style: Principles of Personal Aesthetic"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "SAE-L05",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Begin experimenting with and articulating a distinctive personal artistic voice by redesigning a character in an emerging unique style.",
+                      "order_index": 5,
+                      "title": "First Forays into Personal Style: Character Redesign"
+                    }
+                  ],
+                  "is_complete": true
                 },
                 {
                   "description": "Master the process of brainstorming, mood boarding, thumbnailing, and iterative sketching to generate a wide range of character ideas and refine them effectively.",
@@ -1789,8 +2166,54 @@
                   "learning_outcome": "Students will develop robust conceptualization skills, enabling them to explore multiple design solutions and iteratively refine their character ideas from initial brief to detailed concept.",
                   "order_index": 4,
                   "title": "Concept Development & Iteration",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "CDPI-CDI-L01",
+                      "lesson_type": "READ",
+                      "objective": "Understand how to deconstruct a character design brief and apply various brainstorming techniques to generate initial ideas.",
+                      "order_index": 1,
+                      "title": "Deconstructing the Brief & Idea Generation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "CDPI-CDI-L02",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to effectively create mood boards and conduct visual research to gather inspiration and define the aesthetic of a character.",
+                      "order_index": 2,
+                      "title": "Crafting Effective Mood Boards & Visual Research"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "CDPI-CDI-L03",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and practice rapid thumbnail sketching and iterative drawing techniques to explore a wide range of character poses, silhouettes, and variations.",
+                      "order_index": 3,
+                      "title": "Rapid Idea Exploration: Thumbnailing & Iterative Sketching"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "CDPI-CDI-A01",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned techniques to develop a series of character concepts, from initial brainstorming and mood boarding to a diverse set of thumbnail sketches based on a given brief.",
+                      "order_index": 4,
+                      "title": "Character Concept Exploration Project"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "CDPI-CDI-L04",
+                      "lesson_type": "READ",
+                      "objective": "Discover strategies for receiving, interpreting, and applying feedback to iteratively refine and push character designs towards a final concept.",
+                      "order_index": 5,
+                      "title": "Refining Your Vision: Utilizing Feedback for Iteration"
+                    }
+                  ],
+                  "is_complete": true
                 },
                 {
                   "description": "Learn to design compelling costumes, props, and accessories that enhance character personality, backstory, and integrate seamlessly into their narrative world.",
@@ -1798,8 +2221,63 @@
                   "learning_outcome": "Students will be proficient in designing supportive elements that enrich character identity and contribute to a cohesive visual narrative within a given setting.",
                   "order_index": 5,
                   "title": "Costume, Props, and World Integration",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "CDPS-CPWI-L01",
+                      "lesson_type": "READ",
+                      "objective": "Understand how costume elements communicate character personality, status, and backstory within a narrative.",
+                      "order_index": 1,
+                      "title": "The Language of Garments: Costume Design Fundamentals"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "CDPS-CPWI-L02",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe techniques for designing and integrating props and accessories that reveal character traits and advance the narrative.",
+                      "order_index": 2,
+                      "title": "Props as Storytellers: Integrating Accessories"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "CDPS-CPWI-L03",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Create a detailed mood board exploring costume and prop ideas for a given character, emphasizing their personality, backstory, and function.",
+                      "order_index": 3,
+                      "title": "Mood Board: Character Costume & Prop Study"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "CDPS-CPWI-L04",
+                      "lesson_type": "READ",
+                      "objective": "Learn how to design costumes and props that fit cohesively within the established visual language, lore, and setting of a fictional world.",
+                      "order_index": 4,
+                      "title": "World Integration: Costumes & Props in Context"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "CDPS-CPWI-L05",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze case studies of successful costume and prop integration in various fictional worlds, identifying key design principles and their impact.",
+                      "order_index": 5,
+                      "title": "Case Study: Seamless World-Building Through Design"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "CDPS-CPWI-L06",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design a character's full costume and key props, ensuring they are fully integrated into a specific environment and narrative context provided.",
+                      "order_index": 6,
+                      "title": "Project: Character & Environment Design Challenge"
+                    }
+                  ],
+                  "is_complete": true
                 },
                 {
                   "description": "Focus on creating professional character sheets, including turnarounds, expression sheets, pose sheets, and effective presentation techniques for production.",
@@ -1807,8 +2285,63 @@
                   "learning_outcome": "Students will be capable of producing industry-standard character sheets that clearly communicate all necessary information for 3D modeling, animation, or further production stages.",
                   "order_index": 6,
                   "title": "Character Sheet Production & Presentation",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "char_sheet_101",
+                      "lesson_type": "READ",
+                      "objective": "Understand the different types of character sheets (turnarounds, expression, pose) and their critical role in the character design and production pipeline.",
+                      "order_index": 1,
+                      "title": "Introduction to Character Sheets: Purpose and Types"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "char_sheet_201",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze professional examples of character turnarounds and model sheets to identify best practices for clear communication and technical accuracy.",
+                      "order_index": 2,
+                      "title": "Deconstructing Professional Turnarounds & Model Sheets"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "char_sheet_301",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Produce a detailed character turnaround sheet (front, back, 3/4 views) for a given character, ensuring correct proportions and consistent style.",
+                      "order_index": 3,
+                      "title": "Assignment: Creating Your First Character Turnaround"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "char_sheet_401",
+                      "lesson_type": "READ",
+                      "objective": "Learn strategies for designing effective expression sheets to convey a character's emotional range and pose sheets to illustrate dynamic actions.",
+                      "order_index": 4,
+                      "title": "Expression & Pose Sheets: Communicating Personality and Action"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "char_sheet_501",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe practical techniques for creating comprehensive expression and pose sheets, including common pitfalls and solutions.",
+                      "order_index": 5,
+                      "title": "Demo: Crafting Dynamic Expression and Pose Sheets"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "char_sheet_601",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Develop a complete character sheet package, including turnarounds, expression sheets, pose sheets, and presentation layout, ready for production.",
+                      "order_index": 6,
+                      "title": "Final Project: Comprehensive Character Sheet Production"
+                    }
+                  ],
+                  "is_complete": true
                 }
               ],
               "is_complete": true
@@ -1828,8 +2361,54 @@
                   "learning_outcome": "Students will be able to analyze and articulate how costume, hair, and props contribute to a character's identity and narrative function.",
                   "order_index": 1,
                   "title": "Character & Contextual Analysis",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "CCA_L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental principles of visual storytelling through costume, hair, and props.",
+                      "order_index": 1,
+                      "title": "Introduction to Visual Storytelling: The Language of Appearance"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "CCA_L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to identify and interpret common character archetypes and their visual representations across different media.",
+                      "order_index": 2,
+                      "title": "Archetypes in Action: Deconstructing Character Visuals (Video Analysis)"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "CCA_L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply analytical frameworks to deconstruct the costume, hair, and prop choices for a specific fictional character.",
+                      "order_index": 3,
+                      "title": "Character Deep Dive: A Visual Analysis Assignment"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "CCA_L4",
+                      "lesson_type": "READ",
+                      "objective": "Explore how narrative context, genre, and historical setting influence character design decisions.",
+                      "order_index": 4,
+                      "title": "Contextual Clues: Setting and Narrative Impact on Design"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "CCA_L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Develop a visual brief for a new character, articulating how costume, hair, and props communicate their identity and role within a given scenario.",
+                      "order_index": 5,
+                      "title": "Character Design Brief: Creating a Visual Identity"
+                    }
+                  ],
+                  "is_complete": true
                 },
                 {
                   "description": "Explore the visual language of clothing, including silhouette, color theory, fabric properties, and their historical/cultural significance. This module covers how to design costumes that are appropriate to a character's environment and era.",
