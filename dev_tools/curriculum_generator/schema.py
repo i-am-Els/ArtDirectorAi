@@ -24,6 +24,7 @@ class Lesson:
     objective: str
     default_study_mode: Literal["FOCUS", "MILEAGE"]
     estimated_effort_minutes: int
+    search_queries: List[str]
     order_index: int
     
     def to_dict(self):

@@ -36,7 +36,14 @@
                       "lesson_type": "READ",
                       "objective": "Define character design and articulate its foundational role across various entertainment and communication media.",
                       "order_index": 1,
-                      "title": "Introduction to Character Design: More Than Just a Drawing"
+                      "title": "Introduction to Character Design: More Than Just a Drawing",
+                      "search_queries": [
+                        "What is character design and its importance",
+                        "Role of character design in animation games comics",
+                        "Character design fundamentals for beginners",
+                        "How character design impacts audience connection",
+                        "Introduction to character design principles"
+                      ]
                     },
                     {
                       "default_study_mode": "FOCUS",
@@ -45,7 +52,14 @@
                       "lesson_type": "WATCH",
                       "objective": "Analyze case studies of iconic characters to identify key design choices that contribute to their memorability and impact.",
                       "order_index": 2,
-                      "title": "Anatomy of an Icon: Dissecting Memorable Characters"
+                      "title": "Anatomy of an Icon: Dissecting Memorable Characters",
+                      "search_queries": [
+                        "iconic character design analysis",
+                        "how to create memorable characters",
+                        "elements of iconic character design",
+                        "case studies memorable character design",
+                        "character design impact memorability"
+                      ]
                     },
                     {
                       "default_study_mode": "FOCUS",
@@ -54,7 +68,13 @@
                       "lesson_type": "READ",
                       "objective": "Understand the core elements of character development, including silhouette, shape language, personality, and backstory.",
                       "order_index": 3,
-                      "title": "The Pillars of Personality: Core Elements of Character"
+                      "title": "The Pillars of Personality: Core Elements of Character",
+                      "search_queries": [
+                        "core elements of character development",
+                        "character design silhouette shape language",
+                        "personality and backstory in character design",
+                        "pillars of character personality development"
+                      ]
                     },
                     {
                       "default_study_mode": "FOCUS",
@@ -63,7 +83,14 @@
                       "lesson_type": "ASSIGNMENT",
                       "objective": "Practice creating distinct character silhouettes that convey personality and role without additional detail.",
                       "order_index": 4,
-                      "title": "Sketching Silhouettes: First Impressions"
+                      "title": "Sketching Silhouettes: First Impressions",
+                      "search_queries": [
+                        "character silhouette design tutorial",
+                        "how to draw character silhouettes",
+                        "conveying personality through silhouette",
+                        "silhouette character design examples",
+                        "first impression character silhouette"
+                      ]
                     },
                     {
                       "default_study_mode": "FOCUS",
@@ -72,10 +99,18 @@
                       "lesson_type": "READ",
                       "objective": "Explore how context and medium influence character design choices and audience perception.",
                       "order_index": 5,
-                      "title": "Characters in Context: Design for Different Media"
+                      "title": "Characters in Context: Design for Different Media",
+                      "search_queries": [
+                        "character design for different media",
+                        "game vs animation character design",
+                        "how context influences character design",
+                        "character design for specific audiences",
+                        "character design medium specific choices"
+                      ]
                     }
                   ],
-                  "is_complete": true
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Explores common character archetypes and methods for developing unique personalities, backstories, and motivations for characters.",

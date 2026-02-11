@@ -59,6 +59,57 @@ def run():
         print("⚠️ Detected legacy state format. Migrating...")
         all_majors = state["faculty"]["majors"]
 
+    # --- PASS 0: Backfill Missing Resources ---
+    subject_agent = SubjectAgent("BackfillAgent", "You are an educational resource specialist.")
+    backfill_count = 0
+    print("🧹 PASS 0: Checking for lessons needing search query backfill...")
+    
+    try:
+        for major in all_majors:
+            for course in major.get('courses', []):
+                for subject in course.get('subjects', []):
+                    # Only backfill subjects that are "Complete" (have lessons)
+                    # but haven't had their "Resources" caught up yet.
+                    if subject.get('is_complete', False) and not subject.get('resources_complete', False):
+                        lessons = subject.get('lessons', [])
+                        lessons_needing_fix = [l for l in lessons if not l.get('search_queries') or len(l['search_queries']) == 0]
+                        
+                        if not lessons_needing_fix:
+                            subject['resources_complete'] = True
+                            save_state(state)
+                            continue
+
+                        print(f"  🔍 Batch Backfilling {len(lessons_needing_fix)} Lessons for: {subject['title']}...")
+                        
+                        # Prepare batch data
+                        lessons_info = [{"title": l["title"], "objective": l["objective"]} for l in lessons_needing_fix]
+                        
+                        try:
+                            batch_queries = subject_agent.batch_generate_lesson_queries(lessons_info)
+                            
+                            # Map back
+                            for i, queries in enumerate(batch_queries):
+                                if i < len(lessons_needing_fix):
+                                    lessons_needing_fix[i]['search_queries'] = queries
+                                    backfill_count += 1
+                            
+                            subject['resources_complete'] = True
+                            save_state(state)
+                            time.sleep(1)
+                        except Exception as e:
+                            print(f"    ⚠️ Failed to backfill subject: {e}")
+                            raise e # Bubbles up to key rotation / quota exit
+    except Exception as e:
+        print(f"  ❌ Backfill interrupted: {e}")
+        if "429" in str(e) or "ResourceExhausted" in str(e):
+             print("🚨 QUOTA EXCEEDED during backfill. Saving and exiting.")
+             sys.exit(0)
+    
+    if backfill_count > 0:
+        print(f"✅ Added search queries to {backfill_count} lessons.")
+    else:
+        print("✅ No backfill needed.")
+
     for major in all_majors:
         print(f"\n🎓 Processing Major: {major['title']} ({major['code']})")
         
@@ -129,6 +180,7 @@ def run():
                         ]
                         # Mark as complete only after successful generation
                         subject['is_complete'] = True
+                        subject['resources_complete'] = True
                         save_state(state)
                         time.sleep(1)
                     except Exception as e:

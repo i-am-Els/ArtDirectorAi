@@ -53,6 +53,7 @@ interface RawLesson {
     objective: string;
     order_index: number;
     title: string;
+    search_queries?: string[];
 }
 
 /**
@@ -68,7 +69,7 @@ function transformLesson(raw: RawLesson, subjectId: string): Lesson {
         defaultStudyMode: raw.default_study_mode === 'FOCUS' ? StudyMode.FOCUS : StudyMode.MILEAGE,
         estimatedEffort: raw.estimated_effort_minutes,
         orderIndex: raw.order_index,
-        searchQueries: [],
+        searchQueries: raw.search_queries || [],
         suggestedMileage: `${raw.estimated_effort_minutes} min`
     };
 }

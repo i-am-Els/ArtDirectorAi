@@ -171,7 +171,20 @@ class SubjectAgent(BaseAgent):
           Create 3-6 granular Lessons for this subject.
           Mix of READ (Theory), WATCH (Demo), and ASSIGNMENT (Practice).
           Ensure specific "estimated_effort_minutes".
+          Provide 3-5 highly relevant "search_queries" (e.g. "character silhouette design tutorial") for each lesson.
           
           Return a list of Lesson objects.
         """
         return self.generate(prompt, list[Lesson])
+
+    def batch_generate_lesson_queries(self, lessons_info: list[dict]):
+        prompt = f"""
+          For each of the following lessons, generate 3-5 high-quality YouTube/Google search queries.
+          
+          Lessons:
+          {json.dumps(lessons_info, indent=2)}
+          
+          Return a list of lists of strings. The outer list must have the same length as the input lessons list. 
+          Each inner list should contain 3-5 search queries for the corresponding lesson.
+        """
+        return self.generate(prompt, list[list[str]])
