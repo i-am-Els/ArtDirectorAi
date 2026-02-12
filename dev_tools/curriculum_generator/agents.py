@@ -74,42 +74,65 @@ class BaseAgent:
                     safety_settings=SAFETY_SETTINGS
                 )
                 
-                return json.loads(response.text)
+                data = json.loads(response.text)
+                
+                # --- VALIDATION ---
+                def validate_data(item):
+                    if isinstance(item, str):
+                        # Detect halluncination/looping
+                        if len(item) > 1000:
+                            raise ValueError(f"Field too long ({len(item)} chars). Possible hallucination.")
+                        if "What is art and" in item:
+                             raise ValueError("Detected corrupted loop pattern in response.")
+                    elif isinstance(item, list):
+                        for x in item: validate_data(x)
+                    elif isinstance(item, dict):
+                        for k, v in item.items(): validate_data(v)
+                
+                try:
+                    validate_data(data)
+                except ValueError as ve:
+                    logger.error(f"❌ Validation failed: {ve}")
+                    attempt += 1
+                    wait_time = attempt * 10
+                    logger.info(f"⏳ Retrying with backoff {wait_time}s...")
+                    time.sleep(wait_time)
+                    continue
+
+                return data
 
             except Exception as e:
                 error_str = str(e)
                 
-                # Check for DAILY Quota Limit (should rotate)
-                if "GenerateRequestsPerDayPerProjectPerModel-FreeTier" in error_str:
-                    logger.error(f"🚨 DAILY QUOTA EXCEEDED. Attempting rotation...")
+                # Check for ANY Quota/Rate Limit (429 or ResourceExhausted)
+                if "429" in error_str or "ResourceExhausted" in error_str or "quota" in error_str.lower():
+                    logger.warning(f"⚠️ Quota or Rate Limit hit: {error_str[:100]}...")
                     
-                    # Check if we've already tried all keys
-                    if rotation_count >= max_rotations:
-                        logger.error(f"❌ All {max_rotations} API keys exhausted! Stopping.")
+                    # Attempt to rotate before waiting
+                    if rotation_count < max_rotations:
+                        if key_manager.rotate_key():
+                            rotation_count += 1
+                            # Refresh model to ensure it uses the new key/client
+                            self.model = genai.GenerativeModel(MODEL_NAME)
+                            logger.info(f"🔄 Key rotated. Retrying immediately... (Rotation {rotation_count}/{max_rotations})")
+                            continue
+                    
+                    # If we've tried all keys and still hit a limit:
+                    # 1. If it's a DAILY limit, we must stop.
+                    if "GenerateRequestsPerDayPerProjectPerModel-FreeTier" in error_str:
+                        logger.error(f"❌ ALL API KEYS EXHAUSTED (Daily Quota). Giving up.")
                         raise e
                     
-                    # Try to rotate
-                    if key_manager.rotate_key():
-                        rotation_count += 1
-                        logger.info(f"🔄 Key rotated successfully. Retrying immediately... (Rotation {rotation_count}/{max_rotations})")
-                        continue
-                    else:
-                        logger.error("❌ No more keys to rotate! Stopping.")
-                        raise e
-                
-                # Check for RATE LIMIT (per-minute, should wait and retry with same key)
-                elif "429" in error_str or "RESOURCE_EXHAUSTED" in error_str:
-                    logger.warning(f"⏱️ Rate limit hit (per-minute/per-second). Waiting before retry...")
+                    # 2. If it's just a RATE limit (per-minute), wait and reset rotation count
                     attempt += 1
-                    
                     if attempt >= max_retries:
-                        logger.error(f"❌ [{self.role}] Max retries reached. Giving up.")
+                        logger.error(f"❌ [{self.role}] Max retries reached after trying all keys. Giving up.")
                         raise e
                     
-                    # Wait longer for rate limits (60s base)
                     wait_time = 60 + (attempt * 10)
-                    logger.info(f"⏳ [{self.role}] Waiting {wait_time}s before retry (attempt {attempt}/{max_retries})...")
+                    logger.info(f"⏳ All keys hitting rate limits. Waiting {wait_time}s before reset and retry...")
                     time.sleep(wait_time)
+                    rotation_count = 0 # Reset to allow another cycle through keys
                     continue
 
                 # Other errors - standard retry logic
@@ -171,6 +194,7 @@ class SubjectAgent(BaseAgent):
           Create 3-6 granular Lessons for this subject.
           Mix of READ (Theory), WATCH (Demo), and ASSIGNMENT (Practice).
           Ensure specific "estimated_effort_minutes".
+          Use short, relative IDs (e.g. "L1", "L2", "L3").
           Provide 3-5 highly relevant "search_queries" (e.g. "character silhouette design tutorial") for each lesson.
           
           Return a list of Lesson objects.
