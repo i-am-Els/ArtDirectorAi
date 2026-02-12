@@ -8865,8 +8865,85 @@
                   "learning_outcome": "Students will learn techniques for creating coherent and immersive worlds that support a given narrative.",
                   "order_index": 4,
                   "title": "World-Building and Narrative Context",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the foundational elements of world-building, including lore, history, and geography, and their importance for creating believable environments.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "environment world-building fundamentals",
+                        "lore creation for game environments",
+                        "how history influences environment design",
+                        "fantasy world geography basics"
+                      ],
+                      "title": "Introduction to World-Building Principles for Environments"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn how to extract narrative elements from a story brief and translate them into visual environmental cues and design choices.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "narrative environment design tutorial",
+                        "storytelling through level design",
+                        "visual storytelling in game environments",
+                        "environment art narrative cues"
+                      ],
+                      "title": "Translating Narrative into Environmental Design"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Explore how diverse cultural traditions and unique geographical features shape distinct architectural styles and environmental aesthetics.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "cultural impact on environment design",
+                        "geography in world-building art",
+                        "biome design principles",
+                        "architecture styles inspired by cultures"
+                      ],
+                      "title": "Cultural and Geographical Influences on Environment Design"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply world-building principles to create a coherent conceptual brief for a specific environment, outlining its lore, geography, culture, and narrative premise.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "world-building prompts environment art",
+                        "creating a fictional environment brief",
+                        "concept art world-building exercise",
+                        "designing a unique environment setting"
+                      ],
+                      "title": "Design Brief: Conceptualizing a New Environment"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe advanced techniques for embedding lore and narrative subtly into environmental details, focusing on visual cues rather than explicit exposition.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "environmental storytelling examples",
+                        "subtle narrative in game environments",
+                        "prop design for storytelling",
+                        "visual clues in environment art"
+                      ],
+                      "title": "Environmental Storytelling: Show, Don't Tell"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Introduces principles of spatial organization, compositional techniques, and understanding scale and proportion in environment design to guide the viewer's eye and convey information.",
@@ -8874,8 +8951,106 @@
                   "learning_outcome": "Students will apply principles of layout, composition, and scale to create visually compelling and functional environmental spaces.",
                   "order_index": 5,
                   "title": "Layout, Composition, and Scale",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand fundamental principles of layout and composition, including rule of thirds, leading lines, framing, and visual balance, as applied to environment design.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "composition principles environment design",
+                        "rule of thirds level design",
+                        "leading lines art",
+                        "visual balance composition",
+                        "framing in environment art"
+                      ],
+                      "title": "Foundations of Layout and Composition"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Identify and analyze various compositional techniques used in renowned environment designs, architecture, and master artworks to understand their practical application.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "environment composition analysis",
+                        "master artists composition breakdown",
+                        "cinematic composition environment",
+                        "level design composition examples",
+                        "analyzing architectural composition"
+                      ],
+                      "title": "Analyzing Composition in Master Environments"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Grasp how scale and proportion influence perception, mood, and functionality within environmental spaces, and their role in conveying information and narrative.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "scale in environment art",
+                        "proportion in architectural design",
+                        "human scale design principles",
+                        "visual weight environment design",
+                        "narrative through scale"
+                      ],
+                      "title": "Understanding Scale and Proportion in Environments"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe practical demonstrations of applying scale and proportion during the sketching and blocking phases of environment design to establish visual hierarchy and believability.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "blocking out environment scale",
+                        "perspective drawing scale tutorial",
+                        "architectural sketching proportion",
+                        "digital environment concept scale",
+                        "establishing scale in thumbnails"
+                      ],
+                      "title": "Applying Scale and Proportion in Practice"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned principles of layout and composition to create several thumbnail sketches for a small environmental space, focusing on guiding the viewer's eye and establishing mood.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "environment sketch composition exercise",
+                        "design a small scene layout",
+                        "composition practice environment art",
+                        "thumbnailing environment concepts",
+                        "sketching for visual flow"
+                      ],
+                      "title": "Assignment: Thumbnailing Compositions"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design a more detailed environment concept, intentionally manipulating scale and proportion to create focal points, convey depth, and evoke a specific emotional response or sense of grandeur/intimacy.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "environment design focal point exercise",
+                        "creating depth with scale environment",
+                        "viewer guidance environment design",
+                        "environmental storytelling composition",
+                        "designing with exaggerated scale"
+                      ],
+                      "title": "Assignment: Scale, Focal Points, and Emotion"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Explores the crucial role of lighting and color theory in establishing mood, atmosphere, depth, and guiding visual focus within an environment to enhance storytelling.",
