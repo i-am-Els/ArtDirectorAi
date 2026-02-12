@@ -8286,8 +8286,106 @@
                   "learning_outcome": "Students will demonstrate advanced proficiency in conceptualizing and rendering varied materials and textures, accurately conveying surface qualities and material interactions to enrich their specialized character designs.",
                   "order_index": 4,
                   "title": "Materiality, Texture & Surface Fidelity",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental principles of physically based rendering (PBR) and how different material properties (roughness, metallic, albedo) influence light interaction and surface appearance.",
+                      "order_index": 0,
+                      "search_queries": [
+                        "PBR principles explained",
+                        "material properties for character art",
+                        "physically based rendering guide",
+                        "albedo metallic roughness textures",
+                        "light interaction with materials"
+                      ],
+                      "title": "PBR Fundamentals & Material Property Theory"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and replicate advanced techniques for depicting organic textures such as realistic skin, fur, scales, and various fabric types, focusing on subsurface scattering and natural imperfections.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "realistic skin texture painting tutorial",
+                        "digital fur rendering techniques",
+                        "organic material painting character",
+                        "subsurface scattering character art",
+                        "fabric texture character design"
+                      ],
+                      "title": "Organic Textures: Skin, Fur & Fabric Demystified"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn through demonstration how to render hard-surface materials like metals, plastics, glass, and worn composites, emphasizing reflections, specular highlights, and structural wear.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "metal texture painting tutorial",
+                        "worn plastic rendering character",
+                        "sci-fi material breakdown digital art",
+                        "glass texture character design",
+                        "hard surface rendering techniques"
+                      ],
+                      "title": "Hard Surface Mastery: Metals, Plastics & Composites"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Explore the theory and practical application of conveying age, damage, and wear across different materials, understanding how environmental factors and usage patterns affect surface degradation.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "wear and tear digital art explained",
+                        "surface degradation rendering principles",
+                        "aging materials tutorial character",
+                        "character material damage effects",
+                        "environmental impact on textures"
+                      ],
+                      "title": "The Art of Imperfection: Wear, Tear & Age"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 180,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned principles by creating a detailed material study of a specialized character prop or a section of a character, accurately depicting at least three distinct materials with appropriate wear and surface fidelity.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "material study challenge character",
+                        "texture painting exercise specialized character",
+                        "rendering different surfaces assignment",
+                        "character prop material breakdown",
+                        "advanced texture application practice"
+                      ],
+                      "title": "Practical Application: Specialized Material Study"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L6",
+                      "lesson_type": "READ",
+                      "objective": "Deepen understanding of micro-surface details, layering complex textures, and utilizing advanced techniques like displacement and normal mapping to achieve hyper-realistic surface fidelity in character design.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "advanced texture layering techniques",
+                        "micro-surface details rendering",
+                        "normal map sculpting character art",
+                        "displacement map usage character",
+                        "hyper-realistic surface fidelity tips"
+                      ],
+                      "title": "Advanced Surface Fidelity & Detailing"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Focusing on how specialized characters interact with their environment and narrative, this module covers designing characters within a broader world. It includes considerations for storytelling through pose, expression, props, and how the character functions within a scene or universe.",
@@ -8295,8 +8393,90 @@
                   "learning_outcome": "Students will be able to design characters that are deeply integrated into their contextual environments, utilizing visual storytelling elements to enhance narrative coherence and character presence.",
                   "order_index": 5,
                   "title": "Character Integration & Contextualization",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand how a character's design inherently tells a story through its interaction with the surrounding context and narrative.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "visual storytelling character design",
+                        "character context narrative",
+                        "environmental storytelling art",
+                        "character design storytelling principles",
+                        "narrative coherence character design"
+                      ],
+                      "title": "Narrative Integration Principles: Character & Context"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to effectively utilize character pose, silhouette, and facial expressions to convey emotion, personality, and their role within a specific scene or situation.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "character posing for narrative",
+                        "expressive character design tutorial",
+                        "body language character art",
+                        "animation posing principles",
+                        "storytelling through character silhouette"
+                      ],
+                      "title": "Dynamic Posing & Expressive Characters in Scene"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Explore how props and subtle environmental details can enrich a character's backstory, personality, and their function within a narrative universe.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "props character design storytelling",
+                        "environmental storytelling character",
+                        "visual details character background",
+                        "character objects narrative impact",
+                        "scene details character development"
+                      ],
+                      "title": "Props & Environmental Storytelling for Deeper Characters"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply the principles of character integration by designing and sketching a specialized character interacting with a specific, detailed environment, focusing on narrative through visual elements.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "character scene drawing challenge",
+                        "narrative sketch character",
+                        "character environmental interaction art",
+                        "storytelling illustration prompt",
+                        "designing character in setting"
+                      ],
+                      "title": "Character in Context: Scene Sketch Challenge"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 55,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe advanced techniques for seamlessly blending characters into complex backgrounds and integrating them into diverse narrative settings, including scale and interaction with larger elements.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "complex character environment interaction",
+                        "advanced character scene design",
+                        "character worldbuilding art",
+                        "integrating characters into narrative settings",
+                        "composition character environment"
+                      ],
+                      "title": "Advanced Contextual Design Techniques & World Integration"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "The final module focuses on refining the specialized character project to professional standards. Students will learn how to curate, present, and articulate their design process and final work effectively for a target audience or industry, preparing them for portfolio reviews and professional practice.",
@@ -8304,8 +8484,85 @@
                   "learning_outcome": "Students will develop a professional-quality presentation of their specialized character design project, demonstrating critical self-assessment and strategic portfolio development for industry engagement.",
                   "order_index": 6,
                   "title": "Portfolio Refinement & Professional Presentation",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand best practices for selecting, curating, and sequencing specialized character design work for a professional portfolio.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "character design portfolio selection",
+                        "curating art portfolio tips",
+                        "what to include in character portfolio",
+                        "professional art portfolio examples"
+                      ],
+                      "title": "Strategic Portfolio Curation for Character Designers"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn how to articulate the design process, concept, and technical execution of a specialized character project through compelling visual and written narratives.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "character design process presentation",
+                        "telling a story with your portfolio",
+                        "artist statement character design",
+                        "presenting character development"
+                      ],
+                      "title": "Crafting Your Character's Story: Process & Presentation"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Develop a cohesive and aesthetically pleasing visual layout for their specialized character portfolio, ensuring consistency and strong visual hierarchy.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "character portfolio layout templates",
+                        "graphic design principles for portfolios",
+                        "visual consistency art portfolio",
+                        "portfolio branding character artist"
+                      ],
+                      "title": "Portfolio Layout & Visual Branding Workshop"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Master techniques for creating professional-quality final renders, poses, and presentation elements that effectively showcase their specialized character.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "character render best practices",
+                        "professional character posing tips",
+                        "portfolio hero shot techniques",
+                        "lighting for character presentation"
+                      ],
+                      "title": "The Polished Presentation: Master Renders & Hero Shots"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 240,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Integrate all learned concepts by assembling their complete specialized character portfolio, conducting a mock review, and applying feedback for final professional refinement.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "mock portfolio review character design",
+                        "preparing for art director review",
+                        "critique process art portfolio",
+                        "implementing portfolio feedback"
+                      ],
+                      "title": "Mock Portfolio Review & Final Refinement"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 }
               ],
               "is_complete": true
@@ -8319,7 +8576,1214 @@
           "title": "Environment Design",
           "role": "Environment Concept Artist",
           "description": "World-building, layout, and lighting design.",
-          "courses": []
+          "courses": [
+            {
+              "code": "ENVD101",
+              "description": "An overview of the environment design discipline, exploring its history, roles within various industries (film, games, animation), and fundamental principles of visual storytelling through world-building, layout, and lighting.",
+              "id": "envd-course-001",
+              "is_core": true,
+              "tier": "Foundations",
+              "title": "Introduction to Environment Design",
+              "year_level": 1,
+              "subjects": [
+                {
+                  "description": "Introduces the discipline of environment design, its historical evolution, and its critical role in various visual media industries.",
+                  "id": "ENVD101-S01",
+                  "learning_outcome": "Students will be able to define environment design and articulate its historical context and significance.",
+                  "order_index": 1,
+                  "title": "Foundations and History of Environment Design",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Define environment design and understand its fundamental role in visual storytelling across various media.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "what is environment design",
+                        "environment art definition",
+                        "role of environment design",
+                        "environment art vs set design",
+                        "disciplines of environment design"
+                      ],
+                      "title": "Defining Environment Design: Scope and Significance"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "READ",
+                      "objective": "Trace the historical evolution of environment design from ancient theatre to early film and animation.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "history of set design",
+                        "evolution of environment art",
+                        "theatre stage design history",
+                        "early film environment creation",
+                        "historical context of environment design"
+                      ],
+                      "title": "Historical Roots: From Stagecraft to Early Visual Media"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze significant historical examples and case studies of environment design in film, games, and animation.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "iconic environment design film analysis",
+                        "historical game environment breakdown",
+                        "art direction classic animation environments",
+                        "how environments tell stories examples",
+                        "historical environmental storytelling"
+                      ],
+                      "title": "Case Studies: Iconic Environments Through History"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Identify key figures and movements that shaped the discipline of environment design.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "pioneers of environment design",
+                        "influential environment artists",
+                        "historical movements environment art",
+                        "key figures set design",
+                        "impactful environment creators"
+                      ],
+                      "title": "Influential Figures and Milestones in Environment Design"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Research and present a concise overview of a specific historical period or a pivotal environment designer.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "research historical environment design period",
+                        "analyze a pioneering environment artist",
+                        "historical environment design presentation topics",
+                        "summary of environment art evolution",
+                        "compare historical environment design styles"
+                      ],
+                      "title": "Research Assignment: A Deep Dive into Environment Design History"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
+                },
+                {
+                  "description": "Explores the diverse applications of environment design in film, video games, animation, and other visual storytelling mediums, highlighting different roles and responsibilities.",
+                  "id": "ENVD101-S02",
+                  "learning_outcome": "Students will identify key industries where environment design is crucial and understand the various roles environment designers play.",
+                  "order_index": 2,
+                  "title": "Environment Design Across Industries",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the foundational role of environment design in the film and television industry, covering live-action and animation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "environment design in film",
+                        "production design in cinema",
+                        "set design principles",
+                        "animated film world building",
+                        "visual storytelling environments"
+                      ],
+                      "title": "Environment Design in Film & TV: Setting the Scene"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 55,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Explore the unique challenges and opportunities of designing interactive environments for video games, focusing on player experience.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "video game environment art tutorial",
+                        "level design basics",
+                        "game world creation",
+                        "environmental storytelling games",
+                        "3D environment artist workflow"
+                      ],
+                      "title": "Interactive Worlds: Environment Design for Video Games"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Identify the diverse roles and responsibilities environment designers take on across different industries, from concept to final asset.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "environment designer job roles",
+                        "concept artist vs environment artist",
+                        "matte painter responsibilities",
+                        "career path environment art",
+                        "production designer roles"
+                      ],
+                      "title": "Roles & Responsibilities: The Environment Designer's Hat Rack"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze specific case studies of successful environment design across film, games, and animation to understand their impact and execution.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "best environment design examples",
+                        "iconic movie sets analysis",
+                        "game environment design breakdown",
+                        "animation background art analysis",
+                        "effective environment design case studies"
+                      ],
+                      "title": "Industry Spotlights: Analyzing Masterful Environments"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Research and present on a specific industry's unique demands and approaches to environment design, showcasing a key example.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "environment design research project",
+                        "industry specific environment art",
+                        "how to analyze environment design",
+                        "presenting environment design",
+                        "portfolio piece environment design"
+                      ],
+                      "title": "Project: Environment Design Across Industries Presentation"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
+                },
+                {
+                  "description": "Covers the fundamental principles of visual storytelling as applied to environments, including mood, theme, narrative elements, and emotional impact.",
+                  "id": "ENVD101-S03",
+                  "learning_outcome": "Students will understand how environmental elements contribute to narrative and emotional resonance in visual media.",
+                  "order_index": 3,
+                  "title": "Visual Storytelling Through Environments",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core principles of visual storytelling in environments, including mood, theme, and initial narrative intention.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "environmental storytelling principles",
+                        "defining mood in environments",
+                        "narrative design in visual spaces",
+                        "theme in environment art",
+                        "visual storytelling basics"
+                      ],
+                      "title": "Foundations: What is Environmental Storytelling?"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze examples from various media (games, film) to identify how specific environmental elements convey story, character, and emotional resonance.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "environmental storytelling analysis games",
+                        "film environment narrative breakdown",
+                        "how environments tell stories examples",
+                        "visual storytelling case studies",
+                        "environment art analysis tutorial"
+                      ],
+                      "title": "Deconstructing Narrative Environments: Case Studies"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Learn how individual elements like props, architectural style, and atmospheric effects contribute to the overall narrative and emotional impact of an environment.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "props for environmental storytelling",
+                        "architecture as narrative device",
+                        "atmospheric effects environment art",
+                        "telling story with environment details",
+                        "symbolism in environment design"
+                      ],
+                      "title": "Elements of Story: Props, Architecture, and Atmosphere"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Explore practical techniques for using lighting, color palettes, and post-processing to establish specific moods and reinforce thematic elements in an environment.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "lighting for emotional impact environment",
+                        "color theory environment art",
+                        "cinematic lighting environment design",
+                        "mood lighting techniques 3D environment",
+                        "visual atmosphere creation tutorial"
+                      ],
+                      "title": "Designing for Mood and Theme: Lighting & Color"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned principles to develop a conceptual sketch or paintover of an environment that clearly communicates a specific mood, theme, and narrative fragment.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "environmental storytelling concept art assignment",
+                        "narrative environment sketch tutorial",
+                        "creating mood through environment concept",
+                        "designing storytelling spaces practice",
+                        "environment art assignment mood board"
+                      ],
+                      "title": "Assignment: Concepting a Narrative Space"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
+                },
+                {
+                  "description": "Focuses on the process of world-building, including establishing lore, cultures, geography, and how these elements inform the design of believable and immersive environments.",
+                  "id": "ENVD101-S04",
+                  "learning_outcome": "Students will learn techniques for creating coherent and immersive worlds that support a given narrative.",
+                  "order_index": 4,
+                  "title": "World-Building and Narrative Context",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Introduces principles of spatial organization, compositional techniques, and understanding scale and proportion in environment design to guide the viewer's eye and convey information.",
+                  "id": "ENVD101-S05",
+                  "learning_outcome": "Students will apply principles of layout, composition, and scale to create visually compelling and functional environmental spaces.",
+                  "order_index": 5,
+                  "title": "Layout, Composition, and Scale",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explores the crucial role of lighting and color theory in establishing mood, atmosphere, depth, and guiding visual focus within an environment to enhance storytelling.",
+                  "id": "ENVD101-S06",
+                  "learning_outcome": "Students will understand how to use lighting and color effectively to evoke specific emotions and enhance environmental storytelling.",
+                  "order_index": 6,
+                  "title": "Lighting, Color, and Atmosphere",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "ENVD102",
+              "description": "Develop core traditional art skills essential for environment design, including perspective drawing, form, value studies, and understanding light and shadow to create believable spaces.",
+              "id": "envd-course-002",
+              "is_core": true,
+              "tier": "Foundations",
+              "title": "Visual Fundamentals for Environment Artists",
+              "year_level": 1,
+              "subjects": [
+                {
+                  "description": "Introduction to basic drawing tools, line quality, gesture drawing, and observing basic geometric forms in space. Develop foundational hand-eye coordination and spatial awareness.",
+                  "id": "ENVD102_SUBJ01",
+                  "learning_outcome": "Students will be able to accurately sketch basic forms and objects from observation, demonstrating an understanding of line and proportion.",
+                  "order_index": 1,
+                  "title": "Fundamentals of Observation and Sketching",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explore one-point, two-point, and an introduction to three-point perspective. Learn to construct basic environmental spaces and objects within a determined viewpoint, establishing believable depth.",
+                  "id": "ENVD102_SUBJ02",
+                  "learning_outcome": "Students will be able to construct accurate perspective grids and draw simple environmental scenes using one-point and two-point perspective.",
+                  "order_index": 2,
+                  "title": "Principles of Perspective Drawing",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Delve into understanding objects as three-dimensional forms composed of planes and volumes. Study how light interacts with different surfaces and the structural integrity of various elements relevant to environments.",
+                  "id": "ENVD102_SUBJ03",
+                  "learning_outcome": "Students will be able to analyze and draw complex forms, breaking them down into simpler geometric primitives and understanding their spatial relationships.",
+                  "order_index": 3,
+                  "title": "Form, Volume, and Structure",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "A deep dive into the principles of light and shadow, including cast shadows, form shadows, reflected light, and ambient occlusion. Develop skills in creating a full range of values to render believable form and mood in an environment.",
+                  "id": "ENVD102_SUBJ04",
+                  "learning_outcome": "Students will be able to apply a full range of values to create realistic light and shadow effects, enhancing the three-dimensionality and mood of their environmental drawings.",
+                  "order_index": 4,
+                  "title": "Mastering Value and Lighting",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Understand how atmospheric effects (fog, haze) influence value and detail over distance. Explore fundamental principles of composition to arrange elements effectively, guiding the viewer's eye and creating compelling environmental narratives.",
+                  "id": "ENVD102_SUBJ05",
+                  "learning_outcome": "Students will be able to utilize atmospheric perspective to create depth and employ compositional rules to design visually engaging environmental layouts.",
+                  "order_index": 5,
+                  "title": "Atmospheric Perspective and Composition",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "ENVD103",
+              "description": "Master digital painting software (e.g., Photoshop) with a focus on environmental applications. Covers brush techniques, color theory, atmospheric perspective, and digital workflow for concept art.",
+              "id": "envd-course-003",
+              "is_core": true,
+              "tier": "Foundations",
+              "title": "Digital Painting & Color Theory for Environments",
+              "year_level": 1,
+              "subjects": [
+                {
+                  "description": "An introduction to digital painting software, focusing on Adobe Photoshop. Students will learn the interface, essential tools, layers, selection techniques, and setting up an efficient digital workspace for environment art.",
+                  "id": "ENVD103-S1",
+                  "learning_outcome": "Students will be able to navigate the digital painting software interface, utilize fundamental tools, and organize their digital canvas effectively for environmental art projects.",
+                  "order_index": 1,
+                  "title": "Digital Canvas & Core Tools",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Exploration of how light interacts with various forms to create dimension and realism in environmental scenes. Covers value studies, understanding light sources, cast shadows, and rendering basic geometric and organic shapes digitally.",
+                  "id": "ENVD103-S2",
+                  "learning_outcome": "Students will be able to accurately represent light and shadow on environmental forms, creating a sense of volume and depth using digital painting techniques.",
+                  "order_index": 2,
+                  "title": "Fundamentals of Light, Form, and Value",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Deep dive into color theory specifically applied to environments. Topics include color schemes, temperature, saturation, psychological impact of color, and using color to establish time of day, weather, and mood in environmental paintings.",
+                  "id": "ENVD103-S3",
+                  "learning_outcome": "Students will be able to apply advanced color theory principles to create compelling and mood-driven environmental color palettes and studies.",
+                  "order_index": 3,
+                  "title": "Environmental Color Harmony & Mood",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Mastering various brush techniques for rendering natural environmental elements such as rocks, foliage, water, and skies. Focus on creating believable textures and organic forms using custom brushes and traditional painting methods digitally.",
+                  "id": "ENVD103-S4",
+                  "learning_outcome": "Students will be able to effectively utilize diverse digital brushes and techniques to paint realistic textures and organic elements found in natural environments.",
+                  "order_index": 4,
+                  "title": "Digital Brushwork and Environmental Textures",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Understanding and applying atmospheric perspective to create convincing depth and distance in environmental paintings. Covers principles of aerial perspective, fog, mist, and haze, and their impact on color and value.",
+                  "id": "ENVD103-S5",
+                  "learning_outcome": "Students will be able to successfully implement atmospheric perspective to enhance the sense of depth and realism in their environmental digital paintings.",
+                  "order_index": 5,
+                  "title": "Creating Depth with Atmospheric Perspective",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Principles of strong composition tailored for environmental concept art. Covers rule of thirds, leading lines, framing, focal points, and designing scenes that tell a story or evoke a specific feeling.",
+                  "id": "ENVD103-S6",
+                  "learning_outcome": "Students will be able to compose visually strong and narratively engaging environmental scenes that effectively guide the viewer's eye.",
+                  "order_index": 6,
+                  "title": "Composition and Narrative in Environments",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "An overview of the complete digital painting workflow for environmental concept art, from initial thumbnails and reference gathering to final rendering and presentation. Includes tips for efficiency and industry standards.",
+                  "id": "ENVD103-S7",
+                  "learning_outcome": "Students will be able to execute a complete digital painting workflow for environmental concept art, producing production-ready artwork.",
+                  "order_index": 7,
+                  "title": "Concept Art Workflow & Industry Practices",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "ENVD104",
+              "description": "Learn the rules of effective visual composition, guiding the viewer's eye through a scene. Focuses on layout principles, spatial relationships, and creating a sense of depth and scale in environments.",
+              "id": "envd-course-004",
+              "is_core": true,
+              "tier": "Foundations",
+              "title": "Principles of Composition & Scene Layout",
+              "year_level": 1,
+              "subjects": [
+                {
+                  "description": "Introduces the fundamental concepts and importance of visual composition in environment design. Explores basic terminology, the psychological impact of arrangement, and the role of composition in storytelling.",
+                  "id": "ENVD104-S01",
+                  "learning_outcome": "Students will be able to define visual composition, explain its significance in guiding viewer perception, and articulate its role in enhancing narrative within a scene.",
+                  "order_index": 1,
+                  "title": "Foundations of Visual Composition",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Covers essential compositional rules such as the Rule of Thirds, Golden Ratio, leading lines, framing, and points of interest to create balanced, harmonious, and engaging scene layouts.",
+                  "id": "ENVD104-S02",
+                  "learning_outcome": "Students will be able to identify and effectively apply fundamental compositional rules to improve the aesthetic quality and readability of their environment designs.",
+                  "order_index": 2,
+                  "title": "Core Compositional Principles",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focuses on how elements are arranged in space, exploring concepts like positive and negative space, proximity, alignment, contrast, and rhythm to establish clear visual hierarchy and structure.",
+                  "id": "ENVD104-S03",
+                  "learning_outcome": "Students will be able to utilize spatial relationships and layout principles to organize elements within a scene, creating coherent, dynamic, and impactful compositions.",
+                  "order_index": 3,
+                  "title": "Spatial Relationships and Layout Design",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explores techniques for controlling where the viewer looks within a scene, including the establishment of focal points, visual pathways, and emotional resonance through strategic compositional choices.",
+                  "id": "ENVD104-S04",
+                  "learning_outcome": "Students will be able to design environments that intentionally guide the viewer's gaze, emphasizing key elements and effectively communicating desired narratives or emotions.",
+                  "order_index": 4,
+                  "title": "Directing the Viewer's Eye",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Delves into methods for generating a convincing sense of depth and scale in two-dimensional representations of environments, utilizing atmospheric perspective, layering, overlapping forms, and size variation.",
+                  "id": "ENVD104-S05",
+                  "learning_outcome": "Students will be able to apply various techniques to effectively portray depth and scale, making environments feel expansive, immersive, and believable to the viewer.",
+                  "order_index": 5,
+                  "title": "Creating Depth and Scale in Environments",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Examines more complex compositional strategies, including dynamic symmetry, implied lines, and the integration of light and shadow, followed by critical analysis of compositional masterworks from various media.",
+                  "id": "ENVD104-S06",
+                  "learning_outcome": "Students will be able to critically analyze complex compositions in existing artworks and apply advanced principles to refine and add sophistication to their own environment designs.",
+                  "order_index": 6,
+                  "title": "Advanced Composition and Scene Analysis",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "ENVD105",
+              "description": "Explore basic 3D software (e.g., Blender/SketchUp) for quick environment blocking and massing. Learn to effectively use photographic and 3D references to inform design decisions and accelerate workflow.",
+              "id": "envd-course-005",
+              "is_core": true,
+              "tier": "Foundations",
+              "title": "Introduction to 3D Blocking & Reference Integration",
+              "year_level": 1,
+              "subjects": [
+                {
+                  "description": "This module introduces the core concepts of 3D blocking, its purpose in the design pipeline, and its advantages for rapid iteration and spatial problem-solving.",
+                  "id": "ENVD105-S01",
+                  "learning_outcome": "Students will be able to articulate the definition and importance of 3D blocking in environment design and identify its role in accelerating the creative process.",
+                  "order_index": 1,
+                  "title": "Introduction to 3D Blocking Fundamentals",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Dive into the fundamentals of chosen 3D software (Blender/SketchUp), covering interface navigation, basic object manipulation, and understanding the viewport.",
+                  "id": "ENVD105-S02",
+                  "learning_outcome": "Students will be proficient in navigating the software interface, creating basic primitive shapes, and performing fundamental transformations (move, rotate, scale).",
+                  "order_index": 2,
+                  "title": "Navigating Your 3D Workspace: Blender/SketchUp Basics",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Learn practical methods for rapidly building architectural and environmental forms using simple geometry. Focus on understanding scale, proportion, and creating compelling massing compositions.",
+                  "id": "ENVD105-S03",
+                  "learning_outcome": "Students will be able to construct basic environment layouts using primitive shapes, establish correct scale and proportion, and develop initial massing compositions.",
+                  "order_index": 3,
+                  "title": "Essential Blocking Techniques & Massing",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explore the diverse world of references (photographic, conceptual art, 3D scans, existing models) and understand how to effectively source, analyze, and apply them to inform design decisions.",
+                  "id": "ENVD105-S04",
+                  "learning_outcome": "Students will be able to identify different types of references, understand their strategic use in design, and develop criteria for selecting appropriate reference material.",
+                  "order_index": 4,
+                  "title": "The Power of Reference: Types & Application",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module focuses on practical techniques for incorporating 2D photographic references directly into 3D scenes. Learn about image planes, perspective matching, and extracting design elements from photos.",
+                  "id": "ENVD105-S05",
+                  "learning_outcome": "Students will be able to set up and align photographic references within their 3D workspace and use them as guides for blocking architectural and environmental elements.",
+                  "order_index": 5,
+                  "title": "Integrating Photographic Reference",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Discover how to leverage existing 3D models and assets to speed up the blocking process. This includes importing models, basic kitbashing principles, and composing scenes with pre-made components.",
+                  "id": "ENVD105-S06",
+                  "learning_outcome": "Students will be able to import and manipulate existing 3D assets, apply basic kitbashing techniques, and integrate various 3D references to enrich their blocked environments.",
+                  "order_index": 6,
+                  "title": "Utilizing 3D Reference & Kitbashing Basics",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Understand the iterative nature of the design process. Learn strategies for quickly generating variations, incorporating feedback, and refining blocked scenes to improve composition and narrative.",
+                  "id": "ENVD105-S07",
+                  "learning_outcome": "Students will be able to rapidly iterate on their blocked designs, apply constructive feedback, and make informed adjustments to enhance the visual and structural integrity of their environments.",
+                  "order_index": 7,
+                  "title": "Iteration, Feedback & Refinement",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Apply all learned skills to a comprehensive blocking project. Students will develop an environment from a given concept, utilize references, block it out in 3D, and present their work.",
+                  "id": "ENVD105-S08",
+                  "learning_outcome": "Students will be able to independently plan, execute, and present a complete 3D blocked environment, demonstrating proficiency in both software and design principles.",
+                  "order_index": 8,
+                  "title": "Final Blocking Project: Concept to Presentation",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "ENVD201",
+              "description": "Dive into the process of creating compelling and coherent fictional worlds. This course explores how narrative, lore, history, and cultural elements influence environmental design and visual storytelling.",
+              "id": "envd-course-006",
+              "is_core": true,
+              "tier": "Production",
+              "title": "World-Building and Narrative Design",
+              "year_level": 2,
+              "subjects": [
+                {
+                  "description": "Introduces the core principles and methodologies of comprehensive world-building, exploring its multidisciplinary nature and its role in narrative and game design.",
+                  "id": "ENVD201-01",
+                  "learning_outcome": "Students will be able to articulate the fundamental components of a fictional world and understand the iterative process of world creation.",
+                  "order_index": 1,
+                  "title": "Foundations of Fictional Worlds",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focuses on developing a rich history, mythology, and compelling narratives that are intrinsically linked to the world's design. Explores how lore informs and enhances environmental storytelling.",
+                  "id": "ENVD201-02",
+                  "learning_outcome": "Students will be able to construct coherent timelines, mythologies, and historical events that serve as foundational lore for a world.",
+                  "order_index": 2,
+                  "title": "Weaving Narrative into World Lore",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Delves into the creation of believable cultures, political structures, economic systems, and the diverse inhabitants that populate a fictional world. Examines the interplay between environment and societal development.",
+                  "id": "ENVD201-03",
+                  "learning_outcome": "Students will be able to design distinct cultures, social hierarchies, and inhabitant archetypes that feel authentic and organically tied to their world.",
+                  "order_index": 3,
+                  "title": "Cultures, Societies, and Inhabitants",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explores advanced techniques for embedding narrative, history, and character information directly into the physical environment. Covers visual cues, ruin theory, and the passive communication of lore.",
+                  "id": "ENVD201-04",
+                  "learning_outcome": "Students will be able to design environments that convey specific narrative beats, historical events, and character traits without explicit dialogue or text.",
+                  "order_index": 4,
+                  "title": "The Art of Environmental Storytelling",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focuses on translating abstract world-building concepts into tangible visual aesthetics. Covers art direction, mood boards, color theory, and material language as tools for expressing world identity.",
+                  "id": "ENVD201-05",
+                  "learning_outcome": "Students will be able to develop a consistent visual language and aesthetic principles that effectively communicate the unique identity of their fictional world.",
+                  "order_index": 5,
+                  "title": "Visual Language and Aesthetic Cohesion",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Guides students through the process of refining, expanding, and presenting their world-building projects. Emphasizes feedback integration, documentation, and communicating complex world concepts effectively.",
+                  "id": "ENVD201-06",
+                  "learning_outcome": "Students will be able to iteratively refine their world designs and effectively present their developed worlds to a professional audience.",
+                  "order_index": 6,
+                  "title": "World Iteration and Presentation",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "ENVD202",
+              "description": "A deep dive into complex lighting scenarios, including natural, artificial, and fantastical light sources. Focuses on using light to establish mood, direct attention, and enhance realism or stylization within environments.",
+              "id": "envd-course-007",
+              "is_core": true,
+              "tier": "Production",
+              "title": "Advanced Environmental Lighting & Mood",
+              "year_level": 2,
+              "subjects": [
+                {
+                  "description": "Delves into the underlying physics of light, advanced color theory, and the principles governing light interaction with surfaces in various environments. Focuses on light properties, spectral distribution, and advanced light source types.",
+                  "id": "ENVD202-01",
+                  "learning_outcome": "Students will master the scientific and artistic principles of light, including spectral distribution, light propagation, and interaction with diverse materials, to inform their advanced lighting designs.",
+                  "order_index": 1,
+                  "title": "Advanced Lighting Physics & Properties",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explores complex natural light phenomena, including time of day cycles, diverse weather conditions, global illumination, and atmospheric effects (fog, haze, volumetric light) in various outdoor and indoor settings.",
+                  "id": "ENVD202-02",
+                  "learning_outcome": "Students will be able to convincingly simulate and stylize natural light sources and atmospheric conditions to create realistic or fantastical outdoor and indoor environmental lighting.",
+                  "order_index": 2,
+                  "title": "Mastering Natural & Atmospheric Lighting",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focuses on the design and implementation of various artificial light sources, including architectural lighting, prop-based practical lights, and emissive geometry, considering their functional and aesthetic roles in complex scenes.",
+                  "id": "ENVD202-03",
+                  "learning_outcome": "Students will be proficient in designing, implementing, and integrating advanced artificial and practical lighting systems to support environmental storytelling and visual hierarchy.",
+                  "order_index": 3,
+                  "title": "Artificial & Practical Light Systems",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explores methods for conceptualizing and executing non-photorealistic, magical, sci-fi, horror, or genre-specific lighting scenarios, pushing the boundaries of realism for artistic expression and mood.",
+                  "id": "ENVD202-04",
+                  "learning_outcome": "Students will develop the ability to create visually striking and unique lighting designs for fantastical, stylized, or genre-specific environments, employing creative light sources and effects.",
+                  "order_index": 4,
+                  "title": "Fantastical & Stylized Lighting Techniques",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Concentrates on the psychological impact of light, using color, contrast, intensity, and shadow to evoke specific emotions, establish narrative beats, and effectively guide the viewer's attention within an environment.",
+                  "id": "ENVD202-05",
+                  "learning_outcome": "Students will skillfully manipulate light to establish powerful moods, enhance narrative elements, and effectively direct the viewer's focus within complex environmental scenes.",
+                  "order_index": 5,
+                  "title": "Lighting for Mood, Narrative & Direction",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Covers advanced rendering techniques, optimization strategies for real-time and pre-rendered environments, and sophisticated post-processing effects (color grading, lens flares, depth of field, bloom) to finalize and polish environmental lighting.",
+                  "id": "ENVD202-06",
+                  "learning_outcome": "Students will be able to optimize complex lighting setups for performance, utilize advanced rendering features, and apply post-processing techniques to achieve high-fidelity and polished lighting results.",
+                  "order_index": 6,
+                  "title": "Advanced Rendering & Post-Production for Lighting",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "ENVD203",
+              "description": "Focuses on designing believable architectural structures, from ancient ruins to futuristic cities. Covers architectural styles, structural integrity, material studies, and integration into diverse environments.",
+              "id": "envd-course-008",
+              "is_core": true,
+              "tier": "Production",
+              "title": "Architectural & Structural Design for Environments",
+              "year_level": 2,
+              "subjects": [
+                {
+                  "description": "Explore the evolution of architectural styles from ancient civilizations to contemporary movements. Learn to identify and apply key stylistic elements, focusing on historical accuracy and stylistic adaptation for diverse project needs.",
+                  "id": "ENVD203-S1",
+                  "learning_outcome": "Analyze and categorize diverse architectural styles, applying historical precedents to create contextually appropriate designs.",
+                  "order_index": 1,
+                  "title": "Architectural History & Stylization",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Delve into fundamental structural engineering principles, understanding forces, loads, and material properties that ensure structural stability. Focus on designing believable and functional architectural forms that withstand environmental stresses.",
+                  "id": "ENVD203-S2",
+                  "learning_outcome": "Apply basic structural principles to ensure the visual and functional integrity of architectural designs.",
+                  "order_index": 2,
+                  "title": "Structural Integrity & Functional Design",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Investigate a wide range of building materials, their physical properties, aesthetic qualities, and how they interact with different environments. Learn techniques for texturing and rendering materials to enhance realism and environmental storytelling.",
+                  "id": "ENVD203-S3",
+                  "learning_outcome": "Select and realistically represent appropriate materials for architectural designs, considering environmental wear and interaction.",
+                  "order_index": 3,
+                  "title": "Materiality & Environmental Texturing",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focus on integrating architectural structures seamlessly into diverse environments, from natural landscapes to urban settings. Explore principles of site planning, terrain adaptation, and how environments influence design choices and narrative context.",
+                  "id": "ENVD203-S4",
+                  "learning_outcome": "Design structures that respond effectively to their surrounding environment, enhancing both visual appeal and narrative context.",
+                  "order_index": 4,
+                  "title": "Site Integration & Environmental Storytelling",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explore conceptual design for advanced or imagined environments, moving beyond traditional architectural constraints. Develop unique structural solutions and aesthetic visions for futuristic cities, space habitats, or fantasy realms.",
+                  "id": "ENVD203-S5",
+                  "learning_outcome": "Innovate and design original architectural concepts for speculative or non-traditional environments, maintaining believability and structural logic.",
+                  "order_index": 5,
+                  "title": "Futuristic & Speculative Architecture",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "ENVD204",
+              "description": "Specialized course on creating natural environments, including landscapes, vegetation, geological formations, and water bodies. Emphasizes ecological principles and procedural techniques for organic world-building.",
+              "id": "envd-course-009",
+              "is_core": true,
+              "tier": "Production",
+              "title": "Organic Environments & Ecosystem Design",
+              "year_level": 3,
+              "subjects": [
+                {
+                  "description": "Introduction to the core principles of designing natural environments, focusing on ecological concepts, natural processes, and their artistic application in world-building. Covers observation of real-world environments and the translation into digital assets.",
+                  "id": "ENVD204_S01",
+                  "learning_outcome": "Students will be able to identify and apply fundamental ecological principles to environment design and analyze natural references effectively.",
+                  "order_index": 1,
+                  "title": "Foundations of Organic Environment Design",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explores techniques for generating realistic landscapes and geological formations using procedural tools. Covers erosion simulation, layering, material blending, and advanced sculpting methods to create diverse topographical features like mountains, valleys, and canyons.",
+                  "id": "ENVD204_S02",
+                  "learning_outcome": "Students will be proficient in using procedural generation tools to create complex and believable geological terrains with accurate erosion and material distribution.",
+                  "order_index": 2,
+                  "title": "Procedural Terrain and Geological Sculpting",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focuses on designing, generating, and populating environments with diverse vegetation. Covers plant modeling, scattering tools, wind simulations, and the principles of creating distinct biomes (forests, deserts, grasslands, etc.) based on ecological niches.",
+                  "id": "ENVD204_S03",
+                  "learning_outcome": "Students will be able to design and implement realistic vegetation systems, creating varied biomes that enhance the ecological authenticity of an environment.",
+                  "order_index": 3,
+                  "title": "Dynamic Vegetation Systems and Biome Creation",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Dedicated to the creation and integration of realistic water features such as rivers, lakes, waterfalls, and oceans. Explores techniques for surface rendering, fluid simulation, interaction with terrain, and visual effects like foam and reflections.",
+                  "id": "ENVD204_S04",
+                  "learning_outcome": "Students will master the creation of various water bodies, understanding their physical properties and visual effects to integrate them seamlessly into natural environments.",
+                  "order_index": 4,
+                  "title": "Water Bodies and Fluid Dynamics",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Covers the essential role of atmosphere and lighting in conveying mood, time of day, and environmental conditions. Explores techniques for volumetric fog, clouds, skyboxes, global illumination, and physically based lighting setups for natural scenes.",
+                  "id": "ENVD204_S05",
+                  "learning_outcome": "Students will be able to set up compelling natural lighting and atmospheric effects to enhance realism and evoke specific moods within their environments.",
+                  "order_index": 5,
+                  "title": "Atmospheric Effects and Natural Lighting",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This subject brings together all previous modules, focusing on advanced techniques for integrating diverse environmental elements into cohesive, high-performance ecosystems. Covers asset management, level of detail (LOD) systems, performance optimization, and final scene assembly.",
+                  "id": "ENVD204_S06",
+                  "learning_outcome": "Students will be able to integrate complex environmental elements into fully realized ecosystems, optimizing for performance while maintaining visual fidelity.",
+                  "order_index": 6,
+                  "title": "Ecosystem Integration and Optimization",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "ENVD205",
+              "description": "Master advanced digital techniques for integrating photographic elements and textures into environment concepts. Focuses on efficiency, realism, and achieving high-fidelity results through photobashing and digital matte painting.",
+              "id": "envd-course-010",
+              "is_core": true,
+              "tier": "Production",
+              "title": "Photobashing & Matte Painting for Concept Art",
+              "year_level": 3,
+              "subjects": [
+                {
+                  "description": "Introduces the core concepts, industry applications, and essential software tools (primarily Photoshop) for photobashing and digital matte painting in environment concept art. Covers basic workflow principles and non-destructive methodologies.",
+                  "id": "ENVD205_S01",
+                  "learning_outcome": "Students will be able to articulate the principles of photobashing and matte painting, identify industry applications, and set up a foundational project file in Photoshop using non-destructive layers.",
+                  "order_index": 1,
+                  "title": "Foundations of Photobashing & Matte Painting",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focuses on developing a keen eye for photographic reference, efficient sourcing from various libraries, and best practices for organizing and preparing image assets for seamless integration. Covers resolution, perspective matching, and initial image adjustments.",
+                  "id": "ENVD205_S02",
+                  "learning_outcome": "Students will be able to effectively source high-quality photographic assets, manage a library of resources, and perform initial adjustments and perspective corrections to prepare images for compositing.",
+                  "order_index": 2,
+                  "title": "Strategic Photo Sourcing & Asset Management",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explores fundamental artistic principles of composition, focal points, and accurate perspective construction within environment concepts. Students will learn to establish strong initial layouts and block out major forms using simple photo elements.",
+                  "id": "ENVD205_S03",
+                  "learning_outcome": "Students will be able to create compelling compositions, accurately establish perspective for environments, and effectively block out primary forms using initial photographic elements to define the scene.",
+                  "order_index": 3,
+                  "title": "Composition, Perspective, and Blocking",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Delves into advanced blending techniques, precise masking, and sophisticated tools for matching light, shadow, and color across disparate photographic elements. Emphasizes achieving photographic realism through consistent rendering.",
+                  "id": "ENVD205_S04",
+                  "learning_outcome": "Students will be able to seamlessly integrate multiple photographic elements using advanced masking and blending modes, and accurately match light, shadow, and color temperatures to create a cohesive scene.",
+                  "order_index": 4,
+                  "title": "Seamless Integration & Light/Color Matching",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focuses on creating depth, distance, and emotional impact through atmospheric effects such as fog, mist, rain, and volumetric lighting. Explores techniques for integrating dynamic environmental phenomena into the matte painting.",
+                  "id": "ENVD205_S05",
+                  "learning_outcome": "Students will be able to generate convincing atmospheric effects, establish a distinct mood, and integrate environmental phenomena to enhance depth and storytelling within their concept art.",
+                  "order_index": 5,
+                  "title": "Atmosphere, Mood & Environmental Effects",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Covers techniques for adding high-frequency details, refining textures, and applying digital painting overlays to unify the image, eliminate photo artifacting, and imbue a unique artistic style. Focuses on achieving a blend of photographic and painterly qualities.",
+                  "id": "ENVD205_S06",
+                  "learning_outcome": "Students will be able to add realistic fine details and texture variations, use digital painting techniques to refine and unify photographic elements, and achieve a high level of fidelity and artistic finish.",
+                  "order_index": 6,
+                  "title": "Detailing, Texture Refinement & Painterly Overlays",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explores advanced Photoshop features like Smart Objects, adjustment layers, actions, and custom brushes to optimize workflow for speed and non-destructive iteration. Focuses on maintaining project flexibility and efficiency for professional pipelines.",
+                  "id": "ENVD205_S07",
+                  "learning_outcome": "Students will be able to implement advanced non-destructive workflows, utilize Smart Objects and custom tools, and apply efficient production techniques to maintain project flexibility and speed up their creative process.",
+                  "order_index": 7,
+                  "title": "Advanced Workflow & Production Efficiency",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "The concluding module focuses on the final stages of matte painting, including advanced color grading, contrast adjustments, and sharpening techniques to achieve a professional, high-fidelity finish. Also covers preparing artwork for portfolio presentation and client delivery.",
+                  "id": "ENVD205_S08",
+                  "learning_outcome": "Students will be able to apply advanced color grading and post-processing techniques to achieve a professional final look and prepare their concept art for effective portfolio presentation and industry standards.",
+                  "order_index": 8,
+                  "title": "Final Polish, Color Grading & Presentation",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "ENVD206",
+              "description": "Learn to design and integrate props and environmental details that enhance narrative, character, and realism. Focuses on prop functionality, visual consistency, and adding depth to a scene.",
+              "id": "envd-course-011",
+              "is_core": true,
+              "tier": "Production",
+              "title": "Prop & Set Dressing for Environmental Storytelling",
+              "year_level": 3,
+              "subjects": [
+                {
+                  "description": "Explore the core concepts of environmental storytelling, examining how everyday objects and details communicate narrative, character, and setting. Understand the fundamental principles behind effective prop design and their impact on a scene's overall message.",
+                  "id": "ENVD206-S1",
+                  "learning_outcome": "Understand the foundational role of props and set dressing in conveying narrative, character personality, and world-building within various media.",
+                  "order_index": 1,
+                  "title": "Foundations of Environmental Storytelling & Prop Design",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Delve into the practical aspects of prop design, focusing on functionality, ergonomics, and material properties. Learn how to design props that not only look authentic but also serve a believable purpose within the scene, considering their construction and interaction.",
+                  "id": "ENVD206-S2",
+                  "learning_outcome": "Design props with consideration for their intended use, material integrity, and physical interaction within a defined environment.",
+                  "order_index": 2,
+                  "title": "Prop Functionality, Materiality & Construction",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Master techniques for ensuring visual consistency and integrating props seamlessly into a scene's overall aesthetic, theme, and historical or futuristic context. Explore color theory, silhouette, and stylistic coherence to create a unified visual language.",
+                  "id": "ENVD206-S3",
+                  "learning_outcome": "Apply principles of visual consistency, aesthetic harmony, and stylistic integration to create cohesive and believable environments.",
+                  "order_index": 3,
+                  "title": "Visual Cohesion & Stylistic Integration",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Learn to tell compelling stories and reveal character depths through the strategic placement and design of props. Explore how seemingly minor details can communicate backstories, current emotional states, and the history of a location without explicit dialogue.",
+                  "id": "ENVD206-S4",
+                  "learning_outcome": "Employ set dressing and prop placement to communicate subtle narrative cues and enrich character and world-building effectively.",
+                  "order_index": 4,
+                  "title": "Narrative & Character Through Detailed Dressing",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focus on advanced techniques for adding realism and depth to environments. This includes understanding the impact of wear, tear, damage, and environmental effects to create spaces that feel authentic, lived-in, and have a tangible sense of history.",
+                  "id": "ENVD206-S5",
+                  "learning_outcome": "Create believable and immersive environments by applying nuanced details that reflect age, usage, and environmental impact.",
+                  "order_index": 5,
+                  "title": "Realism, Wear & Tear: Crafting Lived-in Worlds",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Apply all learned principles to practical set dressing scenarios, focusing on workflow optimization, project management, and presenting work professionally. Students will develop a portfolio-ready environment showcasing their skills in environmental storytelling.",
+                  "id": "ENVD206-S6",
+                  "learning_outcome": "Successfully integrate props into complex environments, demonstrating proficiency in environmental storytelling and preparing professional-quality work for a portfolio.",
+                  "order_index": 6,
+                  "title": "Practical Application & Portfolio Project",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "ENVD301",
+              "description": "Students undertake a major environment design project, applying all learned skills to create a portfolio-quality set of concepts. Emphasizes individual artistic vision, problem-solving, and professional presentation.",
+              "id": "envd-course-012",
+              "is_core": true,
+              "tier": "Mastery",
+              "title": "Advanced Concept Art Portfolio Project",
+              "year_level": 4,
+              "subjects": [
+                {
+                  "description": "Students will define their major environment design project, establish a compelling narrative and world context, and conduct extensive visual research to inform their artistic vision.",
+                  "id": "ENVD301-S1",
+                  "learning_outcome": "Successfully articulate a unique project brief, establish a rich foundational world for their environment, and define clear artistic goals.",
+                  "order_index": 1,
+                  "title": "Project Conception & Worldbuilding",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focus on creating dynamic and impactful environmental compositions that effectively convey narrative, mood, and scale. Exploration of advanced principles of visual hierarchy, camera angles, and atmosphere.",
+                  "id": "ENVD301-S2",
+                  "learning_outcome": "Design environments with strong compositional elements that effectively communicate story and emotion to the viewer.",
+                  "order_index": 2,
+                  "title": "Advanced Environmental Composition & Storytelling",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Developing cohesive and detailed designs for key architectural structures, vehicles, and props that enrich the environment and support its narrative, ensuring visual consistency and functionality.",
+                  "id": "ENVD301-S3",
+                  "learning_outcome": "Integrate well-designed architectural elements and props that enhance the overall environment's storytelling and aesthetic cohesion.",
+                  "order_index": 3,
+                  "title": "Architectural & Prop Design Integration",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Emphasis on refining concepts through multiple iterations, incorporating constructive feedback, and addressing complex design challenges effectively and creatively through advanced problem-solving techniques.",
+                  "id": "ENVD301-S4",
+                  "learning_outcome": "Apply iterative design processes to resolve complex visual problems and significantly enhance the quality and viability of their environment concepts.",
+                  "order_index": 4,
+                  "title": "Iterative Design & Creative Problem Solving",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Deep dive into surface detail, material rendering, advanced lighting setups, and post-production techniques to achieve high-fidelity, portfolio-ready visuals for their environment concepts.",
+                  "id": "ENVD301-S5",
+                  "learning_outcome": "Produce highly polished environment renders with convincing material representation, professional lighting, and impactful post-production.",
+                  "order_index": 5,
+                  "title": "Advanced Materiality, Lighting & Rendering",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Students will prepare their final environment concepts for professional presentation, focusing on effective layout, artistic statements, high-resolution deliverables, and seamless portfolio integration.",
+                  "id": "ENVD301-S6",
+                  "learning_outcome": "Assemble a professional-quality presentation of their environment design project suitable for an industry-level portfolio and articulate their artistic process.",
+                  "order_index": 6,
+                  "title": "Professional Presentation & Portfolio Readiness",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "ENVD302",
+              "description": "Explore the unique challenges and opportunities of designing environments for interactive experiences. Covers modularity, technical constraints, level design principles, and player readability in game environments.",
+              "id": "envd-course-0013",
+              "is_core": true,
+              "tier": "Mastery",
+              "title": "Environment Design for Games & Interactive Media",
+              "year_level": 4,
+              "subjects": [
+                {
+                  "description": "This module introduces the fundamental concepts and principles unique to designing environments for games and interactive media. Students will explore the historical context, the role of environment artists and designers, and the critical differences between static and interactive spaces.",
+                  "id": "ENVD302_SUB01",
+                  "learning_outcome": "Understand the distinct challenges and opportunities in designing interactive environments, and differentiate them from linear media environments.",
+                  "order_index": 1,
+                  "title": "Foundations of Interactive Environment Design",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Dive deep into the core principles of level design, focusing on player flow, navigation, pacing, challenge integration, and creating memorable gameplay spaces. This module emphasizes how environmental elements contribute to the player's journey and emotional engagement.",
+                  "id": "ENVD302_SUB02",
+                  "learning_outcome": "Apply established level design principles to create engaging, navigable, and purposeful interactive spaces that enhance player experience.",
+                  "order_index": 2,
+                  "title": "Level Design Principles & Player Experience",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explore the critical concepts of modularity and reusability in environment design. This module covers best practices for creating modular assets, developing efficient asset pipelines, and assembling complex environments from reusable components to optimize development time and performance.",
+                  "id": "ENVD302_SUB03",
+                  "learning_outcome": "Design and implement modular environment kits, and understand efficient asset pipeline workflows for game production.",
+                  "order_index": 3,
+                  "title": "Modular Design & Efficient Asset Pipelines",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module focuses on the technical considerations and limitations inherent in game environment design, including polygon budgets, texture memory, draw calls, and lighting optimization. Students will learn strategies to balance visual fidelity with performance targets across various platforms.",
+                  "id": "ENVD302_SUB04",
+                  "learning_outcome": "Identify and address technical constraints in environment design, and apply optimization techniques to ensure smooth performance across target platforms.",
+                  "order_index": 4,
+                  "title": "Technical Constraints & Performance Optimization",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Delve into the art of communicating narrative, context, and gameplay cues through environmental design. This module covers visual language, clear objective communication, creating atmosphere, and guiding the player's attention through thoughtful placement and artistic direction.",
+                  "id": "ENVD302_SUB05",
+                  "learning_outcome": "Employ environmental elements to convey narrative, guide player progression, and ensure clear readability of game spaces without explicit UI.",
+                  "order_index": 5,
+                  "title": "Environmental Storytelling & Player Readability",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module emphasizes the iterative nature of environment design, from initial blocking and rapid prototyping to comprehensive playtesting and refinement. Students will learn techniques for evaluating environmental designs, gathering feedback, and iterating to improve player experience and design effectiveness.",
+                  "id": "ENVD302_SUB06",
+                  "learning_outcome": "Develop effective prototyping strategies, conduct meaningful playtests, and apply iterative design principles to refine and optimize interactive environments.",
+                  "order_index": 6,
+                  "title": "Prototyping, Playtesting & Iteration",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "ENVD303",
+              "description": "A team-based capstone experience simulating a professional studio environment. Students collaborate on a large-scale project, focusing on pipeline integration, communication, and delivering a cohesive environment design package.",
+              "id": "envd-course-0014",
+              "is_core": true,
+              "tier": "Mastery",
+              "title": "Collaborative Environment Production Studio",
+              "year_level": 4,
+              "subjects": [
+                {
+                  "description": "Introduction to professional studio environments, defining team roles, establishing initial project scope, and setting up effective communication channels for a large-scale environment production.",
+                  "id": "ENVD303-S01",
+                  "learning_outcome": "Students will be able to define and establish team roles, project scope, and initial communication protocols for a collaborative environment production project.",
+                  "order_index": 1,
+                  "title": "Studio Setup & Collaborative Workflow",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Deep dive into conceptualizing and designing expansive, cohesive environments. Focus on narrative integration, spatial design, thematic consistency, and stylistic development for complex worlds.",
+                  "id": "ENVD303-S02",
+                  "learning_outcome": "Students will be able to develop a comprehensive conceptual design and world-building framework for a complex, large-scale environment.",
+                  "order_index": 2,
+                  "title": "Large-Scale Environment Design & World Building",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Hands-on training with industry-standard production pipelines, including version control systems (e.g., Git, Perforce), robust asset management strategies, and structured project file organization for collaborative work.",
+                  "id": "ENVD303-S03",
+                  "learning_outcome": "Students will be proficient in utilizing version control and asset management systems to maintain an organized and efficient collaborative production pipeline.",
+                  "order_index": 3,
+                  "title": "Integrated Production Pipeline & Asset Management",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focus on team-based asset creation, advanced optimization strategies, material development, and the seamless integration of diverse assets into the target engine, ensuring visual and technical coherence.",
+                  "id": "ENVD303-S04",
+                  "learning_outcome": "Students will be able to collaboratively produce optimized environment assets and integrate them effectively into a unified engine environment.",
+                  "order_index": 4,
+                  "title": "Collaborative Environment Asset Production & Integration",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Emphasizing iterative design processes, quality assurance methodologies, constructive peer feedback integration, and strategies for resolving technical and interpersonal challenges within a production team.",
+                  "id": "ENVD303-S05",
+                  "learning_outcome": "Students will demonstrate the ability to effectively incorporate feedback, conduct quality assurance, and resolve production challenges in a team setting.",
+                  "order_index": 5,
+                  "title": "Iteration, Feedback & Problem Solving",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Advanced techniques for environment optimization, dynamic and baked lighting setups, atmospheric effects, and post-processing to achieve a high-fidelity, performant, and visually stunning final product.",
+                  "id": "ENVD303-S06",
+                  "learning_outcome": "Students will be able to optimize environment performance and apply advanced lighting and post-production techniques to elevate visual quality.",
+                  "order_index": 6,
+                  "title": "Environment Optimization, Lighting & Post-Production",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Guidelines for preparing final project deliverables, creating professional presentations, and packaging the environment design for portfolio and industry review, emphasizing communication of the design intent and technical execution.",
+                  "id": "ENVD303-S07",
+                  "learning_outcome": "Students will be able to compile and present a comprehensive, professional environment design package suitable for industry portfolio and critique.",
+                  "order_index": 7,
+                  "title": "Project Deliverables & Professional Presentation",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            }
+          ]
         },
         {
           "id": "dept-prop",

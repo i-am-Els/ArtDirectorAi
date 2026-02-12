@@ -11,14 +11,21 @@ ENV_PATH = os.path.join(BASE_DIR, '.env')
 load_dotenv(ENV_LOCAL_PATH)
 load_dotenv(ENV_PATH)
 
-# Load multiple keys if available, otherwise fallback to single
-API_KEYS_STR = os.getenv("GEMINI_API_KEYS")
-if API_KEYS_STR:
-    API_KEYS = [k.strip() for k in API_KEYS_STR.split(',') if k.strip()]
-else:
-    # Fallback to single key
-    single_key = os.getenv("VITE_GEMINI_API_KEY") or os.getenv("GEMINI_API_KEY")
-    API_KEYS = [single_key] if single_key else []
+# Load multiple keys and primary key into a single pool
+API_KEYS = []
+
+# 1. Primary key fallback
+primary_key = os.getenv("VITE_GEMINI_API_KEY") or os.getenv("GEMINI_API_KEY")
+if primary_key:
+    API_KEYS.append(primary_key)
+
+# 2. Add extra rotation keys
+extra_keys_str = os.getenv("GEMINI_API_KEYS")
+if extra_keys_str:
+    extra_keys = [k.strip() for k in extra_keys_str.split(',') if k.strip()]
+    for k in extra_keys:
+        if k not in API_KEYS:
+            API_KEYS.append(k)
 
 MODEL_NAME = "gemini-2.5-flash" 
 
