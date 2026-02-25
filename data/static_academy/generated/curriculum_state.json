@@ -114326,8 +114326,85 @@
                   "learning_outcome": "Construct a functional 2D cut-out character rig in Toon Boom Harmony using essential tools like pegs, pivots, and basic deformers.",
                   "order_index": 2,
                   "title": "Toon Boom Harmony Cut-Out Rigging Foundations",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the foundational concepts of 2D rigging, the Toon Boom Harmony interface, and how to properly set up a rigging project.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "Toon Boom Harmony rigging workflow",
+                        "cut-out rigging principles",
+                        "Toon Boom project setup for rigging",
+                        "2D character rigging overview"
+                      ],
+                      "title": "Introduction to Toon Boom Harmony Rigging Workflow"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn best practices for organizing character drawing layers, naming conventions, and preparing assets to optimize the rigging process.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "Toon Boom Harmony layer organization",
+                        "character asset preparation Toon Boom",
+                        "drawing layer naming conventions rigging",
+                        "preparing artwork for cut-out rigging"
+                      ],
+                      "title": "Asset Preparation and Layer Organization for Rigging"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Master the critical role of pivot points and pegs in character articulation, and practice accurate placement to establish a basic rigging hierarchy.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "Toon Boom Harmony pivot point placement",
+                        "how to set pivots in Toon Boom",
+                        "Toon Boom pegs tutorial",
+                        "building character hierarchy with pegs"
+                      ],
+                      "title": "Understanding and Implementing Pivots and Pegs"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply basic deformers (e.g., envelope, curve) to different body parts to add flexibility, organic movement, and refine character posing.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "Toon Boom Harmony deformers explained",
+                        "envelope deformer tutorial Toon Boom",
+                        "curve deformer application Toon Boom",
+                        "adding flexibility with deformers"
+                      ],
+                      "title": "Applying Basic Deformers for Articulation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Construct a complete and functional 2D cut-out character rig in Toon Boom Harmony by integrating pegs, pivots, and deformers from prepared assets.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "Toon Boom Harmony cut-out rig tutorial",
+                        "build a functional character rig",
+                        "complete rigging workflow Toon Boom",
+                        "2D character rigging project"
+                      ],
+                      "title": "Constructing Your First Functional Cut-Out Rig"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "This subject delves into more complex rigging challenges in Toon Boom Harmony, including advanced deformer usage, creation of specialized features (e.g., hand libraries, advanced mouth shapes, eye controls), and implementing Master Controllers for efficient animation. It also covers performance optimization strategies.",
@@ -114335,8 +114412,100 @@
                   "learning_outcome": "Implement advanced rigging features such as master controllers, advanced deformers, and specialized character elements to create a highly flexible and efficient Toon Boom Harmony rig.",
                   "order_index": 3,
                   "title": "Advanced Toon Boom Harmony Rigging Techniques",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "WATCH",
+                      "objective": "Apply advanced curve, bone, and envelope deformers to create highly flexible and organic character movements.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "Toon Boom Harmony advanced deformers",
+                        "envelope deformer animation",
+                        "bone deformer tips harmony",
+                        "curve deformer advanced rigging"
+                      ],
+                      "title": "Mastering Advanced Deformers for Organic Movement"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Design and implement efficient hand libraries and complex mouth shapes with peg and drawing substitutions for expressive animation.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "Toon Boom Harmony hand library setup",
+                        "advanced mouth rigging harmony",
+                        "drawing substitution hand animation",
+                        "toon boom mouth charts"
+                      ],
+                      "title": "Building Reusable Hand Libraries and Advanced Mouth Rigs"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Construct sophisticated eye rigs with independent pupil movement, blinks, and intuitive gaze controls using deformers and parenting.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "Toon Boom Harmony eye rig tutorial",
+                        "eye gaze control setup harmony",
+                        "toon boom blink animation rig",
+                        "complex eye rig harmony"
+                      ],
+                      "title": "Implementing Dynamic Eye Rigging and Gaze Controls"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 70,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to create, link, and utilize Master Controllers to streamline animation workflow for complex character features.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "Toon Boom Harmony master controller tutorial",
+                        "how to use master controllers harmony",
+                        "master controller rig setup",
+                        "toon boom master controller workflow"
+                      ],
+                      "title": "Understanding and Implementing Master Controllers"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply Master Controllers to control multiple rig elements simultaneously, demonstrating efficient animation setup for a complex character.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "Toon Boom Harmony master controller practice",
+                        "advanced master controller assignment",
+                        "animating with master controllers",
+                        "complex rig master controller example"
+                      ],
+                      "title": "Practical Application of Master Controllers"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L6",
+                      "lesson_type": "READ",
+                      "objective": "Identify and implement strategies for optimizing rig performance, ensuring smooth animation and efficient workflow in Toon Boom Harmony.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "Toon Boom Harmony rig optimization",
+                        "improve harmony rig performance",
+                        "toon boom best rigging practices",
+                        "reducing lag in toon boom rigs"
+                      ],
+                      "title": "Rig Performance Optimization and Best Practices"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Explores skeletal animation principles and their application in Spine. Students will learn to build character skeletons, define bone hierarchies, apply meshes and weights, set up inverse kinematics (IK), and prepare rigs for export to game engines or other platforms.",
@@ -114344,8 +114513,106 @@
                   "learning_outcome": "Develop a complete skeletal character rig in Spine, utilizing bones, meshes, weights, and IK constraints, suitable for game development or interactive media.",
                   "order_index": 4,
                   "title": "Spine 2D Skeletal Rigging & Animation",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core principles of skeletal animation and navigate the Spine user interface.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "what is skeletal animation",
+                        "Spine 2D user interface explained",
+                        "benefits of skeletal animation",
+                        "Spine 2D overview tutorial",
+                        "bone animation principles"
+                      ],
+                      "title": "Skeletal Animation Fundamentals & Spine UI Tour"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to create and arrange bones to form an effective character skeleton with proper parent-child relationships.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "Spine 2D bone setup tutorial",
+                        "character bone hierarchy best practices",
+                        "creating parent child bones Spine",
+                        "Spine 2D skeletal structure guide",
+                        "basic character rig Spine"
+                      ],
+                      "title": "Constructing Your Character's Bone Hierarchy"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice creating polygon meshes for character body parts and assigning bone weights to control deformation.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "Spine 2D mesh creation tutorial",
+                        "how to weight bones Spine 2D",
+                        "polygon rigging Spine character",
+                        "Spine 2D skinning techniques",
+                        "mesh deformers Spine 2D"
+                      ],
+                      "title": "Meshing and Weighting Character Art"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Master the creation and configuration of Inverse Kinematics (IK) chains for natural and efficient limb control.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "Spine 2D IK setup tutorial",
+                        "inverse kinematics explained 2D animation",
+                        "Spine 2D arm rig IK",
+                        "how to use IK constraints Spine",
+                        "FK vs IK rigging Spine"
+                      ],
+                      "title": "Setting Up Inverse Kinematics (IK) Constraints"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Explore advanced rigging features like constraints and learn best practices for testing and exporting your Spine rigs.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "Spine 2D constraints tutorial",
+                        "Spine 2D export settings Unity",
+                        "optimizing Spine rigs for games",
+                        "Spine 2D attachments and slots",
+                        "rig testing best practices Spine"
+                      ],
+                      "title": "Advanced Rigging & Preparing for Game Engines"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply all learned concepts to create a fully functional and export-ready skeletal rig for a complete character, demonstrating proficiency in Spine.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "Spine 2D complete character rig workflow",
+                        "full character rigging tutorial Spine",
+                        "game character Spine 2D rigging",
+                        "Spine 2D portfolio project",
+                        "advanced Spine 2D rigging tips"
+                      ],
+                      "title": "Capstone Project: Rigging a Full Character"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "This subject focuses on integrating rigged characters into a production pipeline. It covers file management, naming conventions, exporting and importing rigs across different software, optimizing rigs for animation performance, and troubleshooting common rigging issues.",
@@ -114353,8 +114620,85 @@
                   "learning_outcome": "Optimize and integrate 2D character rigs into a broader animation or game development pipeline, adhering to industry standards for file management, export, and performance.",
                   "order_index": 5,
                   "title": "Rigging for Production & Technical Workflow",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand and implement industry-standard file management and naming conventions for 2D rigging assets.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "2D rigging file management best practices",
+                        "animation asset naming conventions",
+                        "rigging project folder structure",
+                        "standard character rig naming"
+                      ],
+                      "title": "File Management & Naming Conventions for Rigs"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and understand the process of exporting rigged characters and importing them into different animation software or game engines.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "2D rig export to Unity tutorial",
+                        "Toon Boom Harmony rig export workflow",
+                        "Spine rig import process",
+                        "character rig file formats for animation"
+                      ],
+                      "title": "Exporting & Importing Rigs Across Software"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Learn techniques to optimize 2D character rigs for efficient animation and real-time performance in production environments.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "optimize 2D character rig performance",
+                        "reduce bone count 2D animation",
+                        "efficient 2D deformation rigging",
+                        "performance rigging tips 2D"
+                      ],
+                      "title": "Rig Optimization for Performance & Efficiency"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Identify and resolve common problems encountered during rig integration, animation, and debugging.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "troubleshoot 2D character rig issues",
+                        "fixing broken animation rig",
+                        "common rigging errors 2D",
+                        "debug character rig animation problems"
+                      ],
+                      "title": "Troubleshooting Common Rigging Issues"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned principles to integrate a provided 2D rig into a simplified production pipeline, ensuring naming conventions, proper export, and identifying/fixing a pre-introduced issue.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "2D rig production integration exercise",
+                        "character rig pipeline practice",
+                        "apply rigging standards assignment",
+                        "fix a production rig workflow"
+                      ],
+                      "title": "Production Rig Integration & Debugging Challenge"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "This subject emphasizes the crucial link between character design and rigging. Students will learn how to design characters with rigging in mind, prepare artwork efficiently, break down character components, and create turnarounds suitable for different rigging methodologies.",
@@ -114362,8 +114706,85 @@
                   "learning_outcome": "Analyze character designs for rigging feasibility, prepare digital assets according to rigging best practices, and effectively break down character components for efficient rigging setup.",
                   "order_index": 6,
                   "title": "Character Design & Asset Preparation for Rigging",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand how initial character design decisions influence the rigging process and identify potential rigging challenges early.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "character design for rigging",
+                        "rigging friendly character design",
+                        "character design rigging limitations",
+                        "2d character design workflow rigging"
+                      ],
+                      "title": "Rigging-Conscious Character Design Principles"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn best practices for preparing digital artwork, including layer organization, naming conventions, and clean line work, to streamline the rigging process.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "2d character rigging asset preparation",
+                        "photoshop character layers rigging",
+                        "illustrator character prep for rigging",
+                        "clean artwork for 2d animation"
+                      ],
+                      "title": "Digital Asset Preparation Workflow Demo"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Understand the methodical process of breaking down a character into individual, riggable components while maintaining visual integrity.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "character breakdown for 2d rigging",
+                        "2d character segmentation rigging",
+                        "limb separation 2d animation",
+                        "joint placement 2d character"
+                      ],
+                      "title": "Deconstructing Characters into Riggable Components"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Master the creation of comprehensive character turnarounds and key poses that provide all necessary views and details for a rigger.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "2d character turnaround for rigging",
+                        "character pose preparation rigging",
+                        "consistent character views animation",
+                        "2d character drawing for riggers"
+                      ],
+                      "title": "Creating Rig-Ready Turnarounds and Pose Guides"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned principles to prepare a character design into rig-ready digital assets, demonstrating proper breakdown, layer organization, and turnaround views.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "2d character rigging project",
+                        "prepare character for animation assignment",
+                        "rigging asset breakdown practice",
+                        "digital character asset workflow"
+                      ],
+                      "title": "Character Asset Preparation Project"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 }
               ],
               "is_complete": true
@@ -114383,8 +114804,85 @@
                   "learning_outcome": "Students will be able to identify and apply core clean-up principles to rough animation, producing accurate and consistent line art.",
                   "order_index": 1,
                   "title": "Introduction to Clean-up Principles",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental role and importance of clean-up in the animation production pipeline.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "what is animation clean-up",
+                        "importance of clean-up in animation",
+                        "clean-up artist responsibilities",
+                        "animation production pipeline clean-up stage"
+                      ],
+                      "title": "The Role and Importance of Animation Clean-up"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "READ",
+                      "objective": "Identify and apply core principles of line quality, consistency, and maintaining character volume during clean-up.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "animation line quality principles",
+                        "consistent line art animation",
+                        "maintaining character volume clean-up",
+                        "line weight in animation clean-up"
+                      ],
+                      "title": "Core Principles: Line Quality and Consistency"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe a practical demonstration of refining rough animation drawings into clean line art, focusing on accuracy and character integrity.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "animation clean-up demonstration",
+                        "how to clean up animation drawings tutorial",
+                        "digital clean-up process animation",
+                        "refining rough animation lines"
+                      ],
+                      "title": "Demo: Refining Rough Animation to Clean Line Art"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned clean-up principles to a provided set of rough animation frames, focusing on accurate line work and character consistency.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "animation clean-up practice exercises",
+                        "clean-up rough animation frames practice",
+                        "consistent line art practice animation",
+                        "character integrity clean-up assignment"
+                      ],
+                      "title": "Assignment: Basic Clean-up Practice"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Understand advanced techniques for maintaining character design, proportions, and emotional expression throughout the clean-up process.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "maintaining character design clean-up",
+                        "animation character proportions guide clean-up",
+                        "character expression clean-up tips",
+                        "consistency in animation character design"
+                      ],
+                      "title": "Advanced Clean-up: Maintaining Character Integrity"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "This module delves into more complex clean-up scenarios, including overlapping actions, complex forms, and integrating clean-up into a production pipeline using industry-standard software.",
@@ -114392,8 +114890,100 @@
                   "learning_outcome": "Students will master advanced clean-up techniques and integrate clean-up processes efficiently within a professional 2D animation workflow.",
                   "order_index": 2,
                   "title": "Advanced Clean-up Techniques and Workflow",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand theoretical approaches to cleaning up intricate character designs, overlapping movements, and dynamic poses.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "advanced animation clean-up techniques",
+                        "overlapping action clean-up",
+                        "complex character clean-up workflow",
+                        "dynamic pose line art"
+                      ],
+                      "title": "Mastering Complex Forms and Overlapping Actions in Clean-up"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and learn practical strategies for refining lines on characters with complex forms and multiple overlapping actions using digital tools.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "clean-up animation demo advanced",
+                        "overlapping action tutorial animation",
+                        "digital inking complex characters",
+                        "dynamic character clean-up tips"
+                      ],
+                      "title": "Practical Demo: Cleaning Up Dynamic Poses and Interacting Elements"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned techniques to clean up provided complex animation sequences featuring dynamic poses and intricate overlapping actions.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "clean-up animation practice exercises",
+                        "advanced character line art practice",
+                        "animation clean-up projects",
+                        "digital ink and paint challenge"
+                      ],
+                      "title": "Assignment: Advanced Character Clean-up Challenge"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Learn how clean-up processes are integrated into professional 2D animation pipelines, including file management, version control, and software interoperability.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "animation clean-up pipeline",
+                        "2D animation production workflow",
+                        "industry standard clean-up software",
+                        "digital ink and paint pipeline"
+                      ],
+                      "title": "Clean-up in the Production Pipeline: Tools and Workflows"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "See a step-by-step demonstration of performing advanced clean-up tasks within industry-standard animation software, focusing on efficiency and pipeline integration.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "toon boom harmony clean-up tutorial",
+                        "tvpaint clean-up workflow",
+                        "digital ink and paint software workflow",
+                        "animation software clean-up tools"
+                      ],
+                      "title": "Software Integration Demo: Clean-up in Toon Boom Harmony/TVPaint"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Execute a complete clean-up of a multi-character scene, simulating a professional pipeline by managing assets, versioning, and preparing files for the next production stage.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "animation clean-up final project",
+                        "simulated animation pipeline exercise",
+                        "full scene clean-up tutorial",
+                        "production ready animation clean-up"
+                      ],
+                      "title": "Project: Full Scene Clean-up with Pipeline Simulation"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "This module covers the core principles of inbetweening, focusing on creating smooth and believable transitions between key poses while maintaining character volume, arcs, and timing.",
@@ -114401,8 +114991,106 @@
                   "learning_outcome": "Students will understand and apply fundamental inbetweening principles to create fluid motion and maintain animation integrity between keyframes.",
                   "order_index": 3,
                   "title": "Foundations of Inbetweening",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Students will define inbetweening, identify its role in animation, and recognize core principles like maintaining volume, arcs, and timing.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "inbetweening animation definition",
+                        "keyframe breakdown inbetween",
+                        "importance of inbetweening",
+                        "animation principles basics",
+                        "traditional animation workflow"
+                      ],
+                      "title": "What is Inbetweening? Understanding the Basics"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Students will observe and apply techniques for drawing accurate animation arcs and understand how spacing impacts motion fluidity and timing.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "animation arcs tutorial",
+                        "inbetween spacing guide",
+                        "smooth animation transitions",
+                        "slow in slow out inbetweening",
+                        "arc principle animation"
+                      ],
+                      "title": "Mastering Arcs and Spacing for Fluid Motion"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Students will learn and practice methods to maintain consistent character volume and avoid distortions across inbetweens.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "animation volume consistency",
+                        "maintaining character proportions animation",
+                        "avoiding boiling animation",
+                        "inbetweening drawing guides",
+                        "character integrity animation"
+                      ],
+                      "title": "Preserving Character Volume and Integrity"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Students will apply principles of arcs, spacing, and volume to create smooth inbetweens for a bouncing ball sequence.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "bouncing ball animation assignment",
+                        "inbetweening practice exercises",
+                        "simple animation projects",
+                        "timing a bouncing ball",
+                        "animation practice for beginners"
+                      ],
+                      "title": "Assignment - Simple Bouncing Ball Inbetween"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Students will explore how varying spacing and inbetween placement affects the perceived timing and weight of animated actions, including slow-in/slow-out.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "animation timing principles",
+                        "weight in animation tutorial",
+                        "slow in slow out animation examples",
+                        "inbetweening for weight",
+                        "animation anticipation overshoot"
+                      ],
+                      "title": "Timing and Weight: Giving Life to Inbetweens"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Students will create inbetweens for a short character action sequence, applying all learned principles including arcs, spacing, volume, and timing to achieve a fluid and believable motion.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "character animation inbetweening project",
+                        "advanced inbetweening practice",
+                        "fluid motion character animation",
+                        "applying animation principles to character",
+                        "creating character breakdowns animation"
+                      ],
+                      "title": "Assignment - Inbetweening a Short Character Action"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "This module introduces students to the digital tools and software used for ink and paint, covering workspace setup, brush customization, and preparing clean-up drawings for coloring.",
@@ -114410,8 +115098,90 @@
                   "learning_outcome": "Students will be proficient in setting up digital ink and paint environments and preparing animation frames for the coloring process using professional software.",
                   "order_index": 4,
                   "title": "Digital Ink and Paint Setup",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Identify and understand the core functionalities of industry-standard digital ink and paint software.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "digital ink and paint software",
+                        "TVPaint vs Toon Boom Harmony",
+                        "animation cleanup software",
+                        "digital coloring for animation",
+                        "ink and paint workflow"
+                      ],
+                      "title": "Introduction to Digital Ink & Paint Software"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Customize the software interface to create an efficient and personalized workspace for ink and paint tasks.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "Toon Boom Harmony workspace setup",
+                        "TVPaint UI customization",
+                        "digital animation layout",
+                        "custom hotkeys animation",
+                        "efficient ink and paint workflow"
+                      ],
+                      "title": "Setting Up Your Digital Ink & Paint Workspace"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Create and modify digital brushes suitable for achieving various inking and painting styles, including pressure sensitivity and stabilization settings.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "custom ink brushes animation",
+                        "digital paint brush settings",
+                        "pressure sensitivity tablet animation",
+                        "line art stabilization software",
+                        "creating fill tools animation"
+                      ],
+                      "title": "Customizing Brushes for Inking and Painting"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Understand and apply techniques to optimize clean-up animation frames for the digital coloring process, addressing common issues like gaps and anti-aliasing.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "preparing line art for digital paint",
+                        "cleaning scanned animation drawings",
+                        "closing gaps in line art",
+                        "anti-aliasing digital ink",
+                        "color hold setup animation"
+                      ],
+                      "title": "Preparing Clean-up Drawings for Digital Coloring"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply all learned setup and inking techniques to digitally ink a given clean-up animation frame to industry standards.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "practice digital inking animation",
+                        "ink animation frame tutorial",
+                        "digital cleanup assignment",
+                        "animation line quality check",
+                        "professional digital inking"
+                      ],
+                      "title": "ASSIGNMENT: Inking a Provided Clean-up Frame"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "This module explores various digital coloring methods, including flatting, cell shading, and basic texture application, ensuring color consistency across sequences and scenes.",
@@ -114419,8 +115189,106 @@
                   "learning_outcome": "Students will effectively apply digital coloring and basic shading techniques, maintaining color palettes and consistency throughout animated sequences.",
                   "order_index": 5,
                   "title": "Digital Coloring and Shading Techniques",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamentals of digital coloring workflows, including different file formats and the concept of flatting for animation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "digital coloring workflow animation",
+                        "flatting animation basics",
+                        "cel coloring digital process",
+                        "color consistency in animated series",
+                        "digital ink and paint pipeline"
+                      ],
+                      "title": "Introduction to Digital Coloring & Flatting Basics"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and learn practical techniques for efficient flatting using industry-standard software to prepare line art for coloring.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "flatting tutorial animation software",
+                        "digital flatting techniques for cartoons",
+                        "fast flatting methods character",
+                        "color separation animation demo",
+                        "clean line art for coloring tutorial"
+                      ],
+                      "title": "Mastering Flatting Techniques Demo"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply flatting techniques to a provided character design, ensuring clean and accurate color separation ready for shading.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "character flatting practice animation",
+                        "digital color blocking exercise",
+                        "animation coloring assignment",
+                        "flatting workflow best practices",
+                        "consistent color fill animation"
+                      ],
+                      "title": "Assignment: Flatting a Character Sheet"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the principles of cell shading, including understanding light sources, shadow shapes, and highlight application for animated characters.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "cell shading animation principles",
+                        "hard shading techniques digital",
+                        "light and shadow for animation characters",
+                        "anime style shading guide",
+                        "consistent shading in animated sequences"
+                      ],
+                      "title": "Cell Shading Principles and Theory"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Witness a demonstration of applying cell shading, including creating shadow layers and highlight layers, in a digital environment.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "digital cell shading tutorial procreate",
+                        "applying shadows animation demo",
+                        "lighting animated characters digitally",
+                        "cell shading workflow step by step",
+                        "adding highlights animation software"
+                      ],
+                      "title": "Digital Cell Shading Application Demo"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 180,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Implement cell shading on a pre-flatted animation still, accurately depicting light and shadow based on a given light source and maintaining consistency.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "cell shading animation assignment practice",
+                        "apply light and shadow to character",
+                        "digital shading exercise animation",
+                        "consistent shadow placement animation",
+                        "animation character shading project"
+                      ],
+                      "title": "Assignment: Applying Cell Shading to an Animation Still"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "This module focuses on the crucial aspects of maintaining quality and consistency across all stages of clean-up, inbetweening, and digital ink/paint, including error checking and adherence to style guides.",
@@ -114428,8 +115296,90 @@
                   "learning_outcome": "Students will develop robust quality control practices to ensure consistency in line quality, color, and motion across all animation assets.",
                   "order_index": 6,
                   "title": "Quality Control and Consistency Assurance",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Students will comprehend the fundamental principles of quality control and its critical role in maintaining consistency across animation pipelines.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "animation quality control principles",
+                        "consistency in animation pipeline",
+                        "common animation errors",
+                        "why is animation QC important",
+                        "animation production standards"
+                      ],
+                      "title": "Understanding Quality Control in Animation Production"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Students will learn to visually inspect animation frames for consistent line quality, clean-up accuracy, and accurate color application.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "animation line quality check",
+                        "digital ink and paint color accuracy",
+                        "clean-up animation errors detection",
+                        "color matching animation frames",
+                        "checking line consistency animation software"
+                      ],
+                      "title": "Visual Checks for Line Quality and Color Consistency"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Students will identify methods for verifying smooth motion, accurate timing, and volume preservation during the inbetweening and clean-up stages.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "animation inbetweening consistency",
+                        "motion continuity check animation",
+                        "volume preservation animation QC",
+                        "timing errors in animation",
+                        "smooth animation transitions check"
+                      ],
+                      "title": "Ensuring Motion and Inbetweening Consistency"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Students will understand the importance and application of style guides and asset libraries as tools for maintaining visual and technical consistency.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "animation style guide importance",
+                        "character design consistency guide",
+                        "animation asset library management",
+                        "using animation reference sheets",
+                        "maintaining visual consistency animation"
+                      ],
+                      "title": "Adherence to Style Guides and Asset Libraries"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Students will apply their knowledge to identify various common errors in provided animation sequences related to line, color, and motion consistency.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "animation error identification exercise",
+                        "find mistakes in animation frames",
+                        "clean-up errors practice",
+                        "color inconsistencies animation quiz",
+                        "animation QC practical test"
+                      ],
+                      "title": "Practical Quality Assurance: Error Spotting Assignment"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "This module ties together all stages, demonstrating how clean-up, inbetweening, and ink/paint integrate into a larger 2D animation production pipeline, focusing on file management and final output.",
@@ -114437,8 +115387,90 @@
                   "learning_outcome": "Students will understand the integration of clean-up, inbetweening, and ink/paint into a full production pipeline and be able to prepare final deliverables according to industry standards.",
                   "order_index": 7,
                   "title": "Production Pipeline Integration and Deliverables",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "To understand the complete workflow of a 2D animation production and identify the specific integration points for clean-up, inbetweening, and digital ink/paint.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "2D animation pipeline stages",
+                        "clean-up in animation workflow",
+                        "inbetweening integration",
+                        "digital ink and paint pipeline",
+                        "animation production roles"
+                      ],
+                      "title": "The Full 2D Animation Production Pipeline"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "To observe and learn best practices for file organization, naming conventions, and version control systems within a professional animation production environment.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "animation file naming conventions",
+                        "animation folder structure best practices",
+                        "version control for animation projects",
+                        "digital asset management animation",
+                        "animation production file organization"
+                      ],
+                      "title": "Standardizing File Naming, Folder Structures, and Versioning"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "To comprehend various industry-standard output formats, resolutions, aspect ratios, and codecs required for different animation deliverables.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "animation deliverable specifications",
+                        "2D animation export formats",
+                        "common animation codecs",
+                        "video resolution for animation",
+                        "aspect ratios in animation production"
+                      ],
+                      "title": "Understanding Deliverable Formats and Technical Specifications"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "To see practical demonstrations of exporting finished clean-up, inbetweened, and ink/painted sequences from common animation software, preparing them for post-production or final assembly.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "exporting animation sequence",
+                        "animation render settings tutorial",
+                        "compiling 2D animation shots",
+                        "digital ink and paint export workflow",
+                        "how to export animation frames"
+                      ],
+                      "title": "Practical Guide to Exporting Final Animation Shots"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "To apply learned principles of file management, naming, and export specifications by preparing a short animation segment for final delivery according to provided industry standards.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "animation project delivery checklist",
+                        "final animation output guidelines",
+                        "practice animation file organization",
+                        "deliverables for 2D animation assignment",
+                        "simulated animation production workflow"
+                      ],
+                      "title": "Integrating and Delivering a Short Animation Segment"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 }
               ],
               "is_complete": true
@@ -114458,8 +115490,85 @@
                   "learning_outcome": "Students will be able to identify key components of animation layouts and backgrounds and apply basic drawing techniques for environmental elements.",
                   "order_index": 1,
                   "title": "Foundations of Layout and Background Design",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental principles, terminology, and historical context of layout and background design in 2D animation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "2D animation layout principles",
+                        "history of animation backgrounds",
+                        "background design terminology",
+                        "visual storytelling in animation environments"
+                      ],
+                      "title": "Introduction to 2D Layout & Background Design"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Identify and apply fundamental composition rules and staging techniques relevant to 2D animation layouts.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "animation composition tutorial",
+                        "staging characters in backgrounds",
+                        "rule of thirds animation layout",
+                        "leading lines background design"
+                      ],
+                      "title": "Basic Composition and Staging for Animation"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 75,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn and practice basic drawing techniques for common environmental elements used in 2D animation backgrounds.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "how to draw animation trees",
+                        "basic background elements tutorial",
+                        "simple architectural drawing animation",
+                        "2D environment sketching tips"
+                      ],
+                      "title": "Drawing Basic Environmental Elements"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Analyze how background design contributes to mood, setting, character emotion, and overall narrative in 2D animation.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "visual storytelling with backgrounds",
+                        "mood in animation environments",
+                        "how backgrounds enhance narrative",
+                        "symbolism in 2D background art"
+                      ],
+                      "title": "Backgrounds as Storytelling Tools"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned principles of composition, staging, and environmental drawing to create a foundational 2D background sketch.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "beginner animation background assignment",
+                        "2D layout drawing practice",
+                        "environmental sketch exercise animation",
+                        "composition practice background art"
+                      ],
+                      "title": "Simple Environmental Sketch Assignment"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Focuses on mastering 1, 2, and 3-point perspective, dynamic composition, and effective staging techniques to create depth, guide the viewer's eye, and support character action within layouts.",
@@ -114467,8 +115576,106 @@
                   "learning_outcome": "Students will be able to utilize advanced perspective and composition principles to create visually compelling and functionally effective animation layouts.",
                   "order_index": 2,
                   "title": "Perspective, Composition & Staging",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental principles of 1-point and 2-point linear perspective in background design.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "1 point perspective basics",
+                        "2 point perspective tutorial",
+                        "linear perspective explained",
+                        "vanishing point horizon line",
+                        "perspective drawing rules"
+                      ],
+                      "title": "Fundamentals of 1 & 2-Point Perspective"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to effectively apply 3-point perspective to create dynamic and complex architectural or environmental layouts from various viewpoints.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "3 point perspective drawing demo",
+                        "worm's eye view perspective",
+                        "bird's eye view perspective",
+                        "extreme perspective animation",
+                        "complex perspective backgrounds"
+                      ],
+                      "title": "Mastering 3-Point Perspective for Dynamic Scenes"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Grasp core compositional principles like the rule of thirds, leading lines, and framing to guide the viewer's eye and create visual interest.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "composition techniques art",
+                        "rule of thirds animation",
+                        "leading lines in layout",
+                        "visual balance principles",
+                        "framing in background art"
+                      ],
+                      "title": "Essential Compositional Principles"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Understand how to effectively stage background elements to support character action, convey narrative, and enhance emotional impact.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "animation staging principles",
+                        "storytelling through layout",
+                        "depth in background design",
+                        "character interaction with environment",
+                        "cinematic staging 2d animation"
+                      ],
+                      "title": "Staging Techniques for Character Action & Narrative"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Create a complete background layout for a given scenario, applying 1, 2, or 3-point perspective with strong compositional and staging elements.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "perspective drawing exercises",
+                        "composition practice animation",
+                        "layout design project",
+                        "background art challenge",
+                        "scene construction 2d"
+                      ],
+                      "title": "Perspective & Composition Layout Assignment"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 240,
+                      "id": "L6",
+                      "lesson_type": "PROJECT",
+                      "objective": "Design a multi-plane background layout that utilizes advanced perspective, dynamic composition, and strategic staging to enhance a complex character interaction and create significant visual depth.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "multiplane animation background",
+                        "forced perspective layout",
+                        "depth cues in 2d art",
+                        "cinematic staging animation",
+                        "advanced background design project"
+                      ],
+                      "title": "Project: Advanced Staging and Depth in Layouts"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Explores the theory and application of color, light, and shadow to establish specific moods, times of day, and atmospheric effects in backgrounds. Covers color scripts and value studies.",
@@ -114476,8 +115683,90 @@
                   "learning_outcome": "Students will be able to design backgrounds that effectively convey mood, time, and atmosphere through deliberate use of color, light, and value.",
                   "order_index": 3,
                   "title": "Color, Light & Mood",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand foundational color theory principles and their psychological impact on background design.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "color theory for environments",
+                        "psychology of color in art",
+                        "color schemes for backgrounds",
+                        "color temperature in painting",
+                        "artistic color harmonies"
+                      ],
+                      "title": "Foundations: Color Theory for Environmental Mood"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 65,
+                      "id": "L2",
+                      "lesson_type": "READ",
+                      "objective": "Grasp how different light sources, shadows, and reflections define form, depth, and time of day in 2D backgrounds.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "light and shadow fundamentals art",
+                        "types of light sources in drawing",
+                        "how light defines form in painting",
+                        "cast shadows tutorial 2D",
+                        "ambient occlusion in background art"
+                      ],
+                      "title": "Principles of Light and Shadow in 2D Environments"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 80,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn practical techniques for creating compelling mood and atmosphere using color scripts and value studies.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "color script tutorial",
+                        "value study for background art",
+                        "establishing mood with color in 2D",
+                        "atmospheric perspective painting",
+                        "lighting for mood animation backgrounds"
+                      ],
+                      "title": "Mastering Mood: Color Scripts & Value Studies"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 150,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned value study techniques to convey a specific mood and time of day for a given background scene.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "value study exercises for artists",
+                        "grayscale background art practice",
+                        "lighting for atmosphere 2D",
+                        "mood painting value study",
+                        "environment design chiaroscuro"
+                      ],
+                      "title": "Assignment: Mood & Time of Day Value Studies"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 200,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Develop a comprehensive color script for a background, translating value into color to evoke mood, time, and atmosphere.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "color script project example",
+                        "applying color to value study",
+                        "developing background mood with color",
+                        "finalizing environment color scheme",
+                        "color grading for animated backgrounds"
+                      ],
+                      "title": "Assignment: Full Color Script Development"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Teaches how to imbue backgrounds with narrative elements, character insights, and world-building details. Focuses on designing environments that contribute to the story and provide context for animated action.",
@@ -114485,8 +115774,85 @@
                   "learning_outcome": "Students will be able to create backgrounds that enhance the narrative and provide meaningful insights into the animated world and its characters.",
                   "order_index": 4,
                   "title": "Environmental Storytelling & World Building",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental concepts of environmental storytelling and its significance in 2D background design for conveying narrative.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "environmental storytelling definition animation",
+                        "background art narrative principles",
+                        "how environments tell stories in film",
+                        "visual storytelling 2D backgrounds"
+                      ],
+                      "title": "Introduction to Environmental Storytelling"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze exemplary animated backgrounds to identify techniques used to imbue them with narrative elements, character insights, and world-building details.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "environmental storytelling examples animation",
+                        "background analysis narrative film",
+                        "visual narrative breakdown animation scenes",
+                        "world building in animated backgrounds"
+                      ],
+                      "title": "Deconstructing Narrative-Rich Backgrounds"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Learn how specific props, architectural styles, and atmospheric elements can be strategically chosen and placed to reveal character traits, history, and cultural aspects of the animated world.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "prop design storytelling animation",
+                        "architectural style world building",
+                        "visual cues for character personality",
+                        "environmental details narrative impact"
+                      ],
+                      "title": "Imbuing Character & Lore Through Detail"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Discover how composition, perspective, and lighting can be utilized in background design to guide the viewer's eye, emphasize key story beats, and evoke specific emotions or moods.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "composition for narrative animation",
+                        "lighting for storytelling background",
+                        "perspective narrative 2D art",
+                        "directing eye background design"
+                      ],
+                      "title": "Layout & Composition for Narrative Flow"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 180,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design a complete background environment for a given character and narrative prompt, ensuring it effectively communicates their personality, backstory, and the overall story context.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "design background character story assignment",
+                        "environment design prompt animation",
+                        "storytelling background art exercise",
+                        "world building art challenge 2D"
+                      ],
+                      "title": "Assignment: Crafting a Character-Driven Environment"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Covers the practical aspects of creating layouts for animation production, including character placement, camera movement (pans, trucks, zooms), overlays, and multiplane setups for efficient workflow.",
@@ -114494,8 +115860,100 @@
                   "learning_outcome": "Students will be able to produce technically accurate layouts that seamlessly integrate with animation production pipelines and support dynamic camera work.",
                   "order_index": 5,
                   "title": "Technical Layouts for Animation",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental role of technical layouts in animation production and key terminology.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "technical layout animation",
+                        "animation layout artist role",
+                        "2D animation staging principles",
+                        "layout for animation workflow"
+                      ],
+                      "title": "Introduction to Technical Layouts & Key Concepts"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and identify common camera movements (pans, trucks, zooms) and their application in staging characters effectively.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "2D animation camera moves tutorial",
+                        "animation pan shot explained",
+                        "animation truck shot examples",
+                        "staging characters in animation layouts"
+                      ],
+                      "title": "Camera Movement & Character Staging Techniques"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Recognize and understand the use of overlays, underlays, and multiplane setups to create depth and complex scenes.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "animation overlay definition",
+                        "multiplane animation technique explained",
+                        "underlay animation in 2D",
+                        "depth in 2D animation layouts tutorial"
+                      ],
+                      "title": "Overlays, Underlays & Multiplane Setups"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned concepts to create a basic technical layout incorporating character placement and a simple camera pan.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "basic animation layout exercise",
+                        "how to draw animation layout",
+                        "character placement for animation layout practice",
+                        "simple camera pan animation layout"
+                      ],
+                      "title": "Basic Technical Layout Creation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Explore advanced camera movements, such as arcs and complex trucks, and their integration with multiplane setups for dynamic storytelling.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "complex animation camera movements",
+                        "multiplane camera animation tutorial",
+                        "advanced 2D animation layout techniques",
+                        "camera arcs in animation"
+                      ],
+                      "title": "Advanced Camera & Multiplane Integration"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 240,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Produce a comprehensive technical layout for an animation sequence, integrating advanced camera movement, detailed character staging, and multiplane elements.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "animation layout project ideas",
+                        "technical layout final assignment",
+                        "animation production layout examples",
+                        "creating a detailed animation layout"
+                      ],
+                      "title": "Comprehensive Technical Layout Project"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Develops advanced digital painting skills specifically for background art, covering various textures, materials, and atmospheric effects using industry-standard software and techniques.",
@@ -114503,8 +115961,88 @@
                   "learning_outcome": "Students will be proficient in digitally painting and rendering high-quality backgrounds that achieve a professional finish and desired artistic style.",
                   "order_index": 6,
                   "title": "Digital Painting & Rendering Techniques",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "WATCH",
+                      "objective": "Understand essential digital painting tools and set up an efficient workflow for background art.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "digital painting software setup",
+                        "background art workflow Photoshop",
+                        "tablet settings digital painting",
+                        "custom brushes background art"
+                      ],
+                      "title": "Core Tools & Workflow Setup"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L2",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the principles of light, shadow, and form to create realistic volumetric backgrounds.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "light and shadow principles digital painting",
+                        "form rendering tutorial",
+                        "atmospheric perspective techniques",
+                        "rendering volumetric forms digital art"
+                      ],
+                      "title": "Mastering Light, Shadow, and Form"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn techniques for painting various textures (wood, stone, metal, foliage) and materials effectively.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "digital painting wood texture",
+                        "rendering stone texture tutorial",
+                        "painting foliage digital art",
+                        "material rendering techniques Photoshop",
+                        "creating realistic textures digital"
+                      ],
+                      "title": "Advanced Textures & Material Rendering"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Develop skills in creating atmospheric effects (fog, rain, mist) and establishing mood through color and lighting.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "digital painting atmospheric effects",
+                        "creating mood through color digital art",
+                        "rendering fog and mist",
+                        "lighting for dramatic effect background",
+                        "painting weather effects digital"
+                      ],
+                      "title": "Atmosphere and Mood Painting Assignment"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 150,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply finishing touches, color correction, and post-processing techniques to achieve a professional-grade background.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "digital painting finishing techniques",
+                        "color correction for backgrounds",
+                        "post-processing digital art",
+                        "professional background rendering tips",
+                        "final polish for digital paintings"
+                      ],
+                      "title": "Professional Finishing & Post-Processing"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 }
               ],
               "is_complete": true
@@ -114524,8 +116062,87 @@
                   "learning_outcome": "Students will be able to identify and describe the fundamental stages of a 2D animation pipeline and recognize the importance of structured project management.",
                   "order_index": 1,
                   "title": "Introduction to 2D Animation Pipeline & Project Management",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Students will be able to describe the fundamental sequential stages of the 2D animation production pipeline from concept to delivery.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "2D animation pipeline overview",
+                        "stages of 2D animation production",
+                        "traditional animation workflow explained",
+                        "digital 2D animation process"
+                      ],
+                      "title": "Understanding the 2D Animation Pipeline: From Idea to Screen"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "L2",
+                      "lesson_type": "READ",
+                      "objective": "Students will be able to identify key roles and responsibilities within a 2D animation production team.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "roles in an animation studio",
+                        "animation director responsibilities",
+                        "storyboard artist job description",
+                        "clean-up artist duties",
+                        "animation producer role"
+                      ],
+                      "title": "Key Roles and Responsibilities in 2D Animation Production"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Students will visually understand how different departments and roles interact within a real-world 2D animation project through a studio walkthrough or project breakdown.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "2D animation studio tour video",
+                        "animation project workflow breakdown",
+                        "how a 2D animated short is made behind the scenes",
+                        "animation production pipeline visualization"
+                      ],
+                      "title": "Visualizing the Workflow: A Studio's 2D Animation Journey"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Students will be able to explain the basic principles of project management as applied to creative animation projects.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "project management for animation studios",
+                        "creative project management principles",
+                        "animation production scheduling",
+                        "agile methodologies in animation",
+                        "scrum for creative teams"
+                      ],
+                      "title": "Introduction to Project Management for Creative Animation Projects"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Students will demonstrate their understanding by mapping a simplified 2D animation pipeline and outlining key roles and their responsibilities at each stage.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "2D animation pipeline diagram template",
+                        "animation production workflow chart exercise",
+                        "assigning roles to animation stages activity",
+                        "creative project management case study animation"
+                      ],
+                      "title": "Assignment: Mapping Your Own 2D Animation Pipeline"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Focuses on the management of pre-production phases, including script development, storyboarding, character and background design, layout, and animatic creation. Emphasizes establishing efficient approval workflows and ensuring creative vision aligns with production feasibility.",
@@ -114533,8 +116150,86 @@
                   "learning_outcome": "Students will learn to effectively manage the creative and planning stages of pre-production, ensuring all assets and plans are production-ready.",
                   "order_index": 2,
                   "title": "Pre-Production Management: Concept to Animatics",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Comprehend the stages of 2D animation pre-production and the critical role of script development in setting the creative foundation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "2D animation pre-production stages",
+                        "animation script development process",
+                        "script to storyboard workflow",
+                        "pre-production roles animation team"
+                      ],
+                      "title": "Understanding the 2D Animation Pre-Production Pipeline & Script Development"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn the principles of visual storytelling through storyboards and observe the creation of an animatic to visualize pacing and timing.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "storyboard principles animation tutorial",
+                        "animatic creation software demo",
+                        "visual storytelling in animation",
+                        "animatic best practices",
+                        "storyboard to animatic workflow"
+                      ],
+                      "title": "Demystifying Storyboards & Creating Effective Animatics"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Understand the management process for character, background, and prop design, ensuring creative vision aligns with production feasibility and pipeline requirements.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "animation character design workflow",
+                        "background design for 2D animation",
+                        "asset design management animation",
+                        "design approval process animation studio"
+                      ],
+                      "title": "Managing Design Approvals: Characters, Backgrounds, and Props"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned concepts by developing a comprehensive pre-production plan for a short animated sequence, including a script outline, storyboard panels, and character/background concepts.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "animation pre-production checklist template",
+                        "sample storyboard layout",
+                        "character concept art brief",
+                        "animation project planning tools"
+                      ],
+                      "title": "Assignment: Develop a Pre-Production Plan for a Short Animated Scene"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Learn strategies for establishing efficient feedback and approval workflows, ensuring creative vision is maintained while adhering to production timelines.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "animation approval workflow best practices",
+                        "managing creative feedback animation",
+                        "client approval process animation",
+                        "streamlining pre-production workflow"
+                      ],
+                      "title": "Optimizing Pre-Production Workflows and Approval Processes"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Covers the operational management of the core animation production stage, including character rigging, scene setup, animation (keyframing and in-betweening), clean-up, and coloring. This module emphasizes task allocation, progress tracking, and managing creative feedback loops.",
