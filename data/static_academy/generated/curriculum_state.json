@@ -110647,8 +110647,90 @@
                   "learning_outcome": "Students will be able to design, implement, and optimize sophisticated hair modeling and simulation pipelines for complex digital assets.",
                   "order_index": 1,
                   "title": "Advanced Hair Modeling & Simulation Pipelines",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand and apply advanced techniques for creating optimized hair geometry suitable for real-time and cinematic rendering.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "advanced hair card modeling tutorial",
+                        "poly-strip hair workflow",
+                        "real-time hair geometry optimization",
+                        "hair card placement strategies",
+                        "hair mesh creation techniques"
+                      ],
+                      "title": "Advanced Hair Card and Poly-Strip Modeling for Performance"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Master the use of industry-standard procedural grooming tools to create complex and believable hair styles for digital characters.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "xgen grooming tutorial advanced",
+                        "ornatrix hair workflow",
+                        "maya interactive groom best practices",
+                        "procedural hair generation techniques",
+                        "hair attributes and modifiers xgen"
+                      ],
+                      "title": "Procedural Grooming with XGen, Ornatrix, and Maya Hair"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the fundamental physics and algorithms governing hair simulation and set up initial dynamic systems for realistic movement.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "hair simulation physics explained",
+                        "ncloth hair simulation maya",
+                        "houdini vellum hair tutorial",
+                        "hair collision and stiffness parameters",
+                        "real-time hair dynamics overview"
+                      ],
+                      "title": "Hair Dynamics and Simulation Principles"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Identify and implement advanced optimization strategies for hair geometry, shaders, and simulation to meet performance and quality targets.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "hair lod generation pipeline",
+                        "hair shader optimization unreal engine",
+                        "performance hair simulation tricks",
+                        "hair culling techniques real-time",
+                        "efficient hair rendering strategies"
+                      ],
+                      "title": "Optimizing Hair Assets for Real-time and Cinematic Production"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 240,
+                      "id": "L5",
+                      "lesson_type": "PROJECT",
+                      "objective": "Design, implement, and optimize a full hair modeling, grooming, and simulation pipeline for a high-fidelity digital character.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "full hair pipeline breakdown character",
+                        "complex hair asset creation process",
+                        "production ready hair tutorial",
+                        "integrating hair into game engine",
+                        "advanced grooming workflow best practices"
+                      ],
+                      "title": "Project: End-to-End Advanced Hair Pipeline Development"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Exploration of cutting-edge real-time hair rendering techniques, including advanced shading models, Level-of-Detail (LOD) systems, and performance optimization strategies specifically for interactive applications and game engines.",
@@ -110656,8 +110738,88 @@
                   "learning_outcome": "Students will be able to implement and optimize real-time hair rendering solutions, leveraging modern GPU architectures and rendering APIs.",
                   "order_index": 2,
                   "title": "Real-Time Hair Rendering Architectures & Optimization",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental challenges and common architectural approaches in real-time hair rendering for interactive applications.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "real-time hair rendering challenges",
+                        "game engine hair rendering history",
+                        "early hair rendering techniques",
+                        "hair rendering pipeline overview"
+                      ],
+                      "title": "Foundations of Real-Time Hair Rendering Architectures"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L2",
+                      "lesson_type": "READ",
+                      "objective": "Learn about and differentiate between advanced physically-based shading models (e.g., Marschner, Kajiya-Kay) and their application to real-time hair materials.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "Marschner hair shader model explained",
+                        "Kajiya-Kay hair rendering",
+                        "physically based hair shading principles",
+                        "anisotropic hair shading in games"
+                      ],
+                      "title": "Advanced Physically-Based Hair Shading Models"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Explore various hair geometry representations (strand, card, volumetric) and observe the implementation of effective Level-of-Detail (LOD) strategies for hair rendering optimization.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "real-time hair card rendering techniques",
+                        "strand-based hair rendering optimization",
+                        "volumetric hair rendering overview",
+                        "hair LOD strategies game engines",
+                        "gpu hair geometry generation"
+                      ],
+                      "title": "Hair Geometry Representations and LOD Systems"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Identify and understand advanced performance optimization techniques specific to real-time hair, including efficient culling, GPU instancing, and compute shader applications.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "real-time hair culling strategies",
+                        "gpu instancing for hair rendering",
+                        "compute shaders for hair optimization",
+                        "hair rendering performance tips",
+                        "reducing hair rendering cost"
+                      ],
+                      "title": "GPU-Accelerated Hair Rendering Optimization Techniques"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 240,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Implement a basic real-time hair rendering pipeline using a modern rendering API or game engine, incorporating a chosen shading model and a simple LOD system for performance.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "implement real-time hair shader unity",
+                        "hair rendering directx opengl tutorial",
+                        "custom hair shader development guide",
+                        "gpu hair rendering project ideas",
+                        "optimizing hair rendering pipeline"
+                      ],
+                      "title": "Project: Real-Time Hair Rendering Pipeline Implementation"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Examination of machine learning methodologies and their potential applications in digital grooming, covering areas such as automated hair generation, styling, physics-based simulation, and neural rendering.",
@@ -110665,8 +110827,85 @@
                   "learning_outcome": "Students will be able to evaluate, apply, and propose AI/ML solutions for complex grooming challenges and automate aspects of hair creation workflows.",
                   "order_index": 3,
                   "title": "AI & Machine Learning in Digital Grooming",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand foundational AI/ML concepts and their historical and current applications in digital hair and grooming.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "AI for hair generation principles",
+                        "machine learning in 3D grooming overview",
+                        "digital human hair AI history",
+                        "neural networks for hair modeling basics"
+                      ],
+                      "title": "Foundations of AI/ML in Digital Grooming"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Explore practical applications of generative AI models (GANs, Diffusion models) for automating hair creation, styling, and variation generation.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "GANs for hair generation tutorial",
+                        "diffusion models digital grooming demo",
+                        "AI hair styling workflow examples",
+                        "procedural hair generation machine learning"
+                      ],
+                      "title": "Automated Hair Generation & Styling with Generative Models"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Examine how machine learning techniques can optimize, enhance, and improve the realism of physics-based hair simulations.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "ML in hair physics simulation",
+                        "neural networks for hair dynamics",
+                        "real-time hair simulation AI improvements",
+                        "data-driven hair animation techniques"
+                      ],
+                      "title": "ML-Enhanced Physics-Based Hair Simulation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Understand the principles and applications of neural rendering for achieving hyper-realistic hair appearance in real-time or offline rendering pipelines.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "neural rendering for hair",
+                        "deep learning hair rendering techniques",
+                        "photorealistic hair neural networks",
+                        "volumetric hair rendering AI"
+                      ],
+                      "title": "Neural Rendering for Hyper-Realistic Hair"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned concepts to propose a detailed AI/ML solution for a specific complex grooming challenge, outlining its methodology, benefits, and potential implementation.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "AI grooming tool concept design",
+                        "machine learning hair production pipeline optimization project",
+                        "AI for character hair workflow automation",
+                        "innovative digital grooming solutions with ML"
+                      ],
+                      "title": "Project: Proposing an AI-Assisted Grooming Solution"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "A comprehensive review of current academic and industry research in digital hair, encompassing novel rendering algorithms, volumetric hair representations, procedural generation, and predicting future trends in grooming technology.",
@@ -110674,8 +110913,85 @@
                   "learning_outcome": "Students will be able to critically analyze and integrate emerging research findings into practical grooming workflows and anticipate future technological advancements in the field.",
                   "order_index": 4,
                   "title": "Emerging Technologies & Research Frontiers",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the historical context and current major research areas in digital hair technology.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "digital hair rendering history",
+                        "real-time hair simulation research",
+                        "grooming technology advancements",
+                        "volumetric hair representation overview"
+                      ],
+                      "title": "Overview of Digital Hair Research Frontiers"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and comprehend the principles behind advanced hair rendering algorithms and volumetric representations.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "hair shader development tutorial",
+                        "volumetric hair rendering explained",
+                        "real-time hair rendering techniques",
+                        "physically based hair rendering"
+                      ],
+                      "title": "Exploring Next-Gen Hair Rendering Algorithms"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Learn the methodologies for procedurally generating realistic hair and simulating its dynamics in real-time.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "procedural hair generation algorithms",
+                        "hair simulation physics",
+                        "Maya XGen tutorial procedural hair",
+                        "houdini hair simulation workflow"
+                      ],
+                      "title": "Procedural Hair Generation and Dynamic Simulation"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Research and summarize recent applications of AI and machine learning in digital hair and grooming.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "AI hair generation deep learning",
+                        "machine learning for hair styling",
+                        "neural network hair simulation",
+                        "AI grooming technology research papers"
+                      ],
+                      "title": "AI-Powered Hair Stylization and Prediction"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Critically analyze potential future trends in grooming technology and discuss their societal and ethical implications.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "future of digital grooming technology",
+                        "ethical AI in hair simulation",
+                        "real-time hair rendering future",
+                        "disruptive technologies hair industry"
+                      ],
+                      "title": "Anticipating Future Innovations and Ethical Implications"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 }
               ],
               "is_complete": true
@@ -110696,7 +111012,2112 @@
           "title": "2D Animation",
           "role": "2D Animator (Classical/Spine)",
           "description": "Traditional and technical 2D performance.",
-          "courses": []
+          "courses": [
+            {
+              "code": "A2D101",
+              "description": "Develop fundamental observational drawing skills, focusing on gesture, anatomy, and form essential for character animation and visual storytelling.",
+              "id": "A2D_F_001",
+              "is_core": true,
+              "tier": "Foundations",
+              "title": "Life Drawing for Animators",
+              "year_level": 1,
+              "subjects": [
+                {
+                  "description": "Explore the fundamentals of gesture drawing, focusing on capturing the essence of movement, rhythm, and energy within a short timeframe. Develop an intuitive understanding of the figure's flow.",
+                  "id": "A2D101-S01",
+                  "learning_outcome": "Students will be able to create expressive gesture drawings that convey dynamic movement and the core energy of a pose.",
+                  "order_index": 1,
+                  "title": "Introduction to Gesture Drawing",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 18,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core principles and purpose of gesture drawing: capturing movement, rhythm, and energy in the human figure.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "what is gesture drawing",
+                        "purpose of gesture drawing",
+                        "principles of gesture drawing",
+                        "figure drawing movement",
+                        "gesture drawing basics"
+                      ],
+                      "title": "Introduction to Gesture: Movement and Energy"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 22,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe a demonstration of how to identify the primary lines of action and flow within a pose, translating them into dynamic marks.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "lines of action figure drawing",
+                        "rhythm in gesture drawing",
+                        "flow in figure drawing tutorial",
+                        "dynamic pose drawing demo",
+                        "capturing movement drawing"
+                      ],
+                      "title": "Demonstration: Finding the Flow and Line of Action"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 35,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice creating rapid gesture drawings (30-60 seconds) to train your eye to quickly capture the essential energy and rhythm of a pose.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "30 second gesture drawing practice",
+                        "quick pose drawing exercises",
+                        "figure drawing warm up",
+                        "short gesture drawing tips",
+                        "drawing energetic poses"
+                      ],
+                      "title": "Practice Session: Rapid Gesture Studies"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 15,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Learn how to perceive and represent weight, balance, and contrapposto in your gesture drawings to give figures a sense of groundedness and natural posture.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "drawing weight and balance figure",
+                        "contrapposto gesture drawing",
+                        "center of gravity figure drawing",
+                        "human anatomy balance drawing",
+                        "weight distribution drawing"
+                      ],
+                      "title": "Capturing Weight, Balance, and Contrapposto"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Explore various expressive mark-making techniques to enhance the dynamism, texture, and emotional impact of your gesture drawings.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "expressive lines figure drawing",
+                        "mark making gesture drawing tutorial",
+                        "drawing tools for gesture drawing",
+                        "loose figure drawing techniques",
+                        "energetic drawing strokes"
+                      ],
+                      "title": "Demonstration: Expressive Mark-Making Techniques"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 50,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Integrate all learned principles by creating gesture drawings with slightly longer time limits (1-2 minutes), focusing on movement, weight, and expressiveness.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "1 minute gesture drawing practice",
+                        "2 minute figure drawing exercises",
+                        "longer gesture drawing tips",
+                        "refining gesture drawings",
+                        "dynamic pose drawing practice"
+                      ],
+                      "title": "Assignment: Longer Gesture Studies and Refinement"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
+                },
+                {
+                  "description": "Learn foundational principles of human anatomy proportions and basic construction methods to accurately represent the figure. Focus on establishing the figure's core structure and balance.",
+                  "id": "A2D101-S02",
+                  "learning_outcome": "Students will accurately construct the human figure using established proportional guidelines and basic geometric forms.",
+                  "order_index": 2,
+                  "title": "Proportions and Basic Construction",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the historical and practical application of head units as a proportional guide for the human figure.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "head units proportions figure drawing",
+                        "canon of proportions life drawing",
+                        "human anatomy proportional guidelines",
+                        "andrew loomis proportions",
+                        "8 head figure proportions"
+                      ],
+                      "title": "The Canon of Proportions: Head Units"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to break down the human form into simple geometric shapes to establish volume and perspective.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "figure drawing basic shapes",
+                        "geometric construction human figure",
+                        "drawing with primitive shapes",
+                        "simplifying anatomy for artists",
+                        "block in method figure drawing"
+                      ],
+                      "title": "Building Blocks: Spheres, Cylinders, and Boxes"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and practice the construction of the torso and pelvis using a simplified box and sphere approach, emphasizing their relationship and movement.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "torso construction figure drawing",
+                        "pelvis block in drawing",
+                        "rib cage pelvis relationship drawing",
+                        "simplified torso anatomy",
+                        "gesture drawing torso pelvis"
+                      ],
+                      "title": "Core Structure: Torso and Pelvis Block-in"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply geometric construction techniques to draw the torso and pelvis from various photographic references, focusing on proportion and spatial relationship.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "torso pelvis drawing practice",
+                        "figure drawing reference photos torso",
+                        "constructive anatomy exercises",
+                        "drawing the core of the figure",
+                        "dynamic torso studies"
+                      ],
+                      "title": "Assignment: Dynamic Torso & Pelvis Studies"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Understand the specific proportional guidelines for the limbs and extremities, ensuring accurate length and size in relation to the main body.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "limb proportions figure drawing",
+                        "hand feet proportions anatomy",
+                        "arm leg length relation body",
+                        "drawing extremities proportionally",
+                        "human body segments drawing"
+                      ],
+                      "title": "Arms, Legs, Hands, and Feet: Proportional Guides"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L6",
+                      "lesson_type": "WATCH",
+                      "objective": "Integrate all learned principles to construct the full human figure from head to toe using proportional guidelines and basic geometric forms.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "full figure construction drawing",
+                        "complete human figure block-in",
+                        "drawing standing figure proportions",
+                        "balancing the figure drawing",
+                        "mass and volume figure drawing"
+                      ],
+                      "title": "Putting it Together: The Full Figure Construct"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
+                },
+                {
+                  "description": "Delve into the study of the human skeletal system, understanding its key landmarks, joint articulations, and how it informs the overall structure and movement of the figure.",
+                  "id": "A2D101-S03",
+                  "learning_outcome": "Students will identify major skeletal landmarks and understand their role in defining form and facilitating movement for animation purposes.",
+                  "order_index": 3,
+                  "title": "Skeletal System for Animators",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the basic structure of the human skeleton and identify its major bones and key landmarks relevant to animation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "human skeleton anatomy for artists",
+                        "major bones animation reference",
+                        "skeletal landmarks drawing guide",
+                        "basic skeletal structure animation",
+                        "bone names for artists"
+                      ],
+                      "title": "Introduction to the Skeletal System: Major Bones"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 55,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe the structure and movement of the spine and rib cage, understanding their role in torso flexibility and weight distribution.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "spine animation mechanics",
+                        "rib cage movement drawing",
+                        "torso skeletal animation",
+                        "vertebrae movement for animators",
+                        "core structure for animation"
+                      ],
+                      "title": "Spine and Rib Cage: Core Structure and Articulation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Learn the bone structure, joint articulations, and range of motion for the shoulder girdle, arms, and hands.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "shoulder girdle anatomy animation",
+                        "arm bones drawing reference",
+                        "hand skeleton for animators",
+                        "upper limb joint movement",
+                        "clavicle scapula humerus radius ulna carpal bones"
+                      ],
+                      "title": "Upper Limbs: Shoulders, Arms, and Hands"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 55,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe the bone structure, joint articulations, and function of the pelvis, legs, and feet, focusing on weight-bearing and locomotion.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "pelvis animation structure",
+                        "leg bones drawing movement",
+                        "foot anatomy for animation",
+                        "lower limb locomotion animation",
+                        "femur tibia fibula patella tarsals metatarsals"
+                      ],
+                      "title": "Lower Limbs: Pelvis, Legs, and Feet"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 105,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply skeletal knowledge by drawing full skeletal figures from various poses, accurately depicting key landmarks and joint functionality.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "skeletal figure drawing exercises",
+                        "drawing bone structure from reference",
+                        "animation skeleton practice",
+                        "gesture drawing skeletal underlay",
+                        "drawing anatomy for movement"
+                      ],
+                      "title": "Skeletal Drawing Practice: From Pose to Bones"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
+                },
+                {
+                  "description": "Examine the major muscle groups and their interactions, focusing on how they attach to the skeleton and create the visible forms and contours of the human body.",
+                  "id": "A2D101-S04",
+                  "learning_outcome": "Students will articulate the function and placement of major muscle groups, applying this knowledge to render believable surface anatomy in their drawings.",
+                  "order_index": 4,
+                  "title": "Muscular System and Surface Anatomy",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the basic structure, function, and attachment points of major muscle groups relevant to surface anatomy.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "muscle anatomy for artists",
+                        "major human muscle groups diagram",
+                        "muscle origin insertion basics",
+                        "how muscles create movement",
+                        "skeletal muscle types art"
+                      ],
+                      "title": "Foundations of Muscle Anatomy"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Identify and observe the surface anatomy of muscles in the torso, shoulders, and upper limbs through visual demonstrations.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "pectorals deltoids anatomy drawing",
+                        "biceps triceps surface anatomy tutorial",
+                        "latissimus dorsi trapezius drawing",
+                        "abdominal oblique muscles art",
+                        "torso muscle groups animation reference"
+                      ],
+                      "title": "Torso and Upper Body Musculature Demystified"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 55,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Examine the form and placement of major muscle groups in the glutes and lower limbs, focusing on their visible contours.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "gluteus maximus drawing tutorial",
+                        "quadriceps femoris anatomy art",
+                        "hamstrings sartorius drawing guide",
+                        "calf muscles gastrocnemius soleus",
+                        "pelvis to leg muscle connection for artists"
+                      ],
+                      "title": "Lower Body and Gluteal Muscle Anatomy"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 70,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe how major muscle groups interact, stretch, and compress in various poses to create realistic body forms and contours.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "figure drawing muscle interaction tutorial",
+                        "surface anatomy in dynamic poses",
+                        "rendering muscle contours art",
+                        "how muscles define body shape in movement",
+                        "anatomy for dynamic figure drawing"
+                      ],
+                      "title": "Muscle Interaction and Dynamic Contours"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply knowledge of muscle anatomy to accurately render surface forms and contours in figure drawings from reference imagery.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "life drawing muscle studies assignment",
+                        "drawing muscle groups from reference",
+                        "anatomy figure drawing exercises",
+                        "rendering believable muscle forms practice",
+                        "surface anatomy drawing assignment"
+                      ],
+                      "title": "Surface Anatomy Figure Drawing Practice"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
+                },
+                {
+                  "description": "Develop skills in rendering the human figure with a sense of three-dimensionality. Explore light and shadow principles to define form, volume, and depth, making figures appear grounded in space.",
+                  "id": "A2D101-S05",
+                  "learning_outcome": "Students will effectively use light, shadow, and tonal values to create a convincing sense of form and volume in their figure drawings.",
+                  "order_index": 5,
+                  "title": "Form, Volume, and Shading",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Learn to perceive the human figure as a combination of simple three-dimensional geometric shapes to understand volume.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "figure drawing basic forms",
+                        "human anatomy geometric shapes",
+                        "simplifying human figure 3d",
+                        "drawing the body as cylinders",
+                        "constructing human form"
+                      ],
+                      "title": "Deconstructing the Figure into Basic Forms"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Understand the fundamental principles of how light interacts with 3D objects, identifying key elements like light source, core shadow, cast shadow, and highlight.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "lighting principles art",
+                        "core shadow definition drawing",
+                        "cast shadow tutorial",
+                        "drawing highlights and midtones",
+                        "light logic in drawing"
+                      ],
+                      "title": "Principles of Light and Shadow"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 60,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply light and shadow principles to render basic geometric forms, building foundational skills for defining volume.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "how to shade a sphere",
+                        "drawing 3d cubes with shadow",
+                        "rendering cylinders art",
+                        "shading basic forms tutorial",
+                        "value scale exercises drawing"
+                      ],
+                      "title": "Practice: Rendering Spheres, Cubes, and Cylinders with Shading"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and learn techniques for applying light and shadow principles directly to the human figure, focusing on how different body parts respond to light.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "shading human anatomy tutorial",
+                        "rendering figure drawing volume",
+                        "light on torso drawing",
+                        "drawing shadows on limbs",
+                        "figure drawing form tutorial"
+                      ],
+                      "title": "Demonstration: Shading the Torso and Limbs"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Create figure drawings that effectively utilize light, shadow, and tonal values to convey a convincing sense of three-dimensional form and volume.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "figure drawing light and shadow",
+                        "rendering full body form",
+                        "life drawing shading techniques",
+                        "creating volume in figure drawing",
+                        "tonal values figure drawing"
+                      ],
+                      "title": "Assignment: Drawing the Figure with Emphasis on Form and Volume"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
+                },
+                {
+                  "description": "Apply knowledge of anatomy and construction to create dynamic and expressive poses. Focus on principles of balance, weight distribution, and line of action to imbue figures with life and storytelling potential.",
+                  "id": "A2D101-S06",
+                  "learning_outcome": "Students will design and draw compelling poses that demonstrate a clear understanding of balance, weight, and emotional intent for animated characters.",
+                  "order_index": 6,
+                  "title": "Dynamics of Posing and Weight Distribution",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the foundational concepts of the line of action and its role in establishing balance and energy in a figure.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "line of action drawing principles",
+                        "figure drawing balance tips",
+                        "dynamic posing fundamentals",
+                        "gesture drawing action lines"
+                      ],
+                      "title": "The Core of Dynamics: Line of Action & Balance"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Witness practical demonstrations of how to convincingly depict weight distribution and utilize contrapposto for natural, dynamic poses.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "how to draw weight distribution figure",
+                        "contrapposto drawing tutorial",
+                        "shifting weight animation principles",
+                        "center of gravity figure drawing"
+                      ],
+                      "title": "Mastering Weight: Contrapposto and Center of Gravity"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Learn how to employ exaggeration and clear silhouettes to imbue poses with narrative and emotional depth.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "exaggerated poses for animation",
+                        "silhouette design for characters",
+                        "storytelling through pose drawing",
+                        "expressive character poses"
+                      ],
+                      "title": "Posing for Purpose: Exaggeration & Storytelling"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design and draw a series of character poses that effectively communicate balance, weight, and emotional intent using learned principles.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "dynamic pose drawing practice",
+                        "figure drawing action poses",
+                        "character pose design challenge",
+                        "animation pose breakdown exercise"
+                      ],
+                      "title": "Dynamic Pose Workshop: Character Studies"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
+                },
+                {
+                  "description": "Focus on the intricate anatomy and expressive potential of the head, hands, and feet. Learn techniques for accurately drawing these complex extremities crucial for character personality and action.",
+                  "id": "A2D101-S07",
+                  "learning_outcome": "Students will accurately render the human head, hands, and feet, capturing their complex forms and expressive nuances.",
+                  "order_index": 7,
+                  "title": "Drawing the Head, Hands, and Feet",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Learn the foundational anatomical structures and proportional guidelines for drawing the human head from various angles.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "head anatomy for artists",
+                        "human head proportions drawing",
+                        "drawing the skull basic",
+                        "loomis head method explained",
+                        "head planes drawing"
+                      ],
+                      "title": "Understanding Head Proportions and Anatomy"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and practice techniques for rendering the head in dynamic poses and capturing a range of facial expressions.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "drawing head at different angles",
+                        "anime head drawing tutorial",
+                        "facial expressions drawing guide",
+                        "head construction side view",
+                        "3/4 head drawing tutorial"
+                      ],
+                      "title": "Dynamic Head Drawing: Angles and Expressions"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Draw a series of heads from different angles and with varied expressions, applying learned anatomical and proportional principles.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "head drawing practice sheet",
+                        "drawing expressive faces exercises",
+                        "life drawing head studies",
+                        "character head drawing assignment",
+                        "head perspective drawing practice"
+                      ],
+                      "title": "Head Construction Practice: Faces and Expressions"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Understand the complex bone and muscle structures of the human hand and foot, and interpret their overall gesture and form.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "hand anatomy for artists",
+                        "drawing hands basic structure",
+                        "foot anatomy for artists",
+                        "drawing feet basic form",
+                        "muscles of the hand and foot drawing"
+                      ],
+                      "title": "Deconstructing Hand and Foot Anatomy"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 70,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe practical methods for drawing hands and feet in various poses, conveying action, emotion, and interaction.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "drawing hands holding objects",
+                        "hand pose reference drawing",
+                        "drawing feet in perspective",
+                        "realistic feet drawing tutorial",
+                        "drawing dynamic hand and foot poses"
+                      ],
+                      "title": "Drawing Expressive Hands and Feet in Motion"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply anatomical and proportional knowledge to draw hands and feet from diverse references, focusing on gesture, form, and detail.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "hand drawing practice exercises",
+                        "foot drawing practice sheet",
+                        "life drawing hands and feet",
+                        "character hand and foot design",
+                        "complex extremity drawing assignment"
+                      ],
+                      "title": "Hands and Feet Drawing: Applied Practice"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "A2D102",
+              "description": "Introduction to the 12 fundamental principles of animation, including squash and stretch, anticipation, timing, and arcs, applied through basic exercises.",
+              "id": "A2D_F_002",
+              "is_core": true,
+              "tier": "Foundations",
+              "title": "Principles of Animation I",
+              "year_level": 1,
+              "subjects": [
+                {
+                  "description": "This module introduces the historical context of 2D animation, its fundamental principles, and the foundational workflows. Students will gain an overview of the 12 basic principles that form the backbone of animation.",
+                  "id": "A2D102-S1",
+                  "learning_outcome": "Students will be able to describe the historical evolution of animation and identify the core purpose of the 12 Principles of Animation.",
+                  "order_index": 1,
+                  "title": "Introduction to Animation & Core Principles",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Trace the historical evolution of animation from its pre-cinematic origins to the golden age of 2D animation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "history of animation timeline",
+                        "early animation techniques",
+                        "pioneers of 2D animation",
+                        "pre-cinema animation devices"
+                      ],
+                      "title": "The Dawn of Animation: A Historical Journey"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "READ",
+                      "objective": "Introduce and briefly define each of Disney's 12 basic principles of animation and understand their core purpose.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "what are the 12 principles of animation",
+                        "brief explanation of animation principles",
+                        "why are animation principles important",
+                        "Disney's core animation rules"
+                      ],
+                      "title": "Unveiling the 12 Principles: An Essential Overview"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 40,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Visually observe how the 12 principles are applied in various animated sequences to enhance realism and appeal.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "12 principles of animation examples video",
+                        "animation principle breakdown demonstration",
+                        "how animators use squash and stretch",
+                        "timing and spacing examples animation"
+                      ],
+                      "title": "Principles in Motion: Observing Animation Examples"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Analyze short animated clips and accurately identify the specific animation principles being demonstrated.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "animation principles identification quiz",
+                        "analyze animation principles in a scene",
+                        "how to spot animation principles",
+                        "critique animation using 12 principles"
+                      ],
+                      "title": "Identify the Principles: An Analytical Exercise"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental stages and roles involved in a typical 2D animation production pipeline.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "2D animation pipeline explained",
+                        "steps in animation production",
+                        "animation pre-production process",
+                        "keyframes inbetweening workflow"
+                      ],
+                      "title": "Basic 2D Animation Workflow: From Idea to Screen"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
+                },
+                {
+                  "description": "Dive into the principles of Squash and Stretch and Anticipation. Students will learn how to use these principles to convey weight, flexibility, and prepare the audience for upcoming actions through practical exercises.",
+                  "id": "A2D102-S2",
+                  "learning_outcome": "Students will apply Squash and Stretch to express material properties and Anticipation to set up character actions effectively.",
+                  "order_index": 2,
+                  "title": "Weight, Volume, and Readiness",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the theory and application of Squash and Stretch to convey weight, flexibility, and volume in animation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "squash and stretch animation principle explained",
+                        "how to show weight in animation",
+                        "flexibility animation techniques",
+                        "volume preservation animation"
+                      ],
+                      "title": "The Fundamentals of Squash and Stretch"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 20,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe practical examples and techniques for applying Squash and Stretch to simple objects, differentiating material properties.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "squash and stretch animation demo",
+                        "bouncing ball animation tutorial squash and stretch",
+                        "applying squash and stretch to characters",
+                        "material properties animation example"
+                      ],
+                      "title": "Demonstrating Squash and Stretch in Practice"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 75,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply Squash and Stretch principles to animate a bouncing ball, clearly demonstrating both a rubbery and a heavy material.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "bouncing ball animation exercise",
+                        "how to animate a heavy bouncing ball",
+                        "squash and stretch principles assignment",
+                        "animating different material bounce"
+                      ],
+                      "title": "Practice: Bouncing Balls with Varying Weight"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Learn the theory behind Anticipation and its crucial role in preparing the audience for an action, enhancing readability and impact.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "anticipation animation principle explained",
+                        "why is anticipation important in animation",
+                        "predictive animation actions",
+                        "preparing audience for action animation"
+                      ],
+                      "title": "Understanding the Power of Anticipation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 20,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze examples of effective Anticipation in various animated scenes, understanding how it builds tension and clarity for character actions.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "animation anticipation examples",
+                        "character preparation animation tutorial",
+                        "reading animated actions",
+                        "how to use anticipation effectively"
+                      ],
+                      "title": "Anticipation in Action: Case Studies"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 105,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Animate a simple character action, such as a jump or lifting a heavy object, incorporating clear and effective Anticipation to prepare the audience.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "animation anticipation exercise",
+                        "animate character jump anticipation",
+                        "showing effort with anticipation animation",
+                        "character action planning animation"
+                      ],
+                      "title": "Practice: Animating Anticipated Character Actions"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
+                },
+                {
+                  "description": "Explore the crucial principles of Timing and Spacing. This module focuses on how manipulating the number of frames and the distance between drawings dictates the speed, weight, and emotional impact of an animated action.",
+                  "id": "A2D102-S3",
+                  "learning_outcome": "Students will master timing and spacing to control the speed, rhythm, and perceived weight of animated objects and characters.",
+                  "order_index": 3,
+                  "title": "Rhythm, Pace, and Dynamics",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental concepts of timing and spacing in animation and their direct impact on perceived speed, weight, and emotional tone.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "animation timing principles",
+                        "spacing in animation definition",
+                        "how timing affects animation",
+                        "animation frames per second explained",
+                        "timing chart animation"
+                      ],
+                      "title": "Introduction to Timing & Spacing"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze practical examples of different timing strategies, observing how varying the number of frames between key poses alters the speed and feeling of an action.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "animation timing examples",
+                        "slow vs fast timing animation",
+                        "frame rate animation demonstration",
+                        "walk cycle timing breakdown",
+                        "animation speed control tutorial"
+                      ],
+                      "title": "Visualizing Timing: Speed & Emotion"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Explore how manipulating the distance between drawings (spacing) creates arcs, conveys weight, and defines the acceleration and deceleration of movement.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "animation spacing principles",
+                        "arcs in animation tutorial",
+                        "extremes and breakdowns animation",
+                        "spacing to show weight animation",
+                        "ease in ease out animation examples"
+                      ],
+                      "title": "Visualizing Spacing: Arcs & Weight"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned timing and spacing principles to animate a bouncing ball, demonstrating control over its perceived weight and speed through frame manipulation.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "bouncing ball animation timing",
+                        "bouncing ball spacing tutorial",
+                        "animate heavy ball",
+                        "animate light ball",
+                        "bounce animation practice"
+                      ],
+                      "title": "Practice: The Bouncing Ball with Weight"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Understand how the combined manipulation of timing and spacing contributes to the overall rhythm and pace of an animated sequence, influencing its narrative and emotional impact.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "animation rhythm and pace",
+                        "how to create animation rhythm",
+                        "emotional impact of timing animation",
+                        "animating personality through timing",
+                        "narrative pacing in animation"
+                      ],
+                      "title": "Creating Rhythm & Pace"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L6",
+                      "lesson_type": "WATCH",
+                      "objective": "Examine advanced techniques like overlapping action and follow through, and how their precise timing and spacing enhance realism and fluid dynamics in character animation.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "overlapping action animation tutorial",
+                        "follow through animation explanation",
+                        "secondary action timing",
+                        "making animation believable",
+                        "fluid movement animation principles"
+                      ],
+                      "title": "Refining Movement: Overlapping Action"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
+                },
+                {
+                  "description": "This module covers Arcs, Follow Through, and Overlapping Action. Students will learn to create natural, graceful movement paths and add realism and fluidity to animation by incorporating lagging and subsequent actions.",
+                  "id": "A2D102-S4",
+                  "learning_outcome": "Students will effectively integrate arcs for natural motion and apply follow through and overlapping action to enhance realism and fluidity.",
+                  "order_index": 4,
+                  "title": "Flow, Fluidity, and Natural Motion",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the principle of arcs and their importance in creating natural, believable movement paths in animation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "animation arcs principle",
+                        "why use arcs in animation",
+                        "natural movement paths animation",
+                        "arcs in character animation explained"
+                      ],
+                      "title": "Arcs: The Path to Natural Motion"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe practical applications of arcs in simple animated scenarios, such as a bouncing ball and a character turning.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "bouncing ball animation arcs tutorial",
+                        "character turn arcs animation demo",
+                        "arcs animation examples simple",
+                        "demonstration of animation arcs"
+                      ],
+                      "title": "Demo: Arcs in Action (Bouncing Ball & Character Turn)"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the fundamental definitions and distinctions between follow through and overlapping action and their role in enhancing realism and fluidity.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "follow through animation principle explained",
+                        "overlapping action animation theory",
+                        "difference between follow through and overlapping action",
+                        "adding realism animation principles"
+                      ],
+                      "title": "Follow Through & Overlapping Action: Theory"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze various animated examples demonstrating effective use of follow through and overlapping action in characters and objects.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "follow through animation examples best",
+                        "overlapping action animation showcase",
+                        "secondary animation demo reel",
+                        "fluid animation principles examples"
+                      ],
+                      "title": "Demo: Follow Through & Overlapping Action Examples"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 180,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Create a short animation sequence (e.g., character walking/stopping, waving) effectively applying arcs, follow through, and overlapping action to achieve natural and fluid motion.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "animation assignment follow through overlapping action",
+                        "practice arcs follow through overlapping action",
+                        "fluid character animation exercise",
+                        "natural motion animation assignment"
+                      ],
+                      "title": "Assignment: Animating with Flow & Fluidity"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
+                },
+                {
+                  "description": "Focus on Solid Drawing, Appeal, and Exaggeration. Students will develop skills in maintaining character volume and perspective, creating engaging and likable characters, and using exaggeration to amplify actions and expressions.",
+                  "id": "A2D102-S5",
+                  "learning_outcome": "Students will utilize solid drawing principles, develop character appeal, and employ exaggeration to strengthen emotional impact and visual storytelling.",
+                  "order_index": 5,
+                  "title": "Character, Form, and Expressiveness",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Learn the principles of solid drawing, including form, volume, and perspective, to create believable animated characters.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "solid drawing animation principles",
+                        "drawing volume and form animation",
+                        "perspective in character drawing",
+                        "3D drawing animation",
+                        "mass and weight animation"
+                      ],
+                      "title": "Understanding Solid Drawing and Volume"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L2",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice drawing characters from multiple angles while maintaining consistent volume, proportion, and perspective.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "character turn around exercise",
+                        "drawing characters from different angles",
+                        "consistent character volume practice",
+                        "animation character construction tutorial",
+                        "solid drawing exercises"
+                      ],
+                      "title": "Volume and Perspective Drawing Exercise"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Understand the elements that contribute to character appeal and how to design characters that are engaging and likable.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "character appeal animation principles",
+                        "likable character design",
+                        "silhouette character design tutorial",
+                        "designing expressive characters",
+                        "visual storytelling character appeal"
+                      ],
+                      "title": "Crafting Appealing Characters"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 105,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Develop character designs focusing on strong silhouettes, clear emotional expressiveness, and overall appeal.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "character silhouette design tutorial",
+                        "expressive character poses animation",
+                        "designing appealing characters exercise",
+                        "character design for animation appeal",
+                        "likability in character drawing"
+                      ],
+                      "title": "Character Silhouette and Expressiveness Design"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Explore how exaggeration amplifies action, emotion, and comedic timing to enhance visual storytelling in animation.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "exaggeration animation principles",
+                        "animation squash and stretch examples",
+                        "amplifying emotions animation",
+                        "exaggerated character actions",
+                        "comedic timing animation exaggeration"
+                      ],
+                      "title": "The Power of Exaggeration in Animation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 150,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Animate a short sequence applying principles of exaggeration to convey heightened emotion or a dynamic action.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "animation exaggeration practice",
+                        "exaggerated facial expressions animation",
+                        "timing and exaggeration animation exercise",
+                        "animating extreme poses",
+                        "cartoon exaggeration techniques"
+                      ],
+                      "title": "Exaggerated Action and Expression Animation"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
+                },
+                {
+                  "description": "The final module covers Staging, Secondary Action, and an introduction to the Straight Ahead vs. Pose-to-Pose animation methods. Students will learn to clearly present ideas, add subtle reinforcing movements, and understand different workflow approaches.",
+                  "id": "A2D102-S6",
+                  "learning_outcome": "Students will apply staging for clear communication, add secondary actions for subtle detail, and understand the distinctions between key animation methodologies.",
+                  "order_index": 6,
+                  "title": "Presentation, Detail, and Workflow",
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the principles of staging to clearly present actions, emotions, and ideas in animation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "animation staging principles",
+                        "clear animation presentation",
+                        "staging a shot animation",
+                        "readability in animation",
+                        "character silhouette design animation"
+                      ],
+                      "title": "Staging: Principles of Clear Presentation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe practical demonstrations of staging techniques to guide the viewer's eye and communicate effectively.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "animation staging examples",
+                        "blocking animation demo",
+                        "camera angles in animation tutorial",
+                        "mise-en-scene animation",
+                        "visual storytelling animation"
+                      ],
+                      "title": "Staging in Practice: Visual Communication"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Learn the concept of secondary action and how it adds subtle detail, realism, and emotional depth to primary animation.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "secondary action animation definition",
+                        "overlapping action principles",
+                        "follow through animation explained",
+                        "character animation detail",
+                        "subtle movements animation"
+                      ],
+                      "title": "Secondary Action: Enhancing Detail and Realism"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 100,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply secondary action principles by animating subtle reinforcing movements to a pre-existing or simple character action.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "secondary action animation exercise",
+                        "animating cloth folds tutorial",
+                        "hair animation techniques",
+                        "jiggle and bounce animation",
+                        "character reaction animation"
+                      ],
+                      "title": "Assignment: Animating with Secondary Actions"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental differences, advantages, and disadvantages of Straight Ahead and Pose-to-Pose animation workflows.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "straight ahead vs pose to pose animation",
+                        "animation workflow methods",
+                        "traditional animation techniques",
+                        "digital animation pipeline comparison",
+                        "planning animation process"
+                      ],
+                      "title": "Animation Workflows: Straight Ahead vs. Pose-to-Pose"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "A2D103",
+              "description": "Hands-on exploration of industry-standard 2D animation software (e.g., Toon Boom Harmony), covering basic tools, interface, and digital drawing techniques.",
+              "id": "A2D_F_003",
+              "is_core": true,
+              "tier": "Foundations",
+              "title": "Digital 2D Animation Fundamentals",
+              "year_level": 1,
+              "subjects": [
+                {
+                  "description": "An initial deep dive into the Toon Boom Harmony software, exploring its interface, workspaces, and essential navigation techniques. Students will learn how to set up new projects and understand the role of different windows.",
+                  "id": "A2D103-S01",
+                  "learning_outcome": "Students will be able to navigate the Toon Boom Harmony interface confidently, customize workspaces, and initiate new animation projects.",
+                  "order_index": 1,
+                  "title": "Introduction to Toon Boom Harmony & Interface",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module focuses on mastering the digital drawing tools within Toon Boom Harmony, including various brushes, pencils, shapes, and color palettes. Emphasis will be placed on line quality, digital inking, and painting.",
+                  "id": "A2D103-S02",
+                  "learning_outcome": "Students will be proficient in using Toon Boom Harmony's drawing tools to create clean line art, fill colors, and apply basic digital painting techniques.",
+                  "order_index": 2,
+                  "title": "Digital Drawing Tools & Techniques",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Introduction to fundamental animation principles, focusing on squash and stretch, timing, and spacing, and how to apply these concepts digitally within Toon Boom Harmony to create believable motion.",
+                  "id": "A2D103-S03",
+                  "learning_outcome": "Students will understand and apply core animation principles like squash and stretch, timing, and spacing to simple animated objects in Toon Boom Harmony.",
+                  "order_index": 3,
+                  "title": "Animation Principles: Squash & Stretch, Timing & Spacing",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This subject covers the core mechanics of digital animation: creating keyframes, understanding different interpolation methods (e.g., ease-in/ease-out), and manipulating motion paths for fluid animation.",
+                  "id": "A2D103-S04",
+                  "learning_outcome": "Students will be able to create keyframes, adjust interpolation, and define custom motion paths to animate objects smoothly within Toon Boom Harmony.",
+                  "order_index": 4,
+                  "title": "Keyframing, Interpolation & Motion Paths",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "An introduction to preparing characters for animation, including creating basic bone structures (rigs), setting up pivots, and using deformers to allow for flexible character movement without redrawing.",
+                  "id": "A2D103-S05",
+                  "learning_outcome": "Students will be able to create a simple character rig, set up pivots, and use basic deformers to prepare a character for digital animation in Toon Boom Harmony.",
+                  "order_index": 5,
+                  "title": "Basic Character Rigging & Deformers",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module explores how to compose an animated scene, including background integration, layer management, and basic camera movements (pans, zooms) within the digital environment.",
+                  "id": "A2D103-S06",
+                  "learning_outcome": "Students will be able to organize scene elements, manage layers effectively, and implement basic camera movements to enhance their animated sequences.",
+                  "order_index": 6,
+                  "title": "Scene Layout & Camera Techniques",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "The final module covers the process of rendering animated sequences, understanding various export formats, and best practices for managing animation projects from start to finish.",
+                  "id": "A2D103-S07",
+                  "learning_outcome": "Students will be able to render and export their animated projects in various formats, understanding optimal settings for different outputs, and apply basic project management workflows.",
+                  "order_index": 7,
+                  "title": "Exporting, Rendering & Project Management",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "A2D104",
+              "description": "Explores the foundational elements of appealing character design for 2D animation, focusing on silhouette, expressions, and model sheet creation.",
+              "id": "A2D_F_004",
+              "is_core": true,
+              "tier": "Foundations",
+              "title": "Character Design for 2D",
+              "year_level": 1,
+              "subjects": [
+                {
+                  "description": "Introduction to the principles of appealing character design, including exaggeration, simplification, and visual storytelling.",
+                  "id": "A2D104-S01",
+                  "learning_outcome": "Students will be able to identify and apply core principles of appealing character design.",
+                  "order_index": 1,
+                  "title": "Fundamentals of Character Design",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Deep dive into the importance of clear silhouettes and dynamic forms for character recognition and visual impact.",
+                  "id": "A2D104-S02",
+                  "learning_outcome": "Students will be able to design characters with strong, recognizable silhouettes and effective visual forms.",
+                  "order_index": 2,
+                  "title": "Mastering Silhouette and Form",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Techniques for designing expressive faces and dynamic poses that convey character personality, mood, and action.",
+                  "id": "A2D104-S03",
+                  "learning_outcome": "Students will be able to create a range of compelling expressions and poses for their characters.",
+                  "order_index": 3,
+                  "title": "Expressions, Emotions, and Posing",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Understanding how to design characters that fit into a cohesive world, focusing on comparative sizing, visual style, and group dynamics.",
+                  "id": "A2D104-S04",
+                  "learning_outcome": "Students will be able to design characters that maintain consistency within a larger cast and visual style.",
+                  "order_index": 4,
+                  "title": "Character Consistency and Scale",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Comprehensive guide to creating professional character model sheets, including turnarounds, expression sheets, and pose guides, essential for animators.",
+                  "id": "A2D104-S05",
+                  "learning_outcome": "Students will be able to produce a complete and accurate model sheet ready for production.",
+                  "order_index": 5,
+                  "title": "Model Sheet Creation",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "A2D201",
+              "description": "Focus on animating believable character performances, studying acting principles, body language, and conveying emotion through movement and expression.",
+              "id": "A2D_P_001",
+              "is_core": true,
+              "tier": "Production",
+              "title": "Performance Animation",
+              "year_level": 2,
+              "subjects": [
+                {
+                  "description": "Explore the core concepts of performance animation, examining the differences between general animation and performance-driven work. Introduce fundamental acting theories and principles applicable to animated characters.",
+                  "id": "A2D201S01",
+                  "learning_outcome": "Understand the foundational principles of acting and their direct application to creating believable animated performances.",
+                  "order_index": 1,
+                  "title": "Introduction to Performance & Acting",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Delve into the nuances of body language, posture, and gesture. Learn how to use physical movement to communicate character personality, mood, and narrative beats without relying on dialogue.",
+                  "id": "A2D201S02",
+                  "learning_outcome": "Master the techniques for expressing complex emotions and character traits through compelling body language and non-verbal cues.",
+                  "order_index": 2,
+                  "title": "Body Language & Physical Storytelling",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Concentrate on the intricacies of facial animation, including expressions, eye movement, and lip-sync. Understand how subtle facial cues contribute significantly to a character's emotional depth and believability.",
+                  "id": "A2D201S03",
+                  "learning_outcome": "Develop proficiency in animating nuanced facial expressions and accurate lip-sync to convey a wide range of emotions and dialogue effectively.",
+                  "order_index": 3,
+                  "title": "Facial Animation & Expressive Performance",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Study the principles of staging, blocking, and pacing within a scene. Learn how multiple characters interact, react to each other, and occupy space to create dynamic and engaging performances.",
+                  "id": "A2D201S04",
+                  "learning_outcome": "Apply staging and blocking techniques to choreograph compelling character interactions and enhance narrative flow within animated scenes.",
+                  "order_index": 4,
+                  "title": "Character Interaction & Scene Staging",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explore the concept of subtext in performance animation, understanding how to animate underlying thoughts, unspoken desires, and hidden emotions that add depth and complexity to a character's actions and expressions.",
+                  "id": "A2D201S05",
+                  "learning_outcome": "Learn to identify and animate subtext, enabling characters to convey deeper meaning and emotional layers beyond their overt actions.",
+                  "order_index": 5,
+                  "title": "Subtext & Nuanced Performance",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Dive into the art of pantomime, focusing on how to tell a complete story or convey complex ideas and emotions purely through physical action and movement, without any dialogue or sound.",
+                  "id": "A2D201S06",
+                  "learning_outcome": "Develop strong physical storytelling skills through pantomime exercises, enhancing the ability to communicate clearly and emotively through movement alone.",
+                  "order_index": 6,
+                  "title": "Pantomime & Physical Storytelling",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Learn effective methods for analyzing live-action performances, understanding how to extract key movements, emotional beats, and timing from reference material to inform and enrich animated character performances.",
+                  "id": "A2D201S07",
+                  "learning_outcome": "Master the process of observing, analyzing, and effectively utilizing live-action reference to enhance the realism and emotional impact of animated performances.",
+                  "order_index": 7,
+                  "title": "Performance Analysis & Reference Utilization",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Integrate all learned principles into complex performance shots. Focus on refining timing, arcs, spacing, and overall emotional arc to deliver polished, production-ready animated performances that resonate with the audience.",
+                  "id": "A2D201S08",
+                  "learning_outcome": "Produce sophisticated, emotionally rich, and technically proficient animated performances that demonstrate a comprehensive understanding of all performance animation principles.",
+                  "order_index": 8,
+                  "title": "Advanced Performance & Final Polish",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "A2D202",
+              "description": "Practical application of 2D character rigging techniques for both traditional cut-out animation (e.g., Toon Boom Harmony rigs) and skeletal animation (e.g., Spine).",
+              "id": "A2D_P_002",
+              "is_core": true,
+              "tier": "Production",
+              "title": "2D Character Rigging & Technical Workflow",
+              "year_level": 2,
+              "subjects": [
+                {
+                  "description": "This subject introduces students to the core concepts of 2D character rigging, exploring the differences between cut-out (e.g., Toon Boom Harmony) and skeletal (e.g., Spine) rigging approaches. It covers essential rigging terminology, software overviews, and establishing efficient production workflows.",
+                  "id": "A2D202_S01",
+                  "learning_outcome": "Understand the fundamental principles of 2D character rigging, distinguish between various rigging methodologies, and identify key software applications for each.",
+                  "order_index": 1,
+                  "title": "Introduction to 2D Rigging & Workflow",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focuses on the practical application of rigging techniques within Toon Boom Harmony. Students will learn to set up character assets, define drawing layers and pivots, create basic deformers (pegs, deformers), and establish a functional cut-out rig.",
+                  "id": "A2D202_S02",
+                  "learning_outcome": "Construct a functional 2D cut-out character rig in Toon Boom Harmony using essential tools like pegs, pivots, and basic deformers.",
+                  "order_index": 2,
+                  "title": "Toon Boom Harmony Cut-Out Rigging Foundations",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This subject delves into more complex rigging challenges in Toon Boom Harmony, including advanced deformer usage, creation of specialized features (e.g., hand libraries, advanced mouth shapes, eye controls), and implementing Master Controllers for efficient animation. It also covers performance optimization strategies.",
+                  "id": "A2D202_S03",
+                  "learning_outcome": "Implement advanced rigging features such as master controllers, advanced deformers, and specialized character elements to create a highly flexible and efficient Toon Boom Harmony rig.",
+                  "order_index": 3,
+                  "title": "Advanced Toon Boom Harmony Rigging Techniques",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explores skeletal animation principles and their application in Spine. Students will learn to build character skeletons, define bone hierarchies, apply meshes and weights, set up inverse kinematics (IK), and prepare rigs for export to game engines or other platforms.",
+                  "id": "A2D202_S04",
+                  "learning_outcome": "Develop a complete skeletal character rig in Spine, utilizing bones, meshes, weights, and IK constraints, suitable for game development or interactive media.",
+                  "order_index": 4,
+                  "title": "Spine 2D Skeletal Rigging & Animation",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This subject focuses on integrating rigged characters into a production pipeline. It covers file management, naming conventions, exporting and importing rigs across different software, optimizing rigs for animation performance, and troubleshooting common rigging issues.",
+                  "id": "A2D202_S05",
+                  "learning_outcome": "Optimize and integrate 2D character rigs into a broader animation or game development pipeline, adhering to industry standards for file management, export, and performance.",
+                  "order_index": 5,
+                  "title": "Rigging for Production & Technical Workflow",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This subject emphasizes the crucial link between character design and rigging. Students will learn how to design characters with rigging in mind, prepare artwork efficiently, break down character components, and create turnarounds suitable for different rigging methodologies.",
+                  "id": "A2D202_S06",
+                  "learning_outcome": "Analyze character designs for rigging feasibility, prepare digital assets according to rigging best practices, and effectively break down character components for efficient rigging setup.",
+                  "order_index": 6,
+                  "title": "Character Design & Asset Preparation for Rigging",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "A2D203",
+              "description": "Mastering the essential production stages of clean-up, inbetweening, and coloring for 2D animation, ensuring consistency and quality across sequences.",
+              "id": "A2D_P_003",
+              "is_core": true,
+              "tier": "Production",
+              "title": "Clean-up, Inbetweening & Digital Ink/Paint",
+              "year_level": 2,
+              "subjects": [
+                {
+                  "description": "This module introduces the fundamental concepts and techniques for refining rough animation drawings into clean, consistent line art, emphasizing accuracy and maintaining character integrity.",
+                  "id": "A2D203_S1",
+                  "learning_outcome": "Students will be able to identify and apply core clean-up principles to rough animation, producing accurate and consistent line art.",
+                  "order_index": 1,
+                  "title": "Introduction to Clean-up Principles",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module delves into more complex clean-up scenarios, including overlapping actions, complex forms, and integrating clean-up into a production pipeline using industry-standard software.",
+                  "id": "A2D203_S2",
+                  "learning_outcome": "Students will master advanced clean-up techniques and integrate clean-up processes efficiently within a professional 2D animation workflow.",
+                  "order_index": 2,
+                  "title": "Advanced Clean-up Techniques and Workflow",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module covers the core principles of inbetweening, focusing on creating smooth and believable transitions between key poses while maintaining character volume, arcs, and timing.",
+                  "id": "A2D203_S3",
+                  "learning_outcome": "Students will understand and apply fundamental inbetweening principles to create fluid motion and maintain animation integrity between keyframes.",
+                  "order_index": 3,
+                  "title": "Foundations of Inbetweening",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module introduces students to the digital tools and software used for ink and paint, covering workspace setup, brush customization, and preparing clean-up drawings for coloring.",
+                  "id": "A2D203_S4",
+                  "learning_outcome": "Students will be proficient in setting up digital ink and paint environments and preparing animation frames for the coloring process using professional software.",
+                  "order_index": 4,
+                  "title": "Digital Ink and Paint Setup",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module explores various digital coloring methods, including flatting, cell shading, and basic texture application, ensuring color consistency across sequences and scenes.",
+                  "id": "A2D203_S5",
+                  "learning_outcome": "Students will effectively apply digital coloring and basic shading techniques, maintaining color palettes and consistency throughout animated sequences.",
+                  "order_index": 5,
+                  "title": "Digital Coloring and Shading Techniques",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module focuses on the crucial aspects of maintaining quality and consistency across all stages of clean-up, inbetweening, and digital ink/paint, including error checking and adherence to style guides.",
+                  "id": "A2D203_S6",
+                  "learning_outcome": "Students will develop robust quality control practices to ensure consistency in line quality, color, and motion across all animation assets.",
+                  "order_index": 6,
+                  "title": "Quality Control and Consistency Assurance",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module ties together all stages, demonstrating how clean-up, inbetweening, and ink/paint integrate into a larger 2D animation production pipeline, focusing on file management and final output.",
+                  "id": "A2D203_S7",
+                  "learning_outcome": "Students will understand the integration of clean-up, inbetweening, and ink/paint into a full production pipeline and be able to prepare final deliverables according to industry standards.",
+                  "order_index": 7,
+                  "title": "Production Pipeline Integration and Deliverables",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "A2D301",
+              "description": "Develop skills in designing and painting captivating backgrounds and layouts that establish mood, perspective, and support the animated action.",
+              "id": "A2D_P_004",
+              "is_core": true,
+              "tier": "Production",
+              "title": "Layout & Background Design for 2D",
+              "year_level": 3,
+              "subjects": [
+                {
+                  "description": "Introduces the fundamental principles, terminology, and historical context of layout and background design in 2D animation. Covers basic drawing for environments and the role of backgrounds in visual storytelling.",
+                  "id": "A2D301-S1",
+                  "learning_outcome": "Students will be able to identify key components of animation layouts and backgrounds and apply basic drawing techniques for environmental elements.",
+                  "order_index": 1,
+                  "title": "Foundations of Layout and Background Design",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focuses on mastering 1, 2, and 3-point perspective, dynamic composition, and effective staging techniques to create depth, guide the viewer's eye, and support character action within layouts.",
+                  "id": "A2D301-S2",
+                  "learning_outcome": "Students will be able to utilize advanced perspective and composition principles to create visually compelling and functionally effective animation layouts.",
+                  "order_index": 2,
+                  "title": "Perspective, Composition & Staging",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explores the theory and application of color, light, and shadow to establish specific moods, times of day, and atmospheric effects in backgrounds. Covers color scripts and value studies.",
+                  "id": "A2D301-S3",
+                  "learning_outcome": "Students will be able to design backgrounds that effectively convey mood, time, and atmosphere through deliberate use of color, light, and value.",
+                  "order_index": 3,
+                  "title": "Color, Light & Mood",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Teaches how to imbue backgrounds with narrative elements, character insights, and world-building details. Focuses on designing environments that contribute to the story and provide context for animated action.",
+                  "id": "A2D301-S4",
+                  "learning_outcome": "Students will be able to create backgrounds that enhance the narrative and provide meaningful insights into the animated world and its characters.",
+                  "order_index": 4,
+                  "title": "Environmental Storytelling & World Building",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Covers the practical aspects of creating layouts for animation production, including character placement, camera movement (pans, trucks, zooms), overlays, and multiplane setups for efficient workflow.",
+                  "id": "A2D301-S5",
+                  "learning_outcome": "Students will be able to produce technically accurate layouts that seamlessly integrate with animation production pipelines and support dynamic camera work.",
+                  "order_index": 5,
+                  "title": "Technical Layouts for Animation",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Develops advanced digital painting skills specifically for background art, covering various textures, materials, and atmospheric effects using industry-standard software and techniques.",
+                  "id": "A2D301-S6",
+                  "learning_outcome": "Students will be proficient in digitally painting and rendering high-quality backgrounds that achieve a professional finish and desired artistic style.",
+                  "order_index": 6,
+                  "title": "Digital Painting & Rendering Techniques",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "A2D302",
+              "description": "Exploration of the full 2D animation pipeline, from storyboarding and animatics to final compositing, focusing on efficient workflow and team collaboration.",
+              "id": "A2D_P_005",
+              "is_core": true,
+              "tier": "Production",
+              "title": "2D Animation Pipeline Management",
+              "year_level": 3,
+              "subjects": [
+                {
+                  "description": "An introductory module defining the various stages of the 2D animation pipeline from conception to delivery, highlighting key roles, responsibilities, and the overarching principles of project management within a creative context.",
+                  "id": "A2D302-S1",
+                  "learning_outcome": "Students will be able to identify and describe the fundamental stages of a 2D animation pipeline and recognize the importance of structured project management.",
+                  "order_index": 1,
+                  "title": "Introduction to 2D Animation Pipeline & Project Management",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focuses on the management of pre-production phases, including script development, storyboarding, character and background design, layout, and animatic creation. Emphasizes establishing efficient approval workflows and ensuring creative vision aligns with production feasibility.",
+                  "id": "A2D302-S2",
+                  "learning_outcome": "Students will learn to effectively manage the creative and planning stages of pre-production, ensuring all assets and plans are production-ready.",
+                  "order_index": 2,
+                  "title": "Pre-Production Management: Concept to Animatics",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Covers the operational management of the core animation production stage, including character rigging, scene setup, animation (keyframing and in-betweening), clean-up, and coloring. This module emphasizes task allocation, progress tracking, and managing creative feedback loops.",
+                  "id": "A2D302-S3",
+                  "learning_outcome": "Students will be able to oversee and manage the efficient production of animation assets and the entire animation workflow, from initial movement to final coloring.",
+                  "order_index": 3,
+                  "title": "Production Management: Asset Creation & Animation",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explores the management of post-production processes, including compositing, visual effects integration, sound design oversight, editing, and final delivery for various platforms. Focus is placed on quality control, archiving, and meeting delivery specifications.",
+                  "id": "A2D302-S4",
+                  "learning_outcome": "Students will understand how to manage the post-production phase, ensuring high-quality final outputs that meet all technical and creative specifications.",
+                  "order_index": 4,
+                  "title": "Post-Production & Final Delivery Management",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module delves into strategies for optimizing the animation pipeline's efficiency, including workflow analysis, software integration, custom tool development, and data management. It also covers adapting to new technologies and industry best practices.",
+                  "id": "A2D302-S5",
+                  "learning_outcome": "Students will be able to analyze existing pipelines, identify bottlenecks, and propose effective solutions for optimization through technology and process improvements.",
+                  "order_index": 5,
+                  "title": "Pipeline Optimization & Technology Integration",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focuses on developing essential 'soft skills' for effective team collaboration, communication, and conflict resolution within an animation studio. Covers leadership, feedback strategies, problem-solving techniques, and adapting to production challenges.",
+                  "id": "A2D302-S6",
+                  "learning_outcome": "Students will develop strong communication, collaboration, and problem-solving skills necessary to lead and contribute effectively within a dynamic animation production team.",
+                  "order_index": 6,
+                  "title": "Team Collaboration, Communication & Problem-Solving",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "A2D401",
+              "description": "Advanced studies in nuanced character performance, exploring complex emotions, dialogue animation, and intricate action sequences.",
+              "id": "A2D_M_001",
+              "is_core": true,
+              "tier": "Mastery",
+              "title": "Advanced 2D Character Performance",
+              "year_level": 4,
+              "subjects": [
+                {
+                  "description": "Focus on conveying complex and often conflicting emotions through subtle shifts in expression, body language, and timing.",
+                  "id": "A2D401-S1",
+                  "learning_outcome": "Students will be able to animate characters expressing a wide range of nuanced emotions with authenticity and depth, moving beyond caricature.",
+                  "order_index": 1,
+                  "title": "Subtle Emotional Nuance",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Advanced techniques for animating dialogue, including believable lip-sync, conveying subtext through performance, and integrating vocal delivery with physical acting.",
+                  "id": "A2D401-S2",
+                  "learning_outcome": "Students will master the art of animating compelling dialogue performances, capturing the character's internal thoughts and emotional state during speech.",
+                  "order_index": 2,
+                  "title": "Mastering Dialogue Performance",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Principles of animating intricate action sequences, emphasizing realistic weight, force, impact, and dynamic staging within a 2D environment.",
+                  "id": "A2D401-S3",
+                  "learning_outcome": "Students will be able to choreograph and animate complex action sequences that convey significant force, weight, and spatial awareness.",
+                  "order_index": 3,
+                  "title": "Dynamic Action & Weight",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Delving into the psychological motivations and internal processes that drive character performance, applying advanced acting principles to 2D animation.",
+                  "id": "A2D401-S4",
+                  "learning_outcome": "Students will develop a deeper understanding of character psychology and utilize advanced acting techniques to create more believable and emotionally resonant performances.",
+                  "order_index": 4,
+                  "title": "Character Psychology & Acting Principles",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Exploiting advanced timing and pacing techniques to enhance emotional impact, comedic timing, and dramatic tension, ensuring optimal visual appeal in performance.",
+                  "id": "A2D401-S5",
+                  "learning_outcome": "Students will be proficient in manipulating timing and pacing to achieve specific emotional responses and maximize the appeal of their animated performances.",
+                  "order_index": 5,
+                  "title": "Advanced Timing, Pacing & Appeal",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Developing critical analysis skills for evaluating 2D character performance, identifying areas for improvement, and applying iterative refinement techniques.",
+                  "id": "A2D401-S6",
+                  "learning_outcome": "Students will be able to critically assess their own and others' animation performances, articulate constructive feedback, and apply advanced refinement strategies.",
+                  "order_index": 6,
+                  "title": "Performance Critique & Refinement",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "A2D402",
+              "description": "Focus on the art of directing a 2D animated project, including storyboarding, camera work, scene timing, sound design integration, and leading a small team.",
+              "id": "A2D_M_002",
+              "is_core": true,
+              "tier": "Mastery",
+              "title": "Directing for 2D Animation",
+              "year_level": 4,
+              "subjects": [
+                {
+                  "description": "Introduction to the multifaceted role of a 2D animation director, focusing on script analysis, developing a unique visual style, establishing core thematic elements, and initial conceptualization through animatics and look development.",
+                  "id": "A2D402-S1",
+                  "learning_outcome": "Students will be able to critically interpret a script, define a cohesive directorial vision, and outline initial aesthetic and narrative approaches for a 2D animated project.",
+                  "order_index": 1,
+                  "title": "The Director's Vision: From Concept to Pre-Production",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Mastering the art of visual storytelling through comprehensive storyboarding. This subject covers shot composition, camera movement, framing, staging, blocking, and effective sequential art to convey narrative and emotion.",
+                  "id": "A2D402-S2",
+                  "learning_outcome": "Students will effectively storyboard complex sequences, demonstrating proficiency in cinematic language, dynamic camera work, and compelling visual narrative flow.",
+                  "order_index": 2,
+                  "title": "Visual Storytelling: Storyboarding & Cinematic Language",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Techniques for directing compelling character performance in 2D animation, establishing scene rhythm, managing pacing, and understanding editorial principles to maximize emotional impact and narrative clarity. Includes working with animators to achieve desired expressions and movements.",
+                  "id": "A2D402-S3",
+                  "learning_outcome": "Students will be able to direct nuanced character performances and expertly manipulate scene timing and pacing to enhance emotional resonance and narrative progression.",
+                  "order_index": 3,
+                  "title": "Directing Performance, Timing & Editorial Pacing",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Integrating sound effects, voice acting direction, and musical scores to elevate the emotional depth, atmosphere, and narrative drive of an animated project. Focus on understanding the role of sound in storytelling and collaborating with sound designers and composers.",
+                  "id": "A2D402-S4",
+                  "learning_outcome": "Students will strategically integrate sound design, voice direction, and music into their animated projects, understanding their critical roles in enhancing storytelling and emotional impact.",
+                  "order_index": 4,
+                  "title": "Sound Design & Music Integration: Enhancing Narrative",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Principles of leading a small animation team, fostering effective communication, providing constructive feedback, understanding the 2D animation production pipeline, and overseeing the project from layout to final render. Includes managing creative decisions and problem-solving.",
+                  "id": "A2D402-S5",
+                  "learning_outcome": "Students will demonstrate effective leadership skills, manage a small animation team, and navigate the 2D animation production pipeline, ensuring a cohesive creative vision from concept to delivery.",
+                  "order_index": 5,
+                  "title": "Team Leadership, Production Pipeline & Creative Management",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "A culminating practical application where students direct a complete short 2D animated project. This subject integrates all learned principles from concept development, storyboarding, animation direction, sound integration, and final picture lock, simulating a real-world production environment.",
+                  "id": "A2D402-S6",
+                  "learning_outcome": "Students will successfully direct a complete short 2D animated project, demonstrating mastery of visual storytelling, timing, sound integration, team collaboration, and overall project management.",
+                  "order_index": 6,
+                  "title": "Final Project: Directing an Animated Short",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "A2D403",
+              "description": "Techniques for creating dynamic 2D effects animation, such as water, fire, smoke, explosions, and magical elements, using traditional and digital methods.",
+              "id": "A2D_M_003",
+              "is_core": true,
+              "tier": "Mastery",
+              "title": "2D FX Animation",
+              "year_level": 4,
+              "subjects": [
+                {
+                  "description": "Introduction to the core principles of animation applied to effects, including timing, spacing, squash and stretch, and anticipation, specifically tailored for dynamic 2D visual effects.",
+                  "id": "A2D403-S01",
+                  "learning_outcome": "Students will be able to apply fundamental animation principles to create believable and dynamic 2D effects.",
+                  "order_index": 1,
+                  "title": "Foundations of 2D FX Animation",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Techniques for animating various forms of water and liquid, such as splashes, drips, waves, and flowing water, using both traditional frame-by-frame and digital methods.",
+                  "id": "A2D403-S02",
+                  "learning_outcome": "Students will master the animation of diverse water and liquid phenomena, understanding their unique behaviors and rendering them effectively.",
+                  "order_index": 2,
+                  "title": "Water and Liquid Effects",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Detailed exploration of animating volatile elements like fire, smoke plumes, and powerful explosions, focusing on their growth, dissipation, and kinetic energy.",
+                  "id": "A2D403-S03",
+                  "learning_outcome": "Students will be proficient in animating complex fire, smoke, and explosion effects, conveying intensity and realism.",
+                  "order_index": 3,
+                  "title": "Fire, Smoke, and Explosions",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Methods for designing and animating abstract effects such as magical spells, energy fields, electric arcs, and stylized atmospheric elements.",
+                  "id": "A2D403-S04",
+                  "learning_outcome": "Students will be able to create compelling and visually striking energy and magical effects that enhance narrative and atmosphere.",
+                  "order_index": 4,
+                  "title": "Energy and Magical Effects",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Covering effects like dust clouds, falling debris, wind gusts, rain, and snow, and how they interact with environments and characters.",
+                  "id": "A2D403-S05",
+                  "learning_outcome": "Students will understand how to animate atmospheric conditions and debris to add depth and realism to animated scenes.",
+                  "order_index": 5,
+                  "title": "Atmospheric and Debris Effects",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Practical application of industry-standard digital software (e.g., Toon Boom Harmony, Adobe Animate, After Effects) for creating, compositing, and refining 2D effects animation.",
+                  "id": "A2D403-S06",
+                  "learning_outcome": "Students will gain hands-on experience with digital tools and workflows to efficiently produce high-quality 2D FX animations.",
+                  "order_index": 6,
+                  "title": "Digital Tools and Workflow for FX",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focus on integrating multiple effects seamlessly into complex scenes, understanding effects layering, timing relationships, and interaction with character animation.",
+                  "id": "A2D403-S07",
+                  "learning_outcome": "Students will be able to plan and execute complex 2D FX sequences that interact believably with characters and environments.",
+                  "order_index": 7,
+                  "title": "Advanced FX Interaction and Integration",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Students will undertake a significant individual project, applying all learned techniques to create a portfolio-ready 2D effects animation sequence, culminating in professional presentation skills.",
+                  "id": "A2D403-S08",
+                  "learning_outcome": "Students will demonstrate mastery of 2D FX animation by completing a polished project suitable for a professional portfolio.",
+                  "order_index": 8,
+                  "title": "Final 2D FX Project and Portfolio",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "A2D404",
+              "description": "Guidance in curating a professional portfolio and demo reel, showcasing individual strengths and preparing students for industry job applications and interviews.",
+              "id": "A2D_M_004",
+              "is_core": true,
+              "tier": "Mastery",
+              "title": "Professional Portfolio & Demo Reel",
+              "year_level": 4,
+              "subjects": [
+                {
+                  "description": "This module focuses on understanding industry expectations for professional portfolios and demo reels, guiding students in selecting their strongest work tailored to specific career paths in 2D animation.",
+                  "id": "A2D404-01",
+                  "learning_outcome": "Students will be able to critically evaluate their existing body of work, identify target roles, and curate a selection of assets that best represent their skills for a professional portfolio.",
+                  "order_index": 1,
+                  "title": "Portfolio Strategy & Content Selection",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module covers the principles and techniques for creating an impactful 2D animation demo reel, including pacing, storytelling, audio integration, technical specifications, and common industry standards.",
+                  "id": "A2D404-02",
+                  "learning_outcome": "Students will be able to plan, edit, and export a professional-quality 2D animation demo reel that effectively showcases their animation skills and adheres to industry best practices.",
+                  "order_index": 2,
+                  "title": "Demo Reel Development & Editing",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module explores various platforms for digital portfolios (e.g., personal websites, ArtStation, Vimeo, LinkedIn) and strategies for establishing a strong, consistent online professional brand.",
+                  "id": "A2D404-03",
+                  "learning_outcome": "Students will be able to design and populate a functional digital portfolio website or platform, optimize their online presence, and understand effective digital networking strategies.",
+                  "order_index": 3,
+                  "title": "Digital Portfolio & Online Branding",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module provides guidance on crafting industry-specific resumes and compelling cover letters, as well as understanding the nuances of online application systems and tailoring materials for different opportunities.",
+                  "id": "A2D404-04",
+                  "learning_outcome": "Students will be able to create professional, targeted resumes and cover letters, and effectively navigate the online application process for animation industry roles.",
+                  "order_index": 4,
+                  "title": "Resume, Cover Letter & Application Strategy",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "This module prepares students for job interviews through mock sessions, discussions on common interview questions, soft skills development, and strategies for effective professional networking within the animation industry.",
+                  "id": "A2D404-05",
+                  "learning_outcome": "Students will be able to articulate their skills and experience confidently in an interview setting, engage effectively in professional networking, and understand industry etiquette.",
+                  "order_index": 5,
+                  "title": "Interview Techniques & Networking",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            },
+            {
+              "code": "A2D405",
+              "description": "A culminating project where students conceive, develop, and produce a complete original 2D animated short film, applying all learned skills.",
+              "id": "A2D_M_005",
+              "is_core": true,
+              "tier": "Mastery",
+              "title": "Capstone Project: 2D Animated Short",
+              "year_level": 4,
+              "subjects": [
+                {
+                  "description": "Focuses on ideation, story conceptualization, theme exploration, and the development of a compelling script for the animated short film.",
+                  "id": "A2D405-S01",
+                  "learning_outcome": "Students will be able to conceive an original story, develop characters, and write a professional script for their animated short film.",
+                  "order_index": 1,
+                  "title": "Concept Development & Scriptwriting",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Covers character design, environment design, prop design, color palettes, style guides, and translating the script into visual sequences through storyboards and animatics.",
+                  "id": "A2D405-S02",
+                  "learning_outcome": "Students will be able to design compelling characters and environments, and create detailed storyboards and animatics to visualize their film's narrative and timing.",
+                  "order_index": 2,
+                  "title": "Visual Development & Storyboarding",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Deals with creating all necessary visual assets (backgrounds, character rigs/puppets, props) and the core animation process, including keyframing, in-betweening, and clean-up techniques.",
+                  "id": "A2D405-S03",
+                  "learning_outcome": "Students will be able to efficiently create and manage all animation assets and execute high-quality 2D animation, demonstrating mastery of animation principles.",
+                  "order_index": 3,
+                  "title": "Animation Production & Asset Creation",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Explores techniques for compositing animated elements with backgrounds, adding visual effects, lighting, and camera movements to enhance the film's aesthetic and narrative impact.",
+                  "id": "A2D405-S04",
+                  "learning_outcome": "Students will be able to effectively composite animated scenes, apply visual effects, and integrate lighting and camera work to achieve a polished visual style.",
+                  "order_index": 4,
+                  "title": "Post-Production: Compositing & VFX",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Focuses on creating an immersive audio experience through foley, sound effects, dialogue recording and editing, and integrating original or licensed music to complement the animation.",
+                  "id": "A2D405-S05",
+                  "learning_outcome": "Students will be able to design and mix professional-quality soundscapes, edit dialogue, and integrate music to enhance the emotional and narrative depth of their film.",
+                  "order_index": 5,
+                  "title": "Sound Design & Music Integration",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Covers the final editing process, refining pacing and timing, applying color grading to establish mood and consistency, and rendering the final animated short film in various formats.",
+                  "id": "A2D405-S06",
+                  "learning_outcome": "Students will be able to edit their film for optimal pacing, apply consistent color grading, and prepare their final animated short for various exhibition platforms.",
+                  "order_index": 6,
+                  "title": "Editing, Color Grading & Final Output",
+                  "lessons": [],
+                  "is_complete": false
+                },
+                {
+                  "description": "Emphasizes project organization, time management, collaboration strategies, peer feedback, and preparing the film for festival submission and professional presentation.",
+                  "id": "A2D405-S07",
+                  "learning_outcome": "Students will be able to manage a complex animation project effectively, incorporate feedback, and prepare their film for professional exhibition and distribution.",
+                  "order_index": 7,
+                  "title": "Project Management & Professional Practice",
+                  "lessons": [],
+                  "is_complete": false
+                }
+              ],
+              "is_complete": true
+            }
+          ]
         },
         {
           "id": "dept-acine",
