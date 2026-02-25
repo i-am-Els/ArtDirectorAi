@@ -112295,8 +112295,89 @@
                   "learning_outcome": "Students will be able to navigate the Toon Boom Harmony interface confidently, customize workspaces, and initiate new animation projects.",
                   "order_index": 1,
                   "title": "Introduction to Toon Boom Harmony & Interface",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 20,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core purpose and capabilities of Toon Boom Harmony and what to expect during initial setup.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "Toon Boom Harmony overview",
+                        "what is Toon Boom Harmony used for",
+                        "Toon Boom Harmony system requirements",
+                        "Toon Boom Harmony first launch experience"
+                      ],
+                      "title": "Welcome to Toon Boom Harmony: An Introduction"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Identify and navigate the primary windows (Camera, Drawing, Timeline, Node View) and utilize basic navigation tools within Harmony.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "Toon Boom Harmony camera view explained",
+                        "Toon Boom Harmony drawing view",
+                        "Toon Boom Harmony timeline basics",
+                        "Toon Boom Harmony navigation tools tutorial",
+                        "Toon Boom Harmony node view introduction"
+                      ],
+                      "title": "Exploring the Harmony Interface: Core Windows & Navigation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to customize the arrangement of panels and windows to create tailored workspaces, and effectively save and load these custom layouts.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "Toon Boom Harmony customize workspace",
+                        "Toon Boom Harmony panel arrangement",
+                        "Toon Boom Harmony save workspace",
+                        "Toon Boom Harmony window management tips",
+                        "Toon Boom Harmony layout presets"
+                      ],
+                      "title": "Personalizing Your Workflow: Custom Workspaces"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Understand how to initiate a new animation project, configure essential project settings such as resolution and frame rate, and manage basic preferences.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "Toon Boom Harmony new project setup",
+                        "Toon Boom Harmony project settings explained",
+                        "Toon Boom Harmony frame rate",
+                        "Toon Boom Harmony resolution for animation",
+                        "Toon Boom Harmony preferences for beginners"
+                      ],
+                      "title": "Starting a New Project: Settings and Preferences"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 55,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned navigation and customization skills by exploring the Harmony interface, creating a new project with specific settings, and saving a custom workspace.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "Toon Boom Harmony interface practice",
+                        "Toon Boom Harmony first project exercise",
+                        "Toon Boom Harmony project setup assignment",
+                        "Toon Boom Harmony customize and save workspace exercise",
+                        "Toon Boom Harmony basic navigation challenge"
+                      ],
+                      "title": "Your First Harmony Project: Interface Scavenger Hunt & Setup"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "This module focuses on mastering the digital drawing tools within Toon Boom Harmony, including various brushes, pencils, shapes, and color palettes. Emphasis will be placed on line quality, digital inking, and painting.",
@@ -112304,8 +112385,90 @@
                   "learning_outcome": "Students will be proficient in using Toon Boom Harmony's drawing tools to create clean line art, fill colors, and apply basic digital painting techniques.",
                   "order_index": 2,
                   "title": "Digital Drawing Tools & Techniques",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the Toon Boom Harmony drawing interface and the fundamental functionalities of the brush and pencil tools.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "Toon Boom Harmony drawing interface explained",
+                        "Harmony brush tool tutorial",
+                        "Harmony pencil tool basics",
+                        "Toon Boom Harmony drawing view",
+                        "customize Harmony toolbar"
+                      ],
+                      "title": "Harmony's Drawing Workspace & Essential Tools"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn and apply techniques for creating smooth, consistent, and varied line art using Toon Boom Harmony's drawing tools.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "Toon Boom Harmony line quality tips",
+                        "digital inking Harmony tutorial",
+                        "smoothing lines Toon Boom",
+                        "line art techniques Harmony",
+                        "varying line weight Harmony"
+                      ],
+                      "title": "Achieving Clean Lines: Digital Inking in Harmony"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Explore how to create and manage color palettes in Toon Boom Harmony and efficiently apply flat colors to line art.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "Toon Boom Harmony color palette tutorial",
+                        "how to fill colors Harmony",
+                        "Harmony paint bucket tool",
+                        "color swatches Harmony",
+                        "flat color animation Toon Boom"
+                      ],
+                      "title": "Color Management: Palettes and Basic Painting"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned skills to ink and flat color a provided character design, focusing on precision and clean execution.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "Harmony digital inking practice",
+                        "flat coloring exercise Toon Boom",
+                        "clean line art assignment Harmony",
+                        "Toon Boom Harmony character fill",
+                        "digital drawing practice for animation"
+                      ],
+                      "title": "Practice: Clean Line Art & Flat Coloring a Simple Character"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn fundamental techniques for adding basic shading, highlights, and simple textures to digital drawings in Toon Boom Harmony.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "Toon Boom Harmony shading tutorial",
+                        "basic digital painting Harmony",
+                        "adding textures Toon Boom",
+                        "Harmony gradient fill",
+                        "light and shadow in digital animation"
+                      ],
+                      "title": "Introduction to Digital Painting: Shading and Textures"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Introduction to fundamental animation principles, focusing on squash and stretch, timing, and spacing, and how to apply these concepts digitally within Toon Boom Harmony to create believable motion.",
@@ -112313,8 +112476,85 @@
                   "learning_outcome": "Students will understand and apply core animation principles like squash and stretch, timing, and spacing to simple animated objects in Toon Boom Harmony.",
                   "order_index": 3,
                   "title": "Animation Principles: Squash & Stretch, Timing & Spacing",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core concept of squash and stretch, its purpose in conveying weight and flexibility, and examples from classic animation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "squash and stretch principle animation",
+                        "why use squash and stretch",
+                        "examples of squash and stretch animation",
+                        "12 principles of animation explained"
+                      ],
+                      "title": "Foundations: Understanding Squash & Stretch"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn how to apply squash and stretch to a simple bouncing ball animation using deformers or drawing tools in Toon Boom Harmony.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "toon boom harmony squash and stretch tutorial",
+                        "bouncing ball animation harmony",
+                        "how to use deformers in toon boom harmony",
+                        "digital squash and stretch animation"
+                      ],
+                      "title": "Hands-On: Animating a Bouncing Ball with Squash & Stretch"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the concepts of timing (number of frames) and spacing (distance between frames) and their critical role in defining speed, weight, and character personality.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "animation timing and spacing explained",
+                        "importance of timing in animation",
+                        "animation spacing examples",
+                        "slow-in slow-out principle"
+                      ],
+                      "title": "Mastering Motion: The Art of Timing & Spacing"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Demonstrate how to manipulate timing and spacing through keyframe adjustments and frame exposure in Toon Boom Harmony to create varied movement.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "toon boom harmony timing tutorial",
+                        "adjusting keyframes in harmony",
+                        "creating slow motion in toon boom",
+                        "fast animation in harmony"
+                      ],
+                      "title": "Practical Timing: Adjusting Frame Rates and Keyframe Spacing"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply both squash and stretch with appropriate timing and spacing to animate a ball bouncing with a clear sense of weight and impact in Toon Boom Harmony.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "bouncing ball animation with squash and stretch harmony",
+                        "toon boom harmony animation exercise",
+                        "combining animation principles tutorial",
+                        "advanced bouncing ball animation"
+                      ],
+                      "title": "Assignment: Animating a Dynamic Ball Bounce"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "This subject covers the core mechanics of digital animation: creating keyframes, understanding different interpolation methods (e.g., ease-in/ease-out), and manipulating motion paths for fluid animation.",
@@ -112322,8 +112562,106 @@
                   "learning_outcome": "Students will be able to create keyframes, adjust interpolation, and define custom motion paths to animate objects smoothly within Toon Boom Harmony.",
                   "order_index": 4,
                   "title": "Keyframing, Interpolation & Motion Paths",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental concept of keyframing in digital animation and its role in defining motion.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "what is a keyframe in animation",
+                        "keyframe definition",
+                        "traditional animation vs digital keyframes",
+                        "how keyframes work",
+                        "frame by frame animation vs keyframes"
+                      ],
+                      "title": "Introduction to Keyframes: The Pillars of Motion"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn how to create and manipulate keyframes within Toon Boom Harmony's timeline and Xsheet views.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "create keyframes Toon Boom Harmony",
+                        "setting keyframes Harmony tutorial",
+                        "Toon Boom Harmony timeline animation",
+                        "Xsheet keyframe control Harmony",
+                        "inserting keyframes Toon Boom"
+                      ],
+                      "title": "Creating Your First Keyframes in Toon Boom Harmony"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the concept of interpolation, understand different interpolation methods, and the importance of ease-in/ease-out.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "what is interpolation in animation",
+                        "ease in ease out animation explained",
+                        "types of interpolation animation",
+                        "animation timing and spacing",
+                        "principles of animation ease"
+                      ],
+                      "title": "Understanding Interpolation: Giving Motion Life"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Demonstrate how to adjust interpolation curves and apply ease-in/ease-out effects to keyframes in Toon Boom Harmony.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "Toon Boom Harmony interpolation curves",
+                        "adjusting ease in Harmony",
+                        "graph editor Toon Boom Harmony tutorial",
+                        "how to smooth animation in Harmony",
+                        "custom interpolation Toon Boom"
+                      ],
+                      "title": "Refining Motion with Interpolation in Toon Boom Harmony"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 20,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Define motion paths and learn techniques for manipulating them to create complex and visually appealing animation arcs.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "what are motion paths animation",
+                        "editing motion paths animation",
+                        "creating arcs in animation",
+                        "motion path principles animation",
+                        "animation curves and paths"
+                      ],
+                      "title": "Exploring Motion Paths: Guiding Your Animation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned concepts to animate an object along a custom motion path, incorporating keyframes and tailored interpolation for smooth, realistic movement in Toon Boom Harmony.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "Toon Boom Harmony motion path animation tutorial",
+                        "animate bouncing ball Toon Boom",
+                        "complex motion path Harmony",
+                        "keyframe and interpolation exercise Toon Boom",
+                        "project based Harmony animation"
+                      ],
+                      "title": "Project: Animating with Custom Motion Paths and Interpolation"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "An introduction to preparing characters for animation, including creating basic bone structures (rigs), setting up pivots, and using deformers to allow for flexible character movement without redrawing.",
@@ -112331,8 +112669,100 @@
                   "learning_outcome": "Students will be able to create a simple character rig, set up pivots, and use basic deformers to prepare a character for digital animation in Toon Boom Harmony.",
                   "order_index": 5,
                   "title": "Basic Character Rigging & Deformers",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Explain what character rigging is, its purpose in 2D animation, and why it's crucial for efficient production.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "what is 2d character rigging",
+                        "why rig characters for animation",
+                        "2d rigging vs redrawing frames",
+                        "benefits of character rigging toon boom"
+                      ],
+                      "title": "The Foundations of 2D Character Rigging"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Demonstrate how to correctly set pivot points for individual character parts and establish parent-child relationships within the layer hierarchy in Toon Boom Harmony.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "toon boom harmony set pivot point",
+                        "2d character hierarchy tutorial",
+                        "parent child layers harmony",
+                        "setting transformation pivots animation"
+                      ],
+                      "title": "Mastering Pivots and Layer Hierarchies"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Guide students through the process of creating a basic bone structure (skeleton) for a simple character in Toon Boom Harmony, connecting drawings to bones.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "create bone rig toon boom harmony",
+                        "basic 2d character skeleton tutorial",
+                        "how to rig a simple character harmony",
+                        "adding bones to character parts"
+                      ],
+                      "title": "Constructing Your First Character Rig"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Introduce various types of deformers (e.g., bone, curve, envelope) available in 2D animation software and explain their function in creating flexible character movements.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "what are 2d deformers",
+                        "toon boom harmony curve deformer",
+                        "bone deformer animation explained",
+                        "types of 2d character deformers"
+                      ],
+                      "title": "Introduction to 2D Deformers"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 55,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Demonstrate the practical application of bone and curve deformers to a character's limbs and body, showcasing how to achieve natural bends and squashes.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "apply curve deformer toon boom",
+                        "how to use bone deformer harmony",
+                        "2d character bend with deformer",
+                        "toon boom harmony envelope deformer tutorial"
+                      ],
+                      "title": "Implementing Deformers for Dynamic Movement"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Students will rig a provided simple character, setting up pivots, hierarchies, and applying basic bone and curve deformers to prepare it for animation in Toon Boom Harmony.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "rig simple 2d character practice",
+                        "toon boom harmony rigging exercise",
+                        "basic character rigging assignment",
+                        "rigging practice file 2d animation"
+                      ],
+                      "title": "Project: Rigging Your First Animated Character"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "This module explores how to compose an animated scene, including background integration, layer management, and basic camera movements (pans, zooms) within the digital environment.",
@@ -112340,8 +112770,106 @@
                   "learning_outcome": "Students will be able to organize scene elements, manage layers effectively, and implement basic camera movements to enhance their animated sequences.",
                   "order_index": 6,
                   "title": "Scene Layout & Camera Techniques",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the principles of scene composition and how to effectively use digital layers for animation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "2D animation scene composition guide",
+                        "digital animation layer hierarchy",
+                        "foreground midground background 2D animation",
+                        "animating with layers concepts",
+                        "depth in 2D animation techniques"
+                      ],
+                      "title": "Mastering Scene Composition and Digital Layers"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe practical techniques for organizing layers, integrating backgrounds, and preparing a scene for animation in a digital 2D animation software.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "2D animation software layer management tutorial",
+                        "integrating backgrounds in digital animation",
+                        "digital animation scene setup demo",
+                        "organizing animation layers workflow",
+                        "2D background art integration"
+                      ],
+                      "title": "Software Demo: Layer Organization & Background Integration"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply knowledge of scene composition and layer management to create a multi-layered static scene, ready for animation.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "create multi-layered 2D scene project",
+                        "practice 2D animation layer setup",
+                        "digital scene composition exercise",
+                        "background foreground animation practice",
+                        "build an animation environment tutorial"
+                      ],
+                      "title": "Building a Multi-Layered Scene"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Learn the purpose and execution of basic camera movements like pans and zooms in 2D animation.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "2D animation camera moves explained",
+                        "pan camera movement animation",
+                        "zoom camera movement 2D animation",
+                        "camera techniques for 2D animation",
+                        "digital camera effects animation theory"
+                      ],
+                      "title": "Introduction to Camera Movements: Pans and Zooms"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "See how to create and control pan and zoom camera movements within a digital 2D animation software.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "how to pan camera in 2D animation software",
+                        "how to zoom camera 2D animation",
+                        "digital animation camera control tutorial",
+                        "2D animation camera rig demo",
+                        "camera movement tools 2D animation"
+                      ],
+                      "title": "Software Demo: Implementing Camera Moves"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Combine layer management and camera movement techniques to animate a short scene featuring a pan or zoom.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "animate scene with pan and zoom",
+                        "2D animation camera movement practice",
+                        "short animation camera exercise",
+                        "combining layers and camera animation",
+                        "practical 2D camera animation project"
+                      ],
+                      "title": "Animating a Simple Scene with Camera"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "The final module covers the process of rendering animated sequences, understanding various export formats, and best practices for managing animation projects from start to finish.",
@@ -112349,8 +112877,90 @@
                   "learning_outcome": "Students will be able to render and export their animated projects in various formats, understanding optimal settings for different outputs, and apply basic project management workflows.",
                   "order_index": 7,
                   "title": "Exporting, Rendering & Project Management",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core concepts of rendering in 2D animation and identify common export formats, their uses, and optimal settings.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "2D animation rendering basics",
+                        "common video export formats animation",
+                        "lossless vs lossy animation export",
+                        "alpha channel export 2D animation",
+                        "understanding codecs animation"
+                      ],
+                      "title": "Rendering Fundamentals and Export Formats"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe a step-by-step demonstration of rendering and exporting an animated sequence using industry-standard 2D animation software, focusing on settings and options.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "how to render 2D animation after effects",
+                        "exporting animation from toon boom harmony",
+                        "rendering transparency 2D animation",
+                        "best export settings animated GIF",
+                        "2D animation video export tutorial"
+                      ],
+                      "title": "Software-Specific Rendering & Export Workflow"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned rendering and export techniques by rendering a short animated sequence (e.g., a character walk cycle) into two different formats (e.g., MP4 and GIF), adjusting settings for optimal output.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "export animated walk cycle",
+                        "2D animation export settings for web",
+                        "how to export animation with sound",
+                        "troubleshooting animation export issues",
+                        "rendering a short 2D animation project"
+                      ],
+                      "title": "Practice: Render and Export Your Animation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Learn essential project management principles for 2D animation, including file organization, version control, and naming conventions to maintain an efficient workflow.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "animation file management best practices",
+                        "2D animation project folder structure",
+                        "version control for animation projects",
+                        "naming conventions 2D animation assets",
+                        "animation production workflow tips"
+                      ],
+                      "title": "Animation Project Workflow and File Management"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 60,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Create a mock project folder structure with appropriate subfolders, naming conventions, and placeholder files for an animation project, demonstrating understanding of effective project management.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "create animation project template",
+                        "file organization exercise animation",
+                        "animation project setup guide",
+                        "best practices for animation asset naming",
+                        "setting up a new animation project"
+                      ],
+                      "title": "Exercise: Organize an Animation Project"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 }
               ],
               "is_complete": true
@@ -112370,8 +112980,70 @@
                   "learning_outcome": "Students will be able to identify and apply core principles of appealing character design.",
                   "order_index": 1,
                   "title": "Fundamentals of Character Design",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core elements that contribute to an appealing character design, including visual hierarchy and readability.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "appealing character design principles",
+                        "what makes a good character design",
+                        "character design visual hierarchy",
+                        "readability in character design"
+                      ],
+                      "title": "Foundations of Appealing Character Design"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and comprehend techniques for effectively using exaggeration and simplification to enhance character personality and appeal.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "character design exaggeration tutorial",
+                        "simplification character design examples",
+                        "stylized character design techniques",
+                        "cartoon character exaggeration"
+                      ],
+                      "title": "Mastering Exaggeration and Simplification"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the critical role of strong silhouettes and intentional shape language in conveying character identity and visual storytelling.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "character silhouette design guide",
+                        "shape language in character design",
+                        "visual storytelling character shapes",
+                        "character design readability silhouette"
+                      ],
+                      "title": "The Power of Silhouette and Shape Language"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply the principles of appeal, exaggeration, simplification, and silhouette to design a new character from concept to a refined sketch.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "character design assignment for beginners",
+                        "practice character design principles",
+                        "design a character using shapes",
+                        "character appeal exercise"
+                      ],
+                      "title": "Applying Core Character Design Principles (Assignment)"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Deep dive into the importance of clear silhouettes and dynamic forms for character recognition and visual impact.",
@@ -112379,8 +113051,106 @@
                   "learning_outcome": "Students will be able to design characters with strong, recognizable silhouettes and effective visual forms.",
                   "order_index": 2,
                   "title": "Mastering Silhouette and Form",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental importance of a strong character silhouette for immediate recognition and visual impact.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "character design silhouette importance",
+                        "why silhouette matters in character art",
+                        "history of strong character silhouettes",
+                        "silhouette test character design",
+                        "iconic character silhouettes"
+                      ],
+                      "title": "The Power of Silhouette: First Impressions and Readability"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to break down complex characters into basic geometric shapes and build up forms that support a clear silhouette.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "character design basic shapes tutorial",
+                        "geometric forms in character design",
+                        "simplifying character forms demo",
+                        "building characters from basic volumes",
+                        "silhouette construction techniques"
+                      ],
+                      "title": "From Basic Shapes to Strong Forms: The Foundation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice rapid ideation by creating a variety of dynamic character silhouettes from given prompts, focusing on uniqueness and visual interest.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "character silhouette sketching exercise",
+                        "dynamic pose character design practice",
+                        "quick character silhouette ideas",
+                        "silhouette ideation challenge",
+                        "visual library building silhouettes"
+                      ],
+                      "title": "Dynamic Silhouette Sketching Challenge: Rapid Ideation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Explore techniques for exaggerating poses and utilizing lines of action to enhance character forms and create compelling, readable silhouettes.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "line of action character design tutorial",
+                        "exaggerated poses in character art",
+                        "dynamic character posing techniques",
+                        "silhouette and gesture drawing",
+                        "creating character movement silhouette"
+                      ],
+                      "title": "Pushing the Pose: Action, Gesture, and Readability"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Understand how to integrate secondary shapes and details strategically to enhance the character's form without compromising the primary silhouette.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "secondary shapes character design",
+                        "adding detail without losing silhouette",
+                        "character design form language principles",
+                        "balancing primary and secondary forms",
+                        "visual hierarchy character design"
+                      ],
+                      "title": "Form Refinement: Secondary Shapes and Strategic Detail"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 240,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design a complete character, applying all learned principles to ensure a strong, recognizable silhouette and clear, appealing forms throughout the design process.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "full character design project silhouette",
+                        "developing character forms from silhouette",
+                        "final character design with strong forms",
+                        "character design workflow silhouette to finish",
+                        "applying silhouette principles to a character concept"
+                      ],
+                      "title": "Final Character Design: Mastering Silhouette and Form"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Techniques for designing expressive faces and dynamic poses that convey character personality, mood, and action.",
@@ -112388,8 +113158,85 @@
                   "learning_outcome": "Students will be able to create a range of compelling expressions and poses for their characters.",
                   "order_index": 3,
                   "title": "Expressions, Emotions, and Posing",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Learn the fundamental facial anatomy and how it translates into the six universal expressions (anger, disgust, fear, happiness, sadness, surprise).",
+                      "order_index": 1,
+                      "search_queries": [
+                        "facial anatomy for artists",
+                        "drawing basic human expressions tutorial",
+                        "universal emotions character design",
+                        "how to draw happy face cartoon"
+                      ],
+                      "title": "Understanding Facial Muscles & Core Expressions"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L2",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice drawing various expressions, focusing on exaggeration and nuance, to convey specific emotions effectively.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "character expression sheet tutorial",
+                        "exaggerating facial expressions drawing",
+                        "drawing emotions in cartoon characters",
+                        "facial expressions drawing exercises"
+                      ],
+                      "title": "Workshop: Drawing a Range of Character Expressions"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Understand the principles of body language, line of action, and silhouette in creating expressive and readable poses.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "body language character design",
+                        "line of action drawing tutorial",
+                        "silhouette drawing principles",
+                        "character pose fundamentals"
+                      ],
+                      "title": "The Fundamentals of Posing: Body Language & Silhouette"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe techniques for constructing dynamic poses that convey action, weight, and personality, using gesture and reference.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "dynamic character posing tutorial",
+                        "drawing action poses art",
+                        "gesture drawing for character design",
+                        "using reference for character poses"
+                      ],
+                      "title": "Demo: Constructing Dynamic & Action Poses"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design a character with 3 distinct poses and expressions that tell a mini-story or convey a clear personality trait.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "character design storytelling pose",
+                        "showing personality through poses",
+                        "character expression and pose combination",
+                        "drawing character emotions and actions"
+                      ],
+                      "title": "Assignment: Character Storytelling Through Pose and Expression"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Understanding how to design characters that fit into a cohesive world, focusing on comparative sizing, visual style, and group dynamics.",
@@ -112397,8 +113244,85 @@
                   "learning_outcome": "Students will be able to design characters that maintain consistency within a larger cast and visual style.",
                   "order_index": 4,
                   "title": "Character Consistency and Scale",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the foundational principles of visual consistency in character design, including style guides and visual language across a cast.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "character art style guide 2D",
+                        "visual consistency in character design",
+                        "establishing character art style guide",
+                        "cohesive character visual language"
+                      ],
+                      "title": "Establishing a Consistent Visual Language"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe practical methods for designing characters with comparative sizing, using tools like scale sheets and height charts to maintain consistent proportions.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "character scale sheet tutorial",
+                        "2D character height chart design",
+                        "proportion consistency character design",
+                        "comparative character sizing illustration"
+                      ],
+                      "title": "Demonstration: Comparative Sizing and Scale Sheets"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Explore how distinct character silhouettes and archetypes contribute to individual recognition while fitting into a cohesive visual style.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "character silhouette design principles",
+                        "character archetypes visual design",
+                        "unique character shapes consistency",
+                        "reading character through silhouette 2D"
+                      ],
+                      "title": "Silhouettes, Archetypes, and Visual Distinction"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn through demonstration how to design characters that interact cohesively within group dynamics, considering posing and spatial relationships.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "character group design tutorial",
+                        "dynamic character posing 2D",
+                        "designing character interactions art",
+                        "visual flow character groups"
+                      ],
+                      "title": "Demonstration: Designing for Group Dynamics"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned principles to design a lineup of 3-5 characters, ensuring visual consistency in style, scale, and overall cohesive appearance.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "character lineup assignment",
+                        "designing a consistent character roster 2D",
+                        "character design project consistency",
+                        "2d character sheet exercise"
+                      ],
+                      "title": "Project: The Consistent Character Lineup"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Comprehensive guide to creating professional character model sheets, including turnarounds, expression sheets, and pose guides, essential for animators.",
@@ -112406,8 +113330,106 @@
                   "learning_outcome": "Students will be able to produce a complete and accurate model sheet ready for production.",
                   "order_index": 5,
                   "title": "Model Sheet Creation",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Define model sheets, their components, and their critical role in the 2D animation pipeline.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "what is a character model sheet",
+                        "model sheet purpose animation",
+                        "components of a character sheet",
+                        "character design bible example",
+                        "importance of model sheets for animators"
+                      ],
+                      "title": "Introduction to Character Model Sheets"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and learn techniques for accurately drawing consistent front, side, and back views of a character in a turnaround.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "how to draw character turnaround",
+                        "character turnaround tutorial 2d",
+                        "consistent character proportions animation",
+                        "drawing character from different angles",
+                        "character rotation guide lines"
+                      ],
+                      "title": "Mastering Character Turnarounds"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Create a 3-view (front, side, back) turnaround for a provided character design, ensuring proportional accuracy and line consistency.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "character turnaround template",
+                        "model sheet turnaround practice",
+                        "2d character consistency exercise",
+                        "turnaround drawing tips for beginners",
+                        "character design alignment techniques"
+                      ],
+                      "title": "Practice: Constructing a Turnaround"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Understand how to effectively design a range of character expressions, maintaining personality and readability for animation.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "character expression sheet tutorial",
+                        "drawing character emotions guide",
+                        "animation character facial expressions",
+                        "mouth shapes for animation",
+                        "eye expressions character design"
+                      ],
+                      "title": "Developing Dynamic Expression Sheets"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Learn the principles behind creating dynamic, character-specific action poses and key gestures for a model sheet.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "character pose sheet tutorial",
+                        "action poses character design",
+                        "gesture drawing for model sheets",
+                        "character acting poses examples",
+                        "maintaining character volume in poses"
+                      ],
+                      "title": "Crafting Pose Guides and Action Poses"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Produce a complete, professional character model sheet incorporating turnarounds, expression sheets, and key poses with proper annotations, ready for production.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "complete character model sheet workflow",
+                        "how to finish a model sheet",
+                        "model sheet annotations and callouts",
+                        "preparing model sheet for production",
+                        "2d character design final sheet"
+                      ],
+                      "title": "Project: The Complete Model Sheet"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 }
               ],
               "is_complete": true
@@ -112427,8 +113449,85 @@
                   "learning_outcome": "Understand the foundational principles of acting and their direct application to creating believable animated performances.",
                   "order_index": 1,
                   "title": "Introduction to Performance & Acting",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental differences between general animation and performance-driven animation, and recognize the importance of acting principles.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "performance animation definition",
+                        "animation vs performance animation",
+                        "acting principles in animation",
+                        "character performance workflow"
+                      ],
+                      "title": "Introduction to Performance Animation: Beyond Movement"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "READ",
+                      "objective": "Learn core acting concepts such as motivation, objective, subtext, and their direct relevance to creating believable animated characters.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "acting for animators basics",
+                        "character motivation animation",
+                        "subtext in character animation",
+                        "character objective examples animation"
+                      ],
+                      "title": "Foundational Acting Principles: Motivation & Objectives"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Develop observational skills by analyzing human performance to identify key acting beats, gestures, and expressions applicable to animation.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "observational acting analysis",
+                        "body language animation reference",
+                        "facial expression studies animation",
+                        "live action reference for animation breakdown"
+                      ],
+                      "title": "Deconstructing Live-Action Performance for Animation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Explore how physical actions and reactions convey emotion and intent, focusing on principles of pantomime and exaggerated movement for clarity.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "physical acting animation",
+                        "mime principles for animators",
+                        "body language character animation",
+                        "action and reaction animation"
+                      ],
+                      "title": "The Language of the Body: Physicality and Mime"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned acting principles to create a short animation demonstrating a clear character objective and emotional response.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "animating emotion tutorial",
+                        "character emotion study animation",
+                        "subtle acting animation exercise",
+                        "expressive character animation tips"
+                      ],
+                      "title": "Mini-Scene Performance: Animating an Emotional Beat"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Delve into the nuances of body language, posture, and gesture. Learn how to use physical movement to communicate character personality, mood, and narrative beats without relying on dialogue.",
@@ -112436,8 +113535,100 @@
                   "learning_outcome": "Master the techniques for expressing complex emotions and character traits through compelling body language and non-verbal cues.",
                   "order_index": 2,
                   "title": "Body Language & Physical Storytelling",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental principles of body language and its significance in conveying character and emotion in animation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "body language animation principles",
+                        "non-verbal communication character animation",
+                        "expressive posing theory",
+                        "animation storytelling without dialogue basics"
+                      ],
+                      "title": "Introduction to Expressive Body Language"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and analyze professional animated sequences to identify effective use of gesture, posture, and subtle non-verbal cues.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "animated character gesture analysis",
+                        "posture in character animation examples",
+                        "non-verbal storytelling animation breakdown",
+                        "acting for animators body language"
+                      ],
+                      "title": "Deconstructing Animated Performances: Gesture & Posture"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Create a series of key poses for a character that clearly convey specific emotions and intentions using only body language.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "character pose library animation",
+                        "emotional posing exercises animation",
+                        "animation strong poses tutorial",
+                        "physical acting animation practice"
+                      ],
+                      "title": "Posing for Impact: Communicating Core Emotions"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Explore how movement rhythm, timing, and subtle shifts in weight can add layers of subtext and personality to a character's actions.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "animation subtext body language",
+                        "rhythm and timing character animation",
+                        "weight shift animation principles",
+                        "subtle animation nonverbal cues"
+                      ],
+                      "title": "The Nuances of Movement: Subtext & Rhythm"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to animate delicate and nuanced body language, including facial micro-expressions and small gestures, to enhance realism and depth.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "micro expressions animation tutorial",
+                        "subtle character animation techniques",
+                        "animating nonverbal cues guide",
+                        "realistic body language animation"
+                      ],
+                      "title": "Mastering Micro-Expressions and Subtle Cues"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Animate a short scene (5-10 seconds) where characters communicate a simple narrative or conflict entirely through body language, without dialogue.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "animation storytelling without dialogue examples",
+                        "short animation exercise body language",
+                        "character interaction animation practice",
+                        "non-verbal scene animation project"
+                      ],
+                      "title": "Short Sequence: Physical Storytelling Challenge"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Concentrate on the intricacies of facial animation, including expressions, eye movement, and lip-sync. Understand how subtle facial cues contribute significantly to a character's emotional depth and believability.",
@@ -112445,8 +113636,100 @@
                   "learning_outcome": "Develop proficiency in animating nuanced facial expressions and accurate lip-sync to convey a wide range of emotions and dialogue effectively.",
                   "order_index": 3,
                   "title": "Facial Animation & Expressive Performance",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the underlying anatomy and theoretical principles of facial expressions for animation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "facial anatomy for animators",
+                        "muscle groups facial expression",
+                        "basic emotions animation theory",
+                        "facial animation principles"
+                      ],
+                      "title": "Facial Anatomy & Expression Theory"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to identify and analyze subtle facial cues and emotional shifts in live-action and animated examples.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "facial expression analysis video",
+                        "subtle facial cues animation",
+                        "character emotion study",
+                        "observational facial animation"
+                      ],
+                      "title": "Observing & Analyzing Facial Cues"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice creating fundamental facial expressions (joy, sadness, anger) using blend shapes or rigs in 3D software.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "blending shapes facial animation tutorial",
+                        "basic emotional expressions 3d",
+                        "animating happy sad angry faces",
+                        "facial rig control animation"
+                      ],
+                      "title": "Animating Basic Expressions & Blending"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Master the animation of eye movement, blinking, and gaze to convey thought, focus, and emotion.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "eye animation principles",
+                        "gaze direction character animation",
+                        "blinking animation tutorial",
+                        "eyes convey emotion animation"
+                      ],
+                      "title": "Mastering Eye Movement & Gaze"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Understand the principles of lip-sync, phonemes, and how to animate convincing dialogue.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "lip sync animation tutorial",
+                        "phoneme shapes animation",
+                        "dialogue animation techniques",
+                        "mouth shapes for speaking character"
+                      ],
+                      "title": "Principles of Lip-Sync & Dialogue Animation"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply advanced lip-sync techniques and integrate them with nuanced facial performance for a short dialogue sequence.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "advanced lip sync tutorial",
+                        "facial performance animation dialogue",
+                        "integrating emotion lip sync",
+                        "character acting facial animation"
+                      ],
+                      "title": "Advanced Lip-Sync & Expressive Performance"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Study the principles of staging, blocking, and pacing within a scene. Learn how multiple characters interact, react to each other, and occupy space to create dynamic and engaging performances.",
@@ -112454,8 +113737,74 @@
                   "learning_outcome": "Apply staging and blocking techniques to choreograph compelling character interactions and enhance narrative flow within animated scenes.",
                   "order_index": 4,
                   "title": "Character Interaction & Scene Staging",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental principles of staging and blocking in character animation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "animation staging principles",
+                        "blocking characters animation",
+                        "cinematic staging animation",
+                        "visual hierarchy animation",
+                        "rule of thirds animation"
+                      ],
+                      "title": "Introduction to Staging and Blocking"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and analyze examples of dynamic character interaction, focusing on body language, eye-lines, and spatial relationships.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "character interaction animation examples",
+                        "body language animation tutorial",
+                        "eye gaze animation staging",
+                        "spatial relationship characters animation",
+                        "acting for animation multiple characters"
+                      ],
+                      "title": "Analyzing Dynamic Character Interaction"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Learn how pacing and timing affect scene flow, emotional impact, and character reactions within staged scenes.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "animation pacing techniques",
+                        "timing principles animation scenes",
+                        "rhythm in animation staging",
+                        "emotional pacing animation",
+                        "scene flow animation blocking"
+                      ],
+                      "title": "Pacing and Timing in Scene Staging"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 180,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply staging and blocking techniques to choreograph a short scene featuring two interacting characters, emphasizing clear narrative and performance.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "two character animation blocking exercise",
+                        "animate character interaction scene",
+                        "staging animation practice",
+                        "character reaction animation assignment",
+                        "choreographing animated dialogue scene"
+                      ],
+                      "title": "Blocking a Two-Character Scene"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Explore the concept of subtext in performance animation, understanding how to animate underlying thoughts, unspoken desires, and hidden emotions that add depth and complexity to a character's actions and expressions.",
@@ -112463,8 +113812,106 @@
                   "learning_outcome": "Learn to identify and animate subtext, enabling characters to convey deeper meaning and emotional layers beyond their overt actions.",
                   "order_index": 5,
                   "title": "Subtext & Nuanced Performance",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Define subtext and recognize its role in adding depth to character performance, distinguishing between overt action and underlying meaning.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "what is subtext in animation",
+                        "subtext definition acting",
+                        "unspoken thoughts character animation",
+                        "hidden meaning performance animation",
+                        "character motivation animation theory"
+                      ],
+                      "title": "Understanding Subtext: The Unspoken Narrative"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze animated scenes to identify and interpret how subtext is visually conveyed through subtle actions, expressions, and reactions.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "subtext animation examples",
+                        "hidden emotion animation analysis",
+                        "non-verbal communication animation",
+                        "acting through animation subtext",
+                        "animated film subtext breakdowns"
+                      ],
+                      "title": "Deconstructing Subtext: Animated Case Studies"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Learn specific animation techniques, such as micro-expressions, posture shifts, and eye movements, to convey a character's internal thoughts and emotions subtly.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "animating subtle expressions",
+                        "microexpressions animation",
+                        "body language animation subtext",
+                        "eye movement acting animation",
+                        "nuanced character animation techniques"
+                      ],
+                      "title": "Animating the Inner World: Techniques and Principles"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned techniques to animate a short sequence where a character conveys a hidden desire or unspoken thought through nuanced performance, beyond their overt actions.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "animation exercise subtext",
+                        "animating character internal conflict",
+                        "show don't tell animation practice",
+                        "nuanced character animation assignment",
+                        "animating hidden intentions"
+                      ],
+                      "title": "Subtextual Scene: Animating a Hidden Desire"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Understand how environmental elements, props, and precise timing can be utilized to amplify and support subtext within a scene, adding further layers of meaning.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "environmental storytelling animation",
+                        "props in character animation subtext",
+                        "timing for emotional impact animation",
+                        "framing subtext animation",
+                        "staging for character subtext"
+                      ],
+                      "title": "Beyond the Character: Environmental Subtext and Timing"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 240,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Refine an animation sequence, either existing or new, by intentionally adding multiple layers of subtext to enhance its emotional complexity and narrative depth.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "advanced subtext animation exercise",
+                        "adding emotional depth character animation",
+                        "character complexity animation assignment",
+                        "nuanced performance animation project",
+                        "polishing animation subtext"
+                      ],
+                      "title": "Layering Depth: Subtextual Performance Polish"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Dive into the art of pantomime, focusing on how to tell a complete story or convey complex ideas and emotions purely through physical action and movement, without any dialogue or sound.",
@@ -112472,8 +113919,90 @@
                   "learning_outcome": "Develop strong physical storytelling skills through pantomime exercises, enhancing the ability to communicate clearly and emotively through movement alone.",
                   "order_index": 6,
                   "title": "Pantomime & Physical Storytelling",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core principles, historical context, and expressive potential of pantomime as a physical storytelling art form.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "history of pantomime",
+                        "elements of physical theatre",
+                        "pantomime techniques for beginners",
+                        "non-verbal communication in performance",
+                        "silent acting principles"
+                      ],
+                      "title": "The Foundations of Pantomime: Principles and History"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and deconstruct professional pantomime routines to identify effective physical storytelling, emotional expression, and character portrayal.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "best pantomime performances",
+                        "marcel marceau analysis",
+                        "physical comedy examples",
+                        "silent film acting techniques",
+                        "body language in performance"
+                      ],
+                      "title": "Analyzing Master Pantomime Performances"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Develop precision and believability in interacting with imaginary objects and creating unseen environments through focused physical exercises.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "pantomime exercises invisible wall",
+                        "mime object manipulation tutorial",
+                        "creating imaginary space acting",
+                        "physical acting exercises objects",
+                        "believable mime techniques"
+                      ],
+                      "title": "Practicing Invisible Objects & Environments"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Learn and practice specific physical techniques to express a range of emotions, thoughts, and intentions without relying on dialogue.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "physical expression of emotions",
+                        "body language for actors",
+                        "non-verbal cues sadness joy",
+                        "acting without words techniques",
+                        "subtle physical acting tips"
+                      ],
+                      "title": "Conveying Emotions and Internal States"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned pantomime skills to devise and perform a complete, short story or scenario purely through physical action and movement.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "how to tell a story with mime",
+                        "pantomime short story ideas",
+                        "developing a physical narrative",
+                        "sequence of actions in mime",
+                        "physical storytelling exercises"
+                      ],
+                      "title": "Crafting a Short Physical Narrative"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Learn effective methods for analyzing live-action performances, understanding how to extract key movements, emotional beats, and timing from reference material to inform and enrich animated character performances.",
@@ -112481,8 +114010,101 @@
                   "learning_outcome": "Master the process of observing, analyzing, and effectively utilizing live-action reference to enhance the realism and emotional impact of animated performances.",
                   "order_index": 7,
                   "title": "Performance Analysis & Reference Utilization",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the foundational principles and methodologies for analyzing live-action performances to extract relevant data for animation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "performance analysis for animators",
+                        "observational skills for animation",
+                        "live-action reference theory",
+                        "foundations of animation analysis"
+                      ],
+                      "title": "The Fundamentals of Performance Observation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn practical techniques for breaking down video reference, identifying key poses, arcs, timing, and emotional beats in a performance.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "breaking down video reference animation",
+                        "identifying key poses from footage",
+                        "timing analysis in animation reference",
+                        "emotional beat recognition animation",
+                        "arc analysis animation reference"
+                      ],
+                      "title": "Deconstructing Movement: Key Poses, Timing & Emotion"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply analysis techniques to a provided live-action clip, documenting key poses, timing notes, and emotional transitions to create a detailed reference breakdown.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "animation reference breakdown exercise",
+                        "analyzing human motion for animation task",
+                        "creating an animation reference sheet",
+                        "documenting keyframes from video"
+                      ],
+                      "title": "Practical Analysis: Reference Breakdown Exercise"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Explore various workflows and strategies for effectively translating analyzed live-action reference into compelling animated performances, from blocking to polish.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "integrating reference into animation workflow",
+                        "blocking animation with live action",
+                        "pose-to-pose vs straight ahead with reference",
+                        "utilizing reference for polish animation"
+                      ],
+                      "title": "Integrating Reference: From Analysis to Animation Workflow"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe demonstrations of how animators use reference not just for core movements, but also for subtle nuances, secondary actions, and enhancing realism.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "subtle animation with reference techniques",
+                        "secondary action using live-action reference",
+                        "adding realism with reference animation",
+                        "advanced reference utilization animation"
+                      ],
+                      "title": "Refining Performance: Nuance & Realism from Reference"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Animate a short character performance using your own or provided live-action reference, demonstrating effective analysis and skillful integration of observed movements and emotions.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "animate a scene with reference project",
+                        "full animation cycle using live action",
+                        "demonstrating reference integration animation",
+                        "character performance animation with reference"
+                      ],
+                      "title": "Final Project: Performance Integration Animation"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Integrate all learned principles into complex performance shots. Focus on refining timing, arcs, spacing, and overall emotional arc to deliver polished, production-ready animated performances that resonate with the audience.",
@@ -112490,8 +114112,100 @@
                   "learning_outcome": "Produce sophisticated, emotionally rich, and technically proficient animated performances that demonstrate a comprehensive understanding of all performance animation principles.",
                   "order_index": 8,
                   "title": "Advanced Performance & Final Polish",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand and apply advanced techniques for finessing timing and spacing to enhance realism and impact in performance.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "advanced animation timing principles",
+                        "spacing chart animation tutorial",
+                        "overlapping action refinement animation",
+                        "micro-timing animation tips"
+                      ],
+                      "title": "Advanced Timing and Spacing Refinement"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze and implement complex arcs and ensure strong character silhouettes for clear communication of action and emotion.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "advanced animation arcs tutorial",
+                        "character silhouette animation examples",
+                        "path of action animation demo",
+                        "line of action animation principles"
+                      ],
+                      "title": "Mastering Arcs and Silhouettes for Clarity"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 180,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice animating nuanced facial expressions and body language that convey emotional subtext and deeper character motivations.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "animating microexpressions tutorial",
+                        "subtext animation techniques",
+                        "subtle character performance animation",
+                        "emotional nuance animation practice"
+                      ],
+                      "title": "Animating Subtle Micro-Expressions and Subtext"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn industry-standard polishing workflows and identify common mistakes to avoid in the final stages of animation.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "animation polishing workflow best practices",
+                        "common animation mistakes to avoid",
+                        "final pass animation checklist",
+                        "production animation quality control"
+                      ],
+                      "title": "Production-Ready Polish Workflow and Pitfalls"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Explore strategies for building and sustaining a compelling emotional arc throughout a performance, connecting with the audience.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "emotional arc animation principles",
+                        "audience connection animation strategies",
+                        "storytelling through animation performance",
+                        "character journey animation"
+                      ],
+                      "title": "Crafting a Resonant Emotional Arc"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 300,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply all advanced principles to a complex performance shot, demonstrating production-ready quality and emotional depth.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "advanced character animation project",
+                        "final animation polish assignment",
+                        "complex performance shot animation",
+                        "production quality animation practice"
+                      ],
+                      "title": "Final Performance Shot Polish Assignment"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 }
               ],
               "is_complete": true
@@ -112511,8 +114225,100 @@
                   "learning_outcome": "Understand the fundamental principles of 2D character rigging, distinguish between various rigging methodologies, and identify key software applications for each.",
                   "order_index": 1,
                   "title": "Introduction to 2D Rigging & Workflow",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Define 2D character rigging and its fundamental role in modern animation pipelines.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "what is 2d character rigging",
+                        "purpose of 2d rigging",
+                        "2d animation pipeline explanation",
+                        "basic rigging terminology 2d"
+                      ],
+                      "title": "Introduction to 2D Rigging: The Core Concepts"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Understand the principles of cut-out rigging and identify common software like Toon Boom Harmony.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "cut-out rigging tutorial toon boom harmony",
+                        "segment-based 2d animation rigging",
+                        "pivot points 2d animation explained",
+                        "how to rig a cut-out character"
+                      ],
+                      "title": "Cut-out Rigging Demystified: Toon Boom Harmony Approach"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Grasp the concepts of skeletal rigging, including bones, constraints, and deformers, with examples from Spine or Live2D.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "skeletal rigging 2d software overview",
+                        "spine 2d animation rigging tutorial",
+                        "live2d rigging basics",
+                        "bone-based 2d character animation"
+                      ],
+                      "title": "Skeletal Rigging Fundamentals: Bones, Meshes, and Deformers"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Compare and contrast cut-out and skeletal rigging methods, identifying their strengths, weaknesses, and appropriate use cases for different projects.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "cut-out vs skeletal rigging comparison",
+                        "toon boom harmony vs spine 2d animation",
+                        "advantages of different 2d rigging methods",
+                        "when to use cut-out or skeletal rigging"
+                      ],
+                      "title": "Choosing Your Approach: Cut-out vs. Skeletal Rigging Comparison"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Learn best practices for organizing assets, naming conventions, and establishing efficient workflows to streamline 2D rigging projects.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "efficient 2d rigging workflow tips",
+                        "character asset organization for rigging",
+                        "2d rigging naming conventions standard",
+                        "pre-production for 2d character rigging"
+                      ],
+                      "title": "Establishing an Efficient 2D Rigging Production Workflow"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply knowledge of 2D rigging terminology, identify different rigging methodologies, and propose suitable software for specific project scenarios.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "2d rigging terminology quiz",
+                        "identify 2d rigging software types",
+                        "match rigging method to project",
+                        "2d rigging scenario analysis"
+                      ],
+                      "title": "Rigging Methodologies & Software Identification Challenge"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Focuses on the practical application of rigging techniques within Toon Boom Harmony. Students will learn to set up character assets, define drawing layers and pivots, create basic deformers (pegs, deformers), and establish a functional cut-out rig.",
