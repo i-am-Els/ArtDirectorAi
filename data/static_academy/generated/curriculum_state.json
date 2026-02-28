@@ -133962,8 +133962,106 @@
                   "learning_outcome": "Design and animate original movement cycles for complex and fantastical creature designs.",
                   "order_index": 4,
                   "title": "Fantastical & Hybrid Creature Animation",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand principles for designing believable yet fantastical creature anatomies and how they inform movement.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "fantastical creature anatomy",
+                        "creature design for animation",
+                        "impossible mechanics animation",
+                        "designing multi-limbed creatures",
+                        "hybrid animal anatomy breakdown"
+                      ],
+                      "title": "Deconstructing the Impossible: Anatomy & Mechanics for Fantastical Creatures"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe techniques for blocking out initial poses and establishing the core movement for creatures with unique anatomies.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "fantastical creature animation workflow",
+                        "multi-limb creature blocking",
+                        "non-humanoid animation demo",
+                        "animation key poses weird creatures",
+                        "weight and force fantastical animation"
+                      ],
+                      "title": "Blocking the Bizarre: Translating Concept to Animation"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Animate a basic movement cycle (walk, run, flight) for a creature with 4-6 limbs, focusing on weight and locomotion.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "creature walk cycle animation tutorial",
+                        "quadruped animation principles",
+                        "non-humanoid locomotion assignment",
+                        "fantasy animal run cycle",
+                        "animating creature weight"
+                      ],
+                      "title": "First Flight or Crawl: Simple Creature Movement Study"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Explore methods for imbuing fantastical creatures with personality and emotion through non-verbal animation cues.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "creature personality animation",
+                        "non-humanoid character acting",
+                        "expressive creature movement",
+                        "conveying emotion in animals animation",
+                        "fantastical beast acting"
+                      ],
+                      "title": "The Soul of the Beast: Expressing Character in Fantastical Forms"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn techniques for adding secondary action, subtle details, and visual effects to enhance the believability and impact of fantastical creature animation.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "secondary action creature animation",
+                        "fantastical creature FX animation",
+                        "animating creature magic",
+                        "creature tail animation tutorial",
+                        "wing animation principles"
+                      ],
+                      "title": "Polish & Power: Advanced Detail for Fantastical Creatures"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 360,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Animate a short performance piece (5-10 seconds) for a complex hybrid creature, demonstrating unique locomotion, character expression, and interaction with its environment.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "complex creature animation project",
+                        "hybrid creature interaction animation",
+                        "fantastical beast fight animation",
+                        "advanced creature movement assignment",
+                        "animating impossible creatures"
+                      ],
+                      "title": "Epic Encounter: Animating a Hybrid Creature Performance"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Explore techniques for conveying personality, emotion, and narrative through non-humanoid animation. Focus on subtle body language, gesture, and interaction to bring creatures to life without relying on human facial expressions.",
@@ -133971,8 +134069,85 @@
                   "learning_outcome": "Infuse non-humanoid characters with believable performance and emotional depth, enhancing their storytelling potential.",
                   "order_index": 5,
                   "title": "Creature Performance & Emotional Expression",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Learn to identify and interpret emotional expressions in animal and creature body language, emphasizing subtle cues.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "animal body language meaning",
+                        "creature emotion animation principles",
+                        "non-humanoid character emotion",
+                        "subtle creature expressions"
+                      ],
+                      "title": "Understanding Non-Humanoid Emotional Cues"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe practical examples of how weight, power, and intent are communicated through creature locomotion and actions without human facial expressions.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "creature locomotion animation tutorial",
+                        "animal weight animation techniques",
+                        "power in creature animation",
+                        "animating creature intent demonstration"
+                      ],
+                      "title": "Animating Intent: Weight, Power, and Purpose"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Animate a simple creature walk cycle to convey a specific emotion (e.g., fear, curiosity, aggression) using only body language and movement.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "creature walk cycle emotion tutorial",
+                        "animal sad walk animation",
+                        "fearful creature movement animation",
+                        "curious animal animation practice"
+                      ],
+                      "title": "Expressing Basic Emotions Through Creature Walk Cycles"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Understand how creatures react to stimuli and interact with their environment and other characters to build narrative and convey personality.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "creature interaction animation",
+                        "animal reaction animation principles",
+                        "non-humanoid character dialogue",
+                        "narrative creature animation"
+                      ],
+                      "title": "Reactive Performance: Creature Interaction and Response"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 240,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Create a short animation scene where a creature interacts with an object or another character, conveying a clear emotional beat or narrative point without human expressions.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "creature emotional scene animation",
+                        "animal interaction short film",
+                        "non-humanoid character storytelling animation",
+                        "creature acting exercises"
+                      ],
+                      "title": "Narrative through Creature Interaction Scene"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Understand the technical aspects of creature animation within a production pipeline, including working with complex rigs, applying motion capture data, and understanding simulation basics for fur, cloth, or secondary elements.",
@@ -133980,8 +134155,90 @@
                   "learning_outcome": "Navigate creature animation within a professional production pipeline, utilizing relevant tools and techniques.",
                   "order_index": 6,
                   "title": "Integration & Production Workflows",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the typical stages, roles, and technical considerations within a creature animation production pipeline, from asset creation to final render.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "creature animation pipeline breakdown",
+                        "VFX creature workflow steps",
+                        "technical animation roles in production",
+                        "pipeline integration challenges animation",
+                        "asset handoff creature animation"
+                      ],
+                      "title": "Introduction to Creature Animation Production Pipelines"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and learn techniques for navigating and utilizing advanced creature rigs, focusing on controls, deformation, and understanding the rig's capabilities and limitations.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "complex creature rig walkthrough",
+                        "advanced quadruped rigging controls",
+                        "understanding creature deformation rigs",
+                        "FK IK blending creature animation",
+                        "rigging for creature animation movement"
+                      ],
+                      "title": "Working with Advanced Creature Rigs: Controls & Deformation"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice animating a basic cycle or pose using a provided complex creature rig, identifying key controls, problem areas, and documenting observations.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "creature rig animation test workflow",
+                        "troubleshooting creature rig issues",
+                        "animating with complex non-humanoid rigs",
+                        "rig limitations in creature animation",
+                        "creature animation blocking exercise"
+                      ],
+                      "title": "Rig Exploration & Basic Animation Test Drive"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Learn the process of integrating motion capture data onto non-humanoid creature rigs, including retargeting, cleanup, and addressing common challenges for non-bipedal characters.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "motion capture retargeting creature animation",
+                        "non-humanoid mocap challenges",
+                        "cleaning motion capture data animals",
+                        "applying mocap to custom creature rigs",
+                        "mocap data for fantasy creatures"
+                      ],
+                      "title": "Motion Capture Integration for Creatures: Retargeting & Cleanup"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Experiment with basic simulation principles for secondary elements like fur, cloth, or jiggle on a creature model, understanding the setup and parameters.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "basic fur simulation tutorial creature",
+                        "cloth simulation for creature models",
+                        "secondary animation jiggle setup",
+                        "nCloth creature simulation basics",
+                        "feathers simulation for animals"
+                      ],
+                      "title": "Introduction to Creature Simulation: Fur & Secondary Elements"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 }
               ],
               "is_complete": true
@@ -134001,8 +134258,85 @@
                   "learning_outcome": "Students will be able to design a robust animation state machine for a responsive combat system, integrating player input effectively.",
                   "order_index": 1,
                   "title": "Fundamentals of Responsive Combat Animation",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core concepts of responsive combat animation, including its components and what contributes to a 'responsive' feel.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "responsive combat animation principles",
+                        "game animation pipeline overview",
+                        "input processing architecture games",
+                        "animation state machine fundamentals"
+                      ],
+                      "title": "Introduction to Responsive Combat Animation Concepts"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Explore how animation graphs and blending techniques are used to create fluid and dynamic character movement in combat scenarios.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "animation graph tutorial unity",
+                        "blending animations unreal engine",
+                        "blend space character movement",
+                        "animation transition techniques games"
+                      ],
+                      "title": "Animation Graphs and Blending for Combat Fluidity"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the principles of designing robust animation state machines specifically for managing combat actions and character states.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "combat state machine design patterns",
+                        "finite state machine for game characters",
+                        "animation states transitions conditions",
+                        "sub state machines animation"
+                      ],
+                      "title": "Designing Core Combat Animation State Machines"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "See practical demonstrations of how player input is processed and integrated into animation state machines to trigger responsive combat actions.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "player input to animation state machine",
+                        "game input buffering system",
+                        "animation event triggers combat",
+                        "input driven character animation"
+                      ],
+                      "title": "Integrating Player Input for Responsive Combat Actions"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned concepts to design and pseudo-implement a basic animation state machine for a combat character with core attack and movement states.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "build simple combat state machine",
+                        "animation state machine project guide",
+                        "implement character attack state",
+                        "designing basic combat input flow"
+                      ],
+                      "title": "Assignment: Prototype a Basic Combat Animation State Machine"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Dive into the creation of intricate chained attacks and combo systems, focusing on animation timing, transition logic, and varied attack sequences based on player input.",
@@ -134010,8 +134344,89 @@
                   "learning_outcome": "Students will be able to animate and implement seamless, visually dynamic chained attack sequences and player-driven combos.",
                   "order_index": 2,
                   "title": "Chained Attack Systems and Combo Design",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental principles of chained attack and combo systems in game design.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "game combo system design principles",
+                        "what are chained attacks in games",
+                        "combo window mechanics",
+                        "player input buffering combos"
+                      ],
+                      "title": "Introduction to Chained Attack and Combo Concepts"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe practical animation techniques and blending strategies for creating seamless attack transitions.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "unity animation blending tutorial",
+                        "unreal engine combo animation tutorial",
+                        "game animation transition curves",
+                        "animating attack chains",
+                        "root motion combat animation"
+                      ],
+                      "title": "Animation Blending and Timing for Seamless Transitions"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Implement a basic 2-3 hit chained attack sequence, incorporating player input and animation transitions.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "implementing combo system unity C#",
+                        "unreal engine attack combo blueprint",
+                        "player input buffering combat system",
+                        "state machine for combat combos",
+                        "detecting chained attacks input"
+                      ],
+                      "title": "Implementing Basic Chained Attacks with Input Logic"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Explore advanced strategies for designing branching combos and incorporating varied attack sequences based on player choices.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "branching combo tree design",
+                        "varied attack sequences game dev",
+                        "player choice combat combos",
+                        "heavy light attack combo design",
+                        "game combo design patterns"
+                      ],
+                      "title": "Advanced Combo Design: Branching and Varied Sequences"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 240,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design and implement a multi-stage combo system for a character, including at least one branching path and distinct attack variations.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "multi stage combo implementation tutorial",
+                        "designing complex game combos",
+                        "combo system state machine advanced",
+                        "player input window for combos",
+                        "character action game combo design"
+                      ],
+                      "title": "Project: Designing and Implementing a Multi-Stage Combo System"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Learn to animate and integrate defensive combat mechanics such as parries, blocks, and counter-attacks, emphasizing precise timing windows and clear visual feedback.",
@@ -134019,8 +134434,100 @@
                   "learning_outcome": "Students will master the animation and implementation of responsive defensive actions that integrate seamlessly with offensive combat.",
                   "order_index": 3,
                   "title": "Defensive Maneuvers: Parries, Blocks, and Counters",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Differentiate between blocking and parrying mechanics, understanding their unique purposes and gameplay implications.",
+                      "order_index": 0,
+                      "search_queries": [
+                        "game block mechanic",
+                        "parry vs block game",
+                        "defensive action types game",
+                        "combat system defense basics"
+                      ],
+                      "title": "Defensive Basics: Blocks vs. Parries"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe best practices for animating character blocks, parries, and damage reactions, focusing on clarity and impact.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "character block animation tutorial",
+                        "parry animation techniques",
+                        "game combat reaction animation",
+                        "impact animation visual feedback"
+                      ],
+                      "title": "Animating Defensive Stances and Reactions"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Understand how to define and manage precise timing windows for parries and blocks within a game's combat state machine.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "game parry timing window",
+                        "block frame data implementation",
+                        "combat state machine defensive actions",
+                        "input buffering defense game"
+                      ],
+                      "title": "Implementing Defensive Timing Windows"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze various visual and audio cues used to communicate successful blocks, parries, and deflections to the player.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "game parry visual effects",
+                        "block impact particle system",
+                        "defensive hit sound design",
+                        "combat feedback design"
+                      ],
+                      "title": "Visual Feedback for Successful Defense"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Implement a functional blocking mechanic, including character animation, damage reduction, and basic visual/audio feedback.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "implement block mechanic unity",
+                        "unreal engine defensive combat",
+                        "basic combat system block",
+                        "character defense programming tutorial"
+                      ],
+                      "title": "Assignment: Basic Block System Implementation"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Develop a parry mechanic with a tight timing window, leading into a counter-attack animation and damage sequence.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "implement parry mechanic game",
+                        "counter attack combat system",
+                        "riposte animation integration",
+                        "defensive punish game dev"
+                      ],
+                      "title": "Assignment: Parries and Counter-Attacks"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Focus on creating dynamic and context-sensitive reaction animations to various types of hits, damage, and environmental interactions, including staggers, knockdowns, and recoveries.",
@@ -134028,8 +134535,90 @@
                   "learning_outcome": "Students will be able to animate and implement a range of impactful dynamic reactions that enhance combat realism and player feedback.",
                   "order_index": 4,
                   "title": "Dynamic Reactions and Hit Stun",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core concepts and importance of dynamic reactions and hit stun in responsive combat systems.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "game combat hit stun theory",
+                        "dynamic reaction animation principles",
+                        "player feedback combat games",
+                        "responsive combat system theory",
+                        "impactful combat feel"
+                      ],
+                      "title": "Fundamentals of Hit Stun and Reaction Systems"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 55,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and analyze the animation process for basic hit reactions, including staggers and flinches, and their initial integration.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "animate hit reaction tutorial",
+                        "game character stagger animation",
+                        "blend tree hit reactions unity",
+                        "ue5 combat animation tutorial",
+                        "impact animation principles"
+                      ],
+                      "title": "Practical Animation: Basic Staggers and Flinches"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 100,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Implement a functional hit stun system that triggers appropriate reaction animations based on incoming damage and manages recovery states.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "implement hit stun in game",
+                        "combat state machine tutorial",
+                        "game animation trigger events",
+                        "damage reaction coding",
+                        "player stun mechanic programming"
+                      ],
+                      "title": "Coding Exercise: Basic Hit Stun Implementation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 70,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Explore advanced techniques for animating and implementing complex reactions such as knockdowns, launches, and contextual environmental impacts.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "game character knockdown animation",
+                        "physics based combat reactions",
+                        "environmental stagger animation",
+                        "recovery animation tutorial",
+                        "launch combo game mechanics"
+                      ],
+                      "title": "Advanced Reactions: Knockdowns, Launches & Environmental Impacts"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 150,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Enhance a combat system with context-sensitive reactions, dynamic transitions, and additional feedback elements for improved realism and player experience.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "contextual hit reactions game",
+                        "combat feedback effects",
+                        "camera shake on hit game",
+                        "impact particle effects tutorial",
+                        "improving combat feel"
+                      ],
+                      "title": "Project: Context-Sensitive Reactions and Combat Feedback"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Examine techniques for predicting player input and advanced animation blending methods to ensure fluid transitions between combat states and actions, minimizing visual pops.",
@@ -134037,8 +134626,90 @@
                   "learning_outcome": "Students will acquire expertise in applying input prediction and advanced blending techniques to achieve exceptionally smooth and responsive combat animations.",
                   "order_index": 5,
                   "title": "Input Prediction and Animation Blending for Smoothness",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the challenges of input latency in combat systems and the fundamental concepts of client-side input prediction and buffering.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "input latency combat games",
+                        "client side input prediction explained",
+                        "input buffering game development",
+                        "network lag compensation gaming",
+                        "predictive input systems"
+                      ],
+                      "title": "Introduction to Input Prediction and Buffering"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Explore advanced input prediction techniques, including rollback netcode, and observe their practical application in achieving responsive combat in networked environments.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "rollback netcode tutorial",
+                        "client side prediction server reconciliation",
+                        "input prediction game example",
+                        "deterministic game simulation",
+                        "smooth input handling multiplayer"
+                      ],
+                      "title": "Advanced Input Prediction Techniques and Rollback"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the core principles of animation blending, including cross-fading, blend trees, and state machine transitions, to minimize visual pops in combat animations.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "animation blending tutorial unity",
+                        "blend tree principles unreal engine",
+                        "animation state machine best practices",
+                        "cross fading animations explanation",
+                        "smooth animation transitions combat"
+                      ],
+                      "title": "Fundamentals of Animation Blending for Combat"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Witness advanced animation blending techniques such as motion matching, pose warping, and the strategic use of Inverse Kinematics (IK) to create exceptionally fluid and adaptive combat animations.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "motion matching game development",
+                        "pose warping animation tutorial",
+                        "procedural animation blending IK",
+                        "inverse kinematics for combat animation",
+                        "animation retargeting blending"
+                      ],
+                      "title": "Advanced Blending and IK for Seamless Combat Flow"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned input prediction and advanced animation blending techniques to implement a small combat interaction, focusing on responsiveness and visual smoothness.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "implement input prediction animation blending",
+                        "smooth combat animation system unity",
+                        "responsive character controller unreal",
+                        "reduce animation popping combat game",
+                        "input buffering animation synchronization"
+                      ],
+                      "title": "Practical Implementation: Blending Input Prediction & Animation"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Cover advanced topics like animation layering, inverse kinematics (IK) for weapon handling, hit reaction blending, and overall combat system polish for a AAA feel.",
@@ -134046,8 +134717,90 @@
                   "learning_outcome": "Students will be able to refine and polish complex combat animation systems, applying advanced techniques to achieve high-fidelity gameplay.",
                   "order_index": 6,
                   "title": "Advanced Combat State Management and Polish",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand how to use animation layers to combine base locomotion with combat actions (e.g., weapon attacks, blocking) for more complex and responsive character states.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "animation layering unreal engine",
+                        "unity animation blend trees",
+                        "additive animation blending",
+                        "combat animation state machine layers",
+                        "game animation techniques"
+                      ],
+                      "title": "Advanced Animation Layering and Blending Techniques"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn practical applications of IK to dynamically adjust character limbs (e.g., hands on a weapon, feet on uneven terrain) for realistic weapon gripping and interaction in combat.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "unity IK weapon grip",
+                        "unreal engine full body IK",
+                        "game dev IK tutorial",
+                        "procedural animation weapon holding",
+                        "inverse kinematics combat systems"
+                      ],
+                      "title": "Implementing Inverse Kinematics for Dynamic Weapon Handling"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Explore techniques for blending character hit reactions with physics-based ragdoll effects, creating impactful and varied responses to damage without jarring transitions.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "hit reaction blending game dev",
+                        "ragdoll transition animation unreal",
+                        "procedural hit reactions unity",
+                        "combat damage feedback animation",
+                        "impact response game animation"
+                      ],
+                      "title": "Dynamic Hit Reaction and Ragdoll Blending"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Discover how to integrate camera shakes, visual effects (VFX), and sound effects (SFX) strategically to amplify the feeling of impact, power, and responsiveness in combat.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "combat camera shake tutorial",
+                        "game VFX for hits",
+                        "SFX integration combat games",
+                        "game feel combat feedback",
+                        "polish game combat system"
+                      ],
+                      "title": "Polishing Combat Feedback: Camera, VFX, and SFX Integration"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 180,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned techniques to refine an existing combat state machine, implementing advanced blending, IK, and feedback mechanisms, and debugging common issues.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "debug combat state machine",
+                        "optimize game animation states",
+                        "refine combat system unity",
+                        "unreal engine advanced combat logic",
+                        "practice game animation blending"
+                      ],
+                      "title": "Practical Application: Refine and Debug a Combat State Machine"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 }
               ],
               "is_complete": true
@@ -134067,8 +134820,72 @@
                   "learning_outcome": "Students will be able to analyze and deconstruct human and animated expressive movement, identifying key principles for conveying emotion and personality.",
                   "order_index": 1,
                   "title": "Foundations of Expressive Movement",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the foundational principles of expressive movement and its role in conveying character personality and emotion.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "expressive movement animation",
+                        "principles of character performance",
+                        "conveying emotion in animation",
+                        "body language for animators"
+                      ],
+                      "title": "Introduction to Expressive Movement & Character"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Develop skills in observing and deconstructing human non-verbal communication, emotional cues, and movement patterns.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "observing human emotion animation",
+                        "non-verbal communication analysis",
+                        "body language observation techniques",
+                        "acting for animators exercises"
+                      ],
+                      "title": "Observing Human Emotion: From Life to Animation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Explore how strong posing, silhouette, and line of action contribute to clear and impactful emotional expression.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "expressive posing animation",
+                        "character silhouette design",
+                        "line of action animation principles",
+                        "clear communication through poses",
+                        "strong poses for emotion"
+                      ],
+                      "title": "The Power of Posing: Silhouette, Line & Emotion"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply observation and posing principles to create a series of poses that clearly convey specific emotions and personality traits.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "animating basic emotions exercise",
+                        "character pose sheet practice",
+                        "expressive body language assignment",
+                        "showing emotion through poses",
+                        "animation emotion studies"
+                      ],
+                      "title": "Assignment: Expressing Emotions Through Key Poses"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Deep dive into advanced body language, posture, and gesture to convey complex emotions, personality traits, and internal states. Focus on weight, balance, timing, and spacing to create compelling physical performances.",
