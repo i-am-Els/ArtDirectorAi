@@ -180281,8 +180281,106 @@
                   "learning_outcome": "Implement custom inspectors, editor windows, and other extensions within the Unity Editor using C# to streamline artist workflows.",
                   "order_index": 3,
                   "title": "Unity Editor Scripting: Custom Inspectors & Windows",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamentals of Unity Editor scripting and create a basic custom inspector for a MonoBehaviour component.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "unity editor scripting introduction",
+                        "custom inspector monobehaviour",
+                        "unity editor class",
+                        "unity oninspectorgui",
+                        "unityeditor namespace"
+                      ],
+                      "title": "Introduction to Editor Scripting & Custom MonoBehaviour Inspectors"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to use advanced UI controls in custom inspectors and apply custom inspectors to Scriptable Objects for better data management.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "unity editorgui layout",
+                        "custom inspector scriptableobject",
+                        "unity serializedobject",
+                        "unity property drawers tutorial",
+                        "editorGUILayout advanced"
+                      ],
+                      "title": "Advanced Inspector Controls & ScriptableObject Custom Inspectors"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Implement a custom inspector for a MonoBehaviour and a ScriptableObject, utilizing various UI elements to enhance usability.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "practice custom inspector unity",
+                        "unity editor script assignment",
+                        "create custom ui unity editor",
+                        "unity custom inspector examples",
+                        "extend unity component inspector"
+                      ],
+                      "title": "Practical: Building Custom Inspectors for Game Data"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the concept of Editor Windows and create a simple standalone window with basic functionality accessible via menu items.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "unity custom editor window",
+                        "unity editorwindow tutorial",
+                        "create unity editor tool",
+                        "unity menuitem attribute",
+                        "unity editor window lifecycle"
+                      ],
+                      "title": "Developing Standalone Unity Editor Windows"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Construct a functional editor window with interactive elements, integrating it into the Unity interface to streamline a specific workflow.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "unity editor window workflow",
+                        "unity custom tool for artists",
+                        "unity editor window gui",
+                        "unity asset management tool example",
+                        "unity editor window script"
+                      ],
+                      "title": "Building Interactive Editor Windows for Workflow Automation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 180,
+                      "id": "L6",
+                      "lesson_type": "PROJECT",
+                      "objective": "Design and implement a comprehensive editor tool (combining custom inspectors and/or editor windows) to address a common development challenge.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "unity editor tool project ideas",
+                        "unity editor scripting capstone",
+                        "develop custom unity tool",
+                        "streamline unity artist workflow",
+                        "unity production tools development"
+                      ],
+                      "title": "Project: Custom Asset Pipeline Utility"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "This subject explores more sophisticated tool development techniques, including batch processing assets, automating complex pipeline stages, and integrating external data sources (e.g., CSV, JSON) with engine tools. Focus will be on robust and scalable solutions.",
@@ -180290,8 +180388,90 @@
                   "learning_outcome": "Design and implement advanced automation tools capable of handling large datasets and complex pipeline processes across different engine contexts.",
                   "order_index": 4,
                   "title": "Advanced Automation & Data Integration",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core principles for designing robust, scalable, and maintainable automation tools in game engines, including error handling, performance considerations, and common design patterns.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "scalable game engine automation",
+                        "robust tool development unreal",
+                        "unity automation design patterns",
+                        "game pipeline scripting best practices",
+                        "error handling in engine tools"
+                      ],
+                      "title": "Advanced Automation Principles & Design Patterns"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to use engine APIs (e.g., Unreal Python/C++, Unity Editor Scripting) to perform efficient batch operations on assets, such as modifying properties, re-importing, or migrating assets at scale.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "unreal engine batch asset processing",
+                        "unity editor scripting batch operations",
+                        "automate asset import settings unreal",
+                        "mass modify assets unity script",
+                        "game development asset pipeline automation"
+                      ],
+                      "title": "Batch Asset Processing with Engine APIs"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Explore techniques for parsing and integrating external data formats like CSV and JSON into engine tools, focusing on data validation, structuring, and mapping to engine-specific data types.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "unreal engine read csv in editor",
+                        "unity editor json parsing",
+                        "external data integration game tools",
+                        "data driven game development pipeline",
+                        "serialize game data editor scripts"
+                      ],
+                      "title": "Integrating External Data Sources (CSV, JSON)"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 105,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe the practical implementation of a tool that leverages external data (e.g., a character data CSV) to automatically configure game assets, create scene elements, or set up gameplay parameters within the engine.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "data driven tools unreal engine",
+                        "unity scriptable objects data pipeline",
+                        "procedural content generation data driven",
+                        "editor extension external data",
+                        "game engine data import workflow"
+                      ],
+                      "title": "Building Data-Driven Engine Tools"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 180,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design and implement a scriptable pipeline stage that automates a specific asset deployment or configuration task, successfully incorporating both batch processing capabilities and external data integration for robust and scalable solutions.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "unreal engine custom asset pipeline automation",
+                        "unity build pipeline automation script",
+                        "game development automated build process",
+                        "custom editor tools assignment",
+                        "data processing in game pipeline"
+                      ],
+                      "title": "Project: Automated Asset Deployment Pipeline Stage"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Learn the principles of designing intuitive and artist-friendly user interfaces for editor tools. This includes best practices for usability, visual design, error handling, and implementing UI elements using relevant engine frameworks (e.g., UMG for Unreal Utility Widgets, UI Toolkit/IMGUI for Unity).",
@@ -180299,8 +180479,106 @@
                   "learning_outcome": "Apply UX design principles to create intuitive, efficient, and user-friendly interfaces for custom game engine tools.",
                   "order_index": 5,
                   "title": "User Experience (UX) for Editor Tools",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand core user experience (UX) principles and their specific application to designing intuitive and efficient game engine editor tools.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "UX design for game tools",
+                        "editor tool usability principles",
+                        "human-computer interaction game development",
+                        "intuitive UI design for artists",
+                        "affordance in editor UIs"
+                      ],
+                      "title": "Foundational UX Principles for Game Editor Tools"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L2",
+                      "lesson_type": "READ",
+                      "objective": "Learn to apply visual design principles, including layout, typography, color, and iconography, to create clear information hierarchy and enhance usability in editor tool interfaces.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "UI visual design editor tools",
+                        "information hierarchy game engine UI",
+                        "editor tool iconography best practices",
+                        "layout principles for custom tools",
+                        "readability in tool UIs"
+                      ],
+                      "title": "Crafting Clear Visuals: Layout, Typography, and Iconography"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and understand the practical steps for creating and integrating custom editor user interfaces using Unreal Engine's UMG Utility Widgets framework.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "Unreal Engine UMG editor widgets tutorial",
+                        "custom editor UI Unreal",
+                        "Slate vs UMG for editor tools",
+                        "extending Unreal Editor UI",
+                        "utility widget blueprints"
+                      ],
+                      "title": "Building Editor UIs with Unreal Engine UMG Utility Widgets"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and understand the practical steps for creating and integrating custom editor user interfaces using Unity's UI Toolkit framework.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "Unity UI Toolkit editor extensions",
+                        "custom editor window Unity",
+                        "IMGUI vs UI Toolkit for editor tools",
+                        "Unity editor UI styling",
+                        "UXML USS custom tools"
+                      ],
+                      "title": "Developing Editor Interfaces with Unity UI Toolkit"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Learn best practices for designing effective user feedback mechanisms, robust error handling, and ensuring accessibility to create resilient and user-friendly editor tools.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "editor tool error handling UX",
+                        "user feedback in game development tools",
+                        "accessibility for editor UIs",
+                        "robust tool interface design",
+                        "input validation custom editor"
+                      ],
+                      "title": "Robust Editor UIs: User Feedback, Error Handling, and Accessibility"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 240,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply all learned UX principles and technical skills to design, prototype, and document a user interface for a custom game engine editor tool, focusing on intuitiveness and efficiency.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "custom game tool UI design assignment",
+                        "editor tool UX case study",
+                        "prototyping editor interfaces",
+                        "designing artist tools workflow",
+                        "game engine tool mockups"
+                      ],
+                      "title": "Capstone Project: Design and Prototype an Editor Tool UI"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Cover the practical aspects of bringing tools into a production environment. Topics include version control integration, documentation, testing, debugging strategies, and packaging tools for distribution to fellow artists, ensuring maintainability and long-term viability.",
@@ -180308,8 +180586,100 @@
                   "learning_outcome": "Develop, deploy, and maintain robust editor tools, adhering to industry best practices for version control, testing, and documentation.",
                   "order_index": 6,
                   "title": "Tool Deployment, Maintenance & Best Practices",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand best practices for integrating editor tools with version control systems like Git or Perforce, and how to manage tool-specific assets.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "Unreal Engine tool version control",
+                        "Unity editor tool Git integration",
+                        "Perforce for game development tools",
+                        "versioning custom engine tools"
+                      ],
+                      "title": "Version Control for Editor Tools: Best Practices"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to create clear, comprehensive documentation for editor tools and apply user experience (UX) principles to make them intuitive and accessible.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "Unreal editor tool documentation guide",
+                        "Unity tool user guide best practices",
+                        "in-tool help system implementation",
+                        "UX design for editor extensions"
+                      ],
+                      "title": "Documenting Your Editor Tools & UX Principles"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Explore various strategies for testing custom editor tools to ensure reliability and identify common debugging techniques for editor-specific issues.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "Unreal editor tool debugging techniques",
+                        "Unity editor tool testing frameworks",
+                        "automated testing custom engine tools",
+                        "debugging Slate/IMGUI tools"
+                      ],
+                      "title": "Effective Testing & Debugging for Custom Tools"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Understand the process of packaging editor tools for distribution and how to integrate them into a studio's existing deployment pipeline.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "Unreal Engine plugin packaging",
+                        "Unity editor extension distribution",
+                        "custom tool deployment pipeline",
+                        "shipping editor tools to artists"
+                      ],
+                      "title": "Packaging & Distributing Your Editor Tools"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Learn best practices for maintaining editor tools over time, including handling updates, ensuring backward compatibility, and refactoring for long-term viability.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "maintaining Unreal editor tools",
+                        "Unity editor tool upgrade strategy",
+                        "backward compatibility custom tools",
+                        "refactoring game development tools"
+                      ],
+                      "title": "Tool Maintenance, Upgrades & Backward Compatibility"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply all learned principles to deploy, document, and maintain a simple editor tool, simulating a real-world production scenario.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "deploy custom Unreal tool project",
+                        "document Unity editor extension task",
+                        "test game engine tool assignment",
+                        "version control editor tool project"
+                      ],
+                      "title": "Hands-on: Deploying & Maintaining a Simple Editor Tool"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 }
               ],
               "is_complete": true
@@ -180329,8 +180699,90 @@
                   "learning_outcome": "Students will be able to navigate Houdini, understand the core procedural workflow, and differentiate between imperative and procedural content creation.",
                   "order_index": 1,
                   "title": "Houdini Core Concepts & Procedural Paradigm",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Students will understand what Houdini is, its core philosophy, and the difference between imperative and procedural content creation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "what is houdini used for",
+                        "procedural vs imperative modeling",
+                        "houdini node based workflow explained",
+                        "advantages of procedural generation",
+                        "sidefx houdini introduction"
+                      ],
+                      "title": "What is Houdini? Embracing the Procedural Mindset"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Students will be able to identify and interact with key Houdini UI elements, including the network editor, viewport, and parameters pane.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "houdini interface tutorial for beginners",
+                        "houdini network editor explained",
+                        "houdini viewport navigation controls",
+                        "houdini parameters pane functions",
+                        "how to open houdini files"
+                      ],
+                      "title": "Getting Around: A Tour of the Houdini Interface"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Students will grasp the concept of SOPs (Surface Operators), understand how data flows through a node network, and recognize the importance of attributes.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "what are SOPs in Houdini",
+                        "houdini data flow concept",
+                        "houdini attributes explained",
+                        "geometry spreadsheet houdini",
+                        "node connections in Houdini"
+                      ],
+                      "title": "The Building Blocks: SOPs, Data Flow, and Attributes"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Students will follow along to build a simple procedural network, learning to add nodes, connect them, and manipulate parameters to create a basic geometric shape.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "houdini first node network tutorial",
+                        "how to create a box in houdini",
+                        "houdini transform node tutorial",
+                        "add nodes in houdini",
+                        "basic geometry in houdini"
+                      ],
+                      "title": "Hands-On: Building Your First Procedural Geometry"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Students will apply their knowledge to independently construct a simple parametric object (like a table) using nodes, demonstrating understanding of data flow and parameter manipulation.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "houdini parametric modeling tutorial",
+                        "build a table in houdini",
+                        "houdini box node parameters",
+                        "copy stamp houdini basic",
+                        "houdini procedural modeling assignment"
+                      ],
+                      "title": "Assignment: Design a Parametric Table"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Deep dive into Surface Operators (SOPs) for creating, modifying, and transforming geometry; covering primitives, Booleans, VDBs, instancing, and basic modeling operations.",
@@ -180338,8 +180790,85 @@
                   "learning_outcome": "Students will be proficient in using SOPs to construct and manipulate complex geometric forms procedurally.",
                   "order_index": 2,
                   "title": "Geometry Generation & Manipulation (SOPs)",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental concepts of Surface Operators (SOPs) and generate basic geometric primitives within Houdini.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "Houdini SOPs introduction",
+                        "Houdini primitive nodes tutorial",
+                        "Houdini create sphere box grid",
+                        "Houdini geometry generation basics"
+                      ],
+                      "title": "Introduction to SOPs & Primitive Geometry"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to transform, merge, and group geometry, and explore basic manipulation techniques using SOPs.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "Houdini transform geometry SOP",
+                        "Houdini merge group nodes",
+                        "Houdini basic geometry manipulation",
+                        "Houdini align objects"
+                      ],
+                      "title": "Geometry Transformations & Organization"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Master Boolean operations to combine and subtract shapes, and utilize VDBs for volumetric modeling and manipulation.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "Houdini Boolean operations tutorial",
+                        "Houdini VDB workflow",
+                        "Houdini volumetric modeling",
+                        "Houdini convert geometry to VDB"
+                      ],
+                      "title": "Boolean Operations & Volumetric VDBs"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice efficient geometry instancing and distribution using Copy to Points and basic attribute-driven variations.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "Houdini copy to points example",
+                        "Houdini instancing tutorial",
+                        "Houdini scatter geometry",
+                        "Houdini procedural distribution"
+                      ],
+                      "title": "Instancing & Procedural Distribution"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply a range of SOPs including PolyExtrude, Bevel, and Subdivide to create and refine complex geometric forms procedurally.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "Houdini procedural modeling project",
+                        "Houdini polyextrude bevel subdivide",
+                        "Houdini remesh geometry tutorial",
+                        "Houdini advanced SOP techniques"
+                      ],
+                      "title": "Procedural Modeling & Refinement Project"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Understanding the role of attributes in procedural workflows. Introduction to VEX (Vector Expression Language) for custom attribute manipulation, conditional logic, and simple procedural generation.",
@@ -180347,8 +180876,85 @@
                   "learning_outcome": "Students will be able to control geometry and procedural logic using attributes and basic VEX scripting.",
                   "order_index": 3,
                   "title": "Attributes & VEX Programming Fundamentals",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the different types of attributes (point, primitive, vertex, detail) and their fundamental role in Houdini's procedural workflows.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "Houdini attribute types explained",
+                        "point primitive detail attributes",
+                        "what are attributes in Houdini",
+                        "attribute workflow Houdini"
+                      ],
+                      "title": "Introduction to Attributes: The Building Blocks"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to view, create, and basic manipulation of attributes using standard Houdini nodes like Attribute Create, Promote, and Delete.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "Houdini attribute create node tutorial",
+                        "attribute promote node usage",
+                        "visualize attributes Houdini",
+                        "manipulate attributes without VEX"
+                      ],
+                      "title": "Basic Attribute Manipulation with Nodes"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the core syntax of VEX (Vector Expression Language) and understand how it executes in different contexts (point, primitive, detail) using the Attribute Wrangle SOP.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "VEX programming basics Houdini",
+                        "Attribute Wrangle SOP explained",
+                        "VEX syntax tutorial",
+                        "VEX context in Houdini"
+                      ],
+                      "title": "VEX Fundamentals: Syntax and Execution Context"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply VEX to create custom attributes, modify existing ones (e.g., @P, @N, @Cd), and perform basic arithmetic operations on attribute values.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "create custom attributes VEX",
+                        "modify point position VEX",
+                        "VEX attribute wrangle examples",
+                        "add color with VEX"
+                      ],
+                      "title": "VEX for Custom Attribute Creation and Manipulation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Explore conditional logic (if/else statements) and introduce common VEX functions to drive procedural generation, create variations, and control geometry based on attribute values.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "VEX if else statements tutorial",
+                        "procedural generation with VEX",
+                        "VEX random function example",
+                        "conditional VEX for geometry"
+                      ],
+                      "title": "Conditional Logic and Simple Procedural Effects with VEX"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Learning to encapsulate procedural networks into reusable Digital Assets (HDAs), creating custom interfaces, exposing parameters, and building robust, pipeline-friendly tools.",
@@ -180356,8 +180962,100 @@
                   "learning_outcome": "Students will be able to create custom HDAs for efficient asset production and pipeline integration.",
                   "order_index": 4,
                   "title": "Digital Assets (HDAs) & Tool Authoring",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the concept, benefits, and core components of Houdini Digital Assets (HDAs) for procedural content creation.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "Houdini HDA what is it",
+                        "benefits of Houdini digital assets",
+                        "HDA core components",
+                        "Houdini procedural asset creation"
+                      ],
+                      "title": "Introduction to Houdini Digital Assets (HDAs)"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn the step-by-step process of wrapping a simple Houdini network into a Digital Asset and basic HDA management.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "how to create HDA Houdini",
+                        "wrap network into HDA",
+                        "Houdini simple digital asset tutorial",
+                        "basic HDA creation workflow"
+                      ],
+                      "title": "Creating Your First Basic HDA"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Understand how to expose various parameters, create custom user interfaces, and link node parameters within an HDA.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "Houdini HDA expose parameters",
+                        "custom HDA interface design",
+                        "linking HDA parameters",
+                        "Houdini digital asset UI"
+                      ],
+                      "title": "Exposing Parameters & Building Custom Interfaces"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe a practical demonstration of exposing different parameter types and designing an intuitive custom interface for an HDA.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "Houdini HDA parameter types demo",
+                        "building HDA user interface tutorial",
+                        "Houdini custom HDA controls",
+                        "creating HDA UI elements"
+                      ],
+                      "title": "Practical HDA Interface Development"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Learn about HDA best practices for reusability, modularity, efficient saving, and proper versioning for pipeline integration.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "Houdini HDA best practices",
+                        "HDA versioning workflow",
+                        "saving Houdini digital assets",
+                        "HDA modular design Houdini"
+                      ],
+                      "title": "HDA Best Practices, Versioning & Saving"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned HDA concepts to build a fully functional procedural tool with a custom interface, exposing key parameters, and ensuring reusability.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "Houdini HDA project example",
+                        "procedural tool authoring assignment",
+                        "build custom HDA challenge",
+                        "Houdini asset production pipeline"
+                      ],
+                      "title": "Build Your Own Procedural Tool (Assignment)"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Applying procedural techniques to create expansive environments, including terrain generation, procedural scattering of foliage and props, and scene layout automation.",
@@ -180365,8 +181063,87 @@
                   "learning_outcome": "Students will be able to design and implement procedural systems for generating complex natural or urban environments.",
                   "order_index": 5,
                   "title": "Procedural Environment Generation",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamentals of procedural terrain generation using Houdini's heightfields and basic noise functions.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "Houdini heightfield tutorial",
+                        "procedural terrain generation basics",
+                        "noise functions for landscapes Houdini",
+                        "VEX heightfield operations"
+                      ],
+                      "title": "Introduction to Procedural Terrain with Houdini Heightfields"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to sculpt and refine terrains using advanced heightfield operations and simulate natural erosion effects.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "Houdini heightfield erosion tutorial",
+                        "sculpting terrain with heightfields",
+                        "Houdini hydraulic erosion",
+                        "layering heightfields in Houdini"
+                      ],
+                      "title": "Sculpting and Eroding Digital Landscapes"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply scattering techniques to distribute assets (foliage, rocks) procedurally across a generated terrain using attribute-based distribution.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "Houdini scatter node tutorial",
+                        "procedural foliage scattering",
+                        "instance objects on terrain Houdini",
+                        "density maps for scattering Houdini",
+                        "attribute randomizer Houdini"
+                      ],
+                      "title": "Procedural Scattering of Foliage and Props"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Explore techniques for automating scene layout, including rule-based placement of structures and path generation within environments.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "Houdini world building tutorial",
+                        "procedural scene layout Houdini",
+                        "rule-based placement Houdini",
+                        "generating roads in Houdini"
+                      ],
+                      "title": "Advanced World Building and Layout Automation"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Integrate all learned procedural techniques to design and build a complete dynamic environment from terrain to scattered assets and basic layout.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "Houdini environment generation project",
+                        "full procedural scene Houdini",
+                        "Houdini terrain to final render workflow",
+                        "optimizing large Houdini scenes",
+                        "procedural environment design"
+                      ],
+                      "title": "Project: Constructing a Dynamic Environment"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Focusing on building adaptable procedural models for game assets (e.g., modular architecture, props with variations), discussing efficient asset generation for production, and pipeline integration considerations.",
@@ -180374,8 +181151,86 @@
                   "learning_outcome": "Students will be able to develop advanced procedural modeling systems for creating versatile and production-ready assets, understanding export workflows.",
                   "order_index": 6,
                   "title": "Advanced Procedural Modeling & Asset Pipelines",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core principles of modularity and reusability in advanced procedural asset creation for game environments.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "houdini modular asset workflow",
+                        "procedural modular architecture principles",
+                        "reusable procedural assets houdini",
+                        "game asset modularity"
+                      ],
+                      "title": "Modular Design for Production Assets"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L2",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Develop an adaptable procedural module (e.g., a wall section or a building facade) that can generate variations and snap together seamlessly.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "houdini procedural building module",
+                        "modular kitbash houdini tutorial",
+                        "houdini procedural architecture generator",
+                        "hda for modular assets"
+                      ],
+                      "title": "Building an Adaptable Architectural Module"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe techniques for creating props with procedural variations and efficient methods for exporting them to game engines.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "houdini procedural prop variations",
+                        "houdini game asset export workflow",
+                        "houdini fbx export best practices",
+                        "procedural asset UV unwrapping houdini"
+                      ],
+                      "title": "Procedural Props and Export Workflows"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Learn about advanced instancing techniques (e.g., packed primitives) and automated Level of Detail (LOD) generation within Houdini for performance optimization.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "houdini instancing for game engines",
+                        "packed primitives houdini",
+                        "procedural lod generation houdini",
+                        "houdini performance optimization"
+                      ],
+                      "title": "Advanced Instancing and LOD Generation"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 210,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Integrate a developed procedural asset into a mock production pipeline, focusing on optimization, data validation, and export for a target engine.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "houdini asset pipeline integration",
+                        "optimizing houdini assets for unreal",
+                        "houdini production workflow",
+                        "houdini data validation scripts",
+                        "custom hda for pipeline"
+                      ],
+                      "title": "Pipeline Integration and Asset Optimization"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 }
               ],
               "is_complete": true
@@ -180395,8 +181250,85 @@
                   "learning_outcome": "Students will be able to identify key components of a robust production pipeline and design modular systems that promote reusability and maintainability.",
                   "order_index": 1,
                   "title": "Introduction to Pipeline Architecture and Modularity",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 25,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental definition, purpose, and common stages of a production pipeline in various industries.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "what is production pipeline",
+                        "stages of production pipeline",
+                        "pipeline architecture basics",
+                        "why use production pipelines"
+                      ],
+                      "title": "Introduction to Production Pipeline Concepts"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L2",
+                      "lesson_type": "READ",
+                      "objective": "Explore core architectural patterns like monolithic, microservices, and event-driven approaches relevant to pipeline design.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "pipeline architectural patterns",
+                        "monolithic vs microservices pipeline",
+                        "event-driven architecture in production",
+                        "data pipeline architecture types"
+                      ],
+                      "title": "Exploring Core Pipeline Architectural Patterns"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe practical demonstrations of modular design principles applied to pipeline components, emphasizing reusability and flexibility.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "modular pipeline design tutorial",
+                        "reusable pipeline components",
+                        "flexible pipeline architecture",
+                        "pipeline abstraction layers"
+                      ],
+                      "title": "Practical Modular Design Principles for Pipelines"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 60,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Analyze a given pipeline scenario and identify its key components, data flow, and potential areas for modular improvement.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "identifying pipeline components exercise",
+                        "data flow diagram pipeline",
+                        "pipeline component analysis",
+                        "system integration pipeline exercise"
+                      ],
+                      "title": "Identifying Key Components in a Production Pipeline"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 75,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design a conceptual modular pipeline for a specified task, demonstrating an understanding of reusability and maintainability.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "designing a modular data pipeline example",
+                        "pipeline module definition guidelines",
+                        "how to build a scalable pipeline",
+                        "pipeline design project"
+                      ],
+                      "title": "Designing a Simple Modular Pipeline"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Deep dive into strategies for managing production data, ensuring data integrity, implementing effective asset tracking systems, and integrating robust version control across the pipeline.",
@@ -180404,8 +181336,89 @@
                   "learning_outcome": "Students will master techniques for secure data handling, asset lifecycle management, and implementing version control systems suitable for large-scale artistic projects.",
                   "order_index": 2,
                   "title": "Data Management, Asset Tracking, and Version Control",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the principles of data integrity, common security vulnerabilities, and best practices for secure data storage in production environments.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "data integrity production pipeline",
+                        "secure data storage best practices",
+                        "production data security risks",
+                        "digital asset security pipeline"
+                      ],
+                      "title": "Foundations of Data Integrity and Secure Storage"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe the practical application of asset tracking systems, learn about asset lifecycle stages, and how to manage metadata for efficient retrieval and auditing.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "asset tracking software demo",
+                        "digital asset management pipeline",
+                        "asset lifecycle management production",
+                        "metadata for digital assets",
+                        "asset versioning workflow"
+                      ],
+                      "title": "Implementing Asset Tracking and Lifecycle Management"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Explore different version control systems (Git, Perforce, SVN), understand their strengths and weaknesses in a production context, and learn strategies for integrating them into existing pipelines.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "Git vs Perforce production",
+                        "version control for large files",
+                        "pipeline version control strategies",
+                        "centralized vs distributed VCS",
+                        "integrating VCS into DCC tools"
+                      ],
+                      "title": "Choosing and Implementing Version Control Systems"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply branching and merging strategies in a simulated production environment using a version control system, resolving conflicts, and managing project history effectively.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "Git branching strategies production",
+                        "resolve merge conflicts Git",
+                        "perforce workspace setup tutorial",
+                        "collaborative version control workflow",
+                        "submitting changes in VCS"
+                      ],
+                      "title": "Hands-on: Collaborative Version Control Workflows"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Learn about long-term data archival strategies, robust backup solutions, and developing disaster recovery plans to ensure business continuity and data safety.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "production data backup strategies",
+                        "digital asset archiving best practices",
+                        "disaster recovery plan pipeline",
+                        "long-term data retention digital assets",
+                        "incremental vs full backups"
+                      ],
+                      "title": "Data Archiving, Backup, and Disaster Recovery Planning"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Addressing the challenges of scaling production pipelines to handle massive datasets and concurrent users, optimizing performance, and understanding the architecture of distributed computing environments.",
@@ -180413,8 +181426,106 @@
                   "learning_outcome": "Students will be able to design pipelines that are performant and scalable, capable of leveraging distributed resources efficiently.",
                   "order_index": 3,
                   "title": "Scalability, Performance, and Distributed Systems",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand key concepts of scalability, performance, and common metrics in system design.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "scalability vs performance explained",
+                        "performance metrics distributed systems",
+                        "types of system scalability",
+                        "throughput latency availability metrics",
+                        "vertical vs horizontal scaling advantages"
+                      ],
+                      "title": "Fundamentals of Scalability and Performance Metrics"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Identify common architectures, principles, and challenges of distributed systems.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "distributed systems architecture patterns",
+                        "CAP theorem in simple terms",
+                        "microservices distributed architecture",
+                        "message queues for distributed communication",
+                        "load balancing strategies distributed systems"
+                      ],
+                      "title": "Exploring Distributed System Topologies and Principles"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply techniques to identify and resolve performance bottlenecks in a sample data pipeline.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "data pipeline performance tuning",
+                        "identifying bottlenecks in data processing",
+                        "optimizing data transfer in pipelines",
+                        "parallel processing techniques for large datasets",
+                        "caching strategies for data pipelines"
+                      ],
+                      "title": "Practical Performance Optimization for Data Processing"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Learn how to design pipelines that are highly available and tolerant to various failures.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "high availability distributed systems design",
+                        "fault tolerance patterns software engineering",
+                        "data replication strategies in distributed systems",
+                        "leader election algorithms explained",
+                        "circuit breaker pattern microservices"
+                      ],
+                      "title": "Strategies for Resilient and Fault-Tolerant Pipeline Design"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe how distributed frameworks like Apache Spark are used to process large datasets scalably.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "apache spark for scalability",
+                        "distributed data processing frameworks comparison",
+                        "spark performance tuning best practices",
+                        "hadoop ecosystem components",
+                        "data partitioning strategies in big data"
+                      ],
+                      "title": "Hands-on with Apache Spark for Scalable Data Processing"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design and implement a simple scalable service component demonstrating load balancing and auto-scaling concepts.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "designing scalable microservices architecture",
+                        "implementing load balancing example",
+                        "auto-scaling in cloud environments",
+                        "stateless vs stateful services scalability",
+                        "container orchestration for scaling applications"
+                      ],
+                      "title": "Implementing a Scalable Component with Load Balancing and Auto-scaling"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Exploring methods and standards for integrating disparate tools (DCC applications, render farms, databases) and departments, focusing on APIs, middleware, and data exchange formats.",
@@ -180422,8 +181533,106 @@
                   "learning_outcome": "Students will develop skills in integrating diverse software and hardware components into a cohesive pipeline, utilizing various integration patterns and communication protocols.",
                   "order_index": 4,
                   "title": "System Integration and Interoperability Standards",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core concepts of system integration in CG pipelines, identify common challenges, and recognize the need for interoperability.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "CG pipeline integration challenges",
+                        "VFX system interoperability problems",
+                        "disparate tools integration animation",
+                        "pipeline data silos",
+                        "what is system integration in animation production"
+                      ],
+                      "title": "Introduction to System Integration and Pipeline Challenges"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L2",
+                      "lesson_type": "READ",
+                      "objective": "Explore common integration patterns (e.g., point-to-point, hub-and-spoke, message bus) and evaluate their suitability for different pipeline scenarios.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "integration patterns VFX pipeline",
+                        "EAI patterns in CG production",
+                        "message bus architecture for pipelines",
+                        "hub and spoke integration benefits",
+                        "pipeline communication patterns"
+                      ],
+                      "title": "Integration Patterns and Architectures"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe practical demonstrations of using APIs and SDKs (with a focus on Python) to script and connect disparate DCC applications within a pipeline.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "Python API integration Maya Houdini",
+                        "DCC application SDK examples",
+                        "scripting pipeline tools with API",
+                        "VFX tool automation Python",
+                        "accessing scene data via API"
+                      ],
+                      "title": "APIs and SDKs for DCC Tool Integration"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Learn about standard data exchange formats (e.g., USD, Alembic, FBX, JSON) and their role in enabling seamless data flow between different tools and departments.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "USD data exchange pipeline",
+                        "Alembic for geometry caching",
+                        "FBX interoperability issues",
+                        "JSON for pipeline metadata",
+                        "OpenVDB integration"
+                      ],
+                      "title": "Data Exchange Formats and Interoperability Standards"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Understand how middleware and message queues (e.g., RabbitMQ, ZeroMQ) facilitate robust, asynchronous communication and task distribution across a complex pipeline.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "middleware for VFX rendering",
+                        "message queue in production pipeline",
+                        "RabbitMQ CG pipeline example",
+                        "ZeroMQ for distributed tasks",
+                        "asynchronous communication pipeline architecture"
+                      ],
+                      "title": "Leveraging Middleware and Message Queues"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 180,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design and implement a basic integration solution between two simulated or simplified pipeline components, utilizing an API and a chosen data exchange format.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "simple pipeline integration project",
+                        "build basic tool integration Python",
+                        "integrate two scripts API",
+                        "pipeline data flow exercise",
+                        "mock pipeline component integration"
+                      ],
+                      "title": "Building a Basic Integration Solution"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Practical application of scripting languages (e.g., Python) for automating repetitive tasks, designing intelligent workflow systems, and optimizing production processes for efficiency.",
@@ -180431,8 +181640,90 @@
                   "learning_outcome": "Students will be proficient in scripting custom tools and automations to streamline complex workflows and improve overall production efficiency.",
                   "order_index": 5,
                   "title": "Pipeline Automation, Scripting, and Workflow Optimization",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the importance of automation in production pipelines, the role of Python, and basic scripting concepts applicable to system integration.",
+                      "order_index": 0,
+                      "search_queries": [
+                        "python scripting for VFX pipelines",
+                        "pipeline automation basics",
+                        "why python for animation pipeline",
+                        "introduction to automation scripts",
+                        "python for production efficiency"
+                      ],
+                      "title": "Fundamentals of Python for Pipeline Automation"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L2",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Develop Python scripts to automate common file operations, such as renaming, moving, and basic data parsing, to streamline repetitive production tasks.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "python file manipulation script",
+                        "automate file renaming python",
+                        "python script for folder organization",
+                        "task automation python examples",
+                        "batch processing with python"
+                      ],
+                      "title": "Automating File Management and Repetitive Tasks"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Explore principles of workflow design, identify bottlenecks, and learn strategies for optimizing production processes for greater efficiency and reliability.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "production workflow optimization",
+                        "designing automated pipelines",
+                        "identifying pipeline bottlenecks",
+                        "workflow management systems concepts",
+                        "lean production pipeline principles"
+                      ],
+                      "title": "Designing Efficient Production Workflows"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe a practical demonstration of integrating custom Python scripts into a simulated production workflow, showcasing data flow, task dependencies, and basic error handling.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "python script integration workflow demo",
+                        "creating custom tools for pipelines",
+                        "workflow orchestration with python",
+                        "pipeline tool development tutorial",
+                        "demonstration production automation"
+                      ],
+                      "title": "Demo: Integrating Custom Scripts into a Workflow"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply workflow optimization strategies by modifying an existing script or workflow, and implement robust error handling and logging mechanisms to ensure script reliability.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "python error handling in pipelines",
+                        "logging in production scripts python",
+                        "optimizing script performance python",
+                        "designing fault-tolerant workflows",
+                        "workflow debugging best practices"
+                      ],
+                      "title": "Implementing Workflow Optimization and Error Handling"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Building resilient pipelines by implementing robust error handling, logging, and monitoring systems, alongside exploring best practices for deployment, maintenance, and continuous integration.",
@@ -180440,8 +181731,101 @@
                   "learning_outcome": "Students will be able to implement effective error detection, reporting, and monitoring solutions, and develop strategies for reliable pipeline deployment and maintenance.",
                   "order_index": 6,
                   "title": "Error Handling, Monitoring, and Deployment Strategies",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 30,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand common error types and best practices for structured error handling in pipelines.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "pipeline error handling best practices",
+                        "exception management strategies",
+                        "retry mechanisms in data pipelines",
+                        "idempotency in error handling"
+                      ],
+                      "title": "Fundamentals of Error Handling and Exception Management"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn how to integrate effective logging and monitoring tools to track pipeline health and performance.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "data pipeline logging tools",
+                        "monitoring data pipeline health",
+                        "ELK stack for pipeline monitoring",
+                        "Prometheus Grafana pipeline",
+                        "structured logging in pipelines"
+                      ],
+                      "title": "Practical Logging and Monitoring for Data Pipelines"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Explore advanced error handling patterns like Dead Letter Queues and Circuit Breakers to enhance pipeline resilience.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "dead letter queue patterns",
+                        "circuit breaker pattern microservices",
+                        "saga pattern error handling",
+                        "transactional outbox pattern"
+                      ],
+                      "title": "Advanced Patterns: Dead Letter Queues and Circuit Breakers"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply logging and monitoring concepts by building a simple monitoring dashboard for a simulated pipeline.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "build pipeline monitoring dashboard tutorial",
+                        "data pipeline health metrics",
+                        "dashboard design principles",
+                        "alerting rules for data pipelines"
+                      ],
+                      "title": "Hands-on: Designing and Implementing a Pipeline Monitoring Dashboard"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 35,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Understand CI/CD principles and various deployment strategies optimized for data pipelines.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "CI CD data pipelines",
+                        "deployment strategies for ETL",
+                        "blue-green deployment data pipelines",
+                        "canary release data pipelines"
+                      ],
+                      "title": "Continuous Integration, Delivery, and Deployment for Data Pipelines"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L6",
+                      "lesson_type": "WATCH",
+                      "objective": "Witness a practical demonstration of deploying a data pipeline using Infrastructure as Code tools.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "IaC data pipeline deployment",
+                        "Terraform for data pipelines",
+                        "CloudFormation data pipelines",
+                        "Ansible for pipeline deployment"
+                      ],
+                      "title": "Demo: Deploying a Data Pipeline with Infrastructure as Code (IaC)"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 }
               ],
               "is_complete": true
@@ -180461,8 +181845,90 @@
                   "learning_outcome": "Understand common performance bottlenecks and apply fundamental profiling methodologies to identify performance issues in real-time applications.",
                   "order_index": 1,
                   "title": "Performance Bottlenecks and Profiling Fundamentals",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Define real-time application performance metrics and differentiate between common performance bottleneck categories (CPU, GPU, I/O, Memory).",
+                      "order_index": 1,
+                      "search_queries": [
+                        "real-time application performance definition",
+                        "types of performance bottlenecks",
+                        "CPU GPU I/O memory bottlenecks explained",
+                        "performance metrics for games",
+                        "why is performance optimization important"
+                      ],
+                      "title": "Introduction to Real-time Performance and Common Bottlenecks"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to identify whether an application is CPU-bound or GPU-bound through practical examples and understand their typical causes.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "CPU bound vs GPU bound explanation",
+                        "how to tell if game is CPU or GPU bound",
+                        "common CPU performance issues in games",
+                        "common GPU performance issues in games",
+                        "graphics pipeline bottlenecks"
+                      ],
+                      "title": "Identifying and Analyzing CPU-Bound vs. GPU-Bound Issues"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Explain how inefficient memory usage and slow I/O operations create performance bottlenecks and their symptoms.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "memory performance bottlenecks explained",
+                        "I/O bottlenecks in real-time applications",
+                        "memory leaks performance impact",
+                        "disk read write performance issues",
+                        "texture streaming performance"
+                      ],
+                      "title": "Understanding Memory Management and I/O Performance Impact"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the fundamental principles behind performance profiling and categorize different types of profiling tools (e.g., CPU, memory, GPU profilers).",
+                      "order_index": 4,
+                      "search_queries": [
+                        "what is performance profiling",
+                        "how do profilers work",
+                        "types of profiling tools",
+                        "CPU profilers vs memory profilers",
+                        "call stack profiling basics"
+                      ],
+                      "title": "Fundamentals of Performance Profiling"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Set up a basic profiling workflow for a simple application, collect performance data, and interpret initial findings to identify a potential bottleneck.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "basic performance profiling tutorial",
+                        "how to use a profiler step by step",
+                        "interpreting profiler data",
+                        "finding performance bottlenecks with profilers",
+                        "simple profiling workflow example"
+                      ],
+                      "title": "Hands-on: Setting Up a Basic Profiling Workflow"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Deep dive into CPU-centric performance issues, including instruction set optimization, cache efficiency, thread synchronization, and multithreading paradigms. Covers advanced CPU profiling tools and techniques for identifying and resolving CPU bottlenecks.",
@@ -180470,8 +181936,100 @@
                   "learning_outcome": "Analyze CPU performance data, identify CPU bottlenecks, and apply advanced optimization techniques to improve CPU utilization and execution speed.",
                   "order_index": 2,
                   "title": "CPU Performance Analysis and Optimization",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand fundamental CPU architecture, key performance metrics like CPI and IPC, and common sources of CPU bottlenecks.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "CPU architecture basics",
+                        "CPI IPC definition",
+                        "CPU performance metrics explained",
+                        "common CPU bottlenecks"
+                      ],
+                      "title": "CPU Architecture and Performance Fundamentals"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn about the CPU cache hierarchy (L1, L2, L3), cache coherence, and practical techniques to improve data locality and reduce cache misses.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "CPU cache hierarchy explained",
+                        "data locality optimization",
+                        "cache coherence protocols",
+                        "reduce cache misses"
+                      ],
+                      "title": "Cache Efficiency and Memory Optimization"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Gain hands-on experience using advanced CPU profiling tools like perf and Intel VTune Amplifier to identify performance bottlenecks in sample codebases.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "Linux perf tutorial",
+                        "Intel VTune Amplifier usage",
+                        "CPU flame graph generation",
+                        "oprofile examples"
+                      ],
+                      "title": "Practical CPU Profiling with Advanced Tools"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Explore instruction set architectures (e.g., SIMD, AVX), understand the impact of branch prediction, and utilize compiler flags for instruction-level optimization.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "SIMD instruction optimization",
+                        "branch prediction CPU performance",
+                        "compiler flags for optimization -O3",
+                        "instruction reordering optimization"
+                      ],
+                      "title": "Instruction Set Optimization and Compiler Techniques"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 65,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Understand multithreading paradigms, common synchronization primitives (mutexes, semaphores), and strategies for efficient concurrent programming.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "multithreading performance optimization",
+                        "thread synchronization issues",
+                        "mutex vs semaphore performance",
+                        "lock-free programming concepts"
+                      ],
+                      "title": "Multithreading, Concurrency, and Synchronization"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply a systematic approach to diagnose and resolve complex CPU performance bottlenecks in a provided application, measuring and validating improvements.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "diagnose CPU bottleneck example",
+                        "optimize CPU bound application",
+                        "performance debugging workflow",
+                        "case study CPU optimization"
+                      ],
+                      "title": "Resolving Advanced CPU Bottlenecks (Case Study)"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Focuses on optimizing graphics pipeline performance, including draw call reduction, shader complexity analysis, texture optimization, and understanding GPU architecture. Students will learn to use GPU profiling tools to diagnose rendering bottlenecks.",
@@ -180479,8 +182037,106 @@
                   "learning_outcome": "Diagnose GPU performance issues, optimize render pipelines and shaders, and improve overall graphical performance in real-time applications.",
                   "order_index": 3,
                   "title": "GPU Performance Analysis and Optimization",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental components of GPU architecture and key performance metrics that influence rendering speed.",
+                      "order_index": 0,
+                      "search_queries": [
+                        "GPU architecture basics",
+                        "graphics pipeline overview",
+                        "GPU performance metrics",
+                        "fill rate vs triangle throughput",
+                        "shader core function"
+                      ],
+                      "title": "GPU Architecture Fundamentals and Performance Metrics"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to set up and navigate common GPU profiling tools to identify initial rendering bottlenecks.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "GPU profiling tools tutorial",
+                        "NVIDIA Nsight Graphics getting started",
+                        "RenderDoc usage guide",
+                        "AMD Radeon GPU Profiler",
+                        "identifying render bottlenecks with profilers"
+                      ],
+                      "title": "Introduction to GPU Profiling Tools and Bottleneck Identification"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply techniques like draw call batching, instancing, and culling to reduce the number of draw calls in a sample scene.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "draw call reduction techniques",
+                        "GPU instancing tutorial",
+                        "static batching vs dynamic batching",
+                        "occlusion culling implementation",
+                        "frustum culling in games"
+                      ],
+                      "title": "Optimizing Draw Calls: Batching, Instancing, and Culling"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze shader complexity using profiling tools and implement optimization strategies for vertex and fragment shaders.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "shader performance optimization",
+                        "HLSL shader optimization tips",
+                        "GLSL performance best practices",
+                        "reduce shader instruction count",
+                        "vertex shader vs fragment shader performance"
+                      ],
+                      "title": "Shader Complexity Analysis and Optimization Strategies"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Understand how to optimize texture usage, choose appropriate texture formats, and manage GPU memory effectively to improve performance.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "texture optimization techniques",
+                        "GPU texture compression formats",
+                        "mipmap generation benefits",
+                        "texture atlases for performance",
+                        "GPU memory management best practices"
+                      ],
+                      "title": "Texture and GPU Memory Optimization Techniques"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Diagnose performance bottlenecks in a complex scene using profiling tools and apply a combination of learned optimization techniques to achieve significant GPU performance improvements.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "end-to-end GPU optimization project",
+                        "rendering pipeline performance tuning",
+                        "optimizing complex 3D scenes",
+                        "advanced GPU performance debugging",
+                        "real-time graphics optimization workflow"
+                      ],
+                      "title": "Project: Comprehensive GPU Performance Optimization"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Explores various memory management techniques relevant to real-time applications, including understanding memory hierarchies, identifying and preventing memory leaks, optimizing data structures for cache efficiency, and using memory profiling tools.",
@@ -180488,8 +182144,90 @@
                   "learning_outcome": "Implement efficient memory management strategies, identify and resolve memory leaks, and optimize memory access patterns for improved application performance.",
                   "order_index": 4,
                   "title": "Memory Management and Optimization Strategies",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the concepts of memory hierarchy (registers, cache, main memory) and the role of virtual memory in modern systems.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "memory hierarchy explained",
+                        "virtual memory concept",
+                        "CPU cache levels",
+                        "RAM vs Cache speed",
+                        "memory access patterns"
+                      ],
+                      "title": "Memory Hierarchy and Virtual Memory Fundamentals"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to use memory profiling tools (e.g., Valgrind, LeakSanitizer, VisualVM) to identify, analyze, and fix memory leaks in C++/Java applications.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "memory leak detection tools",
+                        "how to fix memory leaks C++",
+                        "Valgrind memory leak tutorial",
+                        "heap profiling techniques",
+                        "debugging memory issues"
+                      ],
+                      "title": "Detecting and Resolving Memory Leaks with Profilers"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Understand cache lines, spatial and temporal locality, and design data structures (e.g., arrays vs linked lists, AoS vs SoA) to minimize cache misses.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "cache friendly data structures",
+                        "AoS vs SoA cache performance",
+                        "CPU cache line size",
+                        "spatial locality optimization",
+                        "temporal locality example"
+                      ],
+                      "title": "Optimizing Data Structures for Cache Performance"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned memory profiling techniques to a provided codebase, identify performance bottlenecks related to memory, and propose solutions.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "memory profiling assignment",
+                        "optimize memory usage practice",
+                        "benchmark memory access patterns",
+                        "diagnose high memory usage",
+                        "memory bottleneck resolution"
+                      ],
+                      "title": "Practical Exercise: Profiling a Memory-Intensive Application"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Discover advanced memory management strategies such as memory pooling, bump allocators, and custom allocators to gain fine-grained control over memory and reduce overhead.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "memory pooling implementation",
+                        "custom memory allocator benefits",
+                        "bump allocator explained",
+                        "fixed-size allocator",
+                        "arena allocator"
+                      ],
+                      "title": "Exploring Memory Pools and Custom Allocators"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Covers advanced debugging techniques beyond breakpoint usage, including post-mortem debugging, remote debugging, automated performance testing, and utilizing custom diagnostic tools to pinpoint elusive bugs and performance anomalies.",
@@ -180497,8 +182235,105 @@
                   "learning_outcome": "Employ advanced debugging strategies and runtime analysis tools to identify and resolve complex, intermittent, or hard-to-reproduce performance and functionality issues.",
                   "order_index": 5,
                   "title": "Advanced Debugging and Runtime Analysis",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the principles and techniques of post-mortem debugging and core dump analysis.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "post-mortem debugging techniques",
+                        "core dump analysis",
+                        "crash dump debugging workflow",
+                        "how to analyze crash logs"
+                      ],
+                      "title": "Introduction to Post-Mortem Debugging and Core Dump Analysis"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn how to set up and perform remote debugging in various development environments.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "remote debugging tutorial",
+                        "setting up remote debugger",
+                        "remote debugging with VS Code",
+                        "gdb remote debugging",
+                        "java remote debugging"
+                      ],
+                      "title": "Practical Remote Debugging: Connecting to Distributed Systems"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Explore advanced breakpoint types, conditional debugging, and watchpoints for intricate scenarios.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "conditional breakpoints",
+                        "data breakpoints",
+                        "logging breakpoints",
+                        "breakpoint actions",
+                        "advanced debugger features"
+                      ],
+                      "title": "Beyond Basic Breakpoints: Conditions, Logs, and Data Monitoring"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 90,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply automated testing frameworks and profiling tools to identify and quantify performance bottlenecks.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "automated performance testing frameworks",
+                        "profiling tools comparison",
+                        "load testing for performance",
+                        "CPU profiling techniques",
+                        "memory profiling deep dive"
+                      ],
+                      "title": "Hands-on: Performance Bottleneck Identification with Profilers"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 50,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Understand how to create and utilize custom diagnostic tools and tracing for specific, elusive issues.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "custom logging solutions",
+                        "dynamic tracing tools",
+                        "eBPF for debugging",
+                        "instrumentation techniques for diagnostics",
+                        "custom diagnostic logging"
+                      ],
+                      "title": "Building and Using Custom Diagnostic Tools for Elusive Bugs"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 75,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Practice analyzing runtime data and detecting performance anomalies using various monitoring and analysis techniques.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "runtime analysis tools",
+                        "performance anomaly detection",
+                        "real-time monitoring best practices",
+                        "system call tracing analysis",
+                        "event tracing for performance"
+                      ],
+                      "title": "Project: Analyzing Runtime Behavior and Detecting Anomalies"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Consolidates all learned optimization and debugging techniques through practical application. Students will work on a significant project, applying their skills to profile, optimize, and debug a real-time application from start to finish, culminating in a performance report.",
@@ -180506,8 +182341,89 @@
                   "learning_outcome": "Integrate various performance optimization and debugging techniques into a cohesive workflow, successfully identify and resolve performance bottlenecks in a complex project, and present findings professionally.",
                   "order_index": 6,
                   "title": "Performance Integration and Project Application",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "WATCH",
+                      "objective": "Understand the project scope and establish initial profiling for collecting baseline performance metrics.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "project performance baseline",
+                        "initial profiling setup",
+                        "performance metrics collection",
+                        "application profiling tools intro"
+                      ],
+                      "title": "Project Onboarding & Baseline Performance Profiling"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Utilize advanced profiling tools and methodologies to pinpoint CPU, memory, I/O, and network bottlenecks within the project application.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "advanced CPU profiling techniques",
+                        "memory leak detection tools",
+                        "I/O bottleneck analysis",
+                        "network performance profiling",
+                        "call graph analysis for performance"
+                      ],
+                      "title": "Deep Dive into Profiling and Bottleneck Identification"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply various performance optimization techniques to address identified bottlenecks and rigorously measure the impact of these changes.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "performance optimization strategies application",
+                        "code refactoring for speed improvements",
+                        "algorithmic optimization examples",
+                        "performance regression testing",
+                        "profiling after optimization"
+                      ],
+                      "title": "Implementing & Validating Optimization Strategies"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 120,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Debug complex and intermittent performance issues using advanced debugging techniques, tracing, and specialized tools to resolve challenging problems.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "debugging intermittent lag",
+                        "concurrency performance debugging",
+                        "deadlock detection tools",
+                        "tracing performance problems",
+                        "identifying performance regressions"
+                      ],
+                      "title": "Debugging Complex Performance Issues and Regressions"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Compile comprehensive performance findings into a professional report, documenting methodologies, results, and presenting optimization recommendations clearly.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "performance report template",
+                        "presenting optimization results",
+                        "technical performance documentation best practices",
+                        "ROI of performance improvements",
+                        "executive summary for technical report"
+                      ],
+                      "title": "Performance Report Compilation & Presentation"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 }
               ],
               "is_complete": true
@@ -180527,8 +182443,90 @@
                   "learning_outcome": "Students will be able to design and implement highly scalable and production-efficient full-body rigging systems.",
                   "order_index": 1,
                   "title": "Advanced Full-Body Rigging Architectures",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the core principles and benefits of modular rigging architectures for scalable character pipelines.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "modular rigging principles",
+                        "component-based character rigging",
+                        "rigging architecture best practices",
+                        "scalable rigging systems design",
+                        "rigging frameworks production"
+                      ],
+                      "title": "Foundations of Modular Rigging Architectures"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Analyze advanced production-ready bipedal rigging systems, focusing on component integration and robust control setups.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "production biped rig breakdown",
+                        "advanced bipedal rigging tutorial",
+                        "game character biped rig controls",
+                        "efficient human character rigging",
+                        "rigging system integration demonstration"
+                      ],
+                      "title": "Deconstructing Advanced Bipedal Rig Architectures"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 180,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design and implement a reusable, production-ready modular limb component (e.g., leg or arm) with advanced controls.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "build modular leg rig",
+                        "reusable rigging components",
+                        "advanced fk ik limb setup",
+                        "stretchy rigging controls tutorial",
+                        "rigging module development"
+                      ],
+                      "title": "Building a Robust Modular Limb Component"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Explore the unique challenges and advanced solutions for rigging quadrupedal characters and multi-limbed creatures.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "quadruped rigging challenges",
+                        "advanced animal character rigging",
+                        "multi-limbed creature rigging",
+                        "quadruped spine rigging techniques",
+                        "tail dynamics rigging solutions"
+                      ],
+                      "title": "Advanced Quadrupedal and Multi-Limb Rigging"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 240,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Assemble and refine a complete, production-efficient full-body character rig using modular components and robust control schemes.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "full body modular rig assembly",
+                        "integrating complex rigging systems",
+                        "production character rig project",
+                        "scalable full-body rigging workflow",
+                        "character rig control setup and testing"
+                      ],
+                      "title": "Integrating and Finalizing a Full-Body Modular Rig"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Master advanced skinning methodologies, corrective blend shapes, joint-based deformers, and non-linear deformers to achieve high-fidelity character deformation.",
@@ -180536,8 +182534,85 @@
                   "learning_outcome": "Students will be able to apply sophisticated deformation techniques to create realistic and artifact-free character movements.",
                   "order_index": 2,
                   "title": "Advanced Deformation Techniques & Skinning",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the theoretical principles and practical applications of advanced skinning methodologies beyond basic smooth bind.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "dual quaternion skinning explained",
+                        "delta mush deformer principles",
+                        "advanced weight painting techniques",
+                        "skinning workflow for complex anatomy"
+                      ],
+                      "title": "Principles of Advanced Skinning Methodologies"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn through demonstration how to create, implement, and manage corrective blend shapes driven by joint rotations to refine character deformation.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "corrective blend shapes tutorial maya",
+                        "driven keys for deformation correction",
+                        "joint based correctives workflow",
+                        "facial blend shape pipeline"
+                      ],
+                      "title": "Corrective Blend Shapes and Driven Keys Demo"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Explore various joint-based deformers and auxiliary joint setups used to achieve localized and precise deformation control.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "joint-based deformers for muscle simulation",
+                        "rivet setup for skin deformation",
+                        "wire deformer rigging techniques",
+                        "proxy joints for secondary controls"
+                      ],
+                      "title": "Joint-Based Deformers and Auxiliary Rigs"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe the integration and control of non-linear deformers within a character rig to enhance secondary motion and stylized deformations.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "non-linear deformers character rigging",
+                        "lattice deformer for secondary animation",
+                        "bend and twist deformers setup",
+                        "stylized character deformation techniques"
+                      ],
+                      "title": "Integrating Non-Linear Deformers for Motion"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 180,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply advanced skinning and deformation techniques to a provided character asset, focusing on a complex area to achieve realistic and artifact-free movement.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "character deformation problem solving",
+                        "advanced skinning assignment",
+                        "fixing deformation artifacts character",
+                        "high-fidelity character rigging exercise"
+                      ],
+                      "title": "Advanced Deformation Application Project"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Delve into blend shape-driven facial systems, joint-based facial rigs, hybrid approaches, and pipeline integration for expressive and nuanced character performances.",
@@ -180545,8 +182620,106 @@
                   "learning_outcome": "Students will be able to construct detailed and highly controllable facial rigs suitable for animation production.",
                   "order_index": 3,
                   "title": "Production-Ready Facial Rigging",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the anatomical basis for facial expressions and differentiate between blend shape and joint-based deformation methods.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "facial anatomy for rigging",
+                        "blend shape vs joint-based face rig",
+                        "types of facial deformation",
+                        "introduction to facial rigging",
+                        "expressive character faces rigging"
+                      ],
+                      "title": "Facial Rigging Fundamentals: Anatomy and Deformation Types"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe and comprehend the process of sculpting, naming conventions, and managing corrective blend shapes for facial animation.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "blend shape sculpting workflow",
+                        "corrective blend shapes tutorial",
+                        "facial blend shape best practices",
+                        "Maya blend shape setup",
+                        "facial expression sculpting techniques"
+                      ],
+                      "title": "Mastering Blend Shape Creation and Workflow"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 55,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Explore the principles and common setups for creating robust joint-based facial rigs, including skinning and deformation strategies.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "joint-based facial rigging tutorial",
+                        "facial skinning techniques",
+                        "jaw rig setup",
+                        "eye rig with joints",
+                        "mouth rig deformation strategies"
+                      ],
+                      "title": "Advanced Joint-Based Facial Rigging Techniques"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "WATCH",
+                      "objective": "Witness the integration of blend shapes and joint-based systems to achieve nuanced and highly controllable facial performances.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "hybrid facial rig tutorial",
+                        "combining blend shapes and joints for faces",
+                        "advanced facial control setup",
+                        "facial rig integration demo",
+                        "Maya hybrid face rig"
+                      ],
+                      "title": "Hybrid Facial Rigging: Integrating Blend Shapes and Joints"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 40,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Understand how facial rigs are integrated into a production pipeline, focusing on data management, performance optimization, and artist workflows.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "facial rigging pipeline best practices",
+                        "optimizing facial rigs for games",
+                        "data management for character rigs",
+                        "facial rig performance tips",
+                        "integration of facial rigs in Unreal Engine"
+                      ],
+                      "title": "Production Pipeline Integration & Optimization for Facial Rigs"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply learned techniques to build a functional hybrid facial rig for a provided character model, demonstrating control and deformation quality.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "facial rig assignment",
+                        "build a hybrid face rig",
+                        "practice facial rigging",
+                        "create a production-ready face rig",
+                        "facial rig challenge"
+                      ],
+                      "title": "Project: Construct a Basic Hybrid Facial Rig"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Learn scripting and programming (e.g., Python, Maya API) to develop custom tools, UI elements, and automated processes for rigging, setup, and animation workflow improvements.",
@@ -180554,8 +182727,101 @@
                   "learning_outcome": "Students will be able to script and implement custom tools to streamline character technical art workflows and enhance productivity.",
                   "order_index": 4,
                   "title": "Custom Tool Development for Character TDs",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamentals of Python scripting within Maya's environment, focusing on basic syntax, data types, and execution methods relevant to character TDs.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "Maya Python scripting tutorial",
+                        "Python basics for 3D artists",
+                        "running Python scripts in Maya",
+                        "Maya command reference Python"
+                      ],
+                      "title": "Python Scripting Foundations for Character TDs"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn how to create basic user interfaces (UI) using PyMEL or maya.cmds, implement simple tool logic, and connect UI elements to Maya commands for interactive tools.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "Maya UI scripting Python",
+                        "PyMEL UI tutorial",
+                        "maya.cmds window example",
+                        "custom button Maya Python"
+                      ],
+                      "title": "Designing Interactive Tools: Basic UI and Command Execution"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 180,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply scripting knowledge to develop a functional tool for common rigging tasks, specifically creating a robust joint renaming utility with a basic user interface.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "Maya joint rename script Python",
+                        "rigging tool development tutorial",
+                        "Python string manipulation Maya",
+                        "custom Maya rigging tools"
+                      ],
+                      "title": "Practice: Developing a Smart Joint Renamer"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Gain an understanding of when and why to use the Maya API for performance-critical or complex operations that go beyond the capabilities of `maya.cmds` or PyMEL.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "Maya API Python tutorial",
+                        "maya.api.OpenMaya explained",
+                        "when to use Maya API vs maya.cmds",
+                        "Maya API MFnDagNode example"
+                      ],
+                      "title": "Diving Deeper: Understanding the Maya API for Advanced Tasks"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn practical strategies for debugging scripts, implementing robust error handling, and profiling Python code to optimize custom tool performance in Maya.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "debugging Maya Python scripts",
+                        "Maya script error handling",
+                        "optimizing Python in Maya",
+                        "profiling Maya scripts"
+                      ],
+                      "title": "Robust Tools: Debugging, Error Handling, and Performance"
+                    },
+                    {
+                      "default_study_mode": "MILEAGE",
+                      "estimated_effort_minutes": 240,
+                      "id": "L6",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Develop a more complex custom tool that automates batch processes for character assets (e.g., export/import, attribute transfer), demonstrating robust scripting and potentially API usage.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "Maya batch export script Python",
+                        "asset management tools Maya",
+                        "Maya script file I/O",
+                        "custom animation exporter Maya",
+                        "automated character workflow Maya"
+                      ],
+                      "title": "Project: Automating Asset Workflows with a Batch Tool"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 }
               ],
               "is_complete": true
@@ -180575,8 +182841,90 @@
                   "learning_outcome": "Students will be able to identify and explain the core architectural patterns of modern game engines and articulate their respective roles within the game loop.",
                   "order_index": 1,
                   "title": "Core Engine Architecture & Game Loop",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 45,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental structure and purpose of a game loop, including fixed vs. variable time steps and common phases.",
+                      "order_index": 0,
+                      "search_queries": [
+                        "game loop architecture explained",
+                        "fixed timestep vs variable timestep game",
+                        "game engine main loop structure",
+                        "delta time in game development",
+                        "game loop update render cycle"
+                      ],
+                      "title": "The Game Loop: Foundation of Engine Execution"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L2",
+                      "lesson_type": "READ",
+                      "objective": "Identify and differentiate between core architectural patterns such as Scene Graphs and Entity-Component Systems (ECS) within game engines.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "game engine scene graph explained",
+                        "entity component system design principles",
+                        "difference between scene graph and ecs",
+                        "data oriented design in game engines",
+                        "game engine architectural patterns comparison"
+                      ],
+                      "title": "Core Engine Architectural Patterns: Scene Graphs & ECS"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe the practical implementation of a basic game loop and a hierarchical scene graph system through a guided demonstration.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "simple game loop implementation tutorial",
+                        "building a basic scene graph demo",
+                        "c++ game engine main loop example",
+                        "scene node hierarchy demonstration",
+                        "game engine architectural walkthrough"
+                      ],
+                      "title": "Demo: Building a Basic Game Loop and Scene Graph"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design a basic Entity-Component System (ECS) by defining components, systems, and entities for a given set of game mechanics.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "designing an entity component system assignment",
+                        "ecs component structure examples",
+                        "implementing ecs systems for game entities",
+                        "entity component system pros and cons",
+                        "ecs architecture homework"
+                      ],
+                      "title": "Assignment: Designing Your First Entity-Component System"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Understand the role of core data management, resource handling, and how various engine systems interoperate within the game loop.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "game engine resource management strategies",
+                        "event systems in game engines",
+                        "data flow within a game engine",
+                        "integrating ecs into game loop",
+                        "memory management in custom game engines"
+                      ],
+                      "title": "Data Management and Engine Component Interoperation"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Explore the intricacies of low-level graphics APIs (e.g., DirectX, Vulkan, OpenGL), understanding the render pipeline from a GPU perspective. Cover command buffers, resource management, and direct hardware interaction.",
@@ -180584,8 +182932,86 @@
                   "learning_outcome": "Students will gain proficiency in using a low-level graphics API to set up basic rendering operations and manage GPU resources effectively.",
                   "order_index": 2,
                   "title": "Graphics API Fundamentals & Low-Level Rendering",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the role of low-level graphics APIs (DirectX, Vulkan, OpenGL) and grasp the fundamental stages of the GPU rendering pipeline from a hardware perspective.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "graphics API comparison",
+                        "DirectX vs Vulkan vs OpenGL",
+                        "GPU rendering pipeline stages explained",
+                        "low-level graphics programming concepts",
+                        "hardware accelerated rendering"
+                      ],
+                      "title": "Introduction to Low-Level Graphics APIs and the Rendering Pipeline"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Observe the practical steps involved in initializing a low-level graphics API (e.g., Vulkan) and setting up a basic rendering context, including window creation and device selection.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "Vulkan initialization tutorial",
+                        "OpenGL context creation walkthrough",
+                        "DirectX device creation example",
+                        "setting up render window C++"
+                      ],
+                      "title": "Initializing a Graphics API and Creating a Rendering Context"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Understand and observe the process of recording and submitting command buffers to the GPU, and how to issue basic draw calls for simple geometry.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "Vulkan command buffer tutorial",
+                        "OpenGL draw calls explained",
+                        "DirectX command list execution",
+                        "drawing a triangle with low-level API"
+                      ],
+                      "title": "Understanding Command Buffers and Issuing Draw Commands"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 70,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Grasp the concepts of various GPU resources (vertex buffers, index buffers, uniform buffers, textures) and learn strategies for efficient memory allocation and management on the GPU.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "GPU memory management techniques",
+                        "Vulkan buffer allocation guide",
+                        "OpenGL texture loading explained",
+                        "DirectX resource heaps and pools"
+                      ],
+                      "title": "Efficient GPU Resource Management: Buffers and Textures"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 180,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Implement a complete basic rendering pipeline to display a colored triangle on screen, utilizing a chosen low-level graphics API (e.g., Vulkan, DirectX, or OpenGL) to manage resources and issue draw calls.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "Vulkan render colored triangle assignment",
+                        "OpenGL basic rendering project",
+                        "DirectX hello world triangle tutorial",
+                        "implementing a colored triangle from scratch"
+                      ],
+                      "title": "Assignment: Render Your First Colored Triangle"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Focus on designing and implementing custom rendering pipelines. This includes exploring forward rendering, deferred shading, tiled/clustered rendering, and integrating custom render passes for unique visual effects and optimizations.",
@@ -180593,8 +183019,100 @@
                   "learning_outcome": "Students will be able to design, implement, and analyze custom rendering pipelines to achieve specific visual and performance goals.",
                   "order_index": 3,
                   "title": "Custom Rendering Pipeline Design & Implementation",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamental concepts of rendering pipelines and the principles of forward rendering.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "rendering pipeline stages explained",
+                        "forward rendering architecture",
+                        "graphics pipeline overview",
+                        "advantages and disadvantages of forward rendering"
+                      ],
+                      "title": "Introduction to Rendering Pipelines and Forward Rendering"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn the theory behind deferred shading, its components (G-buffer), and observe a practical implementation.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "deferred shading tutorial",
+                        "g-buffer implementation",
+                        "deferred rendering advantages",
+                        "deferred vs forward rendering"
+                      ],
+                      "title": "Deferred Shading: Principles and Practical Insights"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L3",
+                      "lesson_type": "READ",
+                      "objective": "Explore advanced rendering techniques such as tiled and clustered rendering for efficient light management and culling.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "tiled rendering explained",
+                        "clustered rendering deep dive",
+                        "light culling optimization techniques",
+                        "tiled deferred shading"
+                      ],
+                      "title": "Advanced Rendering: Tiled and Clustered Approaches"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 180,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Design and implement a basic custom rendering pipeline, incorporating either forward or deferred shading to render a simple scene.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "build custom rendering pipeline",
+                        "implementing render passes from scratch",
+                        "basic custom shader pipeline example",
+                        "designing a minimal graphics engine pipeline"
+                      ],
+                      "title": "Building Your First Custom Rendering Pipeline"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L5",
+                      "lesson_type": "WATCH",
+                      "objective": "Understand how to integrate custom render passes for various visual effects, such as post-processing and specialized rendering.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "custom post-processing effects tutorial",
+                        "integrating render passes for visual effects",
+                        "bloom effect render pass",
+                        "depth of field implementation render pipeline"
+                      ],
+                      "title": "Integrating Custom Render Passes for Visual Effects"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L6",
+                      "lesson_type": "READ",
+                      "objective": "Learn methodologies for analyzing and optimizing custom rendering pipelines to achieve specific performance goals.",
+                      "order_index": 6,
+                      "search_queries": [
+                        "rendering pipeline performance analysis",
+                        "gpu profiling for graphics optimization",
+                        "identifying rendering bottlenecks",
+                        "render state management optimization"
+                      ],
+                      "title": "Optimizing and Analyzing Custom Rendering Pipelines"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Deep dive into advanced shader programming techniques, including physically-based rendering (PBR) extensions, compute shaders for procedural generation or complex effects, and developing custom material systems within an engine.",
@@ -180602,8 +183120,90 @@
                   "learning_outcome": "Students will master advanced shader development, implement custom material pipelines, and utilize compute shaders for performance-critical tasks.",
                   "order_index": 4,
                   "title": "Advanced Shading & Material Systems",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Grasp advanced physically-based rendering theories, different PBR material models, and extensions like clear coat or subsurface scattering.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "advanced PBR rendering",
+                        "Disney PBR shader model",
+                        "clear coat shading",
+                        "subsurface scattering implementation",
+                        "metallic roughness vs specular glossiness"
+                      ],
+                      "title": "Advanced PBR Theory and Material Models"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 240,
+                      "id": "L2",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Implement a physically-based material shader from scratch, incorporating advanced features discussed in previous lessons.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "custom PBR shader GLSL",
+                        "implement PBR renderer",
+                        "advanced material shader code",
+                        "PBR clear coat shader",
+                        "shader implementation guide"
+                      ],
+                      "title": "Custom PBR Shader Implementation Workshop"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L3",
+                      "lesson_type": "WATCH",
+                      "objective": "Understand the architecture and capabilities of compute shaders, and observe basic applications for data processing or simple effects.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "what are compute shaders",
+                        "compute shader tutorial",
+                        "OpenGL compute shader example",
+                        "DirectX 12 compute shader basics",
+                        "GPU compute programming"
+                      ],
+                      "title": "Compute Shader Fundamentals and Basic Applications"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 300,
+                      "id": "L4",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Develop and implement compute shaders for complex tasks such as procedural terrain generation, particle simulation, or image manipulation.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "compute shader procedural generation",
+                        "GPU particle simulation compute shader",
+                        "compute shader image processing",
+                        "noise generation compute shader",
+                        "complex effects compute shader"
+                      ],
+                      "title": "Practical Compute Shaders for Procedural Content"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L5",
+                      "lesson_type": "READ",
+                      "objective": "Learn the principles of designing a flexible material system, including data structures, serialization, and integration into a rendering engine.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "custom material system engine design",
+                        "rendering pipeline material integration",
+                        "shader graph system architecture",
+                        "material editor implementation",
+                        "data driven materials"
+                      ],
+                      "title": "Custom Material System Architecture and Integration"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Learn advanced techniques for profiling CPU and GPU performance. Identify bottlenecks, implement optimization strategies for rendering, memory management, and multi-threading in custom engine environments.",
@@ -180611,8 +183211,90 @@
                   "learning_outcome": "Students will be able to effectively profile engine performance, diagnose bottlenecks, and apply advanced optimization techniques to enhance real-time rendering efficiency.",
                   "order_index": 5,
                   "title": "Performance Profiling & Optimization for Real-Time Rendering",
-                  "lessons": [],
-                  "is_complete": false
+                  "lessons": [
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 60,
+                      "id": "L1",
+                      "lesson_type": "READ",
+                      "objective": "Understand the fundamentals of CPU and GPU profiling, and become familiar with common industry-standard profiling tools for real-time rendering.",
+                      "order_index": 1,
+                      "search_queries": [
+                        "CPU profiling tools game development",
+                        "GPU profiling techniques real-time",
+                        "RenderDoc tutorial",
+                        "PIX for Windows overview",
+                        "VTune Amplifier basics"
+                      ],
+                      "title": "Introduction to CPU & GPU Profiling Fundamentals"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 90,
+                      "id": "L2",
+                      "lesson_type": "WATCH",
+                      "objective": "Learn to effectively use profiling tools to identify and analyze CPU-bound bottlenecks related to game logic, rendering preparation, and data processing.",
+                      "order_index": 2,
+                      "search_queries": [
+                        "CPU bottleneck analysis game engine",
+                        "optimizing game logic performance",
+                        "draw call optimization techniques",
+                        "data-oriented design profiling",
+                        "cache misses performance impact"
+                      ],
+                      "title": "Diagnosing CPU Performance Bottlenecks & Solutions"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 120,
+                      "id": "L3",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Apply profiling techniques to a provided engine module to pinpoint and address GPU rendering bottlenecks such as overdraw, shader complexity, and texture bandwidth.",
+                      "order_index": 3,
+                      "search_queries": [
+                        "GPU bottleneck identification rendering",
+                        "shader optimization best practices",
+                        "overdraw reduction techniques",
+                        "culling optimization strategies",
+                        "texture streaming performance tuning"
+                      ],
+                      "title": "Practical GPU Rendering Optimization Assignment"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 75,
+                      "id": "L4",
+                      "lesson_type": "READ",
+                      "objective": "Explore advanced memory management strategies and multi-threading paradigms to improve engine performance and responsiveness.",
+                      "order_index": 4,
+                      "search_queries": [
+                        "custom memory allocators game engine",
+                        "multi-threading rendering pipeline",
+                        "job system game development",
+                        "memory fragmentation solutions",
+                        "lock-free data structures real-time"
+                      ],
+                      "title": "Advanced Memory Management & Multi-threading Optimizations"
+                    },
+                    {
+                      "default_study_mode": "FOCUS",
+                      "estimated_effort_minutes": 150,
+                      "id": "L5",
+                      "lesson_type": "ASSIGNMENT",
+                      "objective": "Conduct a comprehensive performance audit and implement a series of optimizations on a provided custom engine demo, documenting the improvements and methodologies.",
+                      "order_index": 5,
+                      "search_queries": [
+                        "game engine performance audit example",
+                        "optimization report template",
+                        "benchmarking real-time rendering",
+                        "identifying performance regressions",
+                        "iterative optimization workflow"
+                      ],
+                      "title": "Engine Performance Tuning Capstone Project"
+                    }
+                  ],
+                  "is_complete": true,
+                  "resources_complete": true
                 },
                 {
                   "description": "Understand how assets are processed and integrated into custom engines. Explore developing custom importers, exporters, and in-editor tools to streamline the content creation workflow for technical artists.",
