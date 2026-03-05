@@ -11,6 +11,7 @@ import { generateBrief } from './services/geminiService.ts';
 import { ACADEMY_FACULTIES } from './data/curriculum.ts';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from './services/firebase.ts';
+import { AppDialogProvider } from './components/ui/AppDialogProvider.tsx';
 
 const RoleTooltip: React.FC<{ text: string; children: React.ReactNode }> = ({ text, children }) => (
   <div className="group relative w-full">
@@ -94,6 +95,7 @@ const App: React.FC = () => {
   }
 
   return (
+    <AppDialogProvider>
     <div className="min-h-screen bg-[#050505] text-zinc-100 selection:bg-blue-500/30 overflow-x-hidden">
       <header className="fixed top-0 w-full z-[100] glass border-b border-white/5 px-6 py-5 flex items-center justify-between no-print shadow-2xl backdrop-blur-2xl">
         <div className="flex items-center space-x-4 cursor-pointer group" onClick={() => setCurrentView('GENERATOR')}>
@@ -228,7 +230,8 @@ const App: React.FC = () => {
       <footer className="py-12 border-t border-white/5 text-center no-print opacity-50">
         <p className="text-zinc-700 text-[9px] tracking-[0.8em] font-black uppercase">ArtDirector AI • Zero to Hero Pipeline • Industrial Training Hub</p>
       </footer>
-          </div>
+    </div>
+    </AppDialogProvider>
   );
 };
 

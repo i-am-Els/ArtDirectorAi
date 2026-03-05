@@ -18,6 +18,7 @@ import {
   unenrollFromMajor,
   updateLessonProgress
 } from '../services/academyService';
+import { useAppDialog } from './ui/AppDialogProvider';
 
 const MAX_ENROLLED_MAJORS = 3;
 
@@ -36,6 +37,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
   const [timerRunning, setTimerRunning] = useState(false);
   const [timeLeft, setTimeLeft] = useState(45 * 60);
   const [sessionMode, setSessionMode] = useState<StudyMode>(StudyMode.FOCUS);
+  const { showConfirm, showMessage } = useAppDialog();
 
   const completedLessonIds = useMemo(() => new Set(progress?.completedLessonIds || []), [progress?.completedLessonIds]);
 
@@ -140,7 +142,11 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
     const alreadyEnrolled = !!progress?.enrolledMajorIds?.includes(majorId);
 
     if (!alreadyEnrolled && activeEnrolledCount >= MAX_ENROLLED_MAJORS) {
-      window.alert(`You can only enroll in ${MAX_ENROLLED_MAJORS} majors at a time.`);
+      showMessage({
+        title: 'Slots Full',
+        message: `You can only enroll in ${MAX_ENROLLED_MAJORS} majors at a time.`,
+        tone: 'warning'
+      });
       return;
     }
 
@@ -152,7 +158,12 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
   };
 
   const handleWithdraw = async (majorId: string) => {
-    if (!window.confirm('Withdraw from this major?')) return;
+    const confirmed = await showConfirm({
+      title: 'Withdraw Major',
+      message: 'This removes the major from your active slots. Your completed lessons remain on record.',
+      tone: 'danger'
+    });
+    if (!confirmed) return;
     await unenrollFromMajor(userId, majorId);
     await fetchProgress();
     if (activeMajor?.id === majorId) {
@@ -244,7 +255,6 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                   </div>
                   <div className="flex gap-2">
                     <button className="px-3 py-2 text-[10px] bg-blue-600 rounded-lg uppercase font-black" onClick={() => { loadMajorData(majorId); setActiveTab('CURRICULUM'); }}>Open</button>
-                    <button className="px-3 py-2 text-[10px] bg-zinc-800 rounded-lg uppercase font-black" onClick={() => handleWithdraw(majorId)}>Withdraw</button>
                   </div>
                 </div>
               );
@@ -321,6 +331,19 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                 {(progress?.enrolledMajorIds?.length || 0) >= MAX_ENROLLED_MAJORS ? 'Slots Full (3/3)' : 'Enroll in Major'}
               </button>
             )}
+          </div>
+
+          <div className="rounded-3xl border border-red-500/60 bg-gradient-to-br from-red-950/60 to-red-900/20 p-6 space-y-4">
+            <h3 className="text-sm font-black uppercase tracking-widest text-red-300">Danger Zone</h3>
+            <p className="text-xs text-red-100/80 max-w-2xl">
+              Withdrawing removes this major from your active slots. Completed lesson records remain saved.
+            </p>
+            <button
+              onClick={() => handleWithdraw(activeMajor.id)}
+              className="px-5 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white text-[10px] font-black uppercase tracking-widest border border-red-300/40 shadow-[0_10px_30px_rgba(220,38,38,0.4)]"
+            >
+              Withdraw From This Major
+            </button>
           </div>
         </div>
       )}
@@ -452,9 +475,10 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
               <p className="text-zinc-400 text-sm">Manual completion is required to advance roadmap unlocks.</p>
             </div>
 
-            <div className="flex justify-center gap-4">
-              <button onClick={() => setSessionMode(StudyMode.FOCUS)} className={`px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest border ${sessionMode === StudyMode.FOCUS ? 'bg-blue-600 text-white border-blue-500' : 'bg-zinc-900 text-zinc-500 border-white/10'}`}>Focus Mode</button>
-              <button onClick={() => setSessionMode(StudyMode.MILEAGE)} className={`px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest border ${sessionMode === StudyMode.MILEAGE ? 'bg-purple-600 text-white border-purple-500' : 'bg-zinc-900 text-zinc-500 border-white/10'}`}>Mileage Mode</button>
+            <div className="flex justify-center">
+              <div className={`px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest border ${sessionMode === StudyMode.FOCUS ? 'bg-blue-600/20 text-blue-200 border-blue-500/40' : 'bg-purple-600/20 text-purple-200 border-purple-500/40'}`}>
+                {sessionMode} Mode (Lesson Locked)
+              </div>
             </div>
 
             <div className="text-center">
@@ -477,3 +501,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
 };
 
 export default GrowthStudio;
+
+
+
+
