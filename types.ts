@@ -150,6 +150,7 @@ export interface UserLessonProgress {
 export interface UserProgress {
   userId: string;
   enrolledMajorIds: string[]; // Multi-major enrollment support
+  archivedMajorIds: string[]; // Completed majors moved out of active slots
 
   completedLessonIds: string[]; // Fast lookup
   lessonProgress: Record<string, UserLessonProgress>; // Detailed lookup
@@ -266,3 +267,4 @@ export interface DrillBlueprint {
   constraints: string[];
   durationMinutes: number;
 }
+

@@ -25,6 +25,7 @@ const FACULTIES_COLLECTION = 'faculties';
 const DEFAULT_PROGRESS: UserProgress = {
     userId: '',
     enrolledMajorIds: [],
+    archivedMajorIds: [],
     completedLessonIds: [],
     lessonProgress: {},
     activeDrills: {}
@@ -66,6 +67,19 @@ export const unenrollFromMajor = async (userId: string, majorId: string) => {
         docRef,
         {
             enrolledMajorIds: arrayRemove(majorId)
+        },
+        { merge: true }
+    );
+};
+
+export const archiveCompletedMajor = async (userId: string, majorId: string) => {
+    const docRef = doc(db, COLLECTION_NAME, userId);
+
+    await setDoc(
+        docRef,
+        {
+            enrolledMajorIds: arrayRemove(majorId),
+            archivedMajorIds: arrayUnion(majorId)
         },
         { merge: true }
     );
@@ -133,7 +147,6 @@ export const getFacultiesCatalog = async (): Promise<Faculty[]> => {
     }
 };
 
-
 export const updateDrill = async (userId: string, lessonId: string, daysToAdd: number = 1) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
     const progress = await getUserProgress(userId);
@@ -146,7 +159,6 @@ export const updateDrill = async (userId: string, lessonId: string, daysToAdd: n
 
     const now = Date.now();
 
-    // Allow update if last log was more than 18 hours ago.
     if (now - currentDrill.lastLog > 18 * 60 * 60 * 1000) {
         const newDrills = {
             ...progress.activeDrills,
@@ -159,9 +171,3 @@ export const updateDrill = async (userId: string, lessonId: string, daysToAdd: n
         await updateDoc(docRef, { activeDrills: newDrills });
     }
 };
-
-
-
-
-
-
