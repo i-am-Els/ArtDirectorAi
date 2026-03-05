@@ -1,19 +1,30 @@
+import { db } from './firebase';
+import {
+    arrayRemove,
+    arrayUnion,
+    collection,
+    doc,
+    getDoc,
+    getDocs,
+    setDoc,
+    updateDoc,
+    writeBatch
+} from 'firebase/firestore';
+import {
+    AcademyMajor,
+    Faculty,
+    LessonStatus,
+    StudyMode,
+    UserLessonProgress,
+    UserProgress
+} from '../types';
 
-import { db } from "./firebase";
-import { doc, getDoc, setDoc, updateDoc, arrayUnion, arrayRemove, collection, getDocs, writeBatch } from "firebase/firestore";
-import { UserProgress, AcademyMajor, Course, Lesson, LessonStatus, StudyMode, UserLessonProgress } from "../types"; // Updated imports
-import { ACADEMY_FACULTIES } from "../data/curriculum";
-import { getMajorFromJSON } from "./curriculumLoader"; // Import JSON loader
-
-// Feature flag: Use generated JSON instead of Firestore
-// Set to true to test with generated curriculum during development
-// Set to false to use Firestore in production
-const USE_GENERATED_JSON = true;
-
-const COLLECTION_NAME = "student_progress";
+const COLLECTION_NAME = 'student_progress';
+const MAJORS_COLLECTION = 'majors';
+const FACULTIES_COLLECTION = 'faculties';
 
 const DEFAULT_PROGRESS: UserProgress = {
-    userId: "", // Set at runtime
+    userId: '',
     enrolledMajorIds: [],
     completedLessonIds: [],
     lessonProgress: {},
@@ -26,38 +37,47 @@ export const getUserProgress = async (userId: string): Promise<UserProgress> => 
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-            // Migration helper: If existing data has old field, could migrate here, but for dev we assume fresh or compatible
             return { ...DEFAULT_PROGRESS, ...docSnap.data() } as UserProgress;
-        } else {
-            const newProgress = { ...DEFAULT_PROGRESS, userId };
-            await setDoc(docRef, newProgress);
-            return newProgress;
         }
+
+        const newProgress = { ...DEFAULT_PROGRESS, userId };
+        await setDoc(docRef, newProgress);
+        return newProgress;
     } catch (error) {
-        console.error("Error fetching user progress:", error);
+        console.error('Error fetching user progress:', error);
         return { ...DEFAULT_PROGRESS, userId };
     }
 };
 
 export const enrollInMajor = async (userId: string, majorId: string) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
-    await setDoc(docRef, {
-        enrolledMajorIds: arrayUnion(majorId)
-    }, { merge: true });
+    await setDoc(
+        docRef,
+        {
+            enrolledMajorIds: arrayUnion(majorId)
+        },
+        { merge: true }
+    );
 };
-
-// enrollInMinor removed as per Multi-Major pivot
 
 export const unenrollFromMajor = async (userId: string, majorId: string) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
 
-    await setDoc(docRef, {
-        enrolledMajorIds: arrayRemove(majorId)
-    }, { merge: true });
+    await setDoc(
+        docRef,
+        {
+            enrolledMajorIds: arrayRemove(majorId)
+        },
+        { merge: true }
+    );
 };
 
-// Helper to update lesson status
-export const updateLessonProgress = async (userId: string, lessonId: string, status: LessonStatus, mode: StudyMode) => {
+export const updateLessonProgress = async (
+    userId: string,
+    lessonId: string,
+    status: LessonStatus,
+    mode: StudyMode
+) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
     const progress = await getUserProgress(userId);
 
@@ -77,7 +97,7 @@ export const updateLessonProgress = async (userId: string, lessonId: string, sta
         attemptCount: status === LessonStatus.COMPLETED ? currentEntry.attemptCount + 1 : currentEntry.attemptCount
     };
 
-    const updates: any = {
+    const updates: Record<string, unknown> = {
         [`lessonProgress.${lessonId}`]: updatedEntry
     };
 
@@ -88,45 +108,61 @@ export const updateLessonProgress = async (userId: string, lessonId: string, sta
     await updateDoc(docRef, updates);
 };
 
-
-export const saveMajorCurriculum = async (major: AcademyMajor) => {
-    try {
-        // Save the major metadata/courses to a "majors" collection
-        // ID: major.id (e.g. "dept-char-concept")
-        const docRef = doc(db, "majors", major.id);
-        await setDoc(docRef, major);
-        console.log(`Saved Major: ${major.title}`);
-    } catch (error) {
-        console.error("Error saving curriculum:", error);
-        throw error;
-    }
-};
-
 export const getMajorCurriculum = async (majorId: string): Promise<AcademyMajor | null> => {
     try {
-        // Use JSON loader if feature flag is enabled
-        if (USE_GENERATED_JSON) {
-            console.log(`📚 Loading curriculum from JSON for major: ${majorId}`);
-            const major = getMajorFromJSON(majorId);
-            if (major) {
-                console.log(`✅ Loaded ${major.title} with ${major.courses.length} courses from JSON`);
-            } else {
-                console.warn(`⚠️ Major ${majorId} not found in generated JSON`);
-            }
-            return major;
-        }
-
-        // Otherwise load from Firestore (production mode)
-        const docRef = doc(db, "majors", majorId);
+        const docRef = doc(db, MAJORS_COLLECTION, majorId);
         const docSnap = await getDoc(docRef);
+
         if (docSnap.exists()) {
             return docSnap.data() as AcademyMajor;
         }
+
         return null;
     } catch (error) {
-        console.error("Error fetching curriculum:", error);
+        console.error('Error fetching curriculum:', error);
         return null;
     }
+};
+
+export const getFacultiesCatalog = async (): Promise<Faculty[]> => {
+    try {
+        const snapshot = await getDocs(collection(db, FACULTIES_COLLECTION));
+        return snapshot.docs.map((facultyDoc) => facultyDoc.data() as Faculty);
+    } catch (error) {
+        console.error('Error fetching faculties catalog:', error);
+        return [];
+    }
+};
+
+export const replaceCurriculumFromJSON = async (): Promise<{ majors: number; faculties: number }> => {
+    const { getAllMajorsFromJSON, getFacultiesFromJSON } = await import('./curriculumLoader');
+    const faculties = getFacultiesFromJSON();
+    const majors = getAllMajorsFromJSON();
+
+    const batch = writeBatch(db);
+
+    const existingMajors = await getDocs(collection(db, MAJORS_COLLECTION));
+    existingMajors.forEach((majorDoc) => batch.delete(majorDoc.ref));
+
+    const existingFaculties = await getDocs(collection(db, FACULTIES_COLLECTION));
+    existingFaculties.forEach((facultyDoc) => batch.delete(facultyDoc.ref));
+
+    majors.forEach((major) => {
+        const majorRef = doc(db, MAJORS_COLLECTION, major.id);
+        batch.set(majorRef, major);
+    });
+
+    faculties.forEach((faculty) => {
+        const facultyRef = doc(db, FACULTIES_COLLECTION, faculty.id);
+        batch.set(facultyRef, faculty);
+    });
+
+    await batch.commit();
+
+    return {
+        majors: majors.length,
+        faculties: faculties.length
+    };
 };
 
 export const updateDrill = async (userId: string, lessonId: string, daysToAdd: number = 1) => {
@@ -141,8 +177,8 @@ export const updateDrill = async (userId: string, lessonId: string, daysToAdd: n
 
     const now = Date.now();
 
-    // Allow update if last log was more than 18 hours ago
-    if (now - currentDrill.lastLog > (18 * 60 * 60 * 1000)) {
+    // Allow update if last log was more than 18 hours ago.
+    if (now - currentDrill.lastLog > 18 * 60 * 60 * 1000) {
         const newDrills = {
             ...progress.activeDrills,
             [lessonId]: {
@@ -154,3 +190,6 @@ export const updateDrill = async (userId: string, lessonId: string, daysToAdd: n
         await updateDoc(docRef, { activeDrills: newDrills });
     }
 };
+
+
+

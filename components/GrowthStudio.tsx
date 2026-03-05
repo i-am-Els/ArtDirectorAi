@@ -6,22 +6,18 @@ import {
   StudyMode,
   LessonStatus,
   AcademyMajor,
-  Course,
-  Subject,
   Lesson,
   Faculty
 } from '../types';
-import { ACADEMY_FACULTIES } from '../data/curriculum';
-import { getFacultiesFromJSON } from '../services/curriculumLoader';
 import {
   enrollInMajor,
   unenrollFromMajor,
   getMajorCurriculum,
   updateLessonProgress,
-  getUserProgress
+  getUserProgress,
+  getFacultiesCatalog
 } from '../services/academyService';
 import RoleIcon from './RoleIcon';
-import SeedButton from './Admin/SeedButton';
 
 const AcademyTooltip: React.FC<{ text: string; children: React.ReactNode }> = ({ text, children }) => (
   <div className="group relative inline-block">
@@ -42,7 +38,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
   const [activeMajor, setActiveMajor] = useState<AcademyMajor | null>(null);
   const [loadingMajor, setLoadingMajor] = useState(false);
   const [viewingMajor, setViewingMajor] = useState<{ faculty: Faculty, major: AcademyMajor } | null>(null);
-  const [faculties, setFaculties] = useState<Faculty[]>(ACADEMY_FACULTIES);
+  const [faculties, setFaculties] = useState<Faculty[]>([]);
 
   // Navigation State
   const [expandedCourseId, setExpandedCourseId] = useState<string | null>(null);
@@ -58,7 +54,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
   // Initial Data Fetch
   useEffect(() => {
     fetchProgress();
-    setFaculties(getFacultiesFromJSON());
+    loadFaculties();
   }, [userId]);
 
   // Fetch Major Data when enrolled
@@ -78,6 +74,11 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
   const fetchProgress = async () => {
     const p = await getUserProgress(userId);
     setProgress(p);
+  };
+
+  const loadFaculties = async () => {
+    const data = await getFacultiesCatalog();
+    setFaculties(data);
   };
 
   const loadMajorData = async (majorId: string) => {
@@ -614,3 +615,4 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
 };
 
 export default GrowthStudio;
+

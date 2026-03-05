@@ -1,8 +1,5 @@
-
 import React, { useState } from 'react';
-import { saveMajorCurriculum } from '../../services/academyService';
-import { CHARACTER_DESIGN_MAJOR } from '../../data/static_academy/visual_dev/character_design';
-import { ArtRole } from '../../types';
+import { replaceCurriculumFromJSON } from '../../services/academyService';
 
 const SeedButton: React.FC = () => {
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -10,11 +7,11 @@ const SeedButton: React.FC = () => {
     const handleSeed = async () => {
         setStatus('loading');
         try {
-            console.log('Seeding Character Design Major...', CHARACTER_DESIGN_MAJOR);
-            await saveMajorCurriculum(CHARACTER_DESIGN_MAJOR);
+            const result = await replaceCurriculumFromJSON();
+            console.log(`Curriculum replaced. Faculties: ${result.faculties}, Majors: ${result.majors}`);
             setStatus('success');
         } catch (error) {
-            console.error('Seeding failed:', error);
+            console.error('Curriculum reseed failed:', error);
             setStatus('error');
         }
     };
@@ -31,10 +28,10 @@ const SeedButton: React.FC = () => {
           ${status === 'error' ? 'bg-red-600 text-white' : ''}
         `}
             >
-                {status === 'idle' && '⚡ Seed DB: Char Design'}
-                {status === 'loading' && 'Seeding...'}
-                {status === 'success' && 'DB Seeded!'}
-                {status === 'error' && 'Error Seeding'}
+                {status === 'idle' && 'Reseed Curriculum DB'}
+                {status === 'loading' && 'Reseeding...'}
+                {status === 'success' && 'Curriculum Replaced'}
+                {status === 'error' && 'Reseed Failed'}
             </button>
         </div>
     );

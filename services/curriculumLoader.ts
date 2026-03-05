@@ -59,12 +59,12 @@ interface RawLesson {
 }
 
 /**
- * Transform snake_case JSON to camelCase for UI compatibility
+ * Transform snake_case JSON to camelCase for UI compatibility.
  */
 function transformLesson(raw: RawLesson, subjectId: string): Lesson {
     return {
         id: raw.id,
-        subjectId: subjectId,
+        subjectId,
         title: raw.title,
         type: raw.lesson_type as LessonType,
         objective: raw.objective,
@@ -79,19 +79,19 @@ function transformLesson(raw: RawLesson, subjectId: string): Lesson {
 function transformSubject(raw: RawSubject, courseId: string): Subject {
     return {
         id: raw.id,
-        courseId: courseId,
+        courseId,
         title: raw.title,
         description: raw.description,
         learningOutcome: raw.learning_outcome,
         orderIndex: raw.order_index,
-        lessons: raw.lessons.map(l => transformLesson(l, raw.id))
+        lessons: raw.lessons.map((lesson) => transformLesson(lesson, raw.id))
     };
 }
 
 function transformCourse(raw: RawCourse, majorId: string): Course {
     return {
         id: raw.id,
-        majorId: majorId,
+        majorId,
         code: raw.code,
         title: raw.title,
         description: raw.description,
@@ -99,72 +99,83 @@ function transformCourse(raw: RawCourse, majorId: string): Course {
         yearLevel: raw.year_level,
         isCore: raw.is_core,
         softwares: raw.softwares || [],
-        subjects: raw.subjects.map(s => transformSubject(s, raw.id))
+        subjects: raw.subjects.map((subject) => transformSubject(subject, raw.id))
     };
 }
 
 function transformMajor(raw: RawMajor, facultyId: string): AcademyMajor {
     return {
         id: raw.id,
-        facultyId: facultyId,
+        facultyId,
         code: raw.code,
         title: raw.title,
-        role: raw.role as any, // Type assertion for ArtRole enum
+        role: raw.role as any,
         description: raw.description,
         software: raw.softwares || [],
         softwares: raw.softwares || [],
-        outcomes: [], // Not in generated data yet
-        courses: raw.courses.map(c => transformCourse(c, raw.id))
+        outcomes: [],
+        courses: raw.courses.map((course) => transformCourse(course, raw.id))
+    };
+}
+
+function transformFaculty(raw: RawFaculty): Faculty {
+    return {
+        id: raw.id,
+        code: raw.code,
+        name: raw.name,
+        icon: 'Academy',
+        color: '#60a5fa',
+        description: '',
+        majors: raw.majors.map((major) => ({
+            id: major.id,
+            facultyId: raw.id,
+            code: major.code,
+            title: major.title,
+            role: major.role as any,
+            description: major.description,
+            software: major.softwares || [],
+            softwares: major.softwares || [],
+            outcomes: [],
+            courses: []
+        }))
     };
 }
 
 /**
- * Load curriculum data from the generated JSON file
+ * Load curriculum data from the generated JSON file.
  */
 export function loadCurriculumFromJSON(): RawCurriculumState {
     return curriculumStateData as RawCurriculumState;
 }
 
 /**
- * Get a specific major's curriculum from the JSON file
+ * Get all majors from the JSON file with full curriculum content.
  */
-export function getMajorFromJSON(majorId: string): AcademyMajor | null {
+export function getAllMajorsFromJSON(): AcademyMajor[] {
     const data = loadCurriculumFromJSON();
+    const majors: AcademyMajor[] = [];
 
     for (const faculty of data.faculties) {
-        const major = faculty.majors.find(m => m.id === majorId);
-        if (major) {
-            return transformMajor(major, faculty.id);
+        for (const major of faculty.majors) {
+            majors.push(transformMajor(major, faculty.id));
         }
     }
 
-    return null;
+    return majors;
 }
 
 /**
- * Get all faculties from the JSON file (for catalog display)
+ * Get a specific major's curriculum from the JSON file.
+ */
+export function getMajorFromJSON(majorId: string): AcademyMajor | null {
+    const majors = getAllMajorsFromJSON();
+    return majors.find((major) => major.id === majorId) || null;
+}
+
+/**
+ * Get all faculties from the JSON file (for catalog display).
  */
 export function getFacultiesFromJSON(): Faculty[] {
     const data = loadCurriculumFromJSON();
-
-    return data.faculties.map(fac => ({
-        id: fac.id,
-        code: fac.code,
-        name: fac.name,
-        icon: '🎓', // Default icon
-        color: '#60a5fa', // Default color
-        description: '', // Not in generated data
-        majors: fac.majors.map(maj => ({
-            id: maj.id,
-            facultyId: fac.id,
-            code: maj.code,
-            title: maj.title,
-            role: maj.role as any,
-            description: maj.description,
-            software: maj.softwares || [],
-            softwares: maj.softwares || [],
-            outcomes: [],
-            courses: [] // Don't load full courses for catalog
-        }))
-    }));
+    return data.faculties.map(transformFaculty);
 }
