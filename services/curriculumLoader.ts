@@ -21,6 +21,7 @@ interface RawMajor {
     role: string;
     description: string;
     courses: RawCourse[];
+    softwares?: string[];
 }
 
 interface RawCourse {
@@ -32,6 +33,7 @@ interface RawCourse {
     title: string;
     year_level: number;
     subjects: RawSubject[];
+    softwares?: string[];
     is_complete?: boolean;
 }
 
@@ -96,6 +98,7 @@ function transformCourse(raw: RawCourse, majorId: string): Course {
         tier: raw.tier as 'Foundations' | 'Production' | 'Mastery',
         yearLevel: raw.year_level,
         isCore: raw.is_core,
+        softwares: raw.softwares || [],
         subjects: raw.subjects.map(s => transformSubject(s, raw.id))
     };
 }
@@ -108,7 +111,8 @@ function transformMajor(raw: RawMajor, facultyId: string): AcademyMajor {
         title: raw.title,
         role: raw.role as any, // Type assertion for ArtRole enum
         description: raw.description,
-        software: [], // Not in generated data yet
+        software: raw.softwares || [],
+        softwares: raw.softwares || [],
         outcomes: [], // Not in generated data yet
         courses: raw.courses.map(c => transformCourse(c, raw.id))
     };
@@ -157,7 +161,8 @@ export function getFacultiesFromJSON(): Faculty[] {
             title: maj.title,
             role: maj.role as any,
             description: maj.description,
-            software: [],
+            software: maj.softwares || [],
+            softwares: maj.softwares || [],
             outcomes: [],
             courses: [] // Don't load full courses for catalog
         }))

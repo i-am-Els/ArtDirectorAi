@@ -439,6 +439,11 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
                 <span className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Enrolled Major</span>
               </div>
               <h2 className="text-5xl font-black italic uppercase text-white tracking-tighter leading-none">{activeMajor.title}</h2>
+              <div className="flex flex-wrap gap-2 mt-4">
+                {(activeMajor.softwares || activeMajor.software || []).map(s => (
+                  <span key={s} className="px-2 py-1 bg-black/40 border border-white/5 rounded-lg text-[9px] font-black tracking-widest text-zinc-400 uppercase">{s}</span>
+                ))}
+              </div>
               <p className="text-lg text-zinc-400 font-medium mt-4 max-w-2xl">{activeMajor.description}</p>
             </div>
             <div className="text-right">
