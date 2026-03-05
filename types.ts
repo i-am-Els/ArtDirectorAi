@@ -97,6 +97,7 @@ export interface Course {
   isCore: boolean;
   tier: 'Foundations' | 'Production' | 'Mastery'; // Keeping for UI grouping
   subjects: Subject[];
+  softwares?: string[];
 
   // Backward compat for now (flattened view helper?)
   lessons?: Lesson[];
@@ -111,6 +112,7 @@ export interface AcademyMajor {
   role: ArtRole;
   outcomes: string[];
   software: string[];
+  softwares?: string[];
   courses: Course[];
 
   // JSON Schema Compatibility

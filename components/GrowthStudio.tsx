@@ -231,8 +231,8 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
                       setActiveTab('CURRICULUM');
                     }}
                     className={`w-full py-3 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${activeMajor?.id === majorId
-                        ? 'bg-blue-600 text-white shadow-lg'
-                        : 'bg-zinc-900 border border-white/10 text-zinc-400 hover:text-white'
+                      ? 'bg-blue-600 text-white shadow-lg'
+                      : 'bg-zinc-900 border border-white/10 text-zinc-400 hover:text-white'
                       }`}
                   >
                     {activeMajor?.id === majorId ? 'Viewing Curriculum' : 'View Curriculum'}
@@ -294,8 +294,8 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
                         <span className="text-[9px] font-black text-zinc-500 uppercase tracking-widest">{major.role}</span>
                         <h4 className="text-lg font-black italic uppercase text-white leading-tight">{major.title}</h4>
                         <div className="flex flex-wrap gap-2">
-                          {major.software.slice(0, 3).map(s => (
-                            <span key={s} className="px-2 py-1 bg-black/40 rounded-lg text-[8px] text-zinc-400 font-medium uppercase">{s}</span>
+                          {(major.softwares || major.software || []).slice(0, 4).map(s => (
+                            <span key={s} className="px-2 py-1 bg-black/40 rounded-lg text-[8px] text-zinc-400 font-black tracking-widest uppercase">{s}</span>
                           ))}
                         </div>
                         <div className="text-[10px] font-black text-zinc-600 uppercase group-hover:text-white transition-colors">
@@ -366,7 +366,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
                 <div className="space-y-4">
                   <h4 className="text-[10px] font-black text-zinc-600 uppercase tracking-widest">Core Software Stack</h4>
                   <div className="flex flex-wrap gap-2">
-                    {viewingMajor.major.software.map(s => (
+                    {(viewingMajor.major.softwares || viewingMajor.major.software || []).map(s => (
                       <span key={s} className="px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-xl text-[10px] font-black tracking-widest text-blue-300 uppercase italic">{s}</span>
                     ))}
                   </div>
@@ -394,7 +394,14 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
                               'bg-purple-600/20 text-purple-400'
                             }`}>{course.tier}</span>
                           <h4 className="text-2xl font-black italic uppercase text-white leading-tight tracking-tight">{course.title}</h4>
-                          <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">{(course.subjects || []).length} Subjects • {(course.lessons || []).length + (course.subjects || []).flatMap(s => s.lessons).length} Lessons</p>
+                          <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1">{(course.subjects || []).length} Subjects • {(course.lessons || []).length + (course.subjects || []).flatMap(s => s.lessons).length} Lessons</p>
+                          {course.softwares && course.softwares.length > 0 && (
+                            <div className="flex flex-wrap gap-1.5 mt-3">
+                              {course.softwares.map(sw => (
+                                <span key={sw} className="px-2 py-0.5 bg-zinc-900 border border-white/5 rounded-md text-[8px] font-bold text-zinc-400 uppercase tracking-widest">{sw}</span>
+                              ))}
+                            </div>
+                          )}
                         </div>
                         <div className="lg:w-3/4">
                           <p className="text-sm text-zinc-400 font-medium italic leading-relaxed mb-6">{course.description}</p>
@@ -455,7 +462,20 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ curr
                     </span>
                     <div>
                       <h3 className="text-2xl font-black italic uppercase text-white">{course.title}</h3>
-                      <p className="text-xs text-zinc-500 font-bold uppercase tracking-widest mt-1">{(course.subjects || []).length} Subjects</p>
+                      <div className="flex items-center gap-3 mt-1">
+                        <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-widest">{(course.subjects || []).length} Subjects</p>
+                        {course.softwares && course.softwares.length > 0 && (
+                          <>
+                            <span className="text-zinc-700">•</span>
+                            <div className="flex flex-wrap gap-1.5">
+                              {course.softwares.slice(0, 3).map(sw => (
+                                <span key={sw} className="text-[9px] font-black italic text-zinc-400 uppercase tracking-widest">{sw}</span>
+                              ))}
+                              {course.softwares.length > 3 && <span className="text-[9px] font-black italic text-zinc-600 uppercase tracking-widest">+{course.softwares.length - 3}</span>}
+                            </div>
+                          </>
+                        )}
+                      </div>
                     </div>
                   </div>
                   <div className={`w-8 h-8 rounded-full bg-zinc-900 flex items-center justify-center transition-transform ${expandedCourseId === course.id ? 'rotate-180' : ''}`}>
