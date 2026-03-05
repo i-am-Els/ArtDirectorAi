@@ -183,6 +183,8 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
   };
 
   const totalXP = (progress?.completedLessonIds.length || 0) * 250;
+  const enrolledMajorIds = progress?.enrolledMajorIds || [];
+  const emptySlotCount = Math.max(0, MAX_ENROLLED_MAJORS - enrolledMajorIds.length);
 
   return (
     <div className="space-y-8 pb-20">
@@ -211,28 +213,35 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
       </div>
 
       {activeTab === 'STATUS' && (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          <div className="lg:col-span-4 space-y-6">
-            <div className="glass p-8 rounded-[2rem] border-white/10 space-y-4">
-              <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-zinc-500">
-                <span>Academy XP</span>
-                <span className="text-blue-400">{totalXP}</span>
-              </div>
-              <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-zinc-500">
-                <span>Major Slots</span>
-                <span>{progress?.enrolledMajorIds?.length || 0}/{MAX_ENROLLED_MAJORS}</span>
-              </div>
+        <div className="space-y-6">
+          <div className="glass p-8 rounded-[2rem] border-white/10 space-y-4 bg-gradient-to-br from-blue-600/10 via-transparent to-emerald-600/10">
+            <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-zinc-500">
+              <span>Academy XP</span>
+              <span className="text-blue-400">{totalXP}</span>
             </div>
+            <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-zinc-500">
+              <span>Major Slots</span>
+              <span>{enrolledMajorIds.length}/{MAX_ENROLLED_MAJORS}</span>
+            </div>
+          </div>
 
-            {(progress?.enrolledMajorIds || []).map((majorId) => {
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            {enrolledMajorIds.map((majorId) => {
               const faculty = faculties.find((f) => f.majors.some((m) => m.id === majorId));
               const major = faculty?.majors.find((m) => m.id === majorId);
               if (!major) return null;
               return (
-                <div key={majorId} className="glass p-6 rounded-[2rem] border border-white/10 space-y-3">
+                <div key={majorId} className="glass p-6 rounded-[2rem] border border-blue-500/20 bg-gradient-to-br from-blue-500/10 to-transparent space-y-3">
                   <h4 className="text-[10px] font-black uppercase tracking-widest text-blue-500">Enrolled Major</h4>
                   <div className="text-white font-black uppercase italic">{major.title}</div>
                   <div className="text-xs text-zinc-500">{major.code}</div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {(major.softwares || major.software || []).slice(0, 4).map((sw) => (
+                      <span key={sw} className="px-2 py-1 rounded-md text-[9px] font-black uppercase tracking-widest bg-blue-500/15 text-blue-200 border border-blue-500/30">
+                        {sw}
+                      </span>
+                    ))}
+                  </div>
                   <div className="flex gap-2">
                     <button className="px-3 py-2 text-[10px] bg-blue-600 rounded-lg uppercase font-black" onClick={() => { loadMajorData(majorId); setActiveTab('CURRICULUM'); }}>Open</button>
                     <button className="px-3 py-2 text-[10px] bg-zinc-800 rounded-lg uppercase font-black" onClick={() => handleWithdraw(majorId)}>Withdraw</button>
@@ -241,18 +250,26 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
               );
             })}
 
-            {!!progress?.archivedMajorIds?.length && (
-              <div className="glass p-6 rounded-[2rem] border border-white/10 space-y-2">
-                <h4 className="text-[10px] font-black uppercase tracking-widest text-zinc-500">Archived Majors</h4>
-                {progress.archivedMajorIds.map((majorId) => {
-                  const faculty = faculties.find((f) => f.majors.some((m) => m.id === majorId));
-                  const major = faculty?.majors.find((m) => m.id === majorId);
-                  if (!major) return null;
-                  return <div key={majorId} className="text-sm text-zinc-300">{major.title}</div>;
-                })}
+            {Array.from({ length: emptySlotCount }).map((_, idx) => (
+              <div key={`empty-slot-${idx}`} className="glass p-6 rounded-[2rem] border border-dashed border-zinc-700/70 bg-zinc-900/30 space-y-2">
+                <h4 className="text-[10px] font-black uppercase tracking-widest text-zinc-600">Open Slot</h4>
+                <div className="text-zinc-400 font-black uppercase italic">Available</div>
+                <div className="text-xs text-zinc-600">Use this slot to enroll in another major.</div>
               </div>
-            )}
+            ))}
           </div>
+
+          {!!progress?.archivedMajorIds?.length && (
+            <div className="glass p-6 rounded-[2rem] border border-white/10 space-y-2">
+              <h4 className="text-[10px] font-black uppercase tracking-widest text-zinc-500">Archived Majors</h4>
+              {progress.archivedMajorIds.map((majorId) => {
+                const faculty = faculties.find((f) => f.majors.some((m) => m.id === majorId));
+                const major = faculty?.majors.find((m) => m.id === majorId);
+                if (!major) return null;
+                return <div key={majorId} className="text-sm text-zinc-300">{major.title}</div>;
+              })}
+            </div>
+          )}
         </div>
       )}
 
@@ -286,6 +303,13 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
           <div className="glass p-10 rounded-[3rem] border-white/10 space-y-6">
             <h2 className="text-4xl font-black italic uppercase">{viewingMajor.major.title}</h2>
             <p className="text-zinc-400">{viewingMajor.major.description}</p>
+            <div className="flex flex-wrap gap-2">
+              {(viewingMajor.major.softwares || viewingMajor.major.software || []).map((sw) => (
+                <span key={sw} className="px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest bg-emerald-500/15 text-emerald-200 border border-emerald-500/30">
+                  {sw}
+                </span>
+              ))}
+            </div>
             {progress?.enrolledMajorIds?.includes(viewingMajor.major.id) ? (
               <div className="px-6 py-3 bg-green-600/20 border border-green-500/40 rounded-xl text-xs uppercase font-black">Currently Enrolled</div>
             ) : (
@@ -304,6 +328,14 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
       {activeTab === 'CURRICULUM' && activeMajor && (
         <div className="max-w-6xl mx-auto space-y-8">
           <h2 className="text-4xl font-black uppercase italic">{activeMajor.title}</h2>
+          <div className="flex flex-wrap gap-2">
+            {(activeMajor.softwares || activeMajor.software || []).map((sw) => (
+              <span key={sw} className="px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest bg-fuchsia-500/15 text-fuchsia-200 border border-fuchsia-500/30">
+                {sw}
+              </span>
+            ))}
+          </div>
+
           <div className="space-y-5">
             {activeMajor.courses.map((course, courseIndex) => {
               const courseUnlocked = courseIndex === 0 || isCourseComplete(activeMajor.courses[courseIndex - 1]);
@@ -329,6 +361,15 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                       <div className="text-[10px] uppercase tracking-widest text-zinc-500">
                         {courseCompletedLessons}/{courseLessons.length || 0} lessons complete
                       </div>
+                      {!!course.softwares?.length && (
+                        <div className="flex flex-wrap gap-1.5">
+                          {course.softwares.slice(0, 5).map((sw) => (
+                            <span key={sw} className="px-2 py-1 rounded-md text-[9px] font-black uppercase tracking-widest bg-indigo-500/15 text-indigo-200 border border-indigo-500/30">
+                              {sw}
+                            </span>
+                          ))}
+                        </div>
+                      )}
                       <div className="h-1.5 w-56 bg-zinc-900 rounded-full overflow-hidden border border-white/10">
                         <div className="h-full bg-gradient-to-r from-blue-500 to-emerald-500" style={{ width: `${courseProgressPct}%` }}></div>
                       </div>
@@ -401,6 +442,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
           </div>
         </div>
       )}
+
       {activeTab === 'WORKBENCH' && activeLesson && (
         <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 glass p-10 rounded-[3rem] border-white/10 space-y-8">
@@ -435,5 +477,3 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
 };
 
 export default GrowthStudio;
-
-
