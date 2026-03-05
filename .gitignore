@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Generated curriculum data
+data/static_academy/generated/curriculum_state.json
+
+data/static_academy/generated/curriculum_state_backup.json
+
