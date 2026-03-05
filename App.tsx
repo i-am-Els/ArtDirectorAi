@@ -7,7 +7,6 @@ import PortfolioReview from './components/PortfolioReview.tsx';
 import GrowthStudio from './components/GrowthStudio.tsx';
 import UserProfile from './components/UserProfile.tsx';
 import LoginPage from './components/LoginPage.tsx';
-import SeedButton from './components/Admin/SeedButton.tsx';
 import { generateBrief } from './services/geminiService.ts';
 import { ACADEMY_FACULTIES } from './data/curriculum.ts';
 import { onAuthStateChanged, User } from 'firebase/auth';
@@ -229,10 +228,10 @@ const App: React.FC = () => {
       <footer className="py-12 border-t border-white/5 text-center no-print opacity-50">
         <p className="text-zinc-700 text-[9px] tracking-[0.8em] font-black uppercase">ArtDirector AI • Zero to Hero Pipeline • Industrial Training Hub</p>
       </footer>
-      {import.meta.env.DEV && <SeedButton />}
-    </div>
+          </div>
   );
 };
 
 export default App;
+
 

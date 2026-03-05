@@ -7,8 +7,7 @@ import {
     getDoc,
     getDocs,
     setDoc,
-    updateDoc,
-    writeBatch
+    updateDoc
 } from 'firebase/firestore';
 import {
     AcademyMajor,
@@ -134,36 +133,6 @@ export const getFacultiesCatalog = async (): Promise<Faculty[]> => {
     }
 };
 
-export const replaceCurriculumFromJSON = async (): Promise<{ majors: number; faculties: number }> => {
-    const { getAllMajorsFromJSON, getFacultiesFromJSON } = await import('./curriculumLoader');
-    const faculties = getFacultiesFromJSON();
-    const majors = getAllMajorsFromJSON();
-
-    const batch = writeBatch(db);
-
-    const existingMajors = await getDocs(collection(db, MAJORS_COLLECTION));
-    existingMajors.forEach((majorDoc) => batch.delete(majorDoc.ref));
-
-    const existingFaculties = await getDocs(collection(db, FACULTIES_COLLECTION));
-    existingFaculties.forEach((facultyDoc) => batch.delete(facultyDoc.ref));
-
-    majors.forEach((major) => {
-        const majorRef = doc(db, MAJORS_COLLECTION, major.id);
-        batch.set(majorRef, major);
-    });
-
-    faculties.forEach((faculty) => {
-        const facultyRef = doc(db, FACULTIES_COLLECTION, faculty.id);
-        batch.set(facultyRef, faculty);
-    });
-
-    await batch.commit();
-
-    return {
-        majors: majors.length,
-        faculties: faculties.length
-    };
-};
 
 export const updateDrill = async (userId: string, lessonId: string, daysToAdd: number = 1) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
@@ -190,6 +159,9 @@ export const updateDrill = async (userId: string, lessonId: string, daysToAdd: n
         await updateDoc(docRef, { activeDrills: newDrills });
     }
 };
+
+
+
 
 
 
