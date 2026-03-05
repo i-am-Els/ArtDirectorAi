@@ -158,6 +158,15 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
   };
 
   const handleWithdraw = async (majorId: string) => {
+    if (!progress?.enrolledMajorIds?.includes(majorId)) {
+      showMessage({
+        title: 'Not Enrolled',
+        message: 'This major is not in your active slots.',
+        tone: 'warning'
+      });
+      return;
+    }
+
     const confirmed = await showConfirm({
       title: 'Withdraw Major',
       message: 'This removes the major from your active slots. Your completed lessons remain on record.',
@@ -166,6 +175,9 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
     if (!confirmed) return;
     await unenrollFromMajor(userId, majorId);
     await fetchProgress();
+    if (viewingMajor?.major.id === majorId) {
+      setViewingMajor(null);
+    }
     if (activeMajor?.id === majorId) {
       setActiveMajor(null);
       setActiveTab('ENROLLMENT');
@@ -332,19 +344,20 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
               </button>
             )}
           </div>
-
-          <div className="rounded-3xl border border-red-500/60 bg-gradient-to-br from-red-950/60 to-red-900/20 p-6 space-y-4">
-            <h3 className="text-sm font-black uppercase tracking-widest text-red-300">Danger Zone</h3>
-            <p className="text-xs text-red-100/80 max-w-2xl">
-              Withdrawing removes this major from your active slots. Completed lesson records remain saved.
-            </p>
-            <button
-              onClick={() => handleWithdraw(activeMajor.id)}
-              className="px-5 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white text-[10px] font-black uppercase tracking-widest border border-red-300/40 shadow-[0_10px_30px_rgba(220,38,38,0.4)]"
-            >
-              Withdraw From This Major
-            </button>
-          </div>
+          {progress?.enrolledMajorIds?.includes(viewingMajor.major.id) && (
+            <div className="rounded-3xl border border-red-500/60 bg-gradient-to-br from-red-950/60 to-red-900/20 p-6 space-y-4">
+              <h3 className="text-sm font-black uppercase tracking-widest text-red-300">Danger Zone</h3>
+              <p className="text-xs text-red-100/80 max-w-2xl">
+                Withdrawing removes this major from your active slots. Completed lesson records remain saved.
+              </p>
+              <button
+                onClick={() => handleWithdraw(viewingMajor.major.id)}
+                className="px-5 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white text-[10px] font-black uppercase tracking-widest border border-red-300/40 shadow-[0_10px_30px_rgba(220,38,38,0.4)]"
+              >
+                Withdraw From This Major
+              </button>
+            </div>
+          )}
         </div>
       )}
 
@@ -501,6 +514,8 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
 };
 
 export default GrowthStudio;
+
+
 
 
 
