@@ -16,6 +16,7 @@ import {
   getMajorCurriculum,
   getUserProgress,
   unenrollFromMajor,
+  saveTutorSession,
   updateLessonProgress
 } from '../services/academyService';
 import { useAppDialog } from './ui/AppDialogProvider';
@@ -23,6 +24,7 @@ import { explainLessonConcept } from '../services/geminiService';
 
 const MAX_ENROLLED_MAJORS = 3;
 type TutorMessage = { id: number; role: 'user' | 'assistant'; text: string };
+type PersistedTutorMessage = { role: 'user' | 'assistant'; text: string; createdAt: number };
 
 const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ userId, currentRole }) => {
   const [progress, setProgress] = useState<UserProgress | null>(null);
@@ -228,32 +230,61 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
     }
     return null;
   }, [activeMajor, activeLesson?.id]);
+  const persistTutorMessages = async (messages: TutorMessage[]) => {
+    if (!activeLesson) return;
+
+    const payload: PersistedTutorMessage[] = messages.slice(-40).map((msg) => ({
+      role: msg.role,
+      text: msg.text,
+      createdAt: msg.id
+    }));
+
+    try {
+      await saveTutorSession(userId, activeLesson.id, payload);
+    } catch (error) {
+      console.error('Tutor session save error:', error);
+    }
+  };
 
   useEffect(() => {
     if (!activeLesson) return;
-    const subjectLabel = activeLessonContext?.subjectTitle || 'this subject';
-    setTutorMessages([
-      {
-        id: Date.now(),
-        role: 'assistant',
-        text: `I am your tutor for "${activeLesson.title}" (${subjectLabel}). Ask what is confusing and I will explain clearly, without replacing your actual lesson work.`
-      }
-    ]);
+
+    const persisted = (progress?.tutorSessions?.[activeLesson.id] || []) as PersistedTutorMessage[];
+    if (persisted.length > 0) {
+      setTutorMessages(
+        persisted.map((msg, index) => ({
+          id: msg.createdAt || Date.now() + index,
+          role: msg.role,
+          text: msg.text
+        }))
+      );
+    } else {
+      const subjectLabel = activeLessonContext?.subjectTitle || 'this subject';
+      setTutorMessages([
+        {
+          id: Date.now(),
+          role: 'assistant',
+          text: `I am your tutor for "${activeLesson.title}" (${subjectLabel}). Ask what is confusing and I will explain clearly, without replacing your actual lesson work.`
+        }
+      ]);
+    }
+
     setTutorInput('');
-  }, [activeLesson?.id, activeLessonContext?.subjectTitle]);
+  }, [activeLesson?.id, activeLessonContext?.subjectTitle, progress?.tutorSessions]);
 
   useEffect(() => {
     const feed = tutorFeedRef.current;
     if (!feed) return;
     feed.scrollTop = feed.scrollHeight;
   }, [tutorMessages, tutorBusy]);
-
   const askTutor = async () => {
     const question = tutorInput.trim();
     if (!question || !activeLesson) return;
 
     const userMessage: TutorMessage = { id: Date.now(), role: 'user', text: question };
-    setTutorMessages((prev) => [...prev, userMessage]);
+    const nextAfterUser = [...tutorMessages, userMessage];
+    setTutorMessages(nextAfterUser);
+    void persistTutorMessages(nextAfterUser);
     setTutorInput('');
     setTutorBusy(true);
 
@@ -268,17 +299,20 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
         lessonObjective: activeLesson.objective,
         studyMode: sessionMode
       });
-      setTutorMessages((prev) => [...prev, { id: Date.now() + 1, role: 'assistant', text: answer }]);
+      const assistantMessage: TutorMessage = { id: Date.now() + 1, role: 'assistant', text: answer };
+      const nextAfterAssistant = [...nextAfterUser, assistantMessage];
+      setTutorMessages(nextAfterAssistant);
+      void persistTutorMessages(nextAfterAssistant);
     } catch (error) {
       console.error('Tutor error:', error);
-      setTutorMessages((prev) => [
-        ...prev,
-        {
-          id: Date.now() + 1,
-          role: 'assistant',
-          text: 'I could not answer right now. Try again in a moment with a more specific question.'
-        }
-      ]);
+      const failureMessage: TutorMessage = {
+        id: Date.now() + 1,
+        role: 'assistant',
+        text: 'I could not answer right now. Try again in a moment with a more specific question.'
+      };
+      const nextAfterFailure = [...nextAfterUser, failureMessage];
+      setTutorMessages(nextAfterFailure);
+      void persistTutorMessages(nextAfterFailure);
       showMessage({
         title: 'Tutor Unavailable',
         message: 'I could not reach the tutor service right now.',
@@ -675,5 +709,3 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
 };
 
 export default GrowthStudio;
-
-

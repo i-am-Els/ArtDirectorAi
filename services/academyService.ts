@@ -15,7 +15,8 @@ import {
     LessonStatus,
     StudyMode,
     UserLessonProgress,
-    UserProgress
+    UserProgress,
+    TutorChatMessage
 } from '../types';
 
 const COLLECTION_NAME = 'student_progress';
@@ -28,7 +29,8 @@ const DEFAULT_PROGRESS: UserProgress = {
     archivedMajorIds: [],
     completedLessonIds: [],
     lessonProgress: {},
-    activeDrills: {}
+    activeDrills: {},
+    tutorSessions: {}
 };
 
 export const getUserProgress = async (userId: string): Promise<UserProgress> => {
@@ -170,4 +172,17 @@ export const updateDrill = async (userId: string, lessonId: string, daysToAdd: n
         };
         await updateDoc(docRef, { activeDrills: newDrills });
     }
+};
+
+export const saveTutorSession = async (userId: string, lessonId: string, messages: TutorChatMessage[]) => {
+    const docRef = doc(db, COLLECTION_NAME, userId);
+    const progress = await getUserProgress(userId);
+    const trimmed = messages.slice(-40);
+
+    const nextSessions = {
+        ...(progress.tutorSessions || {}),
+        [lessonId]: trimmed
+    };
+
+    await setDoc(docRef, { tutorSessions: nextSessions }, { merge: true });
 };

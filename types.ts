@@ -147,6 +147,12 @@ export interface UserLessonProgress {
   attemptCount: number;
 }
 
+export interface TutorChatMessage {
+  role: 'user' | 'assistant';
+  text: string;
+  createdAt: number;
+}
+
 export interface UserProgress {
   userId: string;
   enrolledMajorIds: string[]; // Multi-major enrollment support
@@ -160,6 +166,7 @@ export interface UserProgress {
     daysCompleted: number;
     lastLog: number;
   }>;
+  tutorSessions: Record<string, TutorChatMessage[]>;
 }
 
 // --- LEGACY / OTHER ---
@@ -267,4 +274,3 @@ export interface DrillBlueprint {
   constraints: string[];
   durationMinutes: number;
 }
-
