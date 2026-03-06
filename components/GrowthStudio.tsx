@@ -16,7 +16,6 @@ import {
   getMajorCurriculum,
   getUserProgress,
   unenrollFromMajor,
-  clearTutorSessions,
   saveTutorSession,
   updateLessonProgress
 } from '../services/academyService';
@@ -46,7 +45,6 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
   const [tutorInput, setTutorInput] = useState('');
   const [tutorBusy, setTutorBusy] = useState(false);
   const tutorFeedRef = useRef<HTMLDivElement | null>(null);
-  const tutorClearDoneRef = useRef(false);
   const { showConfirm, showMessage } = useAppDialog();
 
   const completedLessonIds = useMemo(() => new Set(progress?.completedLessonIds || []), [progress?.completedLessonIds]);
@@ -90,39 +88,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
   useEffect(() => {
     fetchProgress();
     fetchFaculties();
-  }, [userId]);
-
-  useEffect(() => {
-    if (tutorClearDoneRef.current) return;
-    tutorClearDoneRef.current = true;
-
-    const run = async () => {
-      const clearKey = `tutorSessionsReset_v1_${userId}`;
-      try {
-        if (typeof window !== 'undefined' && window.localStorage.getItem(clearKey)) {
-          return;
-        }
-      } catch {
-        // Ignore localStorage errors and still attempt reset.
-      }
-
-      await clearTutorSessions(userId);
-      await fetchProgress();
-
-      try {
-        if (typeof window !== 'undefined') {
-          window.localStorage.setItem(clearKey, '1');
-        }
-      } catch {
-        // Ignore localStorage errors.
-      }
-    };
-
-    void run();
-  }, [userId]);
-
-
-
+  }, [userId]);
   useEffect(() => {
     if (!progress?.enrolledMajorIds?.length) {
       setActiveMajor(null);
@@ -748,3 +714,4 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
 };
 
 export default GrowthStudio;
+
