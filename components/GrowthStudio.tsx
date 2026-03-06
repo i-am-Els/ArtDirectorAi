@@ -193,6 +193,8 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
   };
 
   const startLesson = (lesson: Lesson) => {
+    setTutorMessages([]);
+    setTutorInput('');
     setActiveLesson(lesson);
     setSessionMode(lesson.defaultStudyMode || lesson.default_study_mode || StudyMode.FOCUS);
     setTimeLeft((lesson.estimatedEffort || lesson.estimated_effort_minutes || 45) * 60);
@@ -230,8 +232,12 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
     }
     return null;
   }, [activeMajor, activeLesson?.id]);
+  const tutorSessionKey = useMemo(() => {
+    if (!activeLesson) return null;
+    return `${activeMajor?.id || 'major'}::${activeLesson.subjectId || 'subject'}::${activeLesson.id}`;
+  }, [activeMajor?.id, activeLesson?.subjectId, activeLesson?.id]);
   const persistTutorMessages = async (messages: TutorMessage[]) => {
-    if (!activeLesson) return;
+    if (!tutorSessionKey) return;
 
     const payload: PersistedTutorMessage[] = messages.slice(-40).map((msg) => ({
       role: msg.role,
@@ -240,16 +246,16 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
     }));
 
     try {
-      await saveTutorSession(userId, activeLesson.id, payload);
+      await saveTutorSession(userId, tutorSessionKey, payload);
     } catch (error) {
       console.error('Tutor session save error:', error);
     }
   };
 
   useEffect(() => {
-    if (!activeLesson) return;
+    if (!activeLesson || !tutorSessionKey) return;
 
-    const persisted = (progress?.tutorSessions?.[activeLesson.id] || []) as PersistedTutorMessage[];
+    const persisted = (progress?.tutorSessions?.[tutorSessionKey] || []) as PersistedTutorMessage[];
     if (persisted.length > 0) {
       setTutorMessages(
         persisted.map((msg, index) => ({
@@ -270,7 +276,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
     }
 
     setTutorInput('');
-  }, [activeLesson?.id, activeLessonContext?.subjectTitle, progress?.tutorSessions]);
+  }, [tutorSessionKey, activeLesson?.id, activeLessonContext?.subjectTitle, progress?.tutorSessions]);
 
   useEffect(() => {
     const feed = tutorFeedRef.current;
