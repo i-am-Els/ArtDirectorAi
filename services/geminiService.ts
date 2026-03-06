@@ -5,6 +5,17 @@ import { ArtBrief, GenerationParams, PortfolioFeedback, ArtRole, ExperienceLevel
 // Use VITE_GEMINI_API_KEY for Gemini API
 const getApiKey = () => import.meta.env.VITE_GEMINI_API_KEY;
 
+interface TutorExplainParams {
+  question: string;
+  role: ArtRole;
+  majorTitle?: string;
+  courseTitle?: string;
+  subjectTitle?: string;
+  lessonTitle?: string;
+  lessonObjective?: string;
+  studyMode?: 'FOCUS' | 'MILEAGE';
+}
+
 export const generateBrief = async (params: GenerationParams): Promise<ArtBrief> => {
   const ai = new GoogleGenAI({ apiKey: getApiKey() });
   const systemPrompt = `You are an elite Art Director. Compose a professional studio brief for ${params.role}. Theme: ${params.theme}. Complexity: ${params.complexity}/10. Use exact terminology.`;
@@ -228,4 +239,51 @@ export const generateLessonOutlines = async (courseTitle: string, tier: string):
     }
   });
   return JSON.parse(response.text || "{}").lessons || [];
+};
+
+export const explainLessonConcept = async (params: TutorExplainParams): Promise<string> => {
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
+  const contextLines = [
+    `Role: ${params.role}`,
+    `Major: ${params.majorTitle || 'N/A'}`,
+    `Course: ${params.courseTitle || 'N/A'}`,
+    `Subject: ${params.subjectTitle || 'N/A'}`,
+    `Lesson: ${params.lessonTitle || 'N/A'}`,
+    `Lesson Objective: ${params.lessonObjective || 'N/A'}`,
+    `Study Mode: ${params.studyMode || 'N/A'}`
+  ].join('\n');
+
+  const systemPrompt = `You are an Academy Tutor embedded in a lesson workbench.
+You explain concepts clearly and briefly when the learner is confused.
+
+Hard rules:
+- Explain, clarify, and simplify only.
+- Do NOT generate curriculum, lessons, projects, assignments, or study plans.
+- Do NOT provide full solutions for graded tasks.
+- If question is outside lesson context, politely redirect to the current lesson context.
+- Keep response practical and concise.
+
+Response format:
+- 1 short explanation paragraph.
+- 2-4 bullets with practical checks/examples.
+- End with one short "Ask me next" follow-up question.`;
+
+  const response = await ai.models.generateContent({
+    model: 'gemini-3-flash-preview',
+    contents: `Lesson context:\n${contextLines}\n\nLearner question:\n${params.question}`,
+    config: {
+      systemInstruction: systemPrompt,
+      responseMimeType: "application/json",
+      responseSchema: {
+        type: Type.OBJECT,
+        properties: {
+          answer: { type: Type.STRING }
+        },
+        required: ["answer"]
+      }
+    }
+  });
+
+  const parsed = JSON.parse(response.text || "{}");
+  return parsed.answer || "I can help explain this. Ask your question again with a little more detail.";
 };

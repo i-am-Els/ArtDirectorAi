@@ -19,10 +19,12 @@ import {
   updateLessonProgress
 } from '../services/academyService';
 import { useAppDialog } from './ui/AppDialogProvider';
+import { explainLessonConcept } from '../services/geminiService';
 
 const MAX_ENROLLED_MAJORS = 3;
+type TutorMessage = { id: number; role: 'user' | 'assistant'; text: string };
 
-const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ userId }) => {
+const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ userId, currentRole }) => {
   const [progress, setProgress] = useState<UserProgress | null>(null);
   const [faculties, setFaculties] = useState<Faculty[]>([]);
   const [activeTab, setActiveTab] = useState<'STATUS' | 'ENROLLMENT' | 'CURRICULUM' | 'WORKBENCH'>('STATUS');
@@ -37,6 +39,9 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
   const [timerRunning, setTimerRunning] = useState(false);
   const [timeLeft, setTimeLeft] = useState(45 * 60);
   const [sessionMode, setSessionMode] = useState<StudyMode>(StudyMode.FOCUS);
+  const [tutorMessages, setTutorMessages] = useState<TutorMessage[]>([]);
+  const [tutorInput, setTutorInput] = useState('');
+  const [tutorBusy, setTutorBusy] = useState(false);
   const { showConfirm, showMessage } = useAppDialog();
 
   const completedLessonIds = useMemo(() => new Set(progress?.completedLessonIds || []), [progress?.completedLessonIds]);
@@ -208,6 +213,74 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
   const totalXP = (progress?.completedLessonIds.length || 0) * 250;
   const enrolledMajorIds = progress?.enrolledMajorIds || [];
   const emptySlotCount = Math.max(0, MAX_ENROLLED_MAJORS - enrolledMajorIds.length);
+  const activeLessonContext = useMemo(() => {
+    if (!activeMajor || !activeLesson) return null;
+    for (const course of activeMajor.courses) {
+      for (const subject of course.subjects || []) {
+        if ((subject.lessons || []).some((lesson) => lesson.id === activeLesson.id)) {
+          return { courseTitle: course.title, subjectTitle: subject.title };
+        }
+      }
+      if ((course.lessons || []).some((lesson) => lesson.id === activeLesson.id)) {
+        return { courseTitle: course.title, subjectTitle: 'General' };
+      }
+    }
+    return null;
+  }, [activeMajor, activeLesson?.id]);
+
+  useEffect(() => {
+    if (!activeLesson) return;
+    const subjectLabel = activeLessonContext?.subjectTitle || 'this subject';
+    setTutorMessages([
+      {
+        id: Date.now(),
+        role: 'assistant',
+        text: `I am your tutor for "${activeLesson.title}" (${subjectLabel}). Ask what is confusing and I will explain clearly, without replacing your actual lesson work.`
+      }
+    ]);
+    setTutorInput('');
+  }, [activeLesson?.id, activeLessonContext?.subjectTitle]);
+
+  const askTutor = async () => {
+    const question = tutorInput.trim();
+    if (!question || !activeLesson) return;
+
+    const userMessage: TutorMessage = { id: Date.now(), role: 'user', text: question };
+    setTutorMessages((prev) => [...prev, userMessage]);
+    setTutorInput('');
+    setTutorBusy(true);
+
+    try {
+      const answer = await explainLessonConcept({
+        question,
+        role: activeMajor?.role || currentRole,
+        majorTitle: activeMajor?.title,
+        courseTitle: activeLessonContext?.courseTitle,
+        subjectTitle: activeLessonContext?.subjectTitle,
+        lessonTitle: activeLesson.title,
+        lessonObjective: activeLesson.objective,
+        studyMode: sessionMode
+      });
+      setTutorMessages((prev) => [...prev, { id: Date.now() + 1, role: 'assistant', text: answer }]);
+    } catch (error) {
+      console.error('Tutor error:', error);
+      setTutorMessages((prev) => [
+        ...prev,
+        {
+          id: Date.now() + 1,
+          role: 'assistant',
+          text: 'I could not answer right now. Try again in a moment with a more specific question.'
+        }
+      ]);
+      showMessage({
+        title: 'Tutor Unavailable',
+        message: 'I could not reach the tutor service right now.',
+        tone: 'warning'
+      });
+    } finally {
+      setTutorBusy(false);
+    }
+  };
 
   return (
     <div className="space-y-8 pb-20">
@@ -486,7 +559,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
       )}
 
       {activeTab === 'WORKBENCH' && activeLesson && (
-        <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 glass p-10 rounded-[3rem] border-white/10 space-y-8">
             <div className="text-center space-y-4">
               <span className="text-[10px] font-black text-zinc-500 uppercase tracking-[0.4em] block">Active Session</span>
@@ -513,6 +586,59 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
               </button>
             </div>
           </div>
+
+          <div className="glass p-6 rounded-[2rem] border-white/10 bg-gradient-to-br from-cyan-500/10 to-transparent space-y-4">
+            <div className="space-y-1">
+              <h3 className="text-sm font-black uppercase tracking-widest text-cyan-200">AI Tutor</h3>
+              <p className="text-xs text-zinc-400">Concept explainer only. No course generation.</p>
+            </div>
+
+            <div className="h-[22rem] overflow-y-auto space-y-3 pr-1">
+              {tutorMessages.map((msg) => (
+                <div
+                  key={msg.id}
+                  className={`rounded-xl p-3 text-xs leading-relaxed border ${
+                    msg.role === 'assistant'
+                      ? 'bg-cyan-500/10 border-cyan-300/30 text-cyan-100'
+                      : 'bg-zinc-900/70 border-zinc-700 text-zinc-200'
+                  }`}
+                >
+                  {msg.text}
+                </div>
+              ))}
+              {!tutorMessages.length && (
+                <div className="rounded-xl p-3 text-xs border border-zinc-700 bg-zinc-900/60 text-zinc-400">
+                  Ask about terms, techniques, or what a lesson objective means.
+                </div>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <textarea
+                value={tutorInput}
+                onChange={(e) => setTutorInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    if (!tutorBusy) askTutor();
+                  }
+                }}
+                placeholder="Ask what confuses you in this lesson..."
+                className="w-full h-24 resize-none rounded-xl bg-zinc-900/70 border border-zinc-700 px-3 py-2 text-xs text-zinc-100 placeholder:text-zinc-500 focus:outline-none focus:border-cyan-400"
+              />
+              <button
+                onClick={askTutor}
+                disabled={tutorBusy || !tutorInput.trim()}
+                className={`w-full py-3 rounded-xl text-[10px] font-black uppercase tracking-widest ${
+                  tutorBusy || !tutorInput.trim()
+                    ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
+                    : 'bg-cyan-500/90 text-zinc-950 hover:bg-cyan-400'
+                }`}
+              >
+                {tutorBusy ? 'Thinking...' : 'Ask Tutor'}
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </div>
@@ -520,14 +646,3 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
 };
 
 export default GrowthStudio;
-
-
-
-
-
-
-
-
-
-
-
