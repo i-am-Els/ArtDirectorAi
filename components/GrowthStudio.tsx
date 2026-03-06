@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   AcademyMajor,
   ArtRole,
@@ -42,6 +42,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
   const [tutorMessages, setTutorMessages] = useState<TutorMessage[]>([]);
   const [tutorInput, setTutorInput] = useState('');
   const [tutorBusy, setTutorBusy] = useState(false);
+  const tutorFeedRef = useRef<HTMLDivElement | null>(null);
   const { showConfirm, showMessage } = useAppDialog();
 
   const completedLessonIds = useMemo(() => new Set(progress?.completedLessonIds || []), [progress?.completedLessonIds]);
@@ -240,6 +241,12 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
     ]);
     setTutorInput('');
   }, [activeLesson?.id, activeLessonContext?.subjectTitle]);
+
+  useEffect(() => {
+    const feed = tutorFeedRef.current;
+    if (!feed) return;
+    feed.scrollTop = feed.scrollHeight;
+  }, [tutorMessages, tutorBusy]);
 
   const askTutor = async () => {
     const question = tutorInput.trim();
@@ -593,7 +600,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
               <p className="text-xs text-zinc-400">Concept explainer only. No course generation.</p>
             </div>
 
-            <div className="h-[22rem] overflow-y-auto space-y-3 pr-1">
+            <div ref={tutorFeedRef} className="h-[22rem] overflow-y-auto space-y-3 pr-1">
               {tutorMessages.map((msg) => (
                 <div
                   key={msg.id}
@@ -606,6 +613,16 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                   {msg.text}
                 </div>
               ))}
+              {tutorBusy && (
+                <div className="rounded-xl p-3 border border-cyan-300/30 bg-cyan-500/10 text-cyan-100">
+                  <div className="text-[10px] font-black uppercase tracking-widest text-cyan-200/90 mb-2">Tutor is thinking</div>
+                  <div className="inline-flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-cyan-300 animate-bounce"></span>
+                    <span className="w-2 h-2 rounded-full bg-cyan-300 animate-bounce [animation-delay:120ms]"></span>
+                    <span className="w-2 h-2 rounded-full bg-cyan-300 animate-bounce [animation-delay:240ms]"></span>
+                  </div>
+                </div>
+              )}
               {!tutorMessages.length && (
                 <div className="rounded-xl p-3 text-xs border border-zinc-700 bg-zinc-900/60 text-zinc-400">
                   Ask about terms, techniques, or what a lesson objective means.
@@ -616,6 +633,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
             <div className="space-y-2">
               <textarea
                 value={tutorInput}
+                disabled={tutorBusy}
                 onChange={(e) => setTutorInput(e.target.value)}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' && !e.shiftKey) {
@@ -624,7 +642,11 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                   }
                 }}
                 placeholder="Ask what confuses you in this lesson..."
-                className="w-full h-24 resize-none rounded-xl bg-zinc-900/70 border border-zinc-700 px-3 py-2 text-xs text-zinc-100 placeholder:text-zinc-500 focus:outline-none focus:border-cyan-400"
+                className={`w-full h-24 resize-none rounded-xl px-3 py-2 text-xs placeholder:text-zinc-500 focus:outline-none ${
+                  tutorBusy
+                    ? 'bg-zinc-900/40 border border-zinc-800 text-zinc-500 cursor-not-allowed'
+                    : 'bg-zinc-900/70 border border-zinc-700 text-zinc-100 focus:border-cyan-400'
+                }`}
               />
               <button
                 onClick={askTutor}
@@ -635,7 +657,14 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                     : 'bg-cyan-500/90 text-zinc-950 hover:bg-cyan-400'
                 }`}
               >
-                {tutorBusy ? 'Thinking...' : 'Ask Tutor'}
+                {tutorBusy ? (
+                  <span className="inline-flex items-center gap-2">
+                    <span className="w-3.5 h-3.5 rounded-full border-2 border-zinc-500 border-t-cyan-300 animate-spin"></span>
+                    Thinking...
+                  </span>
+                ) : (
+                  'Ask Tutor'
+                )}
               </button>
             </div>
           </div>
@@ -646,3 +675,5 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
 };
 
 export default GrowthStudio;
+
+
