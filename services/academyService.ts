@@ -188,10 +188,8 @@ export const saveTutorSession = async (userId: string, lessonId: string, message
 };
 
 
-export const replaceTutorSessions = async (
-    userId: string,
-    tutorSessions: Record<string, TutorChatMessage[]>
-) => {
+
+export const clearTutorSessions = async (userId: string) => {
     const docRef = doc(db, COLLECTION_NAME, userId);
-    await setDoc(docRef, { tutorSessions }, { merge: true });
+    await setDoc(docRef, { tutorSessions: {} }, { merge: true });
 };

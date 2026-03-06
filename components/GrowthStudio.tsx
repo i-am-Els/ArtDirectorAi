@@ -16,8 +16,8 @@ import {
   getMajorCurriculum,
   getUserProgress,
   unenrollFromMajor,
+  clearTutorSessions,
   saveTutorSession,
-  replaceTutorSessions,
   updateLessonProgress
 } from '../services/academyService';
 import { useAppDialog } from './ui/AppDialogProvider';
@@ -46,7 +46,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
   const [tutorInput, setTutorInput] = useState('');
   const [tutorBusy, setTutorBusy] = useState(false);
   const tutorFeedRef = useRef<HTMLDivElement | null>(null);
-  const tutorMigrationDoneRef = useRef(false);
+  const tutorClearDoneRef = useRef(false);
   const { showConfirm, showMessage } = useAppDialog();
 
   const completedLessonIds = useMemo(() => new Set(progress?.completedLessonIds || []), [progress?.completedLessonIds]);
@@ -93,80 +93,35 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
   }, [userId]);
 
   useEffect(() => {
-    tutorMigrationDoneRef.current = false;
-  }, [userId]);
+    if (tutorClearDoneRef.current) return;
+    tutorClearDoneRef.current = true;
 
-  useEffect(() => {
-    const migrateLegacyTutorSessions = async () => {
-      if (!progress || tutorMigrationDoneRef.current) return;
-
-      const sessions = progress.tutorSessions || {};
-      const legacyKeys = Object.keys(sessions).filter((k) => !k.includes('::'));
-      if (!legacyKeys.length) {
-        tutorMigrationDoneRef.current = true;
-        return;
+    const run = async () => {
+      const clearKey = `tutorSessionsReset_v1_${userId}`;
+      try {
+        if (typeof window !== 'undefined' && window.localStorage.getItem(clearKey)) {
+          return;
+        }
+      } catch {
+        // Ignore localStorage errors and still attempt reset.
       }
 
-      tutorMigrationDoneRef.current = true;
-
-      const majorIds = Array.from(new Set([...(progress.enrolledMajorIds || []), ...(progress.archivedMajorIds || [])]));
-      if (!majorIds.length) return;
-
-      const majors = await Promise.all(majorIds.map((id) => getMajorCurriculum(id)));
-      const uniqueLessonKeyMap = new Map<string, string>();
-      const collisions = new Set<string>();
-
-      for (const major of majors) {
-        if (!major) continue;
-        for (const course of major.courses || []) {
-          for (const subject of course.subjects || []) {
-            for (const lesson of subject.lessons || []) {
-              const key = `${major.id}::${subject.id || lesson.subjectId || 'subject'}::${lesson.id}`;
-              if (uniqueLessonKeyMap.has(lesson.id)) {
-                collisions.add(lesson.id);
-              } else {
-                uniqueLessonKeyMap.set(lesson.id, key);
-              }
-            }
-          }
-          for (const lesson of course.lessons || []) {
-            const key = `${major.id}::${lesson.subjectId || 'subject'}::${lesson.id}`;
-            if (uniqueLessonKeyMap.has(lesson.id)) {
-              collisions.add(lesson.id);
-            } else {
-              uniqueLessonKeyMap.set(lesson.id, key);
-            }
-          }
-        }
-      }
-
-      const nextSessions: Record<string, PersistedTutorMessage[]> = {};
-      Object.entries(sessions).forEach(([key, value]) => {
-        if (key.includes('::')) {
-          nextSessions[key] = value as PersistedTutorMessage[];
-        }
-      });
-
-      for (const legacyKey of legacyKeys) {
-        if (collisions.has(legacyKey)) {
-          continue;
-        }
-        const mappedKey = uniqueLessonKeyMap.get(legacyKey);
-        if (!mappedKey) {
-          continue;
-        }
-        const incoming = (sessions[legacyKey] || []) as PersistedTutorMessage[];
-        const existing = nextSessions[mappedKey] || [];
-        const merged = [...existing, ...incoming].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
-        nextSessions[mappedKey] = merged.slice(-40);
-      }
-
-      await replaceTutorSessions(userId, nextSessions);
+      await clearTutorSessions(userId);
       await fetchProgress();
+
+      try {
+        if (typeof window !== 'undefined') {
+          window.localStorage.setItem(clearKey, '1');
+        }
+      } catch {
+        // Ignore localStorage errors.
+      }
     };
 
-    void migrateLegacyTutorSessions();
-  }, [progress?.tutorSessions, progress?.enrolledMajorIds?.join('|'), progress?.archivedMajorIds?.join('|')]);
+    void run();
+  }, [userId]);
+
+
 
   useEffect(() => {
     if (!progress?.enrolledMajorIds?.length) {
@@ -334,21 +289,14 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
     if (!activeLesson || !tutorSessionKey) return;
 
     const persisted = (progress?.tutorSessions?.[tutorSessionKey] || []) as PersistedTutorMessage[];
-    const legacyPersisted = (progress?.tutorSessions?.[activeLesson.id] || []) as PersistedTutorMessage[];
-    const source = persisted.length > 0 ? persisted : legacyPersisted;
-
-    if (source.length > 0) {
-      const mapped = source.map((msg, index) => ({
-        id: msg.createdAt || Date.now() + index,
-        role: msg.role,
-        text: msg.text
-      }));
-      setTutorMessages(mapped);
-
-      // One-time lazy migration from legacy lessonId key to composite key.
-      if (persisted.length === 0 && legacyPersisted.length > 0) {
-        void persistTutorMessages(mapped);
-      }
+    if (persisted.length > 0) {
+      setTutorMessages(
+        persisted.map((msg, index) => ({
+          id: msg.createdAt || Date.now() + index,
+          role: msg.role,
+          text: msg.text
+        }))
+      );
     } else {
       const subjectLabel = activeLessonContext?.subjectTitle || 'this subject';
       setTutorMessages([
