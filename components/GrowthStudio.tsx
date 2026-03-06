@@ -225,8 +225,8 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                 setViewingMajor(null);
               }}
               disabled={(t === 'CURRICULUM' && !activeMajor) || (t === 'WORKBENCH' && !activeLesson)}
-              className={`px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest ${
-                activeTab === t ? 'bg-zinc-100 text-zinc-950' : 'text-zinc-500 hover:text-white'
+              className={`px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest border transition-colors ${
+                activeTab === t ? 'bg-zinc-100 text-zinc-950 border-zinc-100' : 'text-zinc-300 border-zinc-800 bg-zinc-900/40 hover:bg-zinc-800/70 hover:border-zinc-600'
               }`}
             >
               {t}
@@ -266,7 +266,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                     ))}
                   </div>
                   <div className="flex gap-2">
-                    <button className="px-3 py-2 text-[10px] bg-blue-600 rounded-lg uppercase font-black" onClick={() => { loadMajorData(majorId); setActiveTab('CURRICULUM'); }}>Open</button>
+                    <button className="inline-flex items-center gap-2 px-4 py-2.5 text-[10px] rounded-xl uppercase font-black tracking-widest border border-cyan-300/40 bg-cyan-500/20 text-cyan-100 hover:bg-cyan-500/30 hover:border-cyan-200/60 transition-colors" onClick={() => { loadMajorData(majorId); setActiveTab('CURRICULUM'); }}>Open <span aria-hidden="true">{'->'}</span></button>
                   </div>
                 </div>
               );
@@ -308,7 +308,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
               <h3 className="text-2xl font-black uppercase italic">{faculty.name}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {faculty.majors.map((major) => (
-                  <button key={major.id} onClick={() => setViewingMajor({ faculty, major })} className="text-left p-5 rounded-2xl border border-white/10 hover:border-white/30">
+                  <button key={major.id} onClick={() => setViewingMajor({ faculty, major })} className="text-left p-5 rounded-2xl border border-white/10 bg-zinc-900/30 hover:border-cyan-300/50 hover:bg-cyan-500/10 transition-colors">
                     <div className="text-[9px] uppercase tracking-widest text-zinc-500">{major.role}</div>
                     <h4 className="text-lg font-black uppercase italic mt-2">{major.title}</h4>
                   </button>
@@ -321,7 +321,13 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
 
       {activeTab === 'ENROLLMENT' && viewingMajor && (
         <div className="max-w-5xl mx-auto space-y-8">
-          <button className="text-zinc-400 text-xs uppercase tracking-widest" onClick={() => setViewingMajor(null)}>Back to catalog</button>
+          <button
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-cyan-400/50 bg-cyan-500/15 text-cyan-200 text-[10px] font-black uppercase tracking-widest hover:bg-cyan-500/25 hover:border-cyan-300/70 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400/50"
+            onClick={() => setViewingMajor(null)}
+          >
+            <span aria-hidden="true">{'<-'}</span>
+            Back to Catalog
+          </button>
           <div className="glass p-10 rounded-[3rem] border-white/10 space-y-6">
             <h2 className="text-4xl font-black italic uppercase">{viewingMajor.major.title}</h2>
             <p className="text-zinc-400">{viewingMajor.major.description}</p>
@@ -514,6 +520,11 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
 };
 
 export default GrowthStudio;
+
+
+
+
+
 
 
 
