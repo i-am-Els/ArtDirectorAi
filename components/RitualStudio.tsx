@@ -151,34 +151,41 @@ const RitualStudio: React.FC<{ userId: string }> = ({ userId }) => {
 
       <div className="glass rounded-[2.5rem] border border-white/10 p-6 space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div>
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">Checklist Date</p>
-            <h3 className="text-xl font-black uppercase italic">{dateLabel(selectedDate, todayDate)}</h3>
-          </div>
-
-          <div className="flex items-center gap-2">
+          <div className="inline-flex items-center gap-2 rounded-2xl border border-zinc-700 bg-zinc-900/70 p-1">
             <button
               onClick={() => setSelectedDate((prev) => startOfDay(new Date(prev.getFullYear(), prev.getMonth(), prev.getDate() - 1)))}
               disabled={busy}
-              className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border ${busy ? 'border-zinc-800 text-zinc-600 cursor-not-allowed' : 'border-zinc-600 text-zinc-200 hover:border-zinc-300'}`}
+              className={`w-9 h-9 rounded-xl border text-sm font-black transition-colors ${busy ? 'border-zinc-800 text-zinc-600 cursor-not-allowed' : 'border-zinc-700 text-zinc-300 hover:border-zinc-500 hover:bg-zinc-800/80'}`}
+              aria-label="Previous day"
             >
-              {'<-'} Yesterday
+              {'<'}
             </button>
+
+            <div className="h-9 rounded-xl border border-zinc-700 bg-zinc-800/80 px-4 inline-flex items-center gap-2 text-xs font-bold text-zinc-100">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-3.5 h-3.5 text-zinc-400" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="16" rx="2" strokeWidth="1.8" />
+                <path d="M8 3v4M16 3v4M3 10h18" strokeWidth="1.8" strokeLinecap="round" />
+              </svg>
+              <span>{dateLabel(selectedDate, todayDate)}</span>
+            </div>
+
             <button
               onClick={() => setSelectedDate((prev) => startOfDay(new Date(prev.getFullYear(), prev.getMonth(), prev.getDate() + 1)))}
               disabled={busy || !canGoNext}
-              className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border ${busy || !canGoNext ? 'border-zinc-800 text-zinc-600 cursor-not-allowed' : 'border-zinc-600 text-zinc-200 hover:border-zinc-300'}`}
+              className={`w-9 h-9 rounded-xl border text-sm font-black transition-colors ${busy || !canGoNext ? 'border-zinc-800 text-zinc-600 cursor-not-allowed' : 'border-zinc-700 text-zinc-300 hover:border-zinc-500 hover:bg-zinc-800/80'}`}
+              aria-label="Next day"
             >
-              Tomorrow {'->'}
-            </button>
-            <button
-              onClick={() => setSelectedDate(todayDate)}
-              disabled={busy || selectedDate.getTime() === todayDate.getTime()}
-              className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border ${busy || selectedDate.getTime() === todayDate.getTime() ? 'border-zinc-800 text-zinc-600 cursor-not-allowed' : 'border-cyan-500/50 text-cyan-200 hover:bg-cyan-500/10'}`}
-            >
-              Jump to Today
+              {'>'}
             </button>
           </div>
+
+          <button
+            onClick={() => setSelectedDate(todayDate)}
+            disabled={busy || selectedDate.getTime() === todayDate.getTime()}
+            className={`px-3 py-2 rounded-xl text-[11px] font-bold ${busy || selectedDate.getTime() === todayDate.getTime() ? 'text-zinc-600 cursor-not-allowed' : 'text-blue-300 hover:text-blue-200'}`}
+          >
+            {selectedDate.getTime() === todayDate.getTime() ? 'Today' : 'Go to Today'}
+          </button>
         </div>
 
         <div className="flex items-center justify-between">
