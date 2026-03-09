@@ -1,6 +1,6 @@
 
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { ArtRole, ExperienceLevel, ArtBrief, AppView } from './types.ts';
+import { ArtRole, ExperienceLevel, ArtBrief, AppView, SavedBriefChallenge } from './types.ts';
 import RoleIcon from './components/RoleIcon.tsx';
 import BriefDisplay from './components/BriefDisplay.tsx';
 import PortfolioReview from './components/PortfolioReview.tsx';
@@ -9,7 +9,7 @@ import RitualStudio from './components/RitualStudio.tsx';
 import UserProfile from './components/UserProfile.tsx';
 import LoginPage from './components/LoginPage.tsx';
 import { generateBrief } from './services/geminiService.ts';
-import { saveBriefChallenge } from './services/academyService.ts';
+import { getUserProgress, saveBriefChallenge } from './services/academyService.ts';
 import { ACADEMY_FACULTIES } from './data/curriculum.ts';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from './services/firebase.ts';
@@ -50,6 +50,7 @@ const App: React.FC = () => {
   const [isExportingPDF, setIsExportingPDF] = useState(false);
   const [isSavingBrief, setIsSavingBrief] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [savedBriefs, setSavedBriefs] = useState<SavedBriefChallenge[]>([]);
 
   const [expandedFaculties, setExpandedFaculties] = useState<Set<string>>(new Set([ACADEMY_FACULTIES[0].id]));
 
@@ -59,8 +60,15 @@ const App: React.FC = () => {
     else next.add(id);
     setExpandedFaculties(next);
   };
+  const loadSavedBriefs = async (uid: string) => {
+    const progress = await getUserProgress(uid);
+    setSavedBriefs(progress.savedBriefs || []);
+  };
 
-
+  useEffect(() => {
+    if (!user?.uid) return;
+    loadSavedBriefs(user.uid);
+  }, [user?.uid]);
 
   const handleGenerate = async () => {
     setIsLoading(true);
@@ -96,9 +104,19 @@ const App: React.FC = () => {
         complexity,
         brief
       });
+      await loadSavedBriefs(user.uid);
     } finally {
       setIsSavingBrief(false);
     }
+  };
+
+  const openSavedBrief = (saved: SavedBriefChallenge) => {
+    setBrief(saved.brief);
+    setSelectedRole(saved.role);
+    setExperience(saved.experience);
+    setTheme(saved.theme);
+    setComplexity(saved.complexity);
+    setCurrentView('GENERATOR');
   };
 
   if (authLoading) {
@@ -239,6 +257,29 @@ const App: React.FC = () => {
                       </div>
                     </div>
                   </div>
+                                )}
+
+                {!!savedBriefs.length && (
+                  <div className="mt-8 rounded-3xl border border-white/10 bg-zinc-900/40 p-6 space-y-3 no-print">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-sm font-black uppercase tracking-widest text-zinc-300">Saved Briefs Library</h3>
+                      <span className="text-[10px] uppercase tracking-widest text-zinc-500">{savedBriefs.length} Saved</span>
+                    </div>
+                    <div className="space-y-2 max-h-64 overflow-y-auto pr-1">
+                      {savedBriefs.map((saved) => (
+                        <div key={saved.id} className="rounded-xl border border-zinc-700 bg-zinc-950/60 p-3 flex items-center justify-between gap-3">
+                          <div>
+                            <div className="text-sm font-bold text-zinc-100">{saved.brief.title}</div>
+                            <div className="text-[10px] uppercase tracking-widest text-zinc-500 mt-1">{saved.role}</div>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <button onClick={() => openSavedBrief(saved)} className="px-3 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest border border-cyan-500/40 text-cyan-200 hover:bg-cyan-500/10">Open</button>
+                            <button onClick={() => setCurrentView('REVIEW')} className="px-3 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest border border-zinc-600 text-zinc-200 hover:border-zinc-400">Review</button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 )}
               </>
             )}
@@ -258,6 +299,13 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+
+
+
+
+
+
 
 
 

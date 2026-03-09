@@ -30,6 +30,7 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
 
   const savedBriefs = useMemo(() => progress?.savedBriefs || [], [progress?.savedBriefs]);
   const reviewThreads = useMemo(() => progress?.reviewThreads || [], [progress?.reviewThreads]);
+  const allThreads = useMemo(() => [...reviewThreads].sort((a, b) => b.updatedAt - a.updatedAt), [reviewThreads]);
 
   useEffect(() => {
     if (!savedBriefs.length) {
@@ -79,6 +80,18 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
       setFeedback(latestEntry.feedback);
     }
   }, [selectedThread?.id]);
+
+  const openThreadFromArchive = (thread: ReviewThread) => {
+    if (thread.source === 'BRIEF' && thread.linkedBriefId) {
+      setMode('BRIEF');
+      setSelectedBriefId(thread.linkedBriefId);
+    } else {
+      setMode('ADHOC');
+    }
+    setSelectedThreadId(thread.id);
+    const last = thread.entries[thread.entries.length - 1];
+    if (last?.feedback) setFeedback(last.feedback);
+  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -203,24 +216,66 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
             )}
           </button>
 
-          <div className="rounded-xl border border-white/10 bg-zinc-900/40 p-4 space-y-2">
-            <div className="text-[10px] uppercase tracking-widest text-zinc-500">Review Thread</div>
-            {!filteredThreads.length ? (
-              <div className="text-xs text-zinc-500">No thread yet. Run your first review to create one.</div>
-            ) : (
-              <div className="space-y-2 max-h-44 overflow-y-auto pr-1">
-                {filteredThreads.map((thread) => (
-                  <button
-                    key={thread.id}
-                    onClick={() => setSelectedThreadId(thread.id)}
-                    className={`w-full text-left rounded-lg border px-3 py-2 ${selectedThreadId === thread.id ? 'border-cyan-400/50 bg-cyan-500/10 text-cyan-100' : 'border-zinc-700 bg-zinc-950/60 text-zinc-300'}`}
-                  >
-                    <div className="text-[10px] uppercase tracking-widest">{thread.source === 'BRIEF' ? (thread.linkedBriefTitle || 'Saved Brief') : 'Unknown Piece'}</div>
-                    <div className="text-xs mt-1">{thread.entries.length} review{thread.entries.length === 1 ? '' : 's'}</div>
-                  </button>
-                ))}
-              </div>
-            )}
+          <div className="rounded-xl border border-white/10 bg-zinc-900/40 p-4 space-y-4">
+            <div>
+              <div className="text-[10px] uppercase tracking-widest text-zinc-500">Review Thread (Current Scope)</div>
+              {!filteredThreads.length ? (
+                <div className="text-xs text-zinc-500 mt-2">No thread yet in this scope.</div>
+              ) : (
+                <div className="space-y-2 max-h-36 overflow-y-auto pr-1 mt-2">
+                  {filteredThreads.map((thread) => (
+                    <button
+                      key={thread.id}
+                      onClick={() => setSelectedThreadId(thread.id)}
+                      className={`w-full text-left rounded-lg border px-3 py-2 ${selectedThreadId === thread.id ? 'border-cyan-400/50 bg-cyan-500/10 text-cyan-100' : 'border-zinc-700 bg-zinc-950/60 text-zinc-300'}`}
+                    >
+                      <div className="text-[10px] uppercase tracking-widest">{thread.source === 'BRIEF' ? (thread.linkedBriefTitle || 'Saved Brief') : 'Unknown Piece'}</div>
+                      <div className="text-xs mt-1">{thread.entries.length} review{thread.entries.length === 1 ? '' : 's'}</div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div>
+              <div className="text-[10px] uppercase tracking-widest text-zinc-500">Thread Archive (All)</div>
+              {!allThreads.length ? (
+                <div className="text-xs text-zinc-500 mt-2">No review history yet.</div>
+              ) : (
+                <div className="space-y-2 max-h-36 overflow-y-auto pr-1 mt-2">
+                  {allThreads.map((thread) => (
+                    <button
+                      key={thread.id}
+                      onClick={() => openThreadFromArchive(thread)}
+                      className="w-full text-left rounded-lg border border-zinc-700 bg-zinc-950/60 px-3 py-2 text-zinc-300 hover:border-zinc-500"
+                    >
+                      <div className="text-[10px] uppercase tracking-widest">{thread.source === 'BRIEF' ? (thread.linkedBriefTitle || 'Saved Brief') : 'Unknown Piece'}</div>
+                      <div className="text-xs mt-1">{thread.entries.length} review{thread.entries.length === 1 ? '' : 's'}</div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div>
+              <div className="text-[10px] uppercase tracking-widest text-zinc-500">Entries In Selected Thread</div>
+              {!selectedThread?.entries?.length ? (
+                <div className="text-xs text-zinc-500 mt-2">No entries yet.</div>
+              ) : (
+                <div className="space-y-2 max-h-32 overflow-y-auto pr-1 mt-2">
+                  {[...selectedThread.entries].reverse().map((entry) => (
+                    <button
+                      key={entry.id}
+                      onClick={() => setFeedback(entry.feedback)}
+                      className="w-full text-left rounded-lg border border-zinc-700 bg-zinc-950/60 px-3 py-2 text-zinc-300 hover:border-zinc-500"
+                    >
+                      <div className="text-[10px] uppercase tracking-widest">Score {entry.feedback.overallScore}/10</div>
+                      <div className="text-xs mt-1 text-zinc-500">{new Date(entry.createdAt).toLocaleString()}</div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
@@ -289,3 +344,4 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
 };
 
 export default PortfolioReview;
+
