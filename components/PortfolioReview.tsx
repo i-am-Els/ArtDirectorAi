@@ -272,14 +272,14 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
         </div>
 
         {reviewSidebarOpen && (
-          <aside className={`no-print absolute top-0 right-0 w-[22rem] max-w-[92vw] rounded-2xl border border-white/10 bg-zinc-950/95 p-4 space-y-4 shadow-2xl ${isAnalyzing ? 'opacity-40 pointer-events-none blur-[1px]' : ''}`}>
+          <aside className={`no-print absolute top-0 right-0 w-[30rem] max-w-[96vw] rounded-2xl border border-white/10 bg-zinc-950/95 p-5 space-y-5 shadow-2xl ${isAnalyzing ? 'opacity-40 pointer-events-none blur-[1px]' : ''}`}>
             {mode === 'BRIEF' && (
               <div>
-                <div className="text-[10px] uppercase tracking-widest text-zinc-500 mb-2">Saved Brief Selection</div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 mb-2">Saved Brief Selection</div>
                 <select
                   value={selectedBriefId}
                   onChange={(e) => setSelectedBriefId(e.target.value)}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-xs text-zinc-200"
+                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2.5 text-xs text-zinc-200"
                 >
                   {!savedBriefs.length && <option value="">No saved briefs yet</option>}
                   {savedBriefs.map((saved) => (
@@ -290,11 +290,11 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
             )}
 
             <div>
-              <div className="text-[10px] uppercase tracking-widest text-zinc-500">Review Thread (Current Scope)</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Review Thread (Current Scope)</div>
               {!filteredThreads.length ? (
                 <div className="text-xs text-zinc-500 mt-2">No thread yet in this scope.</div>
               ) : (
-                <div className="space-y-2 max-h-32 overflow-y-auto pr-1 mt-2">
+                <div className="space-y-2 max-h-52 overflow-y-auto pr-1 mt-2">
                   {filteredThreads.map((thread) => (
                     <button
                       key={thread.id}
@@ -310,16 +310,16 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
             </div>
 
             <div>
-              <div className="text-[10px] uppercase tracking-widest text-zinc-500">Thread Archive (All)</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Thread Archive (All)</div>
               {!allThreads.length ? (
                 <div className="text-xs text-zinc-500 mt-2">No review history yet.</div>
               ) : (
-                <div className="space-y-2 max-h-32 overflow-y-auto pr-1 mt-2">
+                <div className="space-y-2 max-h-52 overflow-y-auto pr-1 mt-2">
                   {allThreads.map((thread) => (
                     <button
                       key={thread.id}
                       onClick={() => openThreadFromArchive(thread)}
-                      className="w-full text-left rounded-lg border border-zinc-700 bg-zinc-950/60 px-3 py-2 text-zinc-300 hover:border-zinc-500"
+                      className="w-full text-left rounded-lg border border-zinc-700 bg-zinc-950/60 px-3 py-2.5 text-zinc-300 hover:border-zinc-500"
                     >
                       <div className="text-[10px] uppercase tracking-widest">{thread.source === 'BRIEF' ? (thread.linkedBriefTitle || 'Saved Brief') : 'Unknown Piece'}</div>
                       <div className="text-xs mt-1">{thread.entries.length} review{thread.entries.length === 1 ? '' : 's'}</div>
@@ -330,16 +330,16 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
             </div>
 
             <div>
-              <div className="text-[10px] uppercase tracking-widest text-zinc-500">Entries In Selected Thread</div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Entries In Selected Thread</div>
               {!selectedThread?.entries?.length ? (
                 <div className="text-xs text-zinc-500 mt-2">No entries yet.</div>
               ) : (
-                <div className="space-y-2 max-h-28 overflow-y-auto pr-1 mt-2">
+                <div className="space-y-2 max-h-44 overflow-y-auto pr-1 mt-2">
                   {[...selectedThread.entries].reverse().map((entry) => (
                     <button
                       key={entry.id}
                       onClick={() => setFeedback(entry.feedback)}
-                      className="w-full text-left rounded-lg border border-zinc-700 bg-zinc-950/60 px-3 py-2 text-zinc-300 hover:border-zinc-500"
+                      className="w-full text-left rounded-lg border border-zinc-700 bg-zinc-950/60 px-3 py-2.5 text-zinc-300 hover:border-zinc-500"
                     >
                       <div className="text-[10px] uppercase tracking-widest">Score {entry.feedback.overallScore}/10</div>
                       <div className="text-xs mt-1 text-zinc-500">{new Date(entry.createdAt).toLocaleString()}</div>
@@ -356,3 +356,6 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
 };
 
 export default PortfolioReview;
+
+
+
