@@ -16,7 +16,8 @@ import {
     StudyMode,
     UserLessonProgress,
     UserProgress,
-    TutorChatMessage
+    TutorChatMessage,
+    UserRitual
 } from '../types';
 
 const COLLECTION_NAME = 'student_progress';
@@ -30,8 +31,12 @@ const DEFAULT_PROGRESS: UserProgress = {
     completedLessonIds: [],
     lessonProgress: {},
     activeDrills: {},
-    tutorSessions: {}
+    tutorSessions: {},
+    rituals: [],
+    ritualCompletions: {}
 };
+
+const makeRitualId = () => `ritual_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 
 export const getUserProgress = async (userId: string): Promise<UserProgress> => {
     try {
@@ -187,3 +192,67 @@ export const saveTutorSession = async (userId: string, lessonId: string, message
     await setDoc(docRef, { tutorSessions: nextSessions }, { merge: true });
 };
 
+export const addRitual = async (userId: string, title: string): Promise<UserRitual | null> => {
+    const trimmedTitle = title.trim();
+    if (!trimmedTitle) return null;
+
+    const docRef = doc(db, COLLECTION_NAME, userId);
+    const progress = await getUserProgress(userId);
+
+    const ritual: UserRitual = {
+        id: makeRitualId(),
+        title: trimmedTitle,
+        createdAt: Date.now()
+    };
+
+    const nextRituals = [...(progress.rituals || []), ritual];
+    await setDoc(docRef, { rituals: nextRituals }, { merge: true });
+
+    return ritual;
+};
+
+export const setRitualCompletionForDay = async (
+    userId: string,
+    ritualId: string,
+    dayKey: string,
+    completed: boolean
+) => {
+    const docRef = doc(db, COLLECTION_NAME, userId);
+    const progress = await getUserProgress(userId);
+
+    const ritualCompletions = { ...(progress.ritualCompletions || {}) };
+    const daySet = new Set(ritualCompletions[dayKey] || []);
+
+    if (completed) {
+        daySet.add(ritualId);
+    } else {
+        daySet.delete(ritualId);
+    }
+
+    if (daySet.size === 0) {
+        delete ritualCompletions[dayKey];
+    } else {
+        ritualCompletions[dayKey] = Array.from(daySet);
+    }
+
+    await setDoc(docRef, { ritualCompletions }, { merge: true });
+};
+
+export const deleteRitual = async (userId: string, ritualId: string) => {
+    const docRef = doc(db, COLLECTION_NAME, userId);
+    const progress = await getUserProgress(userId);
+
+    const rituals = (progress.rituals || []).filter((ritual) => ritual.id !== ritualId);
+    const ritualCompletions = { ...(progress.ritualCompletions || {}) };
+
+    Object.keys(ritualCompletions).forEach((dayKey) => {
+        const remaining = (ritualCompletions[dayKey] || []).filter((id) => id !== ritualId);
+        if (remaining.length === 0) {
+            delete ritualCompletions[dayKey];
+        } else {
+            ritualCompletions[dayKey] = remaining;
+        }
+    });
+
+    await setDoc(docRef, { rituals, ritualCompletions }, { merge: true });
+};

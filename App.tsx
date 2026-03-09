@@ -5,6 +5,7 @@ import RoleIcon from './components/RoleIcon.tsx';
 import BriefDisplay from './components/BriefDisplay.tsx';
 import PortfolioReview from './components/PortfolioReview.tsx';
 import GrowthStudio from './components/GrowthStudio.tsx';
+import RitualStudio from './components/RitualStudio.tsx';
 import UserProfile from './components/UserProfile.tsx';
 import LoginPage from './components/LoginPage.tsx';
 import { generateBrief } from './services/geminiService.ts';
@@ -111,6 +112,7 @@ const App: React.FC = () => {
         <div className="flex items-center space-x-2 bg-zinc-950/80 p-1.5 rounded-2xl border border-white/10 shadow-inner">
           {[
             { id: 'GROWTH', label: 'Academy' },
+            { id: 'RITUALS', label: 'Rituals' },
             { id: 'GENERATOR', label: 'Brief' },
             { id: 'REVIEW', label: 'Review' }
           ].map(v => (
@@ -125,7 +127,7 @@ const App: React.FC = () => {
 
       <main className="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto overflow-visible">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 overflow-visible">
-          {currentView !== 'GROWTH' && (
+          {currentView !== 'GROWTH' && currentView !== 'RITUALS' && (
             <aside className="lg:col-span-4 space-y-6 no-print overflow-visible">
               <div className="glass rounded-[2rem] p-6 border border-white/10 space-y-8 sticky top-32 max-h-[calc(100vh-10rem)] overflow-y-auto custom-scrollbar overflow-x-visible">
                 <section>
@@ -186,7 +188,7 @@ const App: React.FC = () => {
             </aside>
           )}
 
-          <section className={`${currentView === 'GROWTH' ? 'lg:col-span-12' : 'lg:col-span-8'} min-h-[600px] flex flex-col overflow-visible`}>
+          <section className={`${currentView === 'GROWTH' || currentView === 'RITUALS' ? 'lg:col-span-12' : 'lg:col-span-8'} min-h-[600px] flex flex-col overflow-visible`}>
             {error && <div className="mb-8 p-5 bg-red-500/10 border border-red-500/30 rounded-2xl flex items-center justify-between no-print text-red-400 text-xs font-bold uppercase tracking-widest"><span>{error}</span></div>}
             {currentView === 'GENERATOR' && (
               <>
@@ -223,6 +225,7 @@ const App: React.FC = () => {
             )}
             {currentView === 'REVIEW' && <div className="glass rounded-[3.5rem] p-10 border border-white/10 min-h-[650px] no-print shadow-2xl"><PortfolioReview role={selectedRole} experience={experience} /></div>}
             {currentView === 'GROWTH' && <GrowthStudio currentRole={selectedRole} userId={user.uid} />}
+            {currentView === 'RITUALS' && <RitualStudio userId={user.uid} />}
           </section>
         </div>
       </main>
@@ -236,6 +239,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
-
-

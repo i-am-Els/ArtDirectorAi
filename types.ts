@@ -153,6 +153,12 @@ export interface TutorChatMessage {
   createdAt: number;
 }
 
+export interface UserRitual {
+  id: string;
+  title: string;
+  createdAt: number;
+}
+
 export interface UserProgress {
   userId: string;
   enrolledMajorIds: string[]; // Multi-major enrollment support
@@ -167,6 +173,8 @@ export interface UserProgress {
     lastLog: number;
   }>;
   tutorSessions: Record<string, TutorChatMessage[]>;
+  rituals: UserRitual[];
+  ritualCompletions: Record<string, string[]>;
 }
 
 // --- LEGACY / OTHER ---
@@ -217,7 +225,7 @@ export interface Submission {
   durationSeconds: number;
 }
 
-export type AppView = 'GENERATOR' | 'REVIEW' | 'GROWTH';
+export type AppView = 'GENERATOR' | 'REVIEW' | 'GROWTH' | 'RITUALS';
 
 export interface GrowthModule {
   week: number;
@@ -274,3 +282,4 @@ export interface DrillBlueprint {
   constraints: string[];
   durationMinutes: number;
 }
+
