@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { analyzePortfolio } from '../services/geminiService.ts';
-import { appendReviewThreadEntry, getUserProgress } from '../services/academyService.ts';
+import { appendReviewThreadEntry, deleteReviewThread, getUserProgress } from '../services/academyService.ts';
 import { ArtRole, ExperienceLevel, PortfolioFeedback, ReviewThread, SavedBriefChallenge, UserProgress } from '../types.ts';
+import { useAppDialog } from './ui/AppDialogProvider';
 
 interface PortfolioReviewProps {
   role: ArtRole;
@@ -19,6 +20,7 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
   const [selectedThreadId, setSelectedThreadId] = useState<string>('');
   const [reviewSidebarOpen, setReviewSidebarOpen] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const { showConfirm } = useAppDialog();
 
   const fetchProgress = async () => {
     const p = await getUserProgress(userId);
@@ -103,6 +105,21 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
       };
       reader.readAsDataURL(file);
     }
+  };
+
+  const handleDeleteSelectedThread = async () => {
+    if (!selectedThread) return;
+    const ok = await showConfirm({
+      title: 'Delete Review Thread',
+      message: 'This removes the selected review thread permanently. Continue?',
+      tone: 'danger'
+    });
+    if (!ok) return;
+
+    await deleteReviewThread(userId, selectedThread.id);
+    await fetchProgress();
+    setSelectedThreadId('');
+    setFeedback(null);
   };
 
   const handleAnalyze = async () => {
@@ -229,9 +246,19 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
               <div className="space-y-6 animate-in slide-in-from-right-4 duration-500">
                 <div className="flex items-center justify-between">
                   <h3 className="text-xl font-bold text-white">Director's Verdict</h3>
-                  <div className="flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full">
-                    <span className="text-xs font-bold text-blue-400 uppercase">Score</span>
-                    <span className="text-lg font-black text-blue-400 mono">{feedback.overallScore}/10</span>
+                  <div className="flex items-center gap-3">
+                    {!!selectedThread && (
+                      <button
+                        onClick={handleDeleteSelectedThread}
+                        className="text-[10px] uppercase tracking-widest font-black text-red-300 hover:text-red-200"
+                      >
+                        Delete Thread
+                      </button>
+                    )}
+                    <div className="flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full">
+                      <span className="text-xs font-bold text-blue-400 uppercase">Score</span>
+                      <span className="text-lg font-black text-blue-400 mono">{feedback.overallScore}/10</span>
+                    </div>
                   </div>
                 </div>
 
@@ -356,6 +383,8 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
 };
 
 export default PortfolioReview;
+
+
 
 
 

@@ -368,3 +368,21 @@ export const appendReviewThreadEntry = async (
 
 
 
+
+export const deleteSavedBriefChallenge = async (userId: string, briefId: string) => {
+    const docRef = doc(db, COLLECTION_NAME, userId);
+    const progress = await getUserProgress(userId);
+
+    const savedBriefs = (progress.savedBriefs || []).filter((item) => item.id !== briefId);
+    const reviewThreads = (progress.reviewThreads || []).filter((thread) => thread.linkedBriefId !== briefId);
+
+    await setDoc(docRef, { savedBriefs, reviewThreads }, { merge: true });
+};
+
+export const deleteReviewThread = async (userId: string, threadId: string) => {
+    const docRef = doc(db, COLLECTION_NAME, userId);
+    const progress = await getUserProgress(userId);
+
+    const reviewThreads = (progress.reviewThreads || []).filter((thread) => thread.id !== threadId);
+    await setDoc(docRef, { reviewThreads }, { merge: true });
+};

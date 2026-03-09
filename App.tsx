@@ -1,4 +1,4 @@
-
+﻿
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { ArtRole, ExperienceLevel, ArtBrief, AppView, SavedBriefChallenge } from './types.ts';
 import RoleIcon from './components/RoleIcon.tsx';
@@ -9,12 +9,36 @@ import RitualStudio from './components/RitualStudio.tsx';
 import UserProfile from './components/UserProfile.tsx';
 import LoginPage from './components/LoginPage.tsx';
 import { generateBrief } from './services/geminiService.ts';
-import { getUserProgress, saveBriefChallenge } from './services/academyService.ts';
+import { deleteSavedBriefChallenge, getUserProgress, saveBriefChallenge } from './services/academyService.ts';
 import { ACADEMY_FACULTIES } from './data/curriculum.ts';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from './services/firebase.ts';
-import { AppDialogProvider } from './components/ui/AppDialogProvider.tsx';
+import { AppDialogProvider, useAppDialog } from './components/ui/AppDialogProvider.tsx';
 
+
+const SavedBriefDeleteAction: React.FC<{ onDelete: () => Promise<void>; disabled?: boolean }> = ({ onDelete, disabled }) => {
+  const { showConfirm } = useAppDialog();
+
+  const handleClick = async () => {
+    const ok = await showConfirm({
+      title: 'Delete Saved Brief',
+      message: 'This removes the saved brief and linked review threads. Continue?',
+      tone: 'danger'
+    });
+    if (!ok) return;
+    await onDelete();
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      disabled={disabled}
+      className={`text-[10px] uppercase tracking-widest font-black ${disabled ? 'text-zinc-600 cursor-not-allowed' : 'text-red-300 hover:text-red-200'}`}
+    >
+      Delete Saved Brief
+    </button>
+  );
+};
 const RoleTooltip: React.FC<{ text: string; children: React.ReactNode }> = ({ text, children }) => (
   <div className="group relative w-full">
     {children}
@@ -120,17 +144,25 @@ const App: React.FC = () => {
     setCurrentView('GENERATOR');
     setBriefSidebarOpen(false);
   };
-  const isCurrentBriefSaved = useMemo(() => {
-    if (!brief) return false;
-    return savedBriefs.some((item) =>
+  const currentSavedBrief = useMemo(() => {
+    if (!brief) return null;
+    return savedBriefs.find((item) =>
       item.role === selectedRole &&
       item.experience === experience &&
       item.theme === theme &&
       item.complexity === complexity &&
       item.brief.title === brief.title &&
       item.brief.summary === brief.summary
-    );
+    ) || null;
   }, [savedBriefs, brief, selectedRole, experience, theme, complexity]);
+  const isCurrentBriefSaved = !!currentSavedBrief;
+
+  const handleDeleteCurrentSavedBrief = async () => {
+    if (!user || !currentSavedBrief) return;
+    await deleteSavedBriefChallenge(user.uid, currentSavedBrief.id);
+    await loadSavedBriefs(user.uid);
+    setBrief(null);
+  };
 
 
   if (authLoading) {
@@ -298,6 +330,7 @@ const App: React.FC = () => {
                       </div>
                       <div className="flex flex-wrap justify-center gap-4">
                         <button onClick={handleSaveChallenge} disabled={isSavingBrief || isCurrentBriefSaved || !brief} className="px-8 py-3.5 bg-emerald-600 text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-emerald-500 shadow-2xl active:scale-95 transition-all disabled:opacity-60">{isCurrentBriefSaved ? 'Already Saved' : isSavingBrief ? 'Saving...' : 'Save as Challenge'}</button>
+                        {currentSavedBrief && <SavedBriefDeleteAction onDelete={handleDeleteCurrentSavedBrief} disabled={isSavingBrief} />}
                         <button onClick={handleSavePDF} disabled={isExportingPDF} className="px-8 py-3.5 bg-zinc-100 text-zinc-950 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white shadow-2xl active:scale-95 transition-all">{isExportingPDF ? 'Exporting...' : 'Export Brief PDF'}</button>
                       </div>
                     </div>
@@ -314,7 +347,7 @@ const App: React.FC = () => {
       </main>
 
       <footer className="py-12 border-t border-white/5 text-center no-print opacity-50">
-        <p className="text-zinc-700 text-[9px] tracking-[0.8em] font-black uppercase">ArtDirector AI • Zero to Hero Pipeline • Industrial Training Hub</p>
+        <p className="text-zinc-700 text-[9px] tracking-[0.8em] font-black uppercase">ArtDirector AI â€¢ Zero to Hero Pipeline â€¢ Industrial Training Hub</p>
       </footer>
     </div>
     </AppDialogProvider>
@@ -322,6 +355,12 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+
+
+
+
+
 
 
 
