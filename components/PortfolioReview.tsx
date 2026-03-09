@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+﻿import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { analyzePortfolio } from '../services/geminiService.ts';
 import { appendReviewThreadEntry, deleteReviewThread, getUserProgress } from '../services/academyService.ts';
 import { ArtRole, ExperienceLevel, PortfolioFeedback, ReviewThread, SavedBriefChallenge, UserProgress } from '../types.ts';
@@ -250,9 +250,13 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
                     {!!selectedThread && (
                       <button
                         onClick={handleDeleteSelectedThread}
-                        className="text-[10px] uppercase tracking-widest font-black text-red-300 hover:text-red-200"
+                        aria-label="Delete review thread"
+                        title="Delete review thread"
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-zinc-700 text-zinc-400 transition-colors hover:text-red-300 hover:border-red-400/50"
                       >
-                        Delete Thread
+                        <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 6h18M8 6V4h8v2m-9 0 1 14h8l1-14M10 10v7m4-7v7" />
+                        </svg>
                       </button>
                     )}
                     <div className="flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full">
@@ -383,6 +387,7 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
 };
 
 export default PortfolioReview;
+
 
 
 
