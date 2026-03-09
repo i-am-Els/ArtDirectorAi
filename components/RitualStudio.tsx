@@ -10,9 +10,22 @@ const toDayKey = (date: Date) => {
   return `${y}-${m}-${d}`;
 };
 
+const startOfDay = (date: Date) => {
+  const next = new Date(date);
+  next.setHours(0, 0, 0, 0);
+  return next;
+};
+
+const dateLabel = (selected: Date, today: Date) => {
+  const deltaDays = Math.round((selected.getTime() - today.getTime()) / 86400000);
+  if (deltaDays === 0) return 'Today';
+  if (deltaDays === -1) return 'Yesterday';
+  return selected.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+};
+
 const getRitualStreak = (ritualId: string, ritualCompletions: Record<string, string[]>) => {
   let streak = 0;
-  const cursor = new Date();
+  const cursor = startOfDay(new Date());
 
   while (true) {
     const key = toDayKey(cursor);
@@ -29,6 +42,8 @@ const RitualStudio: React.FC<{ userId: string }> = ({ userId }) => {
   const [progress, setProgress] = useState<UserProgress | null>(null);
   const [title, setTitle] = useState('');
   const [busy, setBusy] = useState(false);
+  const [manageMode, setManageMode] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(startOfDay(new Date()));
   const { showConfirm, showMessage } = useAppDialog();
 
   const fetchProgress = async () => {
@@ -40,11 +55,17 @@ const RitualStudio: React.FC<{ userId: string }> = ({ userId }) => {
     fetchProgress();
   }, [userId]);
 
-  const todayKey = useMemo(() => toDayKey(new Date()), []);
-  const todayDoneSet = useMemo(() => new Set(progress?.ritualCompletions?.[todayKey] || []), [progress?.ritualCompletions, todayKey]);
+  const todayDate = useMemo(() => startOfDay(new Date()), []);
+  const selectedDayKey = useMemo(() => toDayKey(selectedDate), [selectedDate]);
+  const selectedDoneSet = useMemo(
+    () => new Set(progress?.ritualCompletions?.[selectedDayKey] || []),
+    [progress?.ritualCompletions, selectedDayKey]
+  );
+
   const rituals = progress?.rituals || [];
-  const doneCount = rituals.filter((r) => todayDoneSet.has(r.id)).length;
+  const doneCount = rituals.filter((r) => selectedDoneSet.has(r.id)).length;
   const completionPct = rituals.length ? Math.round((doneCount / rituals.length) * 100) : 0;
+  const canGoNext = selectedDate.getTime() < todayDate.getTime();
 
   const handleAdd = async () => {
     const nextTitle = title.trim();
@@ -63,11 +84,16 @@ const RitualStudio: React.FC<{ userId: string }> = ({ userId }) => {
     }
   };
 
-  const handleToggleToday = async (ritual: UserRitual) => {
-    const checked = !todayDoneSet.has(ritual.id);
+  const handleToggleForSelectedDay = async (ritual: UserRitual) => {
+    if (selectedDate.getTime() > todayDate.getTime()) {
+      showMessage({ title: 'Future Day Locked', message: 'You cannot mark rituals for future dates.', tone: 'warning' });
+      return;
+    }
+
+    const checked = !selectedDoneSet.has(ritual.id);
     setBusy(true);
     try {
-      await setRitualCompletionForDay(userId, ritual.id, todayKey, checked);
+      await setRitualCompletionForDay(userId, ritual.id, selectedDayKey, checked);
       await fetchProgress();
     } finally {
       setBusy(false);
@@ -124,15 +150,49 @@ const RitualStudio: React.FC<{ userId: string }> = ({ userId }) => {
       </div>
 
       <div className="glass rounded-[2.5rem] border border-white/10 p-6 space-y-4">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div>
-            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">Today</p>
-            <h3 className="text-xl font-black uppercase italic">Checklist</h3>
+            <p className="text-[10px] font-black uppercase tracking-[0.3em] text-zinc-500">Checklist Date</p>
+            <h3 className="text-xl font-black uppercase italic">{dateLabel(selectedDate, todayDate)}</h3>
           </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setSelectedDate((prev) => startOfDay(new Date(prev.getFullYear(), prev.getMonth(), prev.getDate() - 1)))}
+              disabled={busy}
+              className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border ${busy ? 'border-zinc-800 text-zinc-600 cursor-not-allowed' : 'border-zinc-600 text-zinc-200 hover:border-zinc-300'}`}
+            >
+              {'<-'} Yesterday
+            </button>
+            <button
+              onClick={() => setSelectedDate((prev) => startOfDay(new Date(prev.getFullYear(), prev.getMonth(), prev.getDate() + 1)))}
+              disabled={busy || !canGoNext}
+              className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border ${busy || !canGoNext ? 'border-zinc-800 text-zinc-600 cursor-not-allowed' : 'border-zinc-600 text-zinc-200 hover:border-zinc-300'}`}
+            >
+              Tomorrow {'->'}
+            </button>
+            <button
+              onClick={() => setSelectedDate(todayDate)}
+              disabled={busy || selectedDate.getTime() === todayDate.getTime()}
+              className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border ${busy || selectedDate.getTime() === todayDate.getTime() ? 'border-zinc-800 text-zinc-600 cursor-not-allowed' : 'border-cyan-500/50 text-cyan-200 hover:bg-cyan-500/10'}`}
+            >
+              Jump to Today
+            </button>
+          </div>
+        </div>
+
+        <div className="flex items-center justify-between">
           <div className="text-right">
             <p className="text-[10px] uppercase tracking-widest text-zinc-500">Completed</p>
             <p className="text-sm font-black text-emerald-300">{doneCount}/{rituals.length} ({completionPct}%)</p>
           </div>
+          <button
+            onClick={() => setManageMode((prev) => !prev)}
+            disabled={busy || rituals.length === 0}
+            className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border ${busy || rituals.length === 0 ? 'border-zinc-800 text-zinc-600 cursor-not-allowed' : manageMode ? 'border-red-500/50 text-red-300 bg-red-500/10' : 'border-zinc-600 text-zinc-200 hover:border-zinc-300'}`}
+          >
+            {manageMode ? 'Done Managing' : 'Manage Rituals'}
+          </button>
         </div>
 
         <div className="h-2 rounded-full bg-zinc-900 border border-white/10 overflow-hidden">
@@ -146,32 +206,36 @@ const RitualStudio: React.FC<{ userId: string }> = ({ userId }) => {
         ) : (
           <div className="space-y-3">
             {rituals.map((ritual) => {
-              const doneToday = todayDoneSet.has(ritual.id);
+              const doneForSelectedDay = selectedDoneSet.has(ritual.id);
               const streak = getRitualStreak(ritual.id, progress?.ritualCompletions || {});
 
               return (
                 <div key={ritual.id} className="rounded-2xl border border-white/10 bg-zinc-900/40 px-4 py-3 flex items-center justify-between gap-3">
                   <button
-                    onClick={() => handleToggleToday(ritual)}
+                    onClick={() => handleToggleForSelectedDay(ritual)}
                     disabled={busy}
                     className={`flex items-center gap-3 text-left flex-1 ${busy ? 'opacity-70 cursor-not-allowed' : ''}`}
                   >
-                    <span className={`w-5 h-5 rounded-md border flex items-center justify-center ${doneToday ? 'bg-emerald-500 border-emerald-400 text-zinc-950' : 'border-zinc-600 bg-zinc-950 text-transparent'}`}>
-                      {doneToday ? 'x' : ''}
+                    <span className={`w-5 h-5 rounded-md border flex items-center justify-center text-xs font-black ${doneForSelectedDay ? 'bg-emerald-500 border-emerald-400 text-zinc-950' : 'border-zinc-600 bg-zinc-950 text-transparent'}`}>
+                      {doneForSelectedDay ? 'x' : ''}
                     </span>
                     <span>
-                      <div className={`text-sm font-bold ${doneToday ? 'text-emerald-100' : 'text-zinc-200'}`}>{ritual.title}</div>
-                      <div className="text-[10px] uppercase tracking-widest text-zinc-500">Streak: {streak} day{streak === 1 ? '' : 's'}</div>
+                      <div className={`text-sm font-bold ${doneForSelectedDay ? 'text-emerald-100' : 'text-zinc-200'}`}>{ritual.title}</div>
+                      <div className="text-[10px] uppercase tracking-widest text-zinc-500">
+                        Streak: {streak} day{streak === 1 ? '' : 's'}
+                      </div>
                     </span>
                   </button>
 
-                  <button
-                    onClick={() => handleDelete(ritual)}
-                    disabled={busy}
-                    className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border ${busy ? 'border-zinc-800 text-zinc-600 cursor-not-allowed' : 'border-red-500/40 text-red-300 hover:bg-red-500/10'}`}
-                  >
-                    Remove
-                  </button>
+                  {manageMode && (
+                    <button
+                      onClick={() => handleDelete(ritual)}
+                      disabled={busy}
+                      className={`px-3 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border ${busy ? 'border-zinc-800 text-zinc-600 cursor-not-allowed' : 'border-red-500/50 text-red-300 hover:bg-red-500/10'}`}
+                    >
+                      Remove
+                    </button>
+                  )}
                 </div>
               );
             })}
@@ -183,5 +247,3 @@ const RitualStudio: React.FC<{ userId: string }> = ({ userId }) => {
 };
 
 export default RitualStudio;
-
-
