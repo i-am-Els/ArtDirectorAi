@@ -52,7 +52,6 @@ const App: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [savedBriefs, setSavedBriefs] = useState<SavedBriefChallenge[]>([]);
   const [briefSidebarOpen, setBriefSidebarOpen] = useState(false);
-  const [activeSavedBriefId, setActiveSavedBriefId] = useState<string | null>(null);
 
   const [expandedFaculties, setExpandedFaculties] = useState<Set<string>>(new Set([ACADEMY_FACULTIES[0].id]));
 
@@ -76,7 +75,6 @@ const App: React.FC = () => {
     setIsLoading(true);
     setError(null);
     setBrief(null);
-    setActiveSavedBriefId(null);
     try {
       const result = await generateBrief({ role: selectedRole, experience, theme, complexity });
       setBrief(result);
@@ -97,7 +95,7 @@ const App: React.FC = () => {
   };
 
   const handleSaveChallenge = async () => {
-    if (!brief || !user || activeSavedBriefId) return;
+    if (!brief || !user) return;
     setIsSavingBrief(true);
     try {
       await saveBriefChallenge(user.uid, {
@@ -115,7 +113,6 @@ const App: React.FC = () => {
 
   const openSavedBrief = (saved: SavedBriefChallenge) => {
     setBrief(saved.brief);
-    setActiveSavedBriefId(saved.id);
     setSelectedRole(saved.role);
     setExperience(saved.experience);
     setTheme(saved.theme);
@@ -123,6 +120,18 @@ const App: React.FC = () => {
     setCurrentView('GENERATOR');
     setBriefSidebarOpen(false);
   };
+  const isCurrentBriefSaved = useMemo(() => {
+    if (!brief) return false;
+    return savedBriefs.some((item) =>
+      item.role === selectedRole &&
+      item.experience === experience &&
+      item.theme === theme &&
+      item.complexity === complexity &&
+      item.brief.title === brief.title &&
+      item.brief.summary === brief.summary
+    );
+  }, [savedBriefs, brief, selectedRole, experience, theme, complexity]);
+
 
   if (authLoading) {
     return (
@@ -288,7 +297,7 @@ const App: React.FC = () => {
                         <div className="px-4 py-2 bg-zinc-900 rounded-xl border border-white/10 text-[9px] font-black text-zinc-400 uppercase tracking-widest">{selectedRole}</div>
                       </div>
                       <div className="flex flex-wrap justify-center gap-4">
-                        <button onClick={handleSaveChallenge} disabled={isSavingBrief || !!activeSavedBriefId} className="px-8 py-3.5 bg-emerald-600 text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-emerald-500 shadow-2xl active:scale-95 transition-all disabled:opacity-60">{activeSavedBriefId ? 'Already Saved' : isSavingBrief ? 'Saving...' : 'Save as Challenge'}</button>
+                        <button onClick={handleSaveChallenge} disabled={isSavingBrief || isCurrentBriefSaved || !brief} className="px-8 py-3.5 bg-emerald-600 text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-emerald-500 shadow-2xl active:scale-95 transition-all disabled:opacity-60">{isCurrentBriefSaved ? 'Already Saved' : isSavingBrief ? 'Saving...' : 'Save as Challenge'}</button>
                         <button onClick={handleSavePDF} disabled={isExportingPDF} className="px-8 py-3.5 bg-zinc-100 text-zinc-950 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white shadow-2xl active:scale-95 transition-all">{isExportingPDF ? 'Exporting...' : 'Export Brief PDF'}</button>
                       </div>
                     </div>
@@ -313,6 +322,9 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+
+
 
 
 
