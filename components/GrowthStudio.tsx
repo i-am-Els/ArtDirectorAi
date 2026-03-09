@@ -88,7 +88,8 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
   useEffect(() => {
     fetchProgress();
     fetchFaculties();
-  }, [userId]);
+  }, [userId]);
+
   useEffect(() => {
     if (!progress?.enrolledMajorIds?.length) {
       setActiveMajor(null);
@@ -409,9 +410,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                 if (!major) return null;
                 return <div key={majorId} className="text-sm text-zinc-300">{major.title}</div>;
               })}
-            </div>
           )}
-        </div>
       )}
 
       {activeTab === 'ENROLLMENT' && !viewingMajor && (
@@ -600,7 +599,6 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                 </div>
               );
             })}
-          </div>
         </div>
       )}
 
@@ -660,7 +658,6 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                     <span className="w-2 h-2 rounded-full bg-cyan-300 animate-bounce [animation-delay:120ms]"></span>
                     <span className="w-2 h-2 rounded-full bg-cyan-300 animate-bounce [animation-delay:240ms]"></span>
                   </div>
-                </div>
               )}
               {!tutorMessages.length && (
                 <div className="rounded-xl p-3 text-xs border border-zinc-700 bg-zinc-900/60 text-zinc-400">
@@ -706,6 +703,24 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                 )}
               </button>
             </div>
+          </div>
+          <div className="lg:col-span-3 glass p-6 rounded-[2rem] border-white/10 bg-gradient-to-br from-indigo-500/10 via-transparent to-blue-500/5 space-y-3">
+            <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Suggested Keywords</h3>
+            {(activeLesson.searchQueries || []).length > 0 ? (
+              <div className="flex flex-wrap gap-2">
+                {(activeLesson.searchQueries || []).map((keyword) => (
+                  <span
+                    key={keyword}
+                    className="px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest border border-indigo-400/30 bg-indigo-500/15 text-indigo-100"
+                  >
+                    {keyword}
+                  </span>
+                ))}
+              </div>
+            ) : (
+              <p className="text-xs text-zinc-500">No suggested keywords for this lesson yet.</p>
+            )}
+          </div>
           </div>
         </div>
       )}
