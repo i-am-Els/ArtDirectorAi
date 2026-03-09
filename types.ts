@@ -159,6 +159,35 @@ export interface UserRitual {
   createdAt: number;
 }
 
+export interface SavedBriefChallenge {
+  id: string;
+  role: ArtRole;
+  experience: ExperienceLevel;
+  theme: string;
+  complexity: number;
+  brief: ArtBrief;
+  createdAt: number;
+  updatedAt: number;
+}
+
+export interface ReviewThreadEntry {
+  id: string;
+  createdAt: number;
+  feedback: PortfolioFeedback;
+}
+
+export interface ReviewThread {
+  id: string;
+  source: 'ADHOC' | 'BRIEF';
+  role: ArtRole;
+  experience: ExperienceLevel;
+  linkedBriefId?: string;
+  linkedBriefTitle?: string;
+  createdAt: number;
+  updatedAt: number;
+  entries: ReviewThreadEntry[];
+}
+
 export interface UserProgress {
   userId: string;
   enrolledMajorIds: string[]; // Multi-major enrollment support
@@ -175,6 +204,8 @@ export interface UserProgress {
   tutorSessions: Record<string, TutorChatMessage[]>;
   rituals: UserRitual[];
   ritualCompletions: Record<string, string[]>;
+  savedBriefs: SavedBriefChallenge[];
+  reviewThreads: ReviewThread[];
 }
 
 // --- LEGACY / OTHER ---
@@ -282,4 +313,5 @@ export interface DrillBlueprint {
   constraints: string[];
   durationMinutes: number;
 }
+
 

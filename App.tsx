@@ -9,6 +9,7 @@ import RitualStudio from './components/RitualStudio.tsx';
 import UserProfile from './components/UserProfile.tsx';
 import LoginPage from './components/LoginPage.tsx';
 import { generateBrief } from './services/geminiService.ts';
+import { saveBriefChallenge } from './services/academyService.ts';
 import { ACADEMY_FACULTIES } from './data/curriculum.ts';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { auth } from './services/firebase.ts';
@@ -47,6 +48,7 @@ const App: React.FC = () => {
   const [brief, setBrief] = useState<ArtBrief | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isExportingPDF, setIsExportingPDF] = useState(false);
+  const [isSavingBrief, setIsSavingBrief] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const [expandedFaculties, setExpandedFaculties] = useState<Set<string>>(new Set([ACADEMY_FACULTIES[0].id]));
@@ -81,6 +83,22 @@ const App: React.FC = () => {
       window.print();
       setIsExportingPDF(false);
     }, 500);
+  };
+
+  const handleSaveChallenge = async () => {
+    if (!brief || !user) return;
+    setIsSavingBrief(true);
+    try {
+      await saveBriefChallenge(user.uid, {
+        role: selectedRole,
+        experience,
+        theme,
+        complexity,
+        brief
+      });
+    } finally {
+      setIsSavingBrief(false);
+    }
   };
 
   if (authLoading) {
@@ -216,6 +234,7 @@ const App: React.FC = () => {
                         <div className="px-4 py-2 bg-zinc-900 rounded-xl border border-white/10 text-[9px] font-black text-zinc-400 uppercase tracking-widest">{selectedRole}</div>
                       </div>
                       <div className="flex flex-wrap justify-center gap-4">
+                        <button onClick={handleSaveChallenge} disabled={isSavingBrief} className="px-8 py-3.5 bg-emerald-600 text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-emerald-500 shadow-2xl active:scale-95 transition-all disabled:opacity-60">{isSavingBrief ? 'Saving...' : 'Save as Challenge'}</button>
                         <button onClick={handleSavePDF} disabled={isExportingPDF} className="px-8 py-3.5 bg-zinc-100 text-zinc-950 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white shadow-2xl active:scale-95 transition-all">{isExportingPDF ? 'Exporting...' : 'Export Brief PDF'}</button>
                       </div>
                     </div>
@@ -223,7 +242,7 @@ const App: React.FC = () => {
                 )}
               </>
             )}
-            {currentView === 'REVIEW' && <div className="glass rounded-[3.5rem] p-10 border border-white/10 min-h-[650px] no-print shadow-2xl"><PortfolioReview role={selectedRole} experience={experience} /></div>}
+            {currentView === 'REVIEW' && <div className="glass rounded-[3.5rem] p-10 border border-white/10 min-h-[650px] no-print shadow-2xl"><PortfolioReview role={selectedRole} experience={experience} userId={user.uid} /></div>}
             {currentView === 'GROWTH' && <GrowthStudio currentRole={selectedRole} userId={user.uid} />}
             {currentView === 'RITUALS' && <RitualStudio userId={user.uid} />}
           </section>
@@ -239,3 +258,9 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+
+
+
+
+

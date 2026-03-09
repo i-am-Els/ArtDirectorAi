@@ -1,17 +1,84 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { analyzePortfolio } from '../services/geminiService.ts';
-import { ArtRole, ExperienceLevel, PortfolioFeedback } from '../types.ts';
+import { appendReviewThreadEntry, getUserProgress } from '../services/academyService.ts';
+import { ArtRole, ExperienceLevel, PortfolioFeedback, ReviewThread, SavedBriefChallenge, UserProgress } from '../types.ts';
 
 interface PortfolioReviewProps {
   role: ArtRole;
   experience: ExperienceLevel;
+  userId: string;
 }
 
-const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience }) => {
+const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, userId }) => {
   const [image, setImage] = useState<string | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [feedback, setFeedback] = useState<PortfolioFeedback | null>(null);
+  const [progress, setProgress] = useState<UserProgress | null>(null);
+  const [mode, setMode] = useState<'ADHOC' | 'BRIEF'>('ADHOC');
+  const [selectedBriefId, setSelectedBriefId] = useState<string>('');
+  const [selectedThreadId, setSelectedThreadId] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const fetchProgress = async () => {
+    const p = await getUserProgress(userId);
+    setProgress(p);
+  };
+
+  useEffect(() => {
+    fetchProgress();
+  }, [userId]);
+
+  const savedBriefs = useMemo(() => progress?.savedBriefs || [], [progress?.savedBriefs]);
+  const reviewThreads = useMemo(() => progress?.reviewThreads || [], [progress?.reviewThreads]);
+
+  useEffect(() => {
+    if (!savedBriefs.length) {
+      setSelectedBriefId('');
+      return;
+    }
+    if (!selectedBriefId || !savedBriefs.some((b) => b.id === selectedBriefId)) {
+      setSelectedBriefId(savedBriefs[0].id);
+    }
+  }, [savedBriefs, selectedBriefId]);
+
+  const activeBrief: SavedBriefChallenge | null = useMemo(
+    () => savedBriefs.find((b) => b.id === selectedBriefId) || null,
+    [savedBriefs, selectedBriefId]
+  );
+
+  const effectiveRole = mode === 'BRIEF' && activeBrief ? activeBrief.role : role;
+  const effectiveExperience = mode === 'BRIEF' && activeBrief ? activeBrief.experience : experience;
+
+  const filteredThreads: ReviewThread[] = useMemo(() => {
+    if (mode === 'BRIEF') {
+      if (!activeBrief) return [];
+      return reviewThreads.filter((thread) => thread.source === 'BRIEF' && thread.linkedBriefId === activeBrief.id);
+    }
+    return reviewThreads.filter((thread) => thread.source === 'ADHOC');
+  }, [mode, reviewThreads, activeBrief]);
+
+  useEffect(() => {
+    if (!filteredThreads.length) {
+      setSelectedThreadId('');
+      return;
+    }
+
+    if (!selectedThreadId || !filteredThreads.some((thread) => thread.id === selectedThreadId)) {
+      setSelectedThreadId(filteredThreads[0].id);
+    }
+  }, [filteredThreads, selectedThreadId]);
+
+  const selectedThread = useMemo(
+    () => filteredThreads.find((thread) => thread.id === selectedThreadId) || null,
+    [filteredThreads, selectedThreadId]
+  );
+
+  useEffect(() => {
+    const latestEntry = selectedThread?.entries?.[selectedThread.entries.length - 1];
+    if (latestEntry?.feedback) {
+      setFeedback(latestEntry.feedback);
+    }
+  }, [selectedThread?.id]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -19,7 +86,6 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience }) =
       const reader = new FileReader();
       reader.onloadend = () => {
         setImage(reader.result as string);
-        setFeedback(null);
       };
       reader.readAsDataURL(file);
     }
@@ -27,10 +93,25 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience }) =
 
   const handleAnalyze = async () => {
     if (!image) return;
+    if (mode === 'BRIEF' && !activeBrief) return;
+
     setIsAnalyzing(true);
     try {
-      const result = await analyzePortfolio(image, role, experience);
+      const result = await analyzePortfolio(image, effectiveRole, effectiveExperience);
       setFeedback(result);
+
+      const nextThread = await appendReviewThreadEntry(userId, {
+        source: mode,
+        role: effectiveRole,
+        experience: effectiveExperience,
+        feedback: result,
+        linkedBriefId: activeBrief?.id,
+        linkedBriefTitle: activeBrief?.brief?.title,
+        threadId: mode === 'ADHOC' ? selectedThreadId || undefined : undefined
+      });
+
+      await fetchProgress();
+      setSelectedThreadId(nextThread.id);
     } catch (err) {
       console.error(err);
     } finally {
@@ -40,14 +121,52 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience }) =
 
   return (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="border-b border-white/10 pb-6">
-        <h2 className="text-3xl font-bold gradient-text mb-2">Portfolio Review</h2>
-        <p className="text-zinc-400">Upload your work for industry-standard feedback as a <span className="text-blue-400 font-semibold">{experience} {role}</span>.</p>
+      <div className="border-b border-white/10 pb-6 space-y-4">
+        <div>
+          <h2 className="text-3xl font-bold gradient-text mb-2">Portfolio Review</h2>
+          <p className="text-zinc-400">Review unknown work or connect review to one of your saved challenge briefs.</p>
+        </div>
+
+        <div className="flex flex-wrap gap-3 items-center">
+          <button
+            onClick={() => setMode('ADHOC')}
+            className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border ${mode === 'ADHOC' ? 'bg-zinc-100 text-zinc-900 border-zinc-100' : 'border-zinc-700 text-zinc-300 hover:border-zinc-500'}`}
+          >
+            Unknown Piece
+          </button>
+          <button
+            onClick={() => setMode('BRIEF')}
+            className={`px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border ${mode === 'BRIEF' ? 'bg-zinc-100 text-zinc-900 border-zinc-100' : 'border-zinc-700 text-zinc-300 hover:border-zinc-500'}`}
+          >
+            Saved Brief
+          </button>
+
+          {mode === 'BRIEF' && (
+            <select
+              value={selectedBriefId}
+              onChange={(e) => setSelectedBriefId(e.target.value)}
+              className="bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-xs text-zinc-200 min-w-[220px]"
+            >
+              {!savedBriefs.length && <option value="">No saved briefs yet</option>}
+              {savedBriefs.map((saved) => (
+                <option key={saved.id} value={saved.id}>{saved.brief.title}</option>
+              ))}
+            </select>
+          )}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div className="space-y-6">
-          <div 
+          {mode === 'BRIEF' && activeBrief && (
+            <div className="rounded-xl border border-blue-500/20 bg-blue-500/5 p-4">
+              <div className="text-[10px] uppercase tracking-widest text-blue-300">Active Challenge Brief</div>
+              <div className="mt-1 text-sm font-bold text-zinc-100">{activeBrief.brief.title}</div>
+              <div className="text-xs text-zinc-400 mt-1">{activeBrief.brief.summary}</div>
+            </div>
+          )}
+
+          <div
             onClick={() => fileInputRef.current?.click()}
             className={`aspect-square rounded-2xl border-2 border-dashed flex flex-col items-center justify-center cursor-pointer transition-all overflow-hidden bg-zinc-900/30 ${
               image ? 'border-blue-500/50' : 'border-white/10 hover:border-white/20'
@@ -62,8 +181,8 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience }) =
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
                   </svg>
                 </div>
-                <p className="text-zinc-400 font-medium">Click or drag to upload artwork</p>
-                <p className="text-zinc-600 text-xs mt-2">JPG, PNG or TIFF (Max 5MB)</p>
+                <p className="text-zinc-400 font-medium">Click to upload artwork</p>
+                <p className="text-zinc-600 text-xs mt-2">Image is used for review only and is not stored.</p>
               </div>
             )}
             <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" accept="image/*" />
@@ -71,29 +190,44 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience }) =
 
           <button
             onClick={handleAnalyze}
-            disabled={!image || isAnalyzing}
+            disabled={!image || isAnalyzing || (mode === 'BRIEF' && !activeBrief)}
             className="w-full py-4 bg-zinc-100 text-zinc-900 font-bold rounded-xl hover:bg-white disabled:opacity-50 transition-all flex items-center justify-center space-x-2"
           >
             {isAnalyzing ? (
               <>
                 <div className="w-5 h-5 border-2 border-zinc-900/30 border-t-zinc-900 rounded-full animate-spin"></div>
-                <span>Reviewing Technicals...</span>
+                <span>Reviewing...</span>
               </>
             ) : (
-              <>
-                <span>Request Review</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
-                </svg>
-              </>
+              <span>Request Review</span>
             )}
           </button>
+
+          <div className="rounded-xl border border-white/10 bg-zinc-900/40 p-4 space-y-2">
+            <div className="text-[10px] uppercase tracking-widest text-zinc-500">Review Thread</div>
+            {!filteredThreads.length ? (
+              <div className="text-xs text-zinc-500">No thread yet. Run your first review to create one.</div>
+            ) : (
+              <div className="space-y-2 max-h-44 overflow-y-auto pr-1">
+                {filteredThreads.map((thread) => (
+                  <button
+                    key={thread.id}
+                    onClick={() => setSelectedThreadId(thread.id)}
+                    className={`w-full text-left rounded-lg border px-3 py-2 ${selectedThreadId === thread.id ? 'border-cyan-400/50 bg-cyan-500/10 text-cyan-100' : 'border-zinc-700 bg-zinc-950/60 text-zinc-300'}`}
+                  >
+                    <div className="text-[10px] uppercase tracking-widest">{thread.source === 'BRIEF' ? (thread.linkedBriefTitle || 'Saved Brief') : 'Unknown Piece'}</div>
+                    <div className="text-xs mt-1">{thread.entries.length} review{thread.entries.length === 1 ? '' : 's'}</div>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="space-y-6">
           {!feedback && !isAnalyzing && (
             <div className="h-full flex flex-col items-center justify-center text-center p-10 glass rounded-2xl border-white/5 opacity-50">
-              <p className="text-zinc-500 italic">"Good feedback is the shortcut to mastery."</p>
+              <p className="text-zinc-500 italic">Run a review and the result will be saved in a thread.</p>
             </div>
           )}
 
@@ -120,7 +254,7 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience }) =
                 <ul className="grid grid-cols-1 gap-2">
                   {feedback.strengths.map((s, i) => (
                     <li key={i} className="bg-green-500/5 border border-green-500/10 p-3 rounded-lg text-sm text-zinc-300 flex items-start">
-                      <span className="text-green-500 mr-2">✓</span> {s}
+                      <span className="text-green-500 mr-2">*</span> {s}
                     </li>
                   ))}
                 </ul>

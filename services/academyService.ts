@@ -17,7 +17,13 @@ import {
     UserLessonProgress,
     UserProgress,
     TutorChatMessage,
-    UserRitual
+    UserRitual,
+    ArtBrief,
+    ArtRole,
+    ExperienceLevel,
+    PortfolioFeedback,
+    SavedBriefChallenge,
+    ReviewThread
 } from '../types';
 
 const COLLECTION_NAME = 'student_progress';
@@ -33,10 +39,15 @@ const DEFAULT_PROGRESS: UserProgress = {
     activeDrills: {},
     tutorSessions: {},
     rituals: [],
-    ritualCompletions: {}
+    ritualCompletions: {},
+    savedBriefs: [],
+    reviewThreads: []
 };
 
 const makeRitualId = () => `ritual_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+const makeBriefId = () => `brief_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+const makeThreadId = () => `thread_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+const makeThreadEntryId = () => `entry_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 
 export const getUserProgress = async (userId: string): Promise<UserProgress> => {
     try {
@@ -256,3 +267,98 @@ export const deleteRitual = async (userId: string, ritualId: string) => {
 
     await setDoc(docRef, { rituals, ritualCompletions }, { merge: true });
 };
+
+
+export const saveBriefChallenge = async (
+    userId: string,
+    params: {
+        role: ArtRole,
+        experience: ExperienceLevel,
+        theme: string,
+        complexity: number,
+        brief: ArtBrief
+    }
+): Promise<SavedBriefChallenge> => {
+    const docRef = doc(db, COLLECTION_NAME, userId);
+    const progress = await getUserProgress(userId);
+    const now = Date.now();
+
+    const nextItem: SavedBriefChallenge = {
+        id: makeBriefId(),
+        role: params.role,
+        experience: params.experience,
+        theme: params.theme,
+        complexity: params.complexity,
+        brief: params.brief,
+        createdAt: now,
+        updatedAt: now
+    };
+
+    const nextSaved = [nextItem, ...(progress.savedBriefs || [])];
+    await setDoc(docRef, { savedBriefs: nextSaved }, { merge: true });
+
+    return nextItem;
+};
+
+export const appendReviewThreadEntry = async (
+    userId: string,
+    params: {
+        source: 'ADHOC' | 'BRIEF';
+        role: ArtRole;
+        experience: ExperienceLevel;
+        feedback: PortfolioFeedback;
+        linkedBriefId?: string;
+        linkedBriefTitle?: string;
+        threadId?: string;
+    }
+): Promise<ReviewThread> => {
+    const docRef = doc(db, COLLECTION_NAME, userId);
+    const progress = await getUserProgress(userId);
+    const now = Date.now();
+    const threads = [...(progress.reviewThreads || [])];
+
+    let thread: ReviewThread | undefined;
+
+    if (params.threadId) {
+        thread = threads.find((t) => t.id === params.threadId);
+    }
+
+    if (!thread && params.source === 'BRIEF' && params.linkedBriefId) {
+        thread = threads.find((t) => t.source === 'BRIEF' && t.linkedBriefId === params.linkedBriefId);
+    }
+
+    if (!thread) {
+        thread = {
+            id: makeThreadId(),
+            source: params.source,
+            role: params.role,
+            experience: params.experience,
+            linkedBriefId: params.linkedBriefId,
+            linkedBriefTitle: params.linkedBriefTitle,
+            createdAt: now,
+            updatedAt: now,
+            entries: []
+        };
+        threads.unshift(thread);
+    }
+
+    thread.entries = [
+        ...(thread.entries || []),
+        {
+            id: makeThreadEntryId(),
+            createdAt: now,
+            feedback: params.feedback
+        }
+    ];
+    thread.updatedAt = now;
+
+    const sorted = threads.sort((a, b) => b.updatedAt - a.updatedAt);
+    await setDoc(docRef, { reviewThreads: sorted }, { merge: true });
+
+    return thread;
+};
+
+
+
+
+
