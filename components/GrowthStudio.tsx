@@ -25,6 +25,16 @@ import { explainLessonConcept } from '../services/geminiService';
 const MAX_ENROLLED_MAJORS = 3;
 type TutorMessage = { id: number; role: 'user' | 'assistant'; text: string };
 type PersistedTutorMessage = { role: 'user' | 'assistant'; text: string; createdAt: number };
+type NextTarget = { lesson: Lesson; courseId: string; subjectId: string };
+type CelebrationState = {
+  level: 'lesson' | 'subject' | 'course' | 'major';
+  title: string;
+  message: string;
+  milestones: string[];
+  nextTarget: NextTarget | null;
+  majorCompleted: boolean;
+  ctaLabel: string;
+};
 
 const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ userId, currentRole }) => {
   const [progress, setProgress] = useState<UserProgress | null>(null);
@@ -44,6 +54,8 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
   const [tutorMessages, setTutorMessages] = useState<TutorMessage[]>([]);
   const [tutorInput, setTutorInput] = useState('');
   const [tutorBusy, setTutorBusy] = useState(false);
+  const [celebration, setCelebration] = useState<CelebrationState | null>(null);
+  const [confettiBurst, setConfettiBurst] = useState<{ id: number; pieces: number; durationMs: number } | null>(null);
   const tutorFeedRef = useRef<HTMLDivElement | null>(null);
   const { showConfirm, showMessage } = useAppDialog();
 
@@ -203,16 +215,175 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
 
   const markLessonComplete = async () => {
     if (!activeLesson) return;
+
+    const majorSnapshot = activeMajor;
+    const wasAlreadyCompleted = completedLessonIds.has(activeLesson.id);
+
     await updateLessonProgress(userId, activeLesson.id, LessonStatus.COMPLETED, sessionMode);
-    await fetchProgress();
+    const refreshed = await getUserProgress(userId);
+    setProgress(refreshed);
     setTimerRunning(false);
     setActiveTab('CURRICULUM');
+
+    if (wasAlreadyCompleted || !majorSnapshot) {
+      return;
+    }
+
+    const completionSet = new Set(refreshed.completedLessonIds || []);
+    const lessonPath = findLessonPath(majorSnapshot, activeLesson.id);
+
+    if (!lessonPath) {
+      showMessage({
+        title: 'Lesson Completed',
+        message: `"${activeLesson.title}" was marked complete.`,
+        tone: 'success'
+      });
+      return;
+    }
+
+    const subjectDone = isSubjectCompleteBySet(lessonPath.subject, completionSet);
+    const courseDone = isCourseCompleteBySet(lessonPath.course, completionSet);
+    const majorDone = isMajorCompleteBySet(majorSnapshot, completionSet);
+    const nextTarget = majorDone
+      ? null
+      : findNextTarget(majorSnapshot, lessonPath.courseIndex, lessonPath.subjectIndex, lessonPath.lessonIndex, completionSet);
+
+    const milestones = ['Lesson completed'];
+    if (subjectDone) milestones.push(`Subject complete: ${lessonPath.subject.title}`);
+    if (courseDone) milestones.push(`Course complete: ${lessonPath.course.title}`);
+    if (majorDone) milestones.push(`Major complete: ${majorSnapshot.title}`);
+
+    const level: CelebrationState['level'] = majorDone
+      ? 'major'
+      : courseDone
+      ? 'course'
+      : subjectDone
+      ? 'subject'
+      : 'lesson';
+
+    const title = majorDone
+      ? 'Major Completed'
+      : courseDone
+      ? 'Course Completed'
+      : subjectDone
+      ? 'Subject Completed'
+      : 'Lesson Completed';
+
+    const message = majorDone
+      ? `You completed ${majorSnapshot.title}. This major will move to archive and free a slot.`
+      : nextTarget
+      ? `Next up: ${nextTarget.lesson.title}`
+      : 'Great work. Continue your roadmap from curriculum.';
+
+    const ctaLabel = majorDone
+      ? 'Go to Status'
+      : nextTarget
+      ? courseDone
+        ? 'Start Next Course'
+        : subjectDone
+        ? 'Start Next Subject'
+        : 'Go to Next Lesson'
+      : 'Open Curriculum';
+
+    triggerConfetti(level);
+    setCelebration({
+      level,
+      title,
+      message,
+      milestones,
+      nextTarget,
+      majorCompleted: majorDone,
+      ctaLabel
+    });
   };
 
   const formatTime = (seconds: number) => {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+  };
+
+  const triggerConfetti = (level: CelebrationState['level']) => {
+    const settings = {
+      lesson: { pieces: 34, durationMs: 1300 },
+      subject: { pieces: 52, durationMs: 1700 },
+      course: { pieces: 70, durationMs: 2100 },
+      major: { pieces: 96, durationMs: 2600 }
+    }[level];
+
+    const id = Date.now();
+    setConfettiBurst({ id, pieces: settings.pieces, durationMs: settings.durationMs });
+    setTimeout(() => {
+      setConfettiBurst((current) => (current?.id === id ? null : current));
+    }, settings.durationMs);
+  };
+
+  const findLessonPath = (major: AcademyMajor, lessonId: string) => {
+    for (let courseIndex = 0; courseIndex < major.courses.length; courseIndex += 1) {
+      const course = major.courses[courseIndex];
+      for (let subjectIndex = 0; subjectIndex < course.subjects.length; subjectIndex += 1) {
+        const subject = course.subjects[subjectIndex];
+        for (let lessonIndex = 0; lessonIndex < subject.lessons.length; lessonIndex += 1) {
+          if (subject.lessons[lessonIndex].id === lessonId) {
+            return { courseIndex, subjectIndex, lessonIndex, course, subject };
+          }
+        }
+      }
+    }
+    return null;
+  };
+
+  const isSubjectCompleteBySet = (subject: Subject, done: Set<string>) => {
+    return subject.lessons.length === 0 || subject.lessons.every((lesson) => done.has(lesson.id));
+  };
+
+  const isCourseCompleteBySet = (course: AcademyMajor['courses'][number], done: Set<string>) => {
+    const lessons = getCourseLessons(course);
+    return lessons.length === 0 || lessons.every((lesson) => done.has(lesson.id));
+  };
+
+  const isMajorCompleteBySet = (major: AcademyMajor, done: Set<string>) => {
+    return major.courses.length > 0 && major.courses.every((course) => isCourseCompleteBySet(course, done));
+  };
+
+  const findNextTarget = (
+    major: AcademyMajor,
+    courseIndex: number,
+    subjectIndex: number,
+    lessonIndex: number,
+    done: Set<string>
+  ): NextTarget | null => {
+    const currentCourse = major.courses[courseIndex];
+    const currentSubject = currentCourse.subjects[subjectIndex];
+
+    for (let i = lessonIndex + 1; i < currentSubject.lessons.length; i += 1) {
+      const lesson = currentSubject.lessons[i];
+      if (!done.has(lesson.id)) {
+        return { lesson, courseId: currentCourse.id, subjectId: currentSubject.id };
+      }
+    }
+
+    for (let s = subjectIndex + 1; s < currentCourse.subjects.length; s += 1) {
+      const subject = currentCourse.subjects[s];
+      for (const lesson of subject.lessons) {
+        if (!done.has(lesson.id)) {
+          return { lesson, courseId: currentCourse.id, subjectId: subject.id };
+        }
+      }
+    }
+
+    for (let c = courseIndex + 1; c < major.courses.length; c += 1) {
+      const course = major.courses[c];
+      for (const subject of course.subjects) {
+        for (const lesson of subject.lessons) {
+          if (!done.has(lesson.id)) {
+            return { lesson, courseId: course.id, subjectId: subject.id };
+          }
+        }
+      }
+    }
+
+    return null;
   };
 
   const totalXP = (progress?.completedLessonIds.length || 0) * 250;
@@ -329,6 +500,20 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
     }
   };
 
+  const openNextFromCelebration = () => {
+    if (!celebration) return;
+
+    if (celebration.majorCompleted || !celebration.nextTarget) {
+      setCelebration(null);
+      setActiveTab('STATUS');
+      return;
+    }
+
+    setExpandedCourseId(celebration.nextTarget.courseId);
+    setExpandedSubjectId(celebration.nextTarget.subjectId);
+    startLesson(celebration.nextTarget.lesson);
+    setCelebration(null);
+  };
   return (
     <div className="space-y-8 pb-20">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-white/10 pb-6">
@@ -746,10 +931,79 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
           </div>
         </div>
       )}
+
+      {!!confettiBurst && (
+        <div className="fixed inset-0 pointer-events-none z-[1100] overflow-hidden">
+          <style>{`
+            @keyframes confetti-fall {
+              0% { transform: translateY(-12vh) rotate(0deg); opacity: 1; }
+              100% { transform: translateY(110vh) rotate(540deg); opacity: 0; }
+            }
+          `}</style>
+          {Array.from({ length: confettiBurst.pieces }).map((_, idx) => {
+            const left = (idx * 17 + 7) % 100;
+            const delay = (idx % 9) * 0.05;
+            const duration = 0.95 + (idx % 6) * 0.18;
+            const colors = ['#22d3ee', '#60a5fa', '#34d399', '#f59e0b', '#f43f5e'];
+            const color = colors[idx % colors.length];
+            return (
+              <span
+                key={`${confettiBurst.id}-${idx}`}
+                className="absolute top-0 w-2 h-3 rounded-sm"
+                style={{
+                  left: `${left}%`,
+                  backgroundColor: color,
+                  animation: `confetti-fall ${duration}s linear ${delay}s forwards`
+                }}
+              />
+            );
+          })}
+        </div>
+      )}
+
+      {!!celebration && (
+        <div className="fixed inset-0 z-[1200] bg-black/70 backdrop-blur-sm flex items-center justify-center px-4">
+          <div className="w-full max-w-lg rounded-3xl border border-emerald-400/45 bg-gradient-to-br from-emerald-500/20 via-zinc-950 to-cyan-500/10 p-6 shadow-[0_24px_70px_rgba(16,185,129,0.35)]">
+            <div className="text-[10px] font-black uppercase tracking-[0.25em] text-emerald-300">Celebration</div>
+            <h3 className="mt-2 text-2xl font-black uppercase italic text-white">{celebration.title}</h3>
+            <p className="mt-2 text-sm text-zinc-200">{celebration.message}</p>
+            <div className="mt-4 space-y-2">
+              {celebration.milestones.map((item) => (
+                <div key={item} className="rounded-xl border border-white/10 bg-zinc-900/60 px-3 py-2 text-xs text-zinc-100">
+                  {item}
+                </div>
+              ))}
+            </div>
+            <div className="mt-5 flex flex-col sm:flex-row gap-3 sm:justify-end">
+              <button
+                onClick={() => setCelebration(null)}
+                className="px-4 py-2.5 rounded-xl border border-zinc-500/40 bg-zinc-900/70 text-zinc-200 text-[10px] font-black uppercase tracking-widest hover:border-zinc-300/50 hover:text-white transition-colors"
+              >
+                Stay Here
+              </button>
+              <button
+                onClick={openNextFromCelebration}
+                className="px-4 py-2.5 rounded-xl border border-emerald-300/60 bg-emerald-500/30 text-emerald-100 text-[10px] font-black uppercase tracking-widest hover:bg-emerald-500/45 transition-colors"
+              >
+                {celebration.ctaLabel}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 export default GrowthStudio;
+
+
+
+
+
+
+
+
+
 
 
