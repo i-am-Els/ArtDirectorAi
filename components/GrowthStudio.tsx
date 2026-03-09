@@ -708,17 +708,36 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
               </button>
             </div>
           </div>
-          <div className="lg:col-span-3 glass p-6 rounded-[2rem] border-white/10 bg-gradient-to-br from-indigo-500/10 via-transparent to-blue-500/5 space-y-3">
-            <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-400">Suggested Keywords</h3>
+          <div className="lg:col-span-3 glass p-5 rounded-[2rem] border-white/10 bg-zinc-900/25 space-y-3">
+            <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-500">Suggested Keywords</h3>
             {(activeLesson.searchQueries || []).length > 0 ? (
-              <div className="flex flex-wrap gap-2">
+              <div className="space-y-2">
                 {(activeLesson.searchQueries || []).map((keyword) => (
-                  <span
+                  <div
                     key={keyword}
-                    className="px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest border border-indigo-400/30 bg-indigo-500/15 text-indigo-100"
+                    className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 px-3 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40"
                   >
-                    {keyword}
-                  </span>
+                    <span className="text-xs text-zinc-300">{keyword}</span>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href={`https://www.youtube.com/results?search_query=${encodeURIComponent(keyword)}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-[10px] uppercase tracking-widest text-zinc-400 hover:text-white"
+                      >
+                        YouTube
+                      </a>
+                      <span className="text-zinc-700 text-[10px]">|</span>
+                      <a
+                        href={`https://www.google.com/search?q=${encodeURIComponent(keyword)}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-[10px] uppercase tracking-widest text-zinc-400 hover:text-white"
+                      >
+                        Google
+                      </a>
+                    </div>
+                  </div>
                 ))}
               </div>
             ) : (
@@ -732,4 +751,5 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
 };
 
 export default GrowthStudio;
+
 
