@@ -592,7 +592,6 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                                   );
                                 })}
           </div>
-                              </div>
                             )}
                           </div>
                         );
