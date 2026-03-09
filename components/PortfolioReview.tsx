@@ -17,7 +17,7 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
   const [mode, setMode] = useState<'ADHOC' | 'BRIEF'>('ADHOC');
   const [selectedBriefId, setSelectedBriefId] = useState<string>('');
   const [selectedThreadId, setSelectedThreadId] = useState<string>('');
-  const [reviewSidebarOpen, setReviewSidebarOpen] = useState(true);
+  const [reviewSidebarOpen, setReviewSidebarOpen] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const fetchProgress = async () => {
@@ -163,7 +163,7 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
         </div>
       </div>
 
-      <div className={`grid grid-cols-1 ${reviewSidebarOpen ? 'xl:grid-cols-[minmax(0,1fr)_22rem]' : ''} gap-8`}>
+      <div className="relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div className="space-y-6">
             {mode === 'BRIEF' && activeBrief && (
@@ -176,9 +176,7 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
 
             <div
               onClick={() => fileInputRef.current?.click()}
-              className={`aspect-square rounded-2xl border-2 border-dashed flex flex-col items-center justify-center cursor-pointer transition-all overflow-hidden bg-zinc-900/30 ${
-                image ? 'border-blue-500/50' : 'border-white/10 hover:border-white/20'
-              }`}
+              className={`aspect-square rounded-2xl border-2 border-dashed flex flex-col items-center justify-center cursor-pointer transition-all overflow-hidden bg-zinc-900/30 ${image ? 'border-blue-500/50' : 'border-white/10 hover:border-white/20'}`}
             >
               {image ? (
                 <img src={image} alt="Upload" className="w-full h-full object-contain" />
@@ -274,7 +272,7 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
         </div>
 
         {reviewSidebarOpen && (
-          <aside className={`rounded-2xl border border-white/10 bg-zinc-950/90 p-4 space-y-4 no-print ${isAnalyzing ? 'opacity-40 pointer-events-none blur-[1px]' : ''}`}>
+          <aside className={`no-print absolute top-0 right-0 w-[22rem] max-w-[92vw] rounded-2xl border border-white/10 bg-zinc-950/95 p-4 space-y-4 shadow-2xl ${isAnalyzing ? 'opacity-40 pointer-events-none blur-[1px]' : ''}`}>
             {mode === 'BRIEF' && (
               <div>
                 <div className="text-[10px] uppercase tracking-widest text-zinc-500 mb-2">Saved Brief Selection</div>
@@ -296,7 +294,7 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
               {!filteredThreads.length ? (
                 <div className="text-xs text-zinc-500 mt-2">No thread yet in this scope.</div>
               ) : (
-                <div className="space-y-2 max-h-36 overflow-y-auto pr-1 mt-2">
+                <div className="space-y-2 max-h-32 overflow-y-auto pr-1 mt-2">
                   {filteredThreads.map((thread) => (
                     <button
                       key={thread.id}
@@ -316,7 +314,7 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
               {!allThreads.length ? (
                 <div className="text-xs text-zinc-500 mt-2">No review history yet.</div>
               ) : (
-                <div className="space-y-2 max-h-36 overflow-y-auto pr-1 mt-2">
+                <div className="space-y-2 max-h-32 overflow-y-auto pr-1 mt-2">
                   {allThreads.map((thread) => (
                     <button
                       key={thread.id}
@@ -336,7 +334,7 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
               {!selectedThread?.entries?.length ? (
                 <div className="text-xs text-zinc-500 mt-2">No entries yet.</div>
               ) : (
-                <div className="space-y-2 max-h-32 overflow-y-auto pr-1 mt-2">
+                <div className="space-y-2 max-h-28 overflow-y-auto pr-1 mt-2">
                   {[...selectedThread.entries].reverse().map((entry) => (
                     <button
                       key={entry.id}
