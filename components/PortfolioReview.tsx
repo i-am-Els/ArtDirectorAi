@@ -17,6 +17,7 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
   const [mode, setMode] = useState<'ADHOC' | 'BRIEF'>('ADHOC');
   const [selectedBriefId, setSelectedBriefId] = useState<string>('');
   const [selectedThreadId, setSelectedThreadId] = useState<string>('');
+  const [reviewSidebarOpen, setReviewSidebarOpen] = useState(true);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const fetchProgress = async () => {
@@ -153,70 +154,143 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
           >
             Saved Brief
           </button>
-
-          {mode === 'BRIEF' && (
-            <select
-              value={selectedBriefId}
-              onChange={(e) => setSelectedBriefId(e.target.value)}
-              className="bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-xs text-zinc-200 min-w-[220px]"
-            >
-              {!savedBriefs.length && <option value="">No saved briefs yet</option>}
-              {savedBriefs.map((saved) => (
-                <option key={saved.id} value={saved.id}>{saved.brief.title}</option>
-              ))}
-            </select>
-          )}
+          <button
+            onClick={() => setReviewSidebarOpen((prev) => !prev)}
+            className="px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border border-zinc-600 text-zinc-200 hover:border-zinc-400"
+          >
+            {reviewSidebarOpen ? 'Hide Sidebar' : 'Show Sidebar'}
+          </button>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-        <div className="space-y-6">
-          {mode === 'BRIEF' && activeBrief && (
-            <div className="rounded-xl border border-blue-500/20 bg-blue-500/5 p-4">
-              <div className="text-[10px] uppercase tracking-widest text-blue-300">Active Challenge Brief</div>
-              <div className="mt-1 text-sm font-bold text-zinc-100">{activeBrief.brief.title}</div>
-              <div className="text-xs text-zinc-400 mt-1">{activeBrief.brief.summary}</div>
-            </div>
-          )}
-
-          <div
-            onClick={() => fileInputRef.current?.click()}
-            className={`aspect-square rounded-2xl border-2 border-dashed flex flex-col items-center justify-center cursor-pointer transition-all overflow-hidden bg-zinc-900/30 ${
-              image ? 'border-blue-500/50' : 'border-white/10 hover:border-white/20'
-            }`}
-          >
-            {image ? (
-              <img src={image} alt="Upload" className="w-full h-full object-contain" />
-            ) : (
-              <div className="text-center p-8">
-                <div className="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-zinc-500">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-                  </svg>
-                </div>
-                <p className="text-zinc-400 font-medium">Click to upload artwork</p>
-                <p className="text-zinc-600 text-xs mt-2">Image is used for review only and is not stored.</p>
+      <div className={`grid grid-cols-1 ${reviewSidebarOpen ? 'xl:grid-cols-[minmax(0,1fr)_22rem]' : ''} gap-8`}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className="space-y-6">
+            {mode === 'BRIEF' && activeBrief && (
+              <div className="rounded-xl border border-blue-500/20 bg-blue-500/5 p-4">
+                <div className="text-[10px] uppercase tracking-widest text-blue-300">Active Challenge Brief</div>
+                <div className="mt-1 text-sm font-bold text-zinc-100">{activeBrief.brief.title}</div>
+                <div className="text-xs text-zinc-400 mt-1">{activeBrief.brief.summary}</div>
               </div>
             )}
-            <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" accept="image/*" />
+
+            <div
+              onClick={() => fileInputRef.current?.click()}
+              className={`aspect-square rounded-2xl border-2 border-dashed flex flex-col items-center justify-center cursor-pointer transition-all overflow-hidden bg-zinc-900/30 ${
+                image ? 'border-blue-500/50' : 'border-white/10 hover:border-white/20'
+              }`}
+            >
+              {image ? (
+                <img src={image} alt="Upload" className="w-full h-full object-contain" />
+              ) : (
+                <div className="text-center p-8">
+                  <div className="w-16 h-16 bg-zinc-800 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 text-zinc-500">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+                    </svg>
+                  </div>
+                  <p className="text-zinc-400 font-medium">Click to upload artwork</p>
+                  <p className="text-zinc-600 text-xs mt-2">Image is used for review only and is not stored.</p>
+                </div>
+              )}
+              <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" accept="image/*" />
+            </div>
+
+            <button
+              onClick={handleAnalyze}
+              disabled={!image || isAnalyzing || (mode === 'BRIEF' && !activeBrief)}
+              className="w-full py-4 bg-zinc-100 text-zinc-900 font-bold rounded-xl hover:bg-white disabled:opacity-50 transition-all flex items-center justify-center space-x-2"
+            >
+              {isAnalyzing ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-zinc-900/30 border-t-zinc-900 rounded-full animate-spin"></div>
+                  <span>Reviewing...</span>
+                </>
+              ) : (
+                <span>Request Review</span>
+              )}
+            </button>
           </div>
 
-          <button
-            onClick={handleAnalyze}
-            disabled={!image || isAnalyzing || (mode === 'BRIEF' && !activeBrief)}
-            className="w-full py-4 bg-zinc-100 text-zinc-900 font-bold rounded-xl hover:bg-white disabled:opacity-50 transition-all flex items-center justify-center space-x-2"
-          >
-            {isAnalyzing ? (
-              <>
-                <div className="w-5 h-5 border-2 border-zinc-900/30 border-t-zinc-900 rounded-full animate-spin"></div>
-                <span>Reviewing...</span>
-              </>
-            ) : (
-              <span>Request Review</span>
+          <div className="space-y-6">
+            {!feedback && !isAnalyzing && (
+              <div className="h-full flex flex-col items-center justify-center text-center p-10 glass rounded-2xl border-white/5 opacity-50">
+                <p className="text-zinc-500 italic">Run a review and the result will be saved in a thread.</p>
+              </div>
             )}
-          </button>
 
-          <div className="rounded-xl border border-white/10 bg-zinc-900/40 p-4 space-y-4">
+            {isAnalyzing && (
+              <div className="space-y-4 animate-pulse">
+                <div className="h-8 w-32 bg-zinc-800 rounded"></div>
+                <div className="h-24 bg-zinc-800 rounded"></div>
+                <div className="h-24 bg-zinc-800 rounded"></div>
+              </div>
+            )}
+
+            {feedback && (
+              <div className="space-y-6 animate-in slide-in-from-right-4 duration-500">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-bold text-white">Director's Verdict</h3>
+                  <div className="flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full">
+                    <span className="text-xs font-bold text-blue-400 uppercase">Score</span>
+                    <span className="text-lg font-black text-blue-400 mono">{feedback.overallScore}/10</span>
+                  </div>
+                </div>
+
+                <section>
+                  <h4 className="text-xs font-bold text-green-500 uppercase tracking-widest mb-3">Key Strengths</h4>
+                  <ul className="grid grid-cols-1 gap-2">
+                    {feedback.strengths.map((s, i) => (
+                      <li key={i} className="bg-green-500/5 border border-green-500/10 p-3 rounded-lg text-sm text-zinc-300 flex items-start">
+                        <span className="text-green-500 mr-2">*</span> {s}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+
+                <section>
+                  <h4 className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-3">Target Improvements</h4>
+                  <ul className="grid grid-cols-1 gap-2">
+                    {feedback.areasToImprove.map((a, i) => (
+                      <li key={i} className="bg-amber-500/5 border border-amber-500/10 p-3 rounded-lg text-sm text-zinc-300 flex items-start">
+                        <span className="text-amber-500 mr-2">!</span> {a}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+
+                <div className="p-4 glass rounded-xl border-blue-500/20">
+                  <h4 className="text-xs font-bold text-blue-400 uppercase mb-2">Technical Insight</h4>
+                  <p className="text-sm text-zinc-400 leading-relaxed">{feedback.technicalAdvice}</p>
+                </div>
+
+                <div className="p-4 bg-zinc-900 rounded-xl">
+                  <h4 className="text-xs font-bold text-zinc-500 uppercase mb-2">Next Steps</h4>
+                  <p className="text-sm text-zinc-300 italic">"{feedback.nextSteps}"</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {reviewSidebarOpen && (
+          <aside className={`rounded-2xl border border-white/10 bg-zinc-950/90 p-4 space-y-4 no-print ${isAnalyzing ? 'opacity-40 pointer-events-none blur-[1px]' : ''}`}>
+            {mode === 'BRIEF' && (
+              <div>
+                <div className="text-[10px] uppercase tracking-widest text-zinc-500 mb-2">Saved Brief Selection</div>
+                <select
+                  value={selectedBriefId}
+                  onChange={(e) => setSelectedBriefId(e.target.value)}
+                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2 text-xs text-zinc-200"
+                >
+                  {!savedBriefs.length && <option value="">No saved briefs yet</option>}
+                  {savedBriefs.map((saved) => (
+                    <option key={saved.id} value={saved.id}>{saved.brief.title}</option>
+                  ))}
+                </select>
+              </div>
+            )}
+
             <div>
               <div className="text-[10px] uppercase tracking-widest text-zinc-500">Review Thread (Current Scope)</div>
               {!filteredThreads.length ? (
@@ -276,72 +350,11 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
                 </div>
               )}
             </div>
-          </div>
-        </div>
-
-        <div className="space-y-6">
-          {!feedback && !isAnalyzing && (
-            <div className="h-full flex flex-col items-center justify-center text-center p-10 glass rounded-2xl border-white/5 opacity-50">
-              <p className="text-zinc-500 italic">Run a review and the result will be saved in a thread.</p>
-            </div>
-          )}
-
-          {isAnalyzing && (
-            <div className="space-y-4 animate-pulse">
-              <div className="h-8 w-32 bg-zinc-800 rounded"></div>
-              <div className="h-24 bg-zinc-800 rounded"></div>
-              <div className="h-24 bg-zinc-800 rounded"></div>
-            </div>
-          )}
-
-          {feedback && (
-            <div className="space-y-6 animate-in slide-in-from-right-4 duration-500">
-              <div className="flex items-center justify-between">
-                <h3 className="text-xl font-bold text-white">Director's Verdict</h3>
-                <div className="flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full">
-                  <span className="text-xs font-bold text-blue-400 uppercase">Score</span>
-                  <span className="text-lg font-black text-blue-400 mono">{feedback.overallScore}/10</span>
-                </div>
-              </div>
-
-              <section>
-                <h4 className="text-xs font-bold text-green-500 uppercase tracking-widest mb-3">Key Strengths</h4>
-                <ul className="grid grid-cols-1 gap-2">
-                  {feedback.strengths.map((s, i) => (
-                    <li key={i} className="bg-green-500/5 border border-green-500/10 p-3 rounded-lg text-sm text-zinc-300 flex items-start">
-                      <span className="text-green-500 mr-2">*</span> {s}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-
-              <section>
-                <h4 className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-3">Target Improvements</h4>
-                <ul className="grid grid-cols-1 gap-2">
-                  {feedback.areasToImprove.map((a, i) => (
-                    <li key={i} className="bg-amber-500/5 border border-amber-500/10 p-3 rounded-lg text-sm text-zinc-300 flex items-start">
-                      <span className="text-amber-500 mr-2">!</span> {a}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-
-              <div className="p-4 glass rounded-xl border-blue-500/20">
-                <h4 className="text-xs font-bold text-blue-400 uppercase mb-2">Technical Insight</h4>
-                <p className="text-sm text-zinc-400 leading-relaxed">{feedback.technicalAdvice}</p>
-              </div>
-
-              <div className="p-4 bg-zinc-900 rounded-xl">
-                <h4 className="text-xs font-bold text-zinc-500 uppercase mb-2">Next Steps</h4>
-                <p className="text-sm text-zinc-300 italic">"{feedback.nextSteps}"</p>
-              </div>
-            </div>
-          )}
-        </div>
+          </aside>
+        )}
       </div>
     </div>
   );
 };
 
 export default PortfolioReview;
-

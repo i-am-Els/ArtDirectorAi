@@ -51,6 +51,8 @@ const App: React.FC = () => {
   const [isSavingBrief, setIsSavingBrief] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [savedBriefs, setSavedBriefs] = useState<SavedBriefChallenge[]>([]);
+  const [briefSidebarOpen, setBriefSidebarOpen] = useState(false);
+  const [activeSavedBriefId, setActiveSavedBriefId] = useState<string | null>(null);
 
   const [expandedFaculties, setExpandedFaculties] = useState<Set<string>>(new Set([ACADEMY_FACULTIES[0].id]));
 
@@ -74,6 +76,7 @@ const App: React.FC = () => {
     setIsLoading(true);
     setError(null);
     setBrief(null);
+    setActiveSavedBriefId(null);
     try {
       const result = await generateBrief({ role: selectedRole, experience, theme, complexity });
       setBrief(result);
@@ -94,7 +97,7 @@ const App: React.FC = () => {
   };
 
   const handleSaveChallenge = async () => {
-    if (!brief || !user) return;
+    if (!brief || !user || activeSavedBriefId) return;
     setIsSavingBrief(true);
     try {
       await saveBriefChallenge(user.uid, {
@@ -112,11 +115,13 @@ const App: React.FC = () => {
 
   const openSavedBrief = (saved: SavedBriefChallenge) => {
     setBrief(saved.brief);
+    setActiveSavedBriefId(saved.id);
     setSelectedRole(saved.role);
     setExperience(saved.experience);
     setTheme(saved.theme);
     setComplexity(saved.complexity);
     setCurrentView('GENERATOR');
+    setBriefSidebarOpen(false);
   };
 
   if (authLoading) {
@@ -224,7 +229,38 @@ const App: React.FC = () => {
             </aside>
           )}
 
-          <section className={`${currentView === 'GROWTH' || currentView === 'RITUALS' ? 'lg:col-span-12' : 'lg:col-span-8'} min-h-[600px] flex flex-col overflow-visible`}>
+          <section className={`${currentView === 'GROWTH' || currentView === 'RITUALS' ? 'lg:col-span-12' : 'lg:col-span-8'} min-h-[600px] flex flex-col overflow-visible relative`}>
+            {currentView === 'GENERATOR' && (
+              <div className="absolute top-0 right-0 z-20 no-print">
+                <button
+                  onClick={() => setBriefSidebarOpen((prev) => !prev)}
+                  className="px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border border-zinc-600 bg-zinc-900/80 text-zinc-200 hover:border-zinc-400"
+                >
+                  {briefSidebarOpen ? 'Hide Saved Briefs' : 'Show Saved Briefs'}
+                </button>
+                {briefSidebarOpen && (
+                  <div className={`mt-3 w-[22rem] rounded-2xl border border-white/10 bg-zinc-950/95 p-4 shadow-2xl ${isLoading ? 'opacity-40 pointer-events-none blur-[1px]' : ''}`}>
+                    <div className="text-[10px] uppercase tracking-widest text-zinc-500 mb-3">Saved Briefs Sidebar</div>
+                    {!savedBriefs.length ? (
+                      <div className="text-xs text-zinc-500">No saved briefs yet.</div>
+                    ) : (
+                      <div className="space-y-2 max-h-72 overflow-y-auto pr-1">
+                        {savedBriefs.map((saved) => (
+                          <button
+                            key={saved.id}
+                            onClick={() => openSavedBrief(saved)}
+                            className="w-full text-left rounded-xl border border-zinc-700 bg-zinc-900/70 p-3 hover:border-cyan-400/50"
+                          >
+                            <div className="text-sm font-bold text-zinc-100">{saved.brief.title}</div>
+                            <div className="text-[10px] uppercase tracking-widest text-zinc-500 mt-1">{saved.role}</div>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
             {error && <div className="mb-8 p-5 bg-red-500/10 border border-red-500/30 rounded-2xl flex items-center justify-between no-print text-red-400 text-xs font-bold uppercase tracking-widest"><span>{error}</span></div>}
             {currentView === 'GENERATOR' && (
               <>
@@ -252,35 +288,13 @@ const App: React.FC = () => {
                         <div className="px-4 py-2 bg-zinc-900 rounded-xl border border-white/10 text-[9px] font-black text-zinc-400 uppercase tracking-widest">{selectedRole}</div>
                       </div>
                       <div className="flex flex-wrap justify-center gap-4">
-                        <button onClick={handleSaveChallenge} disabled={isSavingBrief} className="px-8 py-3.5 bg-emerald-600 text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-emerald-500 shadow-2xl active:scale-95 transition-all disabled:opacity-60">{isSavingBrief ? 'Saving...' : 'Save as Challenge'}</button>
+                        <button onClick={handleSaveChallenge} disabled={isSavingBrief || !!activeSavedBriefId} className="px-8 py-3.5 bg-emerald-600 text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-emerald-500 shadow-2xl active:scale-95 transition-all disabled:opacity-60">{activeSavedBriefId ? 'Already Saved' : isSavingBrief ? 'Saving...' : 'Save as Challenge'}</button>
                         <button onClick={handleSavePDF} disabled={isExportingPDF} className="px-8 py-3.5 bg-zinc-100 text-zinc-950 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white shadow-2xl active:scale-95 transition-all">{isExportingPDF ? 'Exporting...' : 'Export Brief PDF'}</button>
                       </div>
                     </div>
                   </div>
                                 )}
 
-                {!!savedBriefs.length && (
-                  <div className="mt-8 rounded-3xl border border-white/10 bg-zinc-900/40 p-6 space-y-3 no-print">
-                    <div className="flex items-center justify-between">
-                      <h3 className="text-sm font-black uppercase tracking-widest text-zinc-300">Saved Briefs Library</h3>
-                      <span className="text-[10px] uppercase tracking-widest text-zinc-500">{savedBriefs.length} Saved</span>
-                    </div>
-                    <div className="space-y-2 max-h-64 overflow-y-auto pr-1">
-                      {savedBriefs.map((saved) => (
-                        <div key={saved.id} className="rounded-xl border border-zinc-700 bg-zinc-950/60 p-3 flex items-center justify-between gap-3">
-                          <div>
-                            <div className="text-sm font-bold text-zinc-100">{saved.brief.title}</div>
-                            <div className="text-[10px] uppercase tracking-widest text-zinc-500 mt-1">{saved.role}</div>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <button onClick={() => openSavedBrief(saved)} className="px-3 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest border border-cyan-500/40 text-cyan-200 hover:bg-cyan-500/10">Open</button>
-                            <button onClick={() => setCurrentView('REVIEW')} className="px-3 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest border border-zinc-600 text-zinc-200 hover:border-zinc-400">Review</button>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
               </>
             )}
             {currentView === 'REVIEW' && <div className="glass rounded-[3.5rem] p-10 border border-white/10 min-h-[650px] no-print shadow-2xl"><PortfolioReview role={selectedRole} experience={experience} userId={user.uid} /></div>}
@@ -299,6 +313,16 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+
+
+
+
+
+
+
+
+
 
 
 

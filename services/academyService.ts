@@ -55,7 +55,9 @@ export const getUserProgress = async (userId: string): Promise<UserProgress> => 
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-            return { ...DEFAULT_PROGRESS, ...docSnap.data() } as UserProgress;
+            const merged = { ...DEFAULT_PROGRESS, ...docSnap.data() } as UserProgress;
+            merged.savedBriefs = dedupeSavedBriefs(merged.savedBriefs || []);
+            return merged;
         }
 
         const newProgress = { ...DEFAULT_PROGRESS, userId };
@@ -294,7 +296,7 @@ export const saveBriefChallenge = async (
         updatedAt: now
     };
 
-    const nextSaved = [nextItem, ...(progress.savedBriefs || [])];
+    const nextSaved = [nextItem, ...cleaned];
     await setDoc(docRef, { savedBriefs: nextSaved }, { merge: true });
 
     return nextItem;
@@ -357,6 +359,10 @@ export const appendReviewThreadEntry = async (
 
     return thread;
 };
+
+
+
+
 
 
 
