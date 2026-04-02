@@ -184,34 +184,43 @@ const App: React.FC = () => {
   return (
     <AppDialogProvider>
     <div className="min-h-screen bg-app-dark text-zinc-100 selection:bg-accent-cyan/30 overflow-x-hidden">
-      <header className="fixed top-0 w-full z-[100] glass border-b border-white/5 px-6 py-5 flex items-center justify-between no-print shadow-2xl backdrop-blur-2xl">
-        <div className="flex items-center space-x-4 cursor-pointer group" onClick={() => setCurrentView('GENERATOR')}>
-          <div className="w-11 h-11 rounded-2xl flex items-center justify-center shadow-lg shadow-accent-cyan/20 group-hover:scale-105 transition-transform overflow-hidden border border-white/10">
-            <img src="/favicon.png" alt="ArtDirector Logo" className="w-full h-full object-cover" />
+      <header className="fixed top-0 w-full z-[100] glass border-b border-white/5 p-4 md:px-6 md:py-5 flex flex-wrap lg:flex-nowrap items-center gap-3 md:gap-0 justify-between no-print shadow-2xl backdrop-blur-2xl">
+        <div className="flex items-center justify-between w-full lg:w-auto">
+          <div className="flex items-center space-x-4 cursor-pointer group" onClick={() => setCurrentView('GENERATOR')}>
+            <div className="w-10 h-10 md:w-11 md:h-11 rounded-2xl flex items-center justify-center shadow-lg shadow-accent-cyan/20 group-hover:scale-105 transition-transform overflow-hidden border border-white/10">
+              <img src="/favicon.png" alt="ArtDirector Logo" className="w-full h-full object-cover" />
+            </div>
+            <div className="hidden sm:block">
+              <h1 className="text-lg md:text-xl font-black tracking-tighter uppercase italic leading-none">ArtDirector <span className="text-accent-cyan">Hub</span></h1>
+              <p className="text-[8px] md:text-[9px] uppercase tracking-[0.4em] text-zinc-500 font-black mt-1">Industrial Pipeline</p>
+            </div>
           </div>
-          <div className="hidden sm:block">
-            <h1 className="text-xl font-black tracking-tighter uppercase italic leading-none">ArtDirector <span className="text-accent-cyan">Hub</span></h1>
-            <p className="text-[9px] uppercase tracking-[0.4em] text-zinc-500 font-black mt-1">Industrial Pipeline</p>
+          <div className="lg:hidden">
+            <UserProfile />
           </div>
         </div>
 
-        <div className="flex items-center space-x-2 bg-zinc-950/80 p-1.5 rounded-2xl border border-white/10 shadow-inner">
-          {[
-            { id: 'GROWTH', label: 'Academy' },
-            { id: 'RITUALS', label: 'Rituals' },
-            { id: 'GENERATOR', label: 'Brief' },
-            { id: 'REVIEW', label: 'Review' }
-          ].map(v => (
-            <button key={v.id} onClick={() => setCurrentView(v.id as AppView)} className={`px-5 py-2 rounded-xl text-[10px] font-black transition-all uppercase tracking-widest ${currentView === v.id ? 'bg-zinc-100 text-zinc-950 shadow-md scale-105' : 'text-zinc-500 hover:text-white'}`}>
-              {v.label}
-            </button>
-          ))}
+        <div className="w-full lg:w-auto overflow-x-auto pb-1 lg:pb-0 custom-scrollbar flex justify-start lg:justify-center">
+          <div className="flex items-center space-x-1 md:space-x-2 bg-zinc-950/80 p-1 md:p-1.5 rounded-2xl border border-white/10 shadow-inner min-w-max">
+            {[
+              { id: 'GROWTH', label: 'Academy' },
+              { id: 'RITUALS', label: 'Rituals' },
+              { id: 'GENERATOR', label: 'Brief' },
+              { id: 'REVIEW', label: 'Review' }
+            ].map(v => (
+              <button key={v.id} onClick={() => setCurrentView(v.id as AppView)} className={`px-4 md:px-5 py-2 rounded-xl text-[9px] md:text-[10px] font-black transition-all uppercase tracking-widest ${currentView === v.id ? 'bg-zinc-100 text-zinc-950 shadow-md scale-[1.02] md:scale-105' : 'text-zinc-500 hover:text-white'}`}>
+                {v.label}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <UserProfile />
+        <div className="hidden lg:block">
+          <UserProfile />
+        </div>
       </header>
 
-      <main className="pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto overflow-visible">
+      <main className="pt-40 lg:pt-32 pb-20 px-4 md:px-8 max-w-7xl mx-auto overflow-visible">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 overflow-visible">
           {currentView !== 'GROWTH' && currentView !== 'RITUALS' && (
             <aside className="lg:col-span-4 space-y-6 no-print overflow-visible">
@@ -325,17 +334,18 @@ const App: React.FC = () => {
                   </div>
                 )}
                 {brief && (
-                  <div className="print:p-0 glass rounded-[3.5rem] p-6 md:p-12 border border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.5)] relative overflow-visible">
+                  <div className="print:p-0 glass rounded-[2rem] md:rounded-[3.5rem] p-5 sm:p-6 md:p-12 border border-white/10 shadow-[0_30px_70px_rgba(0,0,0,0.5)] relative overflow-visible">
                     <BriefDisplay brief={brief} />
-                    <div className="mt-12 flex flex-col sm:flex-row items-center justify-between border-t border-white/5 pt-10 no-print gap-8">
-                      <div className="flex items-center space-x-5">
+                    <div className="mt-8 md:mt-12 flex flex-col xl:flex-row items-center justify-between border-t border-white/5 pt-8 md:pt-10 no-print gap-6 md:gap-8">
+                      <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4 w-full xl:w-auto">
                         <div className="text-[10px] text-zinc-500 uppercase font-black tracking-[0.3em]">Industrial Target:</div>
-                        <div className="px-4 py-2 bg-zinc-900 rounded-xl border border-white/10 text-[9px] font-black text-zinc-400 uppercase tracking-widest">{selectedRole}</div>
+                        <div className="px-4 py-2 bg-zinc-900 rounded-xl border border-white/10 text-[9px] font-black text-zinc-400 uppercase tracking-widest w-full sm:w-auto text-center">{selectedRole}</div>
                       </div>
-                      <div className="flex flex-wrap justify-center gap-4">
-                        <button onClick={handleSaveChallenge} disabled={isSavingBrief || isCurrentBriefSaved || !brief} className="px-8 py-3.5 bg-emerald-600 text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-emerald-500 shadow-2xl active:scale-95 transition-all disabled:opacity-60">{isCurrentBriefSaved ? 'Already Saved' : isSavingBrief ? 'Saving...' : 'Save as Challenge'}</button>
-                        {currentSavedBrief && <SavedBriefDeleteAction onDelete={handleDeleteCurrentSavedBrief} disabled={isSavingBrief} />}
-                        <button onClick={handleSavePDF} disabled={isExportingPDF} className="px-8 py-3.5 bg-zinc-100 text-zinc-950 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white shadow-2xl active:scale-95 transition-all">{isExportingPDF ? 'Exporting...' : 'Export Brief PDF'}</button>
+                      <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-3 w-full xl:w-auto">
+                        <button onClick={handleSaveChallenge} disabled={isSavingBrief || isCurrentBriefSaved || !brief} className="w-full sm:w-auto px-6 py-3.5 bg-emerald-600 text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-emerald-500 shadow-xl active:scale-95 transition-all disabled:opacity-60">{isCurrentBriefSaved ? 'Already Saved' : isSavingBrief ? 'Saving...' : 'Save as Challenge'}</button>
+                        {currentSavedBrief && <div className="hidden sm:block"><SavedBriefDeleteAction onDelete={handleDeleteCurrentSavedBrief} disabled={isSavingBrief} /></div>}
+                        {currentSavedBrief && <div className="sm:hidden w-full flex justify-center"><button onClick={handleDeleteCurrentSavedBrief} className="text-xs font-black uppercase text-red-500 py-2 border border-red-500/20 rounded-xl bg-red-500/10">Delete Saved Brief</button></div>}
+                        <button onClick={handleSavePDF} disabled={isExportingPDF} className="w-full sm:w-auto px-6 py-3.5 bg-zinc-100 text-zinc-950 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white shadow-xl active:scale-95 transition-all">{isExportingPDF ? 'Exporting...' : 'Export Brief PDF'}</button>
                       </div>
                     </div>
                   </div>

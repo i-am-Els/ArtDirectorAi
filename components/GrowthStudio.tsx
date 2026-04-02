@@ -521,8 +521,9 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
           <h2 className="text-3xl font-black uppercase italic">Academy Studio</h2>
           <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-[0.3em]">Roadmap Progression</p>
         </div>
-        <div className="flex bg-zinc-950/80 p-1.5 rounded-2xl border border-white/10">
-          {(['STATUS', 'ENROLLMENT', 'CURRICULUM', 'WORKBENCH'] as const).map((t) => (
+        <div className="w-full md:w-auto overflow-x-auto custom-scrollbar pb-2 md:pb-0">
+          <div className="flex bg-zinc-950/80 p-1.5 rounded-2xl border border-white/10 min-w-max">
+            {(['STATUS', 'ENROLLMENT', 'CURRICULUM', 'WORKBENCH'] as const).map((t) => (
             <button
               key={t}
               onClick={() => {
@@ -536,6 +537,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
               {t}
             </button>
           ))}
+          </div>
         </div>
       </div>
 
@@ -805,10 +807,10 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
             </div>
 
             <div className="text-center">
-              <div className="text-[6rem] font-black mono text-zinc-100 tabular-nums leading-none">{formatTime(timeLeft)}</div>
+              <div className="text-[5rem] sm:text-[6rem] font-black mono text-zinc-100 tabular-nums leading-none">{formatTime(timeLeft)}</div>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
               <button onClick={() => setTimerRunning(!timerRunning)} className={`flex-1 py-4 rounded-2xl font-black uppercase text-xs tracking-widest transition-colors ${timerRunning ? 'bg-red-500/20 text-red-400 border border-red-500/30' : 'bg-white/10 text-white hover:bg-white border border-white/20 hover:text-zinc-950 hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]'}`}>
                 {timerRunning ? 'Pause' : 'Start Timer'}
               </button>
