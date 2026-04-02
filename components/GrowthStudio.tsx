@@ -626,7 +626,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
       {activeTab === 'ENROLLMENT' && viewingMajor && (
         <div className="max-w-5xl mx-auto space-y-8">
           <button
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-cyan-400/50 bg-cyan-500/15 text-cyan-200 text-[10px] font-black uppercase tracking-widest hover:bg-cyan-500/25 hover:border-cyan-300/70 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400/50"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-white/10 bg-white/5 text-zinc-300 text-[10px] font-black uppercase tracking-widest hover:bg-white/10 hover:text-white transition-colors focus:outline-none"
             onClick={() => setViewingMajor(null)}
           >
             <span aria-hidden="true">{'<-'}</span>
@@ -637,7 +637,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
             <p className="text-zinc-400">{viewingMajor.major.description}</p>
             <div className="flex flex-wrap gap-2">
               {(viewingMajor.major.softwares || viewingMajor.major.software || []).map((sw) => (
-                <span key={sw} className="px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest bg-emerald-500/15 text-emerald-200 border border-emerald-500/30">
+                <span key={sw} className="px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest bg-fuchsia-500/15 text-fuchsia-300 border border-fuchsia-500/30">
                   {sw}
                 </span>
               ))}
@@ -648,7 +648,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
               <button
                 onClick={() => handleEnroll(viewingMajor.major.id)}
                 disabled={(progress?.enrolledMajorIds?.length || 0) >= MAX_ENROLLED_MAJORS}
-                className={`px-8 py-4 rounded-xl uppercase text-xs font-black ${(progress?.enrolledMajorIds?.length || 0) >= MAX_ENROLLED_MAJORS ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed' : 'bg-blue-600 text-white'}`}
+                className={`px-8 py-4 rounded-xl uppercase text-xs font-black shadow-xl transition-all hover:scale-[1.02] active:scale-95 ${(progress?.enrolledMajorIds?.length || 0) >= MAX_ENROLLED_MAJORS ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed' : 'bg-white text-zinc-950 hover:bg-accent-cyan hover:text-white border-transparent hover:shadow-accent-cyan/20'}`}
               >
                 {(progress?.enrolledMajorIds?.length || 0) >= MAX_ENROLLED_MAJORS ? 'Slots Full (3/3)' : 'Enroll in Major'}
               </button>
@@ -676,7 +676,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
           <h2 className="text-4xl font-black uppercase italic">{activeMajor.title}</h2>
           <div className="flex flex-wrap gap-2">
             {(activeMajor.softwares || activeMajor.software || []).map((sw) => (
-              <span key={sw} className="px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest bg-fuchsia-500/15 text-fuchsia-200 border border-fuchsia-500/30">
+              <span key={sw} className="px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest bg-fuchsia-500/15 text-fuchsia-300 border border-fuchsia-500/30">
                 {sw}
               </span>
             ))}
@@ -710,7 +710,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                       {!!course.softwares?.length && (
                         <div className="flex flex-wrap gap-1.5">
                           {course.softwares.slice(0, 5).map((sw) => (
-                            <span key={sw} className="px-2 py-1 rounded-md text-[9px] font-black uppercase tracking-widest bg-indigo-500/15 text-indigo-200 border border-indigo-500/30">
+                            <span key={sw} className="px-2 py-1 rounded-md text-[9px] font-black uppercase tracking-widest bg-fuchsia-500/15 text-fuchsia-300 border border-fuchsia-500/30">
                               {sw}
                             </span>
                           ))}
