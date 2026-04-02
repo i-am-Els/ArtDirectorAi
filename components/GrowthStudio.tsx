@@ -612,7 +612,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
               <h3 className="text-2xl font-black uppercase italic">{faculty.name}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {faculty.majors.map((major) => (
-                  <button key={major.id} onClick={() => setViewingMajor({ faculty, major })} className="text-left p-5 rounded-2xl border border-white/10 bg-zinc-900/30 hover:border-cyan-300/50 hover:bg-cyan-500/10 transition-colors">
+                  <button key={major.id} onClick={() => setViewingMajor({ faculty, major })} className="text-left p-5 rounded-2xl border border-white/10 bg-zinc-900/30 hover:border-accent-cyan/50 hover:bg-accent-cyan/5 hover:shadow-[0_0_20px_rgba(0,240,255,0.15)] hover:-translate-y-1 transition-all duration-300">
                     <div className="text-[9px] uppercase tracking-widest text-zinc-500">{major.role}</div>
                     <h4 className="text-lg font-black uppercase italic mt-2">{major.title}</h4>
                   </button>
