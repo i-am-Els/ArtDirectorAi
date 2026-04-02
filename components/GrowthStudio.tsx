@@ -809,18 +809,18 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
             </div>
 
             <div className="flex gap-4">
-              <button onClick={() => setTimerRunning(!timerRunning)} className={`flex-1 py-4 rounded-2xl font-black uppercase text-xs tracking-widest ${timerRunning ? 'bg-red-500/10 text-red-500' : 'bg-zinc-100 text-zinc-950'}`}>
+              <button onClick={() => setTimerRunning(!timerRunning)} className={`flex-1 py-4 rounded-2xl font-black uppercase text-xs tracking-widest transition-colors ${timerRunning ? 'bg-red-500/20 text-red-400 border border-red-500/30' : 'bg-white/10 text-white hover:bg-white border border-white/20 hover:text-zinc-950 hover:shadow-[0_0_15px_rgba(255,255,255,0.5)]'}`}>
                 {timerRunning ? 'Pause' : 'Start Timer'}
               </button>
-              <button onClick={markLessonComplete} className="flex-1 py-4 bg-green-600 text-white rounded-2xl font-black uppercase text-xs tracking-widest">
+              <button onClick={markLessonComplete} className="flex-1 py-4 bg-gradient-to-r from-accent-cyan to-accent-blue text-white rounded-2xl font-black uppercase text-xs tracking-widest hover:opacity-90 transition-all shadow-2xl hover:shadow-[0_0_30px_rgba(0,240,255,0.3)]">
                 Mark Complete
               </button>
             </div>
           </div>
 
-          <div className="glass p-6 rounded-[2rem] border-white/10 bg-gradient-to-br from-cyan-500/10 to-transparent space-y-4">
+          <div className="glass p-6 rounded-[2rem] border border-white/5 bg-zinc-900/40 shadow-lg space-y-4">
             <div className="space-y-1">
-              <h3 className="text-sm font-black uppercase tracking-widest text-cyan-200">AI Tutor</h3>
+              <h3 className="text-sm font-black uppercase tracking-widest text-accent-cyan">AI Tutor</h3>
               <p className="text-xs text-zinc-400">Concept explainer only. No course generation.</p>
             </div>
 
@@ -829,20 +829,20 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                 <div
                   key={msg.id}
                   className={`rounded-xl p-3 text-xs leading-relaxed border ${msg.role === 'assistant'
-                      ? 'bg-cyan-500/10 border-cyan-300/30 text-cyan-100'
-                      : 'bg-zinc-900/70 border-zinc-700 text-zinc-200'
+                      ? 'bg-accent-cyan/10 border-accent-cyan/50 text-white shadow-[0_0_15px_rgba(0,240,255,0.05)]'
+                      : 'bg-zinc-900/70 border-white/10 text-zinc-300'
                     }`}
                 >
                   {msg.text}
                 </div>
               ))}
               {tutorBusy && (
-                <div className="rounded-xl p-3 border border-cyan-300/30 bg-cyan-500/10 text-cyan-100">
-                  <div className="text-[10px] font-black uppercase tracking-widest text-cyan-200/90 mb-2">Tutor is thinking</div>
+                <div className="rounded-xl p-3 border border-accent-cyan/50 bg-accent-cyan/10 text-white shadow-[0_0_15px_rgba(0,240,255,0.05)]">
+                  <div className="text-[10px] font-black uppercase tracking-widest text-accent-cyan/90 mb-2">Tutor is thinking</div>
                   <div className="inline-flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-cyan-300 animate-bounce"></span>
-                    <span className="w-2 h-2 rounded-full bg-cyan-300 animate-bounce [animation-delay:120ms]"></span>
-                    <span className="w-2 h-2 rounded-full bg-cyan-300 animate-bounce [animation-delay:240ms]"></span>
+                    <span className="w-2 h-2 rounded-full bg-accent-cyan animate-bounce"></span>
+                    <span className="w-2 h-2 rounded-full bg-accent-cyan animate-bounce [animation-delay:120ms]"></span>
+                    <span className="w-2 h-2 rounded-full bg-accent-cyan animate-bounce [animation-delay:240ms]"></span>
                   </div>
                 </div>
               )}
@@ -865,17 +865,17 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                   }
                 }}
                 placeholder="Ask what confuses you in this lesson..."
-                className={`w-full h-24 resize-none rounded-xl px-3 py-2 text-xs placeholder:text-zinc-500 focus:outline-none ${tutorBusy
-                    ? 'bg-zinc-900/40 border border-zinc-800 text-zinc-500 cursor-not-allowed'
-                    : 'bg-zinc-900/70 border border-zinc-700 text-zinc-100 focus:border-cyan-400'
+                className={`w-full h-24 resize-none rounded-xl px-3 py-2 text-xs placeholder:text-zinc-600 focus:outline-none transition-colors ${tutorBusy
+                    ? 'bg-zinc-900/40 border-white/5 text-zinc-500 cursor-not-allowed'
+                    : 'bg-zinc-900/70 border border-white/10 text-zinc-100 focus:border-accent-cyan focus:ring-1 focus:ring-accent-cyan/30'
                   }`}
               />
               <button
                 onClick={askTutor}
                 disabled={tutorBusy || !tutorInput.trim()}
-                className={`w-full py-3 rounded-xl text-[10px] font-black uppercase tracking-widest ${tutorBusy || !tutorInput.trim()
-                    ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
-                    : 'bg-cyan-500/90 text-zinc-950 hover:bg-cyan-400'
+                className={`w-full py-4 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${tutorBusy || !tutorInput.trim()
+                    ? 'bg-white/5 text-zinc-500 cursor-not-allowed border border-white/5'
+                    : 'bg-white text-zinc-950 hover:bg-accent-cyan hover:text-white shadow-xl hover:shadow-[0_0_20px_rgba(0,240,255,0.2)] active:scale-95 border-none'
                   }`}
               >
                 {tutorBusy ? (
