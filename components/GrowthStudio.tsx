@@ -558,19 +558,19 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
               const major = faculty?.majors.find((m) => m.id === majorId);
               if (!major) return null;
               return (
-                <div key={majorId} className="glass p-6 rounded-[2rem] border border-blue-500/20 bg-gradient-to-br from-blue-500/10 to-transparent space-y-3">
-                  <h4 className="text-[10px] font-black uppercase tracking-widest text-blue-500">Enrolled Major</h4>
-                  <div className="text-white font-black uppercase italic">{major.title}</div>
+                <div key={majorId} className="glass p-6 rounded-[2rem] border border-white/5 bg-zinc-900/40 hover:bg-zinc-900/60 transition-all space-y-4 shadow-lg group">
+                  <h4 className="text-[10px] font-black uppercase tracking-widest text-accent-cyan">Enrolled Major</h4>
+                  <div className="text-white font-black uppercase italic text-xl group-hover:text-accent-cyan transition-colors">{major.title}</div>
                   <div className="text-xs text-zinc-500">{major.code}</div>
                   <div className="flex flex-wrap gap-1.5">
                     {(major.softwares || major.software || []).slice(0, 4).map((sw) => (
-                      <span key={sw} className="px-2 py-1 rounded-md text-[9px] font-black uppercase tracking-widest bg-blue-500/15 text-blue-200 border border-blue-500/30">
+                      <span key={sw} className="px-2 py-1 rounded-md text-[9px] font-black uppercase tracking-widest bg-fuchsia-500/15 text-fuchsia-300 border border-fuchsia-500/30">
                         {sw}
                       </span>
                     ))}
                   </div>
-                  <div className="flex gap-2">
-                    <button className="inline-flex items-center gap-2 px-4 py-2.5 text-[10px] rounded-xl uppercase font-black tracking-widest border border-cyan-300/40 bg-cyan-500/20 text-cyan-100 hover:bg-cyan-500/30 hover:border-cyan-200/60 transition-colors" onClick={() => { loadMajorData(majorId); setActiveTab('CURRICULUM'); }}>Open <span aria-hidden="true">{'->'}</span></button>
+                  <div className="flex gap-2 pt-2">
+                    <button className="inline-flex items-center gap-2 px-5 py-3 text-[10px] rounded-xl uppercase font-black tracking-widest bg-white text-zinc-950 hover:bg-accent-cyan hover:text-white transition-all shadow-xl hover:shadow-accent-cyan/20 active:scale-95" onClick={() => { loadMajorData(majorId); setActiveTab('CURRICULUM'); }}>Open Studio <span aria-hidden="true">{'->'}</span></button>
                   </div>
                 </div>
               );
