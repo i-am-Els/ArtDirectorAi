@@ -1,4 +1,4 @@
-﻿
+
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { ArtRole, ExperienceLevel, ArtBrief, AppView, SavedBriefChallenge } from './types.ts';
 import RoleIcon from './components/RoleIcon.tsx';
@@ -171,8 +171,8 @@ const App: React.FC = () => {
 
   if (authLoading) {
     return (
-      <div className="min-h-screen bg-[#050505] flex items-center justify-center">
-        <div className="w-16 h-16 border-t-4 border-blue-600 rounded-full animate-spin shadow-2xl shadow-blue-500/20"></div>
+      <div className="min-h-screen bg-app-dark flex items-center justify-center">
+        <div className="w-16 h-16 border-t-4 border-accent-cyan rounded-full animate-spin shadow-2xl shadow-accent-cyan/20"></div>
       </div>
     );
   }
@@ -183,14 +183,14 @@ const App: React.FC = () => {
 
   return (
     <AppDialogProvider>
-    <div className="min-h-screen bg-[#050505] text-zinc-100 selection:bg-blue-500/30 overflow-x-hidden">
+    <div className="min-h-screen bg-app-dark text-zinc-100 selection:bg-accent-cyan/30 overflow-x-hidden">
       <header className="fixed top-0 w-full z-[100] glass border-b border-white/5 px-6 py-5 flex items-center justify-between no-print shadow-2xl backdrop-blur-2xl">
         <div className="flex items-center space-x-4 cursor-pointer group" onClick={() => setCurrentView('GENERATOR')}>
-          <div className="w-11 h-11 bg-gradient-to-br from-blue-600 to-indigo-800 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/20 group-hover:scale-105 transition-transform">
+          <div className="w-11 h-11 bg-gradient-to-br from-accent-cyan to-accent-blue rounded-2xl flex items-center justify-center shadow-lg shadow-accent-cyan/20 group-hover:scale-105 transition-transform">
             <svg viewBox="0 0 24 24" fill="white" className="w-6 h-6"><path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" /></svg>
           </div>
           <div className="hidden sm:block">
-            <h1 className="text-xl font-black tracking-tighter uppercase italic leading-none">ArtDirector <span className="text-blue-500">Hub</span></h1>
+            <h1 className="text-xl font-black tracking-tighter uppercase italic leading-none">ArtDirector <span className="text-accent-cyan">Hub</span></h1>
             <p className="text-[9px] uppercase tracking-[0.4em] text-zinc-500 font-black mt-1">Industrial Pipeline</p>
           </div>
         </div>
@@ -238,7 +238,7 @@ const App: React.FC = () => {
                               <RoleTooltip key={major.id} text={major.description}>
                                 <button
                                   onClick={() => setSelectedRole(major.role)}
-                                  className={`w-full text-left px-4 py-2.5 rounded-xl border transition-all ${selectedRole === major.role ? 'bg-blue-600/10 border-blue-500/50 text-blue-100' : 'bg-transparent border-transparent text-zinc-600 hover:text-zinc-400 hover:bg-white/5'}`}
+                                  className={`w-full text-left px-4 py-2.5 rounded-xl border transition-all ${selectedRole === major.role ? 'bg-accent-cyan/10 border-accent-cyan/50 text-accent-cyan' : 'bg-transparent border-transparent text-zinc-600 hover:text-zinc-400 hover:bg-white/5'}`}
                                 >
                                   <div className="flex items-center gap-3">
                                     <RoleIcon role={major.role} className="w-3.5 h-3.5" />
@@ -265,9 +265,9 @@ const App: React.FC = () => {
 
                 {currentView === 'GENERATOR' && (
                   <div className="space-y-6 pt-6 border-t border-white/5">
-                    <section><label className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em] mb-3 block">Theme Focus</label><input type="text" value={theme} onChange={e => setTheme(e.target.value)} className="w-full bg-zinc-950 border border-white/10 rounded-2xl px-5 py-4 text-xs font-bold text-white focus:ring-4 focus:ring-blue-500/10 outline-none transition-all" /></section>
-                    <section><div className="flex justify-between items-center mb-3"><label className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em]">Complexity Curve</label><span className="mono text-blue-500 font-black text-xs tabular-nums">{complexity}/10</span></div><input type="range" min="1" max="10" value={complexity} onChange={e => setComplexity(parseInt(e.target.value))} className="w-full h-2 bg-zinc-900 rounded-lg appearance-none accent-blue-600 cursor-pointer" /></section>
-                    <button onClick={handleGenerate} disabled={isLoading} className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-5 rounded-2xl transition-all uppercase tracking-[0.3em] text-[10px] shadow-2xl active:scale-95 disabled:opacity-50">{isLoading ? 'Drafting Blueprint...' : 'Generate Studio Brief'}</button>
+                    <section><label className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em] mb-3 block">Theme Focus</label><input type="text" value={theme} onChange={e => setTheme(e.target.value)} className="w-full bg-zinc-950 border border-white/10 rounded-2xl px-5 py-4 text-xs font-bold text-white focus:ring-4 focus:ring-accent-cyan/10 outline-none transition-all" /></section>
+                    <section><div className="flex justify-between items-center mb-3"><label className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em]">Complexity Curve</label><span className="mono text-accent-cyan font-black text-xs tabular-nums">{complexity}/10</span></div><input type="range" min="1" max="10" value={complexity} onChange={e => setComplexity(parseInt(e.target.value))} className="w-full h-2 bg-zinc-900 rounded-lg appearance-none accent-accent-cyan cursor-pointer" /></section>
+                    <button onClick={handleGenerate} disabled={isLoading} className="w-full bg-gradient-to-r from-accent-cyan to-accent-blue hover:opacity-90 text-white font-black py-5 rounded-2xl transition-all uppercase tracking-[0.3em] text-[10px] shadow-2xl active:scale-95 disabled:opacity-50">{isLoading ? 'Drafting Blueprint...' : 'Generate Studio Brief'}</button>
                   </div>
                 )}
               </div>
@@ -320,7 +320,7 @@ const App: React.FC = () => {
                 )}
                 {isLoading && (
                   <div className="flex-1 flex flex-col items-center justify-center space-y-6">
-                    <div className="w-20 h-20 border-t-4 border-blue-600 rounded-full animate-spin shadow-2xl"></div>
+                    <div className="w-20 h-20 border-t-4 border-accent-cyan rounded-full animate-spin shadow-2xl shadow-accent-cyan/20"></div>
                     <p className="text-zinc-500 mono text-[10px] font-black tracking-[0.4em] uppercase">Simulating Director Protocols...</p>
                   </div>
                 )}

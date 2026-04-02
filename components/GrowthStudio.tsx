@@ -256,34 +256,34 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
     const level: CelebrationState['level'] = majorDone
       ? 'major'
       : courseDone
-      ? 'course'
-      : subjectDone
-      ? 'subject'
-      : 'lesson';
+        ? 'course'
+        : subjectDone
+          ? 'subject'
+          : 'lesson';
 
     const title = majorDone
       ? 'Major Completed'
       : courseDone
-      ? 'Course Completed'
-      : subjectDone
-      ? 'Subject Completed'
-      : 'Lesson Completed';
+        ? 'Course Completed'
+        : subjectDone
+          ? 'Subject Completed'
+          : 'Lesson Completed';
 
     const message = majorDone
       ? `You completed ${majorSnapshot.title}. This major will move to archive and free a slot.`
       : nextTarget
-      ? `Next up: ${nextTarget.lesson.title}`
-      : 'Great work. Continue your roadmap from curriculum.';
+        ? `Next up: ${nextTarget.lesson.title}`
+        : 'Great work. Continue your roadmap from curriculum.';
 
     const ctaLabel = majorDone
       ? 'Go to Status'
       : nextTarget
-      ? courseDone
-        ? 'Start Next Course'
-        : subjectDone
-        ? 'Start Next Subject'
-        : 'Go to Next Lesson'
-      : 'Open Curriculum';
+        ? courseDone
+          ? 'Start Next Course'
+          : subjectDone
+            ? 'Start Next Subject'
+            : 'Go to Next Lesson'
+        : 'Open Curriculum';
 
     triggerConfetti(level);
     setCelebration({
@@ -530,9 +530,8 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                 setViewingMajor(null);
               }}
               disabled={(t === 'CURRICULUM' && !activeMajor) || (t === 'WORKBENCH' && !activeLesson)}
-              className={`px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest border transition-colors ${
-                activeTab === t ? 'bg-zinc-100 text-zinc-950 border-zinc-100' : 'text-zinc-300 border-zinc-800 bg-zinc-900/40 hover:bg-zinc-800/70 hover:border-zinc-600'
-              }`}
+              className={`px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest border transition-colors ${activeTab === t ? 'bg-zinc-100 text-zinc-950 border-zinc-100' : 'text-zinc-300 border-zinc-800 bg-zinc-900/40 hover:bg-zinc-800/70 hover:border-zinc-600'
+                }`}
             >
               {t}
             </button>
@@ -776,7 +775,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                                     </button>
                                   );
                                 })}
-          </div>
+                              </div>
                             )}
                           </div>
                         );
@@ -786,7 +785,7 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                 </div>
               );
             })}
-        </div>
+          </div>
         </div>
       )}
 
@@ -829,11 +828,10 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
               {tutorMessages.map((msg) => (
                 <div
                   key={msg.id}
-                  className={`rounded-xl p-3 text-xs leading-relaxed border ${
-                    msg.role === 'assistant'
+                  className={`rounded-xl p-3 text-xs leading-relaxed border ${msg.role === 'assistant'
                       ? 'bg-cyan-500/10 border-cyan-300/30 text-cyan-100'
                       : 'bg-zinc-900/70 border-zinc-700 text-zinc-200'
-                  }`}
+                    }`}
                 >
                   {msg.text}
                 </div>
@@ -867,20 +865,18 @@ const GrowthStudio: React.FC<{ currentRole: ArtRole; userId: string }> = ({ user
                   }
                 }}
                 placeholder="Ask what confuses you in this lesson..."
-                className={`w-full h-24 resize-none rounded-xl px-3 py-2 text-xs placeholder:text-zinc-500 focus:outline-none ${
-                  tutorBusy
+                className={`w-full h-24 resize-none rounded-xl px-3 py-2 text-xs placeholder:text-zinc-500 focus:outline-none ${tutorBusy
                     ? 'bg-zinc-900/40 border border-zinc-800 text-zinc-500 cursor-not-allowed'
                     : 'bg-zinc-900/70 border border-zinc-700 text-zinc-100 focus:border-cyan-400'
-                }`}
+                  }`}
               />
               <button
                 onClick={askTutor}
                 disabled={tutorBusy || !tutorInput.trim()}
-                className={`w-full py-3 rounded-xl text-[10px] font-black uppercase tracking-widest ${
-                  tutorBusy || !tutorInput.trim()
+                className={`w-full py-3 rounded-xl text-[10px] font-black uppercase tracking-widest ${tutorBusy || !tutorInput.trim()
                     ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
                     : 'bg-cyan-500/90 text-zinc-950 hover:bg-cyan-400'
-                }`}
+                  }`}
               >
                 {tutorBusy ? (
                   <span className="inline-flex items-center gap-2">

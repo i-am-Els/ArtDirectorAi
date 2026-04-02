@@ -6,7 +6,21 @@ export default {
         "./**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                app: {
+                    dark: '#0A0D14',
+                },
+                accent: {
+                    cyan: '#00F0FF',
+                    blue: '#0055FF',
+                }
+            },
+            fontFamily: {
+                sans: ['Outfit', 'Inter', 'sans-serif'],
+                mono: ['JetBrains Mono', 'monospace'],
+            }
+        },
     },
     plugins: [],
 }
