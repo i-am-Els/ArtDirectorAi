@@ -224,7 +224,7 @@ const App: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 overflow-visible">
           {currentView !== 'GROWTH' && currentView !== 'RITUALS' && (
             <aside className="lg:col-span-4 space-y-6 no-print overflow-visible">
-              <div className="glass rounded-[2rem] p-6 border border-white/10 space-y-8 sticky top-32 max-h-[calc(100vh-10rem)] overflow-y-auto custom-scrollbar overflow-x-visible">
+              <div className="glass rounded-[2rem] p-6 border border-white/10 space-y-8 lg:sticky lg:top-32 lg:max-h-[calc(100vh-10rem)] overflow-y-auto custom-scrollbar overflow-x-visible">
                 <section>
                   <label className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em] mb-6 block text-center">Pipeline Departments</label>
                   <div className="space-y-4">
@@ -285,7 +285,7 @@ const App: React.FC = () => {
 
           <section className={`${currentView === 'GROWTH' || currentView === 'RITUALS' ? 'lg:col-span-12' : 'lg:col-span-8'} min-h-[600px] flex flex-col overflow-visible relative`}>
             {currentView === 'GENERATOR' && (
-              <div className="absolute top-0 right-0 z-20 no-print">
+              <div className="relative xl:absolute xl:top-0 xl:right-0 z-40 no-print mb-6 xl:mb-0 w-full flex flex-col items-end">
                 <button
                   onClick={() => setBriefSidebarOpen((prev) => !prev)}
                   className="px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border border-zinc-600 bg-zinc-900/80 text-zinc-200 hover:border-zinc-400"
@@ -293,7 +293,7 @@ const App: React.FC = () => {
                   {briefSidebarOpen ? 'Hide Saved Briefs' : 'Show Saved Briefs'}
                 </button>
                 {briefSidebarOpen && (
-                  <div className={`mt-3 w-[22rem] rounded-2xl border border-white/10 bg-zinc-950/95 p-4 shadow-2xl ${isLoading ? 'opacity-40 pointer-events-none blur-[1px]' : ''}`}>
+                  <div className={`mt-3 w-full sm:w-[22rem] rounded-2xl border border-white/10 bg-zinc-950/95 p-4 shadow-2xl ${isLoading ? 'opacity-40 pointer-events-none blur-[1px]' : ''}`}>
                     <div className="text-[10px] uppercase tracking-widest text-zinc-500 mb-3">Saved Briefs Sidebar</div>
                     {!savedBriefs.length ? (
                       <div className="text-xs text-zinc-500">No saved briefs yet.</div>
