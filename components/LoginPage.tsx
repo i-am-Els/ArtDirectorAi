@@ -20,8 +20,8 @@ const LoginPage: React.FC = () => {
     return (
         <div className="min-h-screen bg-app-dark text-zinc-100 flex flex-col items-center justify-center p-4 selection:bg-accent-cyan/30">
             <div className="glass max-w-md w-full p-8 md:p-12 rounded-[3.5rem] border border-white/10 shadow-[0_50px_100px_rgba(0,0,0,0.5)] flex flex-col items-center text-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-accent-cyan to-accent-blue rounded-3xl flex items-center justify-center mb-8 shadow-2xl shadow-accent-cyan/20 rotate-3">
-                    <svg viewBox="0 0 24 24" fill="white" className="w-12 h-12"><path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" /></svg>
+                <div className="w-24 h-24 rounded-3xl flex items-center justify-center mb-8 shadow-2xl shadow-accent-cyan/20 rotate-3 overflow-hidden border border-white/10">
+                    <img src="/favicon.png" alt="ArtDirector Logo" className="w-full h-full object-cover" />
                 </div>
 
                 <h1 className="text-3xl font-black tracking-tighter uppercase italic mb-3">ArtDirector <span className="text-accent-cyan">Hub</span></h1>

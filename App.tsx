@@ -186,8 +186,8 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-app-dark text-zinc-100 selection:bg-accent-cyan/30 overflow-x-hidden">
       <header className="fixed top-0 w-full z-[100] glass border-b border-white/5 px-6 py-5 flex items-center justify-between no-print shadow-2xl backdrop-blur-2xl">
         <div className="flex items-center space-x-4 cursor-pointer group" onClick={() => setCurrentView('GENERATOR')}>
-          <div className="w-11 h-11 bg-gradient-to-br from-accent-cyan to-accent-blue rounded-2xl flex items-center justify-center shadow-lg shadow-accent-cyan/20 group-hover:scale-105 transition-transform">
-            <svg viewBox="0 0 24 24" fill="white" className="w-6 h-6"><path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" /></svg>
+          <div className="w-11 h-11 rounded-2xl flex items-center justify-center shadow-lg shadow-accent-cyan/20 group-hover:scale-105 transition-transform overflow-hidden border border-white/10">
+            <img src="/favicon.png" alt="ArtDirector Logo" className="w-full h-full object-cover" />
           </div>
           <div className="hidden sm:block">
             <h1 className="text-xl font-black tracking-tighter uppercase italic leading-none">ArtDirector <span className="text-accent-cyan">Hub</span></h1>
