@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { analyzePortfolio } from '../services/geminiService.ts';
 import { appendReviewThreadEntry, deleteReviewThread, getUserProgress } from '../services/academyService.ts';
 import { ArtRole, ExperienceLevel, PortfolioFeedback, ReviewThread, SavedBriefChallenge, UserProgress } from '../types.ts';
@@ -180,7 +180,87 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
         </div>
       </div>
 
-      <div className="relative">
+      <div className="relative flex flex-col lg:block">
+        {reviewSidebarOpen && (
+          <aside className={`no-print relative lg:absolute top-0 right-0 z-40 mb-10 lg:mb-0 w-full lg:w-[26rem] rounded-2xl border border-white/10 bg-zinc-950/95 p-5 space-y-5 shadow-2xl ${isAnalyzing ? 'opacity-40 pointer-events-none blur-[1px]' : ''}`}>
+            {mode === 'BRIEF' && (
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 mb-2">Saved Brief Selection</div>
+                <select
+                  value={selectedBriefId}
+                  onChange={(e) => setSelectedBriefId(e.target.value)}
+                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2.5 text-xs text-zinc-200"
+                >
+                  {!savedBriefs.length && <option value="">No saved briefs yet</option>}
+                  {savedBriefs.map((saved) => (
+                    <option key={saved.id} value={saved.id}>{saved.brief.title}</option>
+                  ))}
+                </select>
+              </div>
+            )}
+
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Review Thread (Current Scope)</div>
+              {!filteredThreads.length ? (
+                <div className="text-xs text-zinc-500 mt-2">No thread yet in this scope.</div>
+              ) : (
+                <div className="space-y-2 max-h-52 overflow-y-auto pr-1 mt-2 custom-scrollbar">
+                  {filteredThreads.map((thread) => (
+                    <button
+                      key={thread.id}
+                      onClick={() => setSelectedThreadId(thread.id)}
+                      className={`w-full text-left rounded-lg border px-3 py-2 transition-all ${selectedThreadId === thread.id ? 'border-accent-cyan/50 bg-accent-cyan/10 text-white' : 'border-zinc-700 bg-zinc-950/60 text-zinc-300 hover:border-zinc-500'}`}
+                    >
+                      <div className="text-[10px] uppercase tracking-widest">{thread.source === 'BRIEF' ? (thread.linkedBriefTitle || 'Saved Brief') : 'Unknown Piece'}</div>
+                      <div className="text-xs mt-1">{thread.entries.length} review{thread.entries.length === 1 ? '' : 's'}</div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Thread Archive (All)</div>
+              {!allThreads.length ? (
+                <div className="text-xs text-zinc-500 mt-2">No review history yet.</div>
+              ) : (
+                <div className="space-y-2 max-h-52 overflow-y-auto pr-1 mt-2 custom-scrollbar">
+                  {allThreads.map((thread) => (
+                    <button
+                      key={thread.id}
+                      onClick={() => openThreadFromArchive(thread)}
+                      className="w-full text-left rounded-lg border border-zinc-700 bg-zinc-950/60 px-3 py-2.5 text-zinc-300 hover:border-zinc-500 transition-all"
+                    >
+                      <div className="text-[10px] uppercase tracking-widest">{thread.source === 'BRIEF' ? (thread.linkedBriefTitle || 'Saved Brief') : 'Unknown Piece'}</div>
+                      <div className="text-xs mt-1">{thread.entries.length} review{thread.entries.length === 1 ? '' : 's'}</div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Entries In Selected Thread</div>
+              {!selectedThread?.entries?.length ? (
+                <div className="text-xs text-zinc-500 mt-2">No entries yet.</div>
+              ) : (
+                <div className="space-y-2 max-h-44 overflow-y-auto pr-1 mt-2 custom-scrollbar">
+                  {[...selectedThread.entries].reverse().map((entry) => (
+                    <button
+                      key={entry.id}
+                      onClick={() => setFeedback(entry.feedback)}
+                      className="w-full text-left rounded-lg border border-zinc-700 bg-zinc-950/60 px-3 py-2.5 text-zinc-300 hover:border-zinc-500 transition-all"
+                    >
+                      <div className="text-[10px] uppercase tracking-widest text-accent-cyan">Score {entry.feedback.overallScore}/10</div>
+                      <div className="text-xs mt-1 text-zinc-500">{new Date(entry.createdAt).toLocaleString()}</div>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </aside>
+        )}
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div className="space-y-6">
             {mode === 'BRIEF' && activeBrief && (
@@ -302,86 +382,7 @@ const PortfolioReview: React.FC<PortfolioReviewProps> = ({ role, experience, use
           </div>
         </div>
 
-        {reviewSidebarOpen && (
-          <aside className={`no-print absolute top-0 right-0 w-[30rem] max-w-[96vw] rounded-2xl border border-white/10 bg-zinc-950/95 p-5 space-y-5 shadow-2xl ${isAnalyzing ? 'opacity-40 pointer-events-none blur-[1px]' : ''}`}>
-            {mode === 'BRIEF' && (
-              <div>
-                <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 mb-2">Saved Brief Selection</div>
-                <select
-                  value={selectedBriefId}
-                  onChange={(e) => setSelectedBriefId(e.target.value)}
-                  className="w-full bg-zinc-950 border border-zinc-700 rounded-xl px-3 py-2.5 text-xs text-zinc-200"
-                >
-                  {!savedBriefs.length && <option value="">No saved briefs yet</option>}
-                  {savedBriefs.map((saved) => (
-                    <option key={saved.id} value={saved.id}>{saved.brief.title}</option>
-                  ))}
-                </select>
-              </div>
-            )}
-
-            <div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Review Thread (Current Scope)</div>
-              {!filteredThreads.length ? (
-                <div className="text-xs text-zinc-500 mt-2">No thread yet in this scope.</div>
-              ) : (
-                <div className="space-y-2 max-h-52 overflow-y-auto pr-1 mt-2">
-                  {filteredThreads.map((thread) => (
-                    <button
-                      key={thread.id}
-                      onClick={() => setSelectedThreadId(thread.id)}
-                      className={`w-full text-left rounded-lg border px-3 py-2 ${selectedThreadId === thread.id ? 'border-cyan-400/50 bg-cyan-500/10 text-cyan-100' : 'border-zinc-700 bg-zinc-950/60 text-zinc-300'}`}
-                    >
-                      <div className="text-[10px] uppercase tracking-widest">{thread.source === 'BRIEF' ? (thread.linkedBriefTitle || 'Saved Brief') : 'Unknown Piece'}</div>
-                      <div className="text-xs mt-1">{thread.entries.length} review{thread.entries.length === 1 ? '' : 's'}</div>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Thread Archive (All)</div>
-              {!allThreads.length ? (
-                <div className="text-xs text-zinc-500 mt-2">No review history yet.</div>
-              ) : (
-                <div className="space-y-2 max-h-52 overflow-y-auto pr-1 mt-2">
-                  {allThreads.map((thread) => (
-                    <button
-                      key={thread.id}
-                      onClick={() => openThreadFromArchive(thread)}
-                      className="w-full text-left rounded-lg border border-zinc-700 bg-zinc-950/60 px-3 py-2.5 text-zinc-300 hover:border-zinc-500"
-                    >
-                      <div className="text-[10px] uppercase tracking-widest">{thread.source === 'BRIEF' ? (thread.linkedBriefTitle || 'Saved Brief') : 'Unknown Piece'}</div>
-                      <div className="text-xs mt-1">{thread.entries.length} review{thread.entries.length === 1 ? '' : 's'}</div>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            <div>
-              <div className="text-[10px] uppercase tracking-[0.2em] text-zinc-500">Entries In Selected Thread</div>
-              {!selectedThread?.entries?.length ? (
-                <div className="text-xs text-zinc-500 mt-2">No entries yet.</div>
-              ) : (
-                <div className="space-y-2 max-h-44 overflow-y-auto pr-1 mt-2">
-                  {[...selectedThread.entries].reverse().map((entry) => (
-                    <button
-                      key={entry.id}
-                      onClick={() => setFeedback(entry.feedback)}
-                      className="w-full text-left rounded-lg border border-zinc-700 bg-zinc-950/60 px-3 py-2.5 text-zinc-300 hover:border-zinc-500"
-                    >
-                      <div className="text-[10px] uppercase tracking-widest">Score {entry.feedback.overallScore}/10</div>
-                      <div className="text-xs mt-1 text-zinc-500">{new Date(entry.createdAt).toLocaleString()}</div>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          </aside>
-        )}
-      </div>
+        </div>
     </div>
   );
 };
