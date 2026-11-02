@@ -25,7 +25,10 @@ const LoginPage: React.FC = () => {
                 </div>
 
                 <h1 className="text-3xl font-black tracking-tighter uppercase italic mb-3">ArtDirector <span className="text-accent-cyan">Hub</span></h1>
-                <p className="text-xs uppercase tracking-[0.3em] text-zinc-500 font-bold mb-10">Industrial Pipeline Access</p>
+                <p className="text-xs uppercase tracking-[0.3em] text-zinc-500 font-bold mb-4">Industrial Pipeline Access</p>
+                <p className="text-xs text-zinc-400 leading-relaxed mb-8">
+                    An AI-powered training hub for artists: generate professional studio briefs, get AI feedback on your portfolio, and track your progress through a structured art curriculum. Signing in with Google lets us save your progress, briefs and review history. We only use your Google name, email and profile photo to identify you.
+                </p>
 
                 {error && (
                     <div className="mb-6 px-4 py-3 bg-red-500/10 border border-red-500/30 rounded-xl text-red-300 text-[10px] font-bold uppercase tracking-widest w-full">
@@ -45,6 +48,8 @@ const LoginPage: React.FC = () => {
 
                 <p className="mt-8 text-[9px] text-zinc-600 font-bold uppercase tracking-wider">
                     Authentication Required for Access
+                    <br />
+                    <a href="/privacy" target="_blank" rel="noopener noreferrer" className="inline-block mt-3 text-zinc-500 hover:text-zinc-300 underline underline-offset-4">Privacy Policy</a>
                 </p>
             </div>
         </div>

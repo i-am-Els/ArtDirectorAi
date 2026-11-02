@@ -362,6 +362,7 @@ const App: React.FC = () => {
 
       <footer className="py-12 border-t border-white/5 text-center no-print opacity-50">
         <p className="text-zinc-700 text-[9px] tracking-[0.8em] font-black uppercase">ArtDirector AI â€¢ Zero to Hero Pipeline â€¢ Industrial Training Hub</p>
+      <p className="mt-4 text-[9px] tracking-[0.3em] font-black uppercase"><a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-zinc-300 underline underline-offset-4">Privacy Policy</a></p>
       </footer>
     </div>
     </AppDialogProvider>
